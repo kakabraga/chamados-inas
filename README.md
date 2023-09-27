@@ -6,6 +6,13 @@
      <pre>comando: git clone https://github.com/JotaDF/chamados-inas.git</pre>
  
  - Instale o docker: https://docs.docker.com/get-docker/
+     - Passos para habilitar/atualizar o WSL 2 (Caso necessário)
+         - Habilitar o Subsistema do Windows para Linux
+           <pre>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</pre>
+         - Definir o WSL 2 como a sua versão padrão
+           <pre>wsl --set-default-version 2</pre>
+         - Baixar o pacote de atualização do kernel do Linux
+           <pre>wsl --update</pre>
      - copie a pasta "docker" do projeto para seu diretorio workspace(exemplo: "Documents");
      - Abra o terminal/PowerShell e acesso a pasta "docker" do seu workspace e execute o docker-compose;
      <pre>comando: docker-compose up -d --build</pre>
