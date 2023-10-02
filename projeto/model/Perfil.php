@@ -2,7 +2,6 @@
   class Perfil{
 	    public $id;
       public $nome;
-      public $descricao;
 
       //variaveis de manipulação
       public $excluir;
