@@ -3,12 +3,12 @@
 //include_once('../adodb5/adodb.inc.php'); //biblioteca necessaria para trabalhar com adodb
 
 //Local
-require('adodb/adodb.inc.php'); //biblioteca necessaria para trabalhar com adodb
+//require('adodb/adodb.inc.php'); //biblioteca necessaria para trabalhar com adodb
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/adodb/adodb.inc.php');
 
 Class Model{
 	protected $db;
-	function model(){
-		
+    function __construct() { //metodo construtor
 		/** local */
 		//$dbtype    = "mysqli";
 		//$dbhost    = "localhost";
@@ -16,7 +16,7 @@ Class Model{
 		//$dbpass    = "";
 		//$dbname    = "gerente";
         /** web */
-		require_once('config.php');
+		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/model/config.php');
 		
         $this->db = $banco = NewADOConnection($dbtype);
 		$this->db->dialect = 3;

@@ -24,7 +24,7 @@
 
 <!-- Nav Item - Perfis Menu -->
 <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="perfil.php">
         <i class="fa fa-address-card"></i>
         <span>Perfis</span></a>
 </li>

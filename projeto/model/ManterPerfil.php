@@ -1,21 +1,24 @@
 <?php
 
-require_once('Model.php');
-//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/samj/dto/Perfil.php');
-require_once('Perfil.php');
+//require_once('./Model.php');
+//require_once('./Perfil.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/model/Model.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/model/Perfil.php');
 
 class ManterPerfil extends Model {
 
-    function ManterPerfil() { //metodo construtor
-        parent::model();
+    function __construct() { //metodo construtor
+        parent::__construct();
     }
 
     function listar() {
-        $sql = "select p.id,p.nome, (select count(*) from usuario as u where u.id_perfil=p.id) as dep FROM perfil as p order by p.id";
- 
+        $sql = "select p.id,p.nome, (select count(*) from usuario as u where u.idperfil=p.id) as dep FROM perfil as p order by p.id";
+        
         $resultado = $this->db->Execute($sql);
+        
         $array_dados = array();
-        while ($registro = $resultado->fetchRow()) {
+        if($resultado){
+        while ($registro = $resultado->FetchRow()) {
             $dados = new Perfil();
             $dados->excluir = true;
             if ($registro["dep"] > 0) {
@@ -25,6 +28,7 @@ class ManterPerfil extends Model {
             $dados->nome    = utf8_encode($registro["nome"]);
             $array_dados[]  = $dados;
         }
+    }
         return $array_dados;
     }
     function getPerfilPorId($id) {
@@ -39,8 +43,7 @@ class ManterPerfil extends Model {
         return $dados;
     }
     function salvar(Perfil $dados) {
-        $dados->perfil = utf8_decode($dados->perfil);
-        $dados->descricao = utf8_decode($dados->descricao);
+        $dados->nome = utf8_decode($dados->nome);
         $sql = "insert into perfil (nome) values ('" . $dados->nome . "')";
         if ($dados->id > 0) {
             $sql = "update perfil set nome='" . $dados->nome . "' where id=$dados->id";
