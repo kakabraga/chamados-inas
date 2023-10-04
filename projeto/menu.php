@@ -17,7 +17,7 @@
 
 <!-- Nav Item - Setores Menu -->
 <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="setores.php">
         <i class="fa fa-laptop"></i>
         <span>Setores</span></a>
 </li>
