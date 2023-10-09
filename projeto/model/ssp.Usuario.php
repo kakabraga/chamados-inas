@@ -24,6 +24,214 @@ if (is_file($file)) {
 
 class SSP {
 
+
+        /**
+     * Perform the SQL queries needed for an server-side processing requested,
+     * utilising the helper functions of this class, limit(), order() and
+     * filter() among others. The returned array is ready to be encoded as JSON
+     * in response to an SSP request, or can be modified if needed before
+     * sending back to the client.
+     *
+     *  @param  array $request Data sent to server by DataTables
+     *  @param  array $columns Column information array
+     *  @return array          Server-side processing response array
+     */
+    static function data_outputj($request, $columns,$db) {
+        require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/model/config.php');
+
+        // Build the SQL query string from the request
+        $order = self::order($request, $columns);
+        $where = self::filter($request, $columns, $dbtype);
+        
+        $campos = " u.matricula,u.nome,u.idsetor,u.idperfil,u.ativo ";
+        // Main query to actually get the data   
+        ## Fetch records
+        $empQuery = "SELECT " . $campos . ", s.sigla setor, p.nome perfil "
+                . " FROM usuario u INNER JOIN setor s ON s.id=u.idsetor INNER JOIN perfil p ON p.id=u.idperfil "
+                . $where . " " . $order;
+        if (self::limit($request)) {
+            $empRecords = $DB->get_records_sql($empQuery, null, $request['start'], $request['length']);
+            $empRecords = self::sql_exec($db, "SELECT sigla
+                                         FROM  setor WHERE id=" . $data[$i]['idsetor']
+                            );
+        } else {
+            $empRecords = $DB->get_records_sql($empQuery);
+        }
+        $data = array();
+
+        foreach ($empRecords as $registro) {
+            $sqldependencia = "select count(*) inscritos from {sa_matricula} as m where m.id_oferta=" . $registro->id;
+            $dep = $DB->get_record_sql($sqldependencia);
+            
+            $n_date = new DateTime();
+            $n_date->setTimestamp($registro->inicio_insc);
+            $inicio_insc =  $n_date->format('Y-m-d');
+            $n_date->setTimestamp($registro->inicio);
+            $inicio =  $n_date->format('Y-m-d');
+            $n_date->setTimestamp($registro->termino_insc);
+            $termino_insc =  $n_date->format('Y-m-d');
+            $n_date->setTimestamp($registro->termino);
+            $termino =  $n_date->format('Y-m-d');
+
+            $btn_opcoes = "<div class='editor'><a class='btn btn-primary btn-sm' type='button' title='Inscrições' href='inscricoes.php?id=" . $registro->id . "'><i class='fas fa-laptop-code'></i></a>&nbsp;&nbsp;";
+            if ($dep->inscritos == 0) {
+                $btn_opcoes .= "<button class='btn btn-info btn-sm' type='button' onclick='duplicar(".$registro->id_moodle.",".$registro->id_curso.",".$registro->id_categoria.",\"".$registro->oferta."\",\"".$inicio_insc."\",\"".$termino_insc."\",\"".$inicio."\",\"".$termino."\",\"".$registro->tipo_instituicao."\",".$registro->integrar.")'><i class='fas fa-clone'></i></button>&nbsp;&nbsp;<button class='btn btn-primary btn-sm' type='button' onclick='alterar(".$registro->id.",".$registro->id_moodle.",".$registro->id_curso.",".$registro->id_categoria.",\"".$registro->oferta."\",\"".$inicio_insc."\",\"".$termino_insc."\",\"".$inicio."\",\"".$termino."\",\"".$registro->tipo_instituicao."\",".$registro->integrar.")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$registro->id.",".$registro->id_moodle.",\"".$registro->oferta."\")'><i class='far fa-trash-alt'></i></button></td>";
+            } else {
+                $btn_opcoes .= "<button class='btn btn-info btn-sm' type='button' onclick='duplicar(".$registro->id_moodle.",".$registro->id_curso.",".$registro->id_categoria.",\"".$registro->oferta."\",\"".$inicio_insc."\",\"".$termino_insc."\",\"".$inicio."\",\"".$termino."\",\"".$registro->tipo_instituicao."\",".$registro->integrar.")'><i class='fas fa-clone'></i></button>&nbsp;&nbsp;<button class='btn btn-primary btn-sm' type='button' onclick='alterar(".$registro->id.",".$registro->id_moodle.",".$registro->id_curso.",".$registro->id_categoria.",\"".$registro->oferta."\",\"".$inicio_insc."\",\"".$termino_insc."\",\"".$inicio."\",\"".$termino."\",\"".$registro->tipo_instituicao."\",".$registro->integrar.")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-secondary btn-sm' type='button' title='Possuí dependências!'><i class='far fa-trash-alt' alt='Possuí dependências!'></i></button></td>";                
+            }
+            $btn_opcoes .="</div>";
+            $n_date->setTimestamp($registro->inicio);
+            $iniciotxt =  $n_date->format('d/m/Y');
+            $n_date->setTimestamp($registro->termino);
+            $terminotxt =  $n_date->format('d/m/Y');
+            $n_date->setTimestamp($registro->inicio_insc);
+            $inicio_insctxt =  $n_date->format('d/m/Y');
+            $n_date->setTimestamp($registro->termino_insc);
+            $termino_insctxt =  $n_date->format('d/m/Y');
+            $dados = array(
+                intval($registro->id),
+                $registro->categoria,
+                $registro->curso,
+                $registro->oferta,
+                $iniciotxt,
+                $terminotxt,
+                $dep->inscritos,
+                $btn_opcoes,
+                $inicio_insctxt,
+                $termino_insctxt,
+                intval($registro->id_moodle),
+                $registro->tipo_instituicao,
+                intval($registro->id_curso),
+                intval($registro->integrar),
+                intval($registro->id_categoria)
+            );
+            $data[] = $dados;
+        }
+
+        // Total number of record with filtering
+        $sel = $DB->get_record_sql("SELECT count(*) allcount FROM {sa_oferta} o INNER JOIN {sa_categoria} cat ON cat.id=o.id_categoria INNER JOIN {sa_curso} c ON c.id=o.id_curso " . $where);
+        $recordsFiltered = $sel->allcount;
+
+        // Total number of records without filtering
+        $recordsTotal = $DB->count_records('sa_oferta');
+
+        /*
+         * Output
+         */
+
+        return array(
+            "draw" => isset($request['draw']) ?
+                    intval($request['draw']) :
+                    0,
+            "recordsTotal" => intval($recordsTotal),
+            "recordsFiltered" => intval($recordsFiltered),
+            "data" => $data
+        );
+    }
+
+    /**
+     * Perform the SQL queries needed for an server-side processing requested,
+     * utilising the helper functions of this class, limit(), order() and
+     * filter() among others. The returned array is ready to be encoded as JSON
+     * in response to an SSP request, or can be modified if needed before
+     * sending back to the client.
+     *
+     *  @param  array $request Data sent to server by DataTables
+     *  @param  array|PDO $conn PDO connection resource or connection parameters array
+     *  @param  string $table SQL table to query
+     *  @param  string $primaryKey Primary key of the table
+     *  @param  array $columns Column information array
+     *  @return array          Server-side processing response array
+     */
+    static function simplej($request, $table, $primaryKey, $columns, $perfil = 6) {
+        $bindings = array();
+
+        require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/model/config.php');
+        
+        $conn = array(
+            'user' => $dbuser,
+            'pass' => $dbpass,
+            'db' => $dbname,
+            'host' => $dbhost
+        );
+        $db = self::db($conn);
+
+        // Build the SQL query string from the request
+        $limit = self::limit($request, $columns);
+        $order = self::order($request, $columns);
+        $where = self::filter($request, $columns, $bindings);
+
+        //$where = self::filter($request, $columns, $dbtype);
+        
+        $campos = " matricula,nome,idsetor,idperfil,ativo ";
+        // Main query to actually get the data   
+        ## Fetch records
+        $empQuery = "SELECT " . $campos . ", sigla, perfil "
+                . " FROM usuario u INNER JOIN setor s ON s.id=idsetor INNER JOIN perfil p ON p.id=idperfil "
+                . $where . " " . $order . " " . $limit;
+        //echo $empQuery;
+        //exit;
+        // Main query to actually get the data
+        $rs = self::sql_exec($db, $bindings, $empQuery);
+
+        $data = array();
+
+        foreach ($rs as $registro) {
+            // Total data set length
+            $resDep = self::sql_exec($db, "SELECT COUNT(*) FROM  chamado WHERE matricula=" . $registro['matricula']);
+            $recordsTotalDep = $resDep[0][0];
+
+            $btn = "<div class='editor'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(" . $registro['matricula'] . ",\"" . utf8_encode($registro['nome']) . "\",\"" . $registro['idsetor'] . "\",\"" . $registro['idperfil'] . "\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;";
+            if ($recordsTotalDep == 0) {
+            $btn .= "<button class='btn btn-danger btn-sm' type='button' onclick='excluir(\"" . $registro['matricula'] . "\",\"" . utf8_encode($registro['nome']) . "\")'><i class='far fa-trash-alt'></i></button>";
+            } else {
+            $btn .= "<button class='btn btn-secondary btn-sm' type='button'><i class='far fa-trash-alt'></i></button>";
+            }
+            $btn .="</div>";
+            
+            $dados = array(intval($registro['matricula']),
+                utf8_encode($registro['nome']),
+                utf8_encode($registro['sigla']),
+                utf8_encode($registro['perfil']),
+                $btn,
+                intval($registro['idsetor']),
+                intval($registro['idperfil']),
+                intval($registro['ativo'])
+            );
+            $data[] = $dados;
+
+        }
+
+        
+        // Data set length after filtering
+        $resFilterLength = self::sql_exec($db, $bindings, "SELECT COUNT(`{$primaryKey}`)
+			 FROM   `$table`
+			 $where"
+        );
+
+
+        $recordsFiltered = $resFilterLength[0][0];
+
+        // Total data set length
+        $resTotalLength = self::sql_exec($db, "SELECT COUNT(`{$primaryKey}`)
+			 FROM   `$table`"
+        );
+        $recordsTotal = $resTotalLength[0][0];
+
+        /*
+         * Output
+         */
+
+        return array(
+            "draw" => isset($request['draw']) ?
+                    intval($request['draw']) :
+                    0,
+            "recordsTotal" => intval($recordsTotal),
+            "recordsFiltered" => intval($recordsFiltered),
+            "data" => $data
+        );
+    }
+
     /**
      * Create the data output array for the DataTables rows
      *
@@ -42,7 +250,7 @@ class SSP {
 
                 // Is there a formatter?
                 if (isset($column['formatter'])) {
-                    if (empty($column['db']) && $column['db'] != "descricao") {
+                    if (empty($column['db']) && $column['db'] != "nome") {
                         $row[$column['dt']] = $column['formatter']($data[$i]);
                     } else {
                         $row[$column['dt']] = $column['formatter']($data[$i][$column['db']], $data[$i]);
@@ -54,13 +262,13 @@ class SSP {
                         if ($perfil <= 2) {
                             // Total data set length
                             $resDep = self::sql_exec($db, "SELECT COUNT(*)
-                                         FROM  usuario WHERE idsetor=" . $data[$i]['id']
+                                         FROM  chamado WHERE matricula=" . $data[$i]['matricula']
                             );
                             $recordsTotalDep = $resDep[0][0];
 
-                            $btn = "<div class='editor'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(" . $data[$i]['id'] . ",\"" . utf8_encode($data[$i]['sigla']) . "\",\"" . utf8_encode($data[$i]['descricao']) . "\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;";
+                            $btn = "<div class='editor'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(" . $data[$i]['matricula'] . ",\"" . utf8_encode($data[$i]['nome']) . "\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;";
                             if ($recordsTotalDep == 0) {
-                                $btn .= "<button class='btn btn-danger btn-sm' type='button' onclick='excluir(\"" . $data[$i]['id'] . "\",\"" . utf8_encode($data[$i]['sigla']) . "\")'><i class='far fa-trash-alt'></i></button>";
+                                $btn .= "<button class='btn btn-danger btn-sm' type='button' onclick='excluir(\"" . $data[$i]['matricula'] . "\",\"" . utf8_encode($data[$i]['nome']) . "\")'><i class='far fa-trash-alt'></i></button>";
                             } else {
                                 $btn .= "<button class='btn btn-secondary btn-sm' type='button'><i class='far fa-trash-alt'></i></button>";
                             }
@@ -69,13 +277,7 @@ class SSP {
                         } else {
                             $row[$column['dt']] = " - ";
                         }
-                    }  else if (!empty($column['da'])) {
-                            // Total data set length
-                            $resDep = self::sql_exec($db, "SELECT COUNT(*)
-                                         FROM  usuario WHERE idsetor=" . $data[$i]['id']
-                            );
-                            $row[$column['dt']] = $resDep[0][0];;
-                    } else {
+                    }  else {
                         $row[$column['dt']] = "";
                     }
                 }
@@ -142,7 +344,7 @@ class SSP {
         if (isset($request['order']) && count($request['order'])) {
             $orderBy = array();
             $dtColumns = self::pluck($columns, 'dt');
-
+            //print_r($dtColumns);
             for ($i = 0, $ien = count($request['order']); $i < $ien; $i++) {
                 // Convert the column index into the column data property
                 $columnIdx = intval($request['order'][$i]['column']);
@@ -155,11 +357,18 @@ class SSP {
                     $dir = $request['order'][$i]['dir'] === 'asc' ?
                             'ASC' :
                             'DESC';
-
-                    $orderBy[] = '`' . $column['db'] . '` ' . $dir;
+                    $tx = $column['db'];
+                    if($column['ds']){
+                        $tx = $column['ds'];
+                    } else if($column['dp']){
+                        $tx = $column['dp'];
+                    }
+                    else if($column['dx']){
+                        $tx = 'matricula';
+                    }
+                    $orderBy[] =$tx . ' ' . $dir;
                 }
             }
-
             if (count($orderBy)) {
                 $order = 'ORDER BY ' . implode(', ', $orderBy);
             }
@@ -198,8 +407,8 @@ class SSP {
 
                 if ($requestColumn['searchable'] == 'true') {
                     if (!empty($column['db'])) {
-                        $binding = self::bind($bindings, '%' . $str . '%', PDO::PARAM_STR);
-                        $globalSearch[] = "`" . $column['db'] . "` LIKE " . $binding;
+                        $binding = '%' . $str . '%';
+                        $globalSearch[] =  $column['db'] . " LIKE '" . $binding . "'";
                     }
                 }
             }
@@ -217,8 +426,8 @@ class SSP {
                 if ($requestColumn['searchable'] == 'true' &&
                         $str != '') {
                     if (!empty($column['db'])) {
-                        $binding = self::bind($bindings, '%' . $str . '%', PDO::PARAM_STR);
-                        $columnSearch[] = "`" . $column['db'] . "` LIKE " . $binding;
+                        $binding = '%' . $str . '%';
+                        $columnSearch[] =  $column['db'] . " LIKE '" . $binding . "'";
                     }
                 }
             }
@@ -242,6 +451,7 @@ class SSP {
         }
 
         return $where;
+        //exit;
     }
 
     /**

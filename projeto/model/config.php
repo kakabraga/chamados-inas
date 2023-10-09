@@ -1,7 +1,7 @@
 <?php
 
 $dbtype     = "mysqli";
-$dbhost     = "172.24.0.2";
+$dbhost     = "db";
 $dbuser     = "root";
 $dbpass     = "root";
 $dbname     = "chamados";

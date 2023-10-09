@@ -31,7 +31,7 @@
 
 <!-- Nav Item - Usuários Menu -->
 <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="usuarios.php">
         <i class="fa fa-user"></i>
         <span>Usuários</span></a>
 </li>

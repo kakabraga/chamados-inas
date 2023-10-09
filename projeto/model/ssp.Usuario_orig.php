@@ -42,7 +42,7 @@ class SSP {
 
                 // Is there a formatter?
                 if (isset($column['formatter'])) {
-                    if (empty($column['db']) && $column['db'] != "descricao") {
+                    if (empty($column['db']) && $column['db'] != "nome") {
                         $row[$column['dt']] = $column['formatter']($data[$i]);
                     } else {
                         $row[$column['dt']] = $column['formatter']($data[$i][$column['db']], $data[$i]);
@@ -54,13 +54,13 @@ class SSP {
                         if ($perfil <= 2) {
                             // Total data set length
                             $resDep = self::sql_exec($db, "SELECT COUNT(*)
-                                         FROM  usuario WHERE idsetor=" . $data[$i]['id']
+                                         FROM  chamado WHERE matricula=" . $data[$i]['matricula']
                             );
                             $recordsTotalDep = $resDep[0][0];
 
-                            $btn = "<div class='editor'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(" . $data[$i]['id'] . ",\"" . utf8_encode($data[$i]['sigla']) . "\",\"" . utf8_encode($data[$i]['descricao']) . "\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;";
+                            $btn = "<div class='editor'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(" . $data[$i]['matricula'] . ",\"" . utf8_encode($data[$i]['nome']) . "\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;";
                             if ($recordsTotalDep == 0) {
-                                $btn .= "<button class='btn btn-danger btn-sm' type='button' onclick='excluir(\"" . $data[$i]['id'] . "\",\"" . utf8_encode($data[$i]['sigla']) . "\")'><i class='far fa-trash-alt'></i></button>";
+                                $btn .= "<button class='btn btn-danger btn-sm' type='button' onclick='excluir(\"" . $data[$i]['matricula'] . "\",\"" . utf8_encode($data[$i]['nome']) . "\")'><i class='far fa-trash-alt'></i></button>";
                             } else {
                                 $btn .= "<button class='btn btn-secondary btn-sm' type='button'><i class='far fa-trash-alt'></i></button>";
                             }
@@ -69,12 +69,20 @@ class SSP {
                         } else {
                             $row[$column['dt']] = " - ";
                         }
-                    }  else if (!empty($column['da'])) {
+                    }  else if (!empty($column['ds'])) {
                             // Total data set length
-                            $resDep = self::sql_exec($db, "SELECT COUNT(*)
-                                         FROM  usuario WHERE idsetor=" . $data[$i]['id']
+                            $resDep = self::sql_exec($db, "SELECT sigla
+                                         FROM  setor WHERE id=" . $data[$i]['idsetor']
                             );
-                            $row[$column['dt']] = $resDep[0][0];;
+                            //echo "TESTE: " . $resDep[0][0];
+                            $row[$column['dt']] = $resDep[0][0];
+                    }  else if (!empty($column['dp'])) {
+                            // Total data set length
+                            $resDep = self::sql_exec($db, "SELECT nome
+                                         FROM  perfil WHERE id=" . $data[$i]['idperfil']
+                            );
+                            //echo "TESTE: " . $resDep[0][0];
+                            $row[$column['dt']] = $resDep[0][0];
                     } else {
                         $row[$column['dt']] = "";
                     }

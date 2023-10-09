@@ -11,9 +11,9 @@
         <form id="form_cadastro" action="save_perfil.php" method="post">
             <input type="hidden" id="id" name="id"/>
             <div class="form-group row">
-                <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
+                <label for="perfil" class="col-sm-2 col-form-label">Nome:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Perfil" required>
+                    <input type="text" name="perfil" class="form-control form-control-sm" id="perfil" placeholder="Perfil" required>
                 </div>
             </div>
             <div class="form-group row float-right">

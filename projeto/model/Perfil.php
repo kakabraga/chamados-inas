@@ -1,7 +1,7 @@
 <?php
   class Perfil{
 	    public $id;
-      public $nome;
+      public $perfil;
 
       //variaveis de manipulação
       public $excluir;

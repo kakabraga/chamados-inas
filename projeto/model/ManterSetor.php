@@ -1,7 +1,5 @@
 <?php
 
-//require_once('./Model.php');
-//require_once('./Setor.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/model/Model.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/model/Setor.php');
 
@@ -15,21 +13,21 @@ class ManterSetor extends Model {
         $sql = "select s.id,s.sigla,s.descricao, (select count(*) from usuario as u where u.idsetor=s.id) as dep FROM setor as s order by s.id";
         
         $resultado = $this->db->Execute($sql);
-        
+        //var_dump($resultado);
         $array_dados = array();
         if($resultado){
-        while ($registro = $resultado->FetchRow()) {
-            $dados = new Setor();
-            $dados->excluir = true;
-            if ($registro["dep"] > 0) {
-                $dados->excluir = false;
+            while ($registro = $resultado->FetchRow()) {
+                $dados = new Setor();
+                $dados->excluir = true;
+                if ($registro["dep"] > 0) {
+                    $dados->excluir = false;
+                }
+                $dados->id          = $registro["id"];
+                $dados->sigla       = utf8_encode($registro["sigla"]);
+                $dados->descricao   = utf8_encode($registro["descricao"]);
+                $array_dados[]      = $dados;
             }
-            $dados->id          = $registro["id"];
-            $dados->sigla       = utf8_encode($registro["sigla"]);
-            $dados->descricao   = utf8_encode($registro["descricao"]);
-            $array_dados[]      = $dados;
         }
-    }
         return $array_dados;
     }
     function getSetorPorId($id) {

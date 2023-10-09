@@ -7,10 +7,10 @@ $db_perfil = new ManterPerfil();
 $p = new Perfil();
 
 $id = isset($_POST['id']) ? $_POST['id'] : 0;
-$nome = $_POST['nome'];
+$perfil = $_POST['perfil'];
 
 $p->id = $id;
-$p->nome = $nome;
+$p->perfil = $perfil;
 
 $db_perfil->salvar($p);
 header('Location: perfil.php');
