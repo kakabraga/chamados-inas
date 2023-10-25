@@ -22,10 +22,10 @@ class ManterUsuario extends Model {
                 $dados->excluir = false;
             }
             $dados->id = $registro["id"];
-            $dados->nome = $registro["nome"]);
-            $dados->cpf = $registro["cpf"]);
-            $dados->senha = $registro["senha"]);
-            $dados->email = $registro["email"]);
+            $dados->nome = $registro["nome"];
+            $dados->cpf = $registro["cpf"];
+            $dados->senha = $registro["senha"];
+            $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
@@ -42,10 +42,10 @@ class ManterUsuario extends Model {
         $dados = new Usuario();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
-            $dados->nome = $registro["nome"]);
-            $dados->cpf = $registro["cpf"]);
-            $dados->senha = $registro["senha"]);
-            $dados->email = $registro["email"]);
+            $dados->nome = $registro["nome"];
+            $dados->cpf = $registro["cpf"];
+            $dados->senha = $registro["senha"];
+            $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
@@ -60,10 +60,10 @@ class ManterUsuario extends Model {
         $dados = new Usuario();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
-            $dados->nome = $registro["nome"]);
-            $dados->cpf = $registro["cpf"]);
-            $dados->senha = $registro["senha"]);
-            $dados->email = $registro["email"]);
+            $dados->nome = $registro["nome"];
+            $dados->cpf = $registro["cpf"];
+            $dados->senha = $registro["senha"];
+            $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
