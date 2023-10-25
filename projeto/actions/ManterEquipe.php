@@ -23,8 +23,8 @@ class ManterEquipe extends Model {
                 $dados->excluir = false;
             }
             $dados->id          = $registro["id"];
-            $dados->equipe = utf8_encode($registro["equipe"]);
-            $dados->descricao = utf8_encode($registro["descricao"]);
+            $dados->equipe = $registro["equipe"];
+            $dados->descricao = $registro["descricao"];
             $array_dados[] = $dados;
         }
         return $array_dados;
@@ -36,8 +36,8 @@ class ManterEquipe extends Model {
         $dados = new Equipe();
         while ($registro = $resultado->fetchRow()) {
             $dados->id          = $registro["id"];
-            $dados->equipe = utf8_encode($registro["equipe"]);
-            $dados->descricao = utf8_encode($registro["descricao"]);
+            $dados->equipe = $registro["equipe"];
+            $dados->descricao = $registro["descricao"];
         }
         return $dados;
     }

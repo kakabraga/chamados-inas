@@ -26,10 +26,10 @@ class ManterTarefa extends Model {
                 $dados->excluir = false;
             }
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->descricao = utf8_encode($registro["descricao"]);
-            $dados->categoria = utf8_encode($registro["categoria"]);
-            $dados->tipo = utf8_encode($registro["tipo"]);
+            $dados->nome = $registro["nome"];
+            $dados->descricao = $registro["descricao"];
+            $dados->categoria = $registro["categoria"];
+            $dados->tipo = $registro["tipo"];
             $dados->inicio = date('Y-m-d', $registro["inicio"]);
             $dados->fim = date('Y-m-d', $registro["fim"]);
             $dados->criador = $registro["id_criador"];
@@ -48,10 +48,10 @@ class ManterTarefa extends Model {
         while ($registro = $resultado->fetchRow()) {
             $dados = new Tarefa();
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->descricao = utf8_encode($registro["descricao"]);
-            $dados->categoria = utf8_encode($registro["categoria"]);
-            $dados->tipo = utf8_encode($registro["tipo"]);
+            $dados->nome = $registro["nome"];
+            $dados->descricao = $registro["descricao"];
+            $dados->categoria = $registro["categoria"];
+            $dados->tipo = $registro["tipo"];
             $dados->inicio = date('Y-m-d', $registro["inicio"]);
             $dados->fim = date('Y-m-d', $registro["fim"]);
             $dados->criador = $registro["id_criador"];
@@ -70,10 +70,10 @@ class ManterTarefa extends Model {
         $dados = new Tarefa();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->descricao = utf8_encode($registro["descricao"]);
-            $dados->categoria = utf8_encode($registro["categoria"]);
-            $dados->tipo = utf8_encode($registro["tipo"]);
+            $dados->nome = $registro["nome"];
+            $dados->descricao = $registro["descricao"];
+            $dados->categoria = $registro["categoria"];
+            $dados->tipo = $registro["tipo"];
             $dados->inicio = date('Y-m-d', $registro["inicio"]);
             $dados->fim = date('Y-m-d', $registro["fim"]);
             $dados->criador = $registro["id_criador"];

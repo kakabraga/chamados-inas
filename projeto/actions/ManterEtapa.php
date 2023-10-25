@@ -25,7 +25,7 @@ class ManterEtapa extends Model {
                 $dados->excluir = false;
             }
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
+            $dados->nome = $registro["nome"];
             $dados->ordem = $registro["ordem"];
             $dados->data_base = $registro["data_base"];
             $dados->tarefa = $registro["id_tarefa"];
@@ -43,7 +43,7 @@ class ManterEtapa extends Model {
         $dados = new Etapa();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
+            $dados->nome = $registro["nome"];
             $dados->ordem = $registro["ordem"];
             $dados->data_base = $registro["data_base"];
             $dados->tarefa = $registro["id_tarefa"];

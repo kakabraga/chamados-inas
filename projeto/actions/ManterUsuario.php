@@ -22,10 +22,10 @@ class ManterUsuario extends Model {
                 $dados->excluir = false;
             }
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->cpf = utf8_encode($registro["cpf"]);
-            $dados->senha = utf8_encode($registro["senha"]);
-            $dados->email = utf8_encode($registro["email"]);
+            $dados->nome = $registro["nome"]);
+            $dados->cpf = $registro["cpf"]);
+            $dados->senha = $registro["senha"]);
+            $dados->email = $registro["email"]);
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
@@ -42,10 +42,10 @@ class ManterUsuario extends Model {
         $dados = new Usuario();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->cpf = utf8_encode($registro["cpf"]);
-            $dados->senha = utf8_encode($registro["senha"]);
-            $dados->email = utf8_encode($registro["email"]);
+            $dados->nome = $registro["nome"]);
+            $dados->cpf = $registro["cpf"]);
+            $dados->senha = $registro["senha"]);
+            $dados->email = $registro["email"]);
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
@@ -60,10 +60,10 @@ class ManterUsuario extends Model {
         $dados = new Usuario();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->cpf = utf8_encode($registro["cpf"]);
-            $dados->senha = utf8_encode($registro["senha"]);
-            $dados->email = utf8_encode($registro["email"]);
+            $dados->nome = $registro["nome"]);
+            $dados->cpf = $registro["cpf"]);
+            $dados->senha = $registro["senha"]);
+            $dados->email = $registro["email"]);
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
@@ -113,10 +113,10 @@ class ManterUsuario extends Model {
                 $dados->excluir = false;
             }
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->cpf = utf8_encode($registro["cpf"]);
-            $dados->senha = utf8_encode($registro["senha"]);
-            $dados->email = utf8_encode($registro["email"]);
+            $dados->nome = $registro["nome"];
+            $dados->cpf = $registro["cpf"];
+            $dados->senha = $registro["senha"];
+            $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
@@ -134,10 +134,10 @@ class ManterUsuario extends Model {
             $dados = new Usuario();
             $dados->excluir = true;
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->cpf = utf8_encode($registro["cpf"]);
-            $dados->senha = utf8_encode($registro["senha"]);
-            $dados->email = utf8_encode($registro["email"]);
+            $dados->nome = $registro["nome"];
+            $dados->cpf = $registro["cpf"];
+            $dados->senha = $registro["senha"];
+            $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
@@ -158,10 +158,10 @@ class ManterUsuario extends Model {
                 $dados->excluir = false;
             }
             $dados->id = $registro["id"];
-            $dados->nome = utf8_encode($registro["nome"]);
-            $dados->cpf = utf8_encode($registro["cpf"]);
-            $dados->senha = utf8_encode($registro["senha"]);
-            $dados->email = utf8_encode($registro["email"]);
+            $dados->nome = $registro["nome"];
+            $dados->cpf = $registro["cpf"];
+            $dados->senha = $registro["senha"];
+            $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];

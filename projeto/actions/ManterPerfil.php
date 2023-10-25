@@ -21,8 +21,8 @@ class ManterPerfil extends Model {
                 $dados->excluir = false;
             }
             $dados->id          = $registro["id"];
-            $dados->perfil = utf8_encode($registro["perfil"]);
-            $dados->descricao = utf8_encode($registro["descricao"]);
+            $dados->perfil = $registro["perfil"];
+            $dados->descricao = $registro["descricao"];
             $array_dados[] = $dados;
         }
         return $array_dados;
@@ -34,8 +34,8 @@ class ManterPerfil extends Model {
         $dados = new Perfil();
         while ($registro = $resultado->fetchRow()) {
             $dados->id          = $registro["id"];
-            $dados->perfil = utf8_encode($registro["perfil"]);
-            $dados->descricao = utf8_encode($registro["descricao"]);
+            $dados->perfil = $registro["perfil"];
+            $dados->descricao = $registro["descricao"];
         }
         return $dados;
     }

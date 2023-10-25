@@ -22,8 +22,8 @@ class ManterSetor extends Model {
                 $dados->excluir = false;
             }
             $dados->id          = $registro["id"];
-            $dados->sigla       = utf8_encode($registro["sigla"]);
-            $dados->descricao   = utf8_encode($registro["descricao"]);
+            $dados->sigla       = $registro["sigla"];
+            $dados->descricao   = $registro["descricao"];
             $array_dados[]      = $dados;
         }
         return $array_dados;
@@ -35,8 +35,8 @@ class ManterSetor extends Model {
         $dados = new Setor();
         while ($registro = $resultado->fetchRow()) {
             $dados->id          = $registro["id"];
-            $dados->sigla       = utf8_encode($registro["sigla"]);
-            $dados->descricao   = utf8_encode($registro["descricao"]);
+            $dados->sigla       = $registro["sigla"];
+            $dados->descricao   = $registro["descricao"];
         }
         return $dados;
     }

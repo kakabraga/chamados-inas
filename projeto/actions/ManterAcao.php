@@ -29,7 +29,7 @@ class ManterAcao extends Model {
                 $dados->excluir = false;
             }
             $dados->id = $registro["id"];
-            $dados->acao = utf8_encode($registro["acao"]);
+            $dados->acao = $registro["acao"];
             $dados->ordem = $registro["ordem"];
             $dados->data_check = $registro["data_check"];
             $dados->data_prevista = $registro["data_prevista"];
@@ -48,7 +48,7 @@ class ManterAcao extends Model {
         $dados = new Acao();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
-            $dados->acao = utf8_encode($registro["acao"]);
+            $dados->acao = $registro["acao"];
             $dados->ordem = $registro["ordem"];
             $dados->data_check = $registro["data_check"];
             $dados->data_prevista = $registro["data_prevista"];
