@@ -42,8 +42,8 @@ class ManterEquipe extends Model {
         return $dados;
     }
     function salvar(Equipe $dados) {
-        $dados->equipe = utf8_decode($dados->equipe);
-        $dados->descricao = utf8_decode($dados->descricao);
+        $dados->equipe = $dados->equipe;
+        $dados->descricao = $dados->descricao;
         $sql = "insert into equipe (equipe,descricao) values ('" . $dados->equipe . "','" . $dados->descricao . "')";
         if ($dados->id > 0) {
             $sql = "update equipe set equipe='" . $dados->equipe . "',descricao='" . $dados->descricao . "' where id=$dados->id";

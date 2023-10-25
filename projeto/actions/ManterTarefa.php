@@ -85,10 +85,10 @@ class ManterTarefa extends Model {
     }
 
     function salvar(Tarefa $dados) {
-        $dados->nome = utf8_decode($dados->nome);
-        $dados->descricao = utf8_decode($dados->descricao);
-        $dados->categoria = utf8_decode($dados->categoria);
-        $dados->tipo = utf8_decode($dados->tipo);
+        $dados->nome = $dados->nome;
+        $dados->descricao = $dados->descricao;
+        $dados->categoria = $dados->categoria;
+        $dados->tipo = $dados->tipo;
         $sql = "insert into tarefa (nome,descricao,categoria,inicio,fim,tipo,id_criador,id_responsavel,id_equipe) values ('" . $dados->nome . "','" . $dados->descricao . "','" . $dados->categoria . "','" . $dados->inicio . "','" . $dados->fim . "','" . $dados->tipo . "'," . $dados->criador . "," . $dados->responsavel . "," . $dados->equipe . ")";
         //echo $sql . "<BR/>";
         if ($dados->id > 0) {
@@ -102,10 +102,10 @@ class ManterTarefa extends Model {
     }
 
     function duplicar(Tarefa $dados) {
-        $dados->nome = utf8_decode($dados->nome);
-        $dados->descricao = utf8_decode($dados->descricao);
-        $dados->categoria = utf8_decode($dados->categoria);
-        $dados->tipo = utf8_decode($dados->tipo);
+        $dados->nome = $dados->nome;
+        $dados->descricao = $dados->descricao;
+        $dados->categoria = $dados->categoria;
+        $dados->tipo = $dados->tipo;
         $sql = "insert into tarefa (nome,descricao,categoria,inicio,fim,tipo,id_criador,id_responsavel,id_equipe) values ('" . $dados->nome . "','" . $dados->descricao . "','" . $dados->categoria . "','" . $dados->inicio . "','" . $dados->fim . "','" . $dados->tipo . "'," . $dados->criador . "," . $dados->responsavel . "," . $dados->equipe . ")";
         //echo $sql . "<BR/>";
         $id_duplicar = $dados->id;

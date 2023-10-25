@@ -53,7 +53,7 @@ class ManterEtapa extends Model {
     }
 
     function salvar(Etapa $dados) {
-        $dados->nome = utf8_decode($dados->nome);
+        $dados->nome = $dados->nome;
         $sql = "insert into etapa (nome, ordem, data_base, id_tarefa) values ('" . $dados->nome . "','" . $dados->ordem . "','" . $dados->data_base . "','" . $dados->tarefa . "')";
         //echo $sql . "<BR/>";
         if ($dados->id > 0) {

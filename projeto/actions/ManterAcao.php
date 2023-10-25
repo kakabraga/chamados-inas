@@ -60,7 +60,7 @@ class ManterAcao extends Model {
     }
 
     function salvar(Acao $dados, $id_tarefa = 0) {
-        $dados->acao = utf8_decode($dados->acao);
+        $dados->acao = $dados->acao;
 
         $sql = "insert into acao (acao, ordem, qtd_dias, id_etapa) values ('" . $dados->acao . "','" . $dados->ordem . "','" . $dados->dias . "','" . $dados->etapa . "')";
         //echo $sql . "<BR/>";

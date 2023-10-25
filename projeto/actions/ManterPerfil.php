@@ -40,8 +40,8 @@ class ManterPerfil extends Model {
         return $dados;
     }
     function salvar(Perfil $dados) {
-        $dados->perfil = utf8_decode($dados->perfil);
-        $dados->descricao = utf8_decode($dados->descricao);
+        $dados->perfil = $dados->perfil;
+        $dados->descricao = $dados->descricao;
         $sql = "insert into perfil (perfil,descricao) values ('" . $dados->perfil . "','" . $dados->descricao . "')";
         if ($dados->id > 0) {
             $sql = "update perfil set perfil='" . $dados->perfil . "',descricao='" . $dados->descricao . "' where id=$dados->id";

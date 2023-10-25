@@ -41,8 +41,8 @@ class ManterSetor extends Model {
         return $dados;
     }
     function salvar(Setor $dados) {
-        $dados->setor = utf8_decode($dados->setor);
-        $dados->descricao = utf8_decode($dados->descricao);
+        $dados->setor = $dados->setor;
+        $dados->descricao = $dados->descricao;
         $sql = "insert into setor (sigla,descricao) values ('" . $dados->sigla . "','" . $dados->descricao . "')";
         if ($dados->id > 0) {
             $sql = "update setor set sigla='" . $dados->sigla . "',descricao='" . $dados->descricao . "' where id=$dados->id";
