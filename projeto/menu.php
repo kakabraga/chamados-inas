@@ -4,39 +4,79 @@
 <!-- Sidebar - Brand -->
 <br/>
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-    <div class="sidebar-brand-icon mx-3"><img src="img/inas.svg" /></div>
+    <div class="sidebar-brand-icon mx-1"><img src="img/inas.svg" width="100%" /></div>
 </a>
 <br/>
 <!-- Divider -->
 <hr class="sidebar-divider">
+    <?php
+    if ($usuario_logado->perfil <= 2) {
+        ?>
 
-<!-- Heading -->
-<div class="sidebar-heading">
-    Administração
-</div>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            ADMINISTRAÇÃO
+        </div>
+        <?php
+        if ($usuario_logado->perfil <= 1) {
+            ?>        
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="perfis.php">
+                    <i class="fa fa-id-card"></i>
+                    <span>Perfis</span>
+                </a>
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="setores.php">
+                    <i class="fa fa-laptop"></i>
+                    <span>Setores</span>
+                </a>
+            </li>
+             <!-- Nav Item - Pages Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="equipes.php">
+                    <i class="fa fa-users"></i>
+                    <span>Equipes</span>
+                </a>
+            </li>
+            <?php
+        }
+        ?>        
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="usuarios.php">
+                <i class="fa fa-user"></i>
+                <span>Usuários</span>
+            </a>
+        </li>
+        <?php
+    }
+    ?>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
-<!-- Nav Item - Setores Menu -->
-<li class="nav-item">
-    <a class="nav-link" href="setores.php">
-        <i class="fa fa-laptop"></i>
-        <span>Setores</span></a>
-</li>
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Gestão de Tarefas
+    </div>
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="tarefas.php">
+            <i class="fa fa-tasks"></i>
+            <span>Tarefas</span>
+        </a>
+    </li>
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="gerar_relatorio.php">
+            <i class="fa fa-file"></i>
+            <span>Relatórios</span>
+        </a>
+    </li>  
 
-<!-- Nav Item - Perfis Menu -->
-<li class="nav-item">
-    <a class="nav-link" href="perfil.php">
-        <i class="fa fa-address-card"></i>
-        <span>Perfis</span></a>
-</li>
-
-<!-- Nav Item - Usuários Menu -->
-<li class="nav-item">
-    <a class="nav-link" href="usuarios.php">
-        <i class="fa fa-user"></i>
-        <span>Usuários</span></a>
-</li>
-
-<!-- Divider -->
+    <!-- Divider -->
 <hr class="sidebar-divider">
 
 <!-- Heading -->
@@ -85,13 +125,10 @@
         <i class="fa fa-file aria-hidden="true"></i>
         <span>Relatórios</span></a>
 </li>
-<!-- Divider -->
-<hr class="sidebar-divider d-none d-md-block">
-
-<!-- Sidebar Toggler (Sidebar) -->
-<div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-</div>
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 
 </ul>
 <!-- End of Sidebar -->

@@ -1,26 +1,34 @@
 <?php
 
-require_once('./model/ManterUsuario.php');
-require_once('./model/Usuario.php');
+
+require_once('./actions/ManterUsuario.php');
+require_once('./dto/Usuario.php');
 
 $db_usuario = new ManterUsuario();
-$u = new Usuario();
+$usuario = new Usuario();
 
-$altera = isset($_POST['altera']) ? $_POST['altera'] : 0;
-$matricula = $_POST['matricula'];
-$nome = $_POST['nome'];
+$id     = isset($_POST['id']) ? $_POST['id'] : 0;
+$cpf    = addslashes($_POST['cpf']);
+$nome   = addslashes($_POST['nome']);
+$senha  = $_POST['senha'];
+$email  = $_POST['email'];
+$equipe = $_POST['equipe'];
 $setor = $_POST['setor'];
 $perfil = $_POST['perfil'];
-$senha = $_POST['senha'];
+$ativo  = isset($_POST['ativo']) ? $_POST['ativo'] : 1;
 
-$u->matricula = $matricula;
-$u->nome = $nome;
-$u->idsetor = $setor;
-$u->idperfil = $perfil;
-$u->senha = $senha;
+$usuario->id      = $id;
+$usuario->cpf     = $cpf;
+$usuario->nome    = $nome;
+$usuario->senha   = $senha;   
+$usuario->email   = $email;
+$usuario->equipe  = $equipe;
+$usuario->setor   = $setor;
+$usuario->perfil  = $perfil;
+$usuario->ativo   = $ativo;
 
-//print_r($u);
+//print_r($usuario);
+$db_usuario->salvar($usuario);
 
-$db_usuario->salvar($u, $altera);
 header('Location: usuarios.php');
 
