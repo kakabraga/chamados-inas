@@ -51,7 +51,7 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
                             <div class="h4 mb-0 font-weight-bold text-gray-800">
                                 <a href="tarefas.php?filtro=equipe" class="btn btn-light btn-lg align-top"><strong><?= $painel->total_equipe ?></strong></a> 
                                 <?= $painel->total_equipe > 0 && ($painel->total_equipe - $painel_concluidas->total_equipe) == 0 ? '<sup><i class="fa fa-check-square text-success" aria-hidden="true"></i></sup>' : '<sup><small><span class="badge badge-danger text-white align-middle">' . ($painel->total_equipe - $painel_concluidas->total_equipe) . '</span></small></sup>' ?>
-                            </div>
+                            </div> 
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-3x text-gray-300"></i>

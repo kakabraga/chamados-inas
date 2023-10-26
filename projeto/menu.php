@@ -62,10 +62,28 @@
         Gestão de Tarefas
     </div>
     <!-- Nav Item - Pages Collapse Menu -->
+    <?php
+        if ($usuario_logado->perfil <= 1) {
+            ?>
     <li class="nav-item">
         <a class="nav-link collapsed" href="tarefas.php">
             <i class="fa fa-tasks"></i>
             <span>Tarefas</span>
+        </a>
+    </li>
+    <?php
+        }
+    ?>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="tarefas.php?filtro=equipe">
+            <i class="fa fa-tasks"></i>
+            <span>Tarefas da Equipe</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="tarefas.php?filtro=criador">
+            <i class="fa fa-tasks"></i>
+            <span>Minhas Tarefas</span>
         </a>
     </li>
     <!-- Nav Item - Pages Collapse Menu -->

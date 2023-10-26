@@ -55,7 +55,12 @@ and open the template in the editor.
 include_once('actions/ManterEquipe.php');
 $mEquipe = new ManterEquipe();
 
-$pesquisa = isset($_REQUEST['filtro']) ? $_REQUEST['filtro'] : '';
+$pesquisa = '';
+if ($usuario_logado->perfil <= 1) {
+    $pesquisa= isset($_REQUEST['filtro']) ? $_REQUEST['filtro'] : '';
+} else {
+    $pesquisa= isset($_REQUEST['filtro']) ? $_REQUEST['filtro'] : 'equipe'; 
+}
 $filtro = '';
 $titulo = 'Tarefas';
 switch ($pesquisa) {
