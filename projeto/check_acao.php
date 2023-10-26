@@ -20,7 +20,7 @@ $prevista = isset($_REQUEST['prevista']) ? $_REQUEST['prevista'] : 0;
 $acao = $db_acao->getAcaoPorId($id);
 
 $usuario_logado = unserialize($_SESSION['usuario']);
-echo 'RED: '.$red . ' OP:' .$op  . 'ID:'.$id . ' PREVISTA:'.$prevista. ' Usuario:'.$usuario_logado->id;
+//echo 'RED: '.$red . ' OP:' .$op  . 'ID:'.$id . ' PREVISTA:'.$prevista. ' Usuario:'.$usuario_logado->id;
 
 
 $tarefa = $db_etapa->getEtapaPorId($acao->etapa)->tarefa;
