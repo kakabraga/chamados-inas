@@ -91,7 +91,7 @@ class ManterUsuario extends Model {
     }
 
     function alterarSenha(Usuario $dados) {
-        $dados->senha = $dados->senha);
+        $dados->senha = $dados->senha;
         $sql = "update usuario set senha='" . $dados->senha . "' where id=$dados->id";
         $resultado = $this->db->Execute($sql);
         return $resultado;
