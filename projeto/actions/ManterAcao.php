@@ -98,7 +98,9 @@ class ManterAcao extends Model {
     }
 
     function checkAcao($id, $id_usuario, $prevista) {
-        
+        if($prevista == ''){
+            $prevista = 0;
+        }
         $date = new DateTime();
         $data_check = $date->getTimestamp();
         $sql = "update acao set data_check='" . $data_check . "',data_prevista='" . $prevista . "',id_usuario='" . $id_usuario . "' where id=$id";
