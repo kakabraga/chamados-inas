@@ -61,9 +61,12 @@ class ManterAcao extends Model {
 
     function salvar(Acao $dados, $id_tarefa = 0) {
         $dados->acao = $dados->acao;
+        if($dados->dias == ''){
+            $dados->dias = 0;
+        }
 
         $sql = "insert into acao (acao, ordem, qtd_dias, id_etapa) values ('" . $dados->acao . "','" . $dados->ordem . "','" . $dados->dias . "','" . $dados->etapa . "')";
-        echo $sql . "<BR/>";
+        //echo $sql . "<BR/>";
         if ($dados->id > 0) {
             $sql = "update acao set acao='" . $dados->acao . "',ordem='" . $dados->ordem . "',qtd_dias='" . $dados->dias . "',id_etapa='" . $dados->etapa . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
@@ -71,8 +74,7 @@ class ManterAcao extends Model {
             $resultado = $this->db->Execute($sql);
             $dados->id = $this->db->insert_Id();
         }
-        echo $sql . "<BR/>";
-        exit;
+        //echo $sql . "<BR/>";
         return $resultado;
     }
 
