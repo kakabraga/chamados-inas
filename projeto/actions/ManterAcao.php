@@ -98,9 +98,7 @@ class ManterAcao extends Model {
     }
 
     function checkAcao($id, $id_usuario, $prevista) {
-        if($prevista ''){
-            $prevista = 0;
-        }
+        
         $date = new DateTime();
         $data_check = $date->getTimestamp();
         $sql = "update acao set data_check='" . $data_check . "',data_prevista='" . $prevista . "',id_usuario='" . $id_usuario . "' where id=$id";
@@ -110,9 +108,6 @@ class ManterAcao extends Model {
 
     function removeCheckAcao($id, $id_usuario, $prevista) {
         $date = new DateTime();
-        if($prevista ''){
-            $prevista = 0;
-        }
         $sql = "update acao set data_check=0 ,data_prevista='" . $prevista . "' ,id_usuario='" . $id_usuario . "' where id=$id";
         $resultado = $this->db->Execute($sql);
         return true;
