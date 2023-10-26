@@ -136,7 +136,7 @@ and open the template in the editor.
             function checkAcao(id, data_prevista) {
                 if (data_prevista == '') {
                     jQuery.post('check_acao.php',
-                            {id: id, prevista: data_prevista, op: 1, red: 0}, function (res) {
+                            {id: id, prevista: 0, op: 1, red: 0}, function (res) {
                         if (res) {
                             $("#btn_" + id).html('<button type="button" class="btn btn-success text-white" onclick="retiraCheckAcao(' + id + ',\'' + data_prevista + '\')"><i class="fa fa-check"></i></button>');
                             $("#progressbar").removeAttr("style");
@@ -154,7 +154,7 @@ and open the template in the editor.
             function retiraCheckAcao(id, data_prevista) {
                 if (data_prevista == '') {
                     jQuery.post('check_acao.php',
-                            {id: id, prevista: data_prevista, op: 0, red: 0}, function (res) {
+                            {id: id, prevista: 0, op: 0, red: 0}, function (res) {
                         if (res) {
                             $("#btn_" + id).html('<button type="button" class="btn btn-danger text-white" onclick="checkAcao(' + id + ',\'' + data_prevista + '\')"><i class="fa fa-cog"></i></button>');
                             $("#progressbar").removeAttr("style");
