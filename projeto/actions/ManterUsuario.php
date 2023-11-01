@@ -12,7 +12,7 @@ class ManterUsuario extends Model {
     }
 
     function listar() {
-        $sql = "select u.id,u.nome,u.cpf,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil,(select count(*) from tarefa as t where t.id_criador=u.id OR t.id_responsavel=u.id) as dep FROM usuario as u order by u.nome";
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil,(select count(*) from tarefa as t where t.id_criador=u.id OR t.id_responsavel=u.id) as dep FROM usuario as u order by u.nome";
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
@@ -23,7 +23,7 @@ class ManterUsuario extends Model {
             }
             $dados->id = $registro["id"];
             $dados->nome = $registro["nome"];
-            $dados->cpf = $registro["cpf"];
+            $dados->login = $registro["login"];
             $dados->senha = $registro["senha"];
             $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
@@ -36,14 +36,14 @@ class ManterUsuario extends Model {
     }
 
     function getUsuarioPorId($id) {
-        $sql = "select u.id,u.nome,u.cpf,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE id=$id";
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Usuario();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
             $dados->nome = $registro["nome"];
-            $dados->cpf = $registro["cpf"];
+            $dados->login = $registro["login"];
             $dados->senha = $registro["senha"];
             $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
@@ -53,15 +53,15 @@ class ManterUsuario extends Model {
         }
         return $dados;
     }
-    function getUsuarioPorCPF($cpf) {
-        $sql = "select u.id,u.nome,u.cpf,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE cpf='$cpf'";
+    function getUsuarioPorLogin($login) {
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE login='$login'";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Usuario();
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
             $dados->nome = $registro["nome"];
-            $dados->cpf = $registro["cpf"];
+            $dados->login = $registro["login"];
             $dados->senha = $registro["senha"];
             $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
@@ -73,14 +73,14 @@ class ManterUsuario extends Model {
     }
     function salvar(Usuario $dados) {
         $dados->nome = $dados->nome;
-        $dados->cpf = $dados->cpf;
+        $dados->login = $dados->login;
         $dados->senha = $dados->senha;
         $dados->email = $dados->email;
-        $sql = "insert into usuario (nome, cpf, senha, email, ativo, id_equipe, id_setor, id_perfil) values ('" . $dados->nome . "','" . $dados->cpf . "','" . $dados->senha . "','" . $dados->email . "','" . $dados->ativo . "','" . $dados->equipe . "','" . $dados->setor . "','" . $dados->perfil . "')";
+        $sql = "insert into usuario (nome, login, senha, email, ativo, id_equipe, id_setor, id_perfil) values ('" . $dados->nome . "','" . $dados->login . "','" . $dados->senha . "','" . $dados->email . "','" . $dados->ativo . "','" . $dados->equipe . "','" . $dados->setor . "','" . $dados->perfil . "')";
 //        echo $sql . "<BR/>";
 //        exit;
         if ($dados->id > 0) {
-            $sql = "update usuario set nome='" . $dados->nome . "',cpf='" . $dados->cpf . "',senha='" . $dados->senha . "',email='" . $dados->email . "',ativo='" . $dados->ativo . "',id_equipe='" . $dados->equipe . "',id_setor='" . $dados->setor . "',id_perfil='" . $dados->perfil . "' where id=$dados->id";
+            $sql = "update usuario set nome='" . $dados->nome . "',login='" . $dados->login . "',senha='" . $dados->senha . "',email='" . $dados->email . "',ativo='" . $dados->ativo . "',id_equipe='" . $dados->equipe . "',id_setor='" . $dados->setor . "',id_perfil='" . $dados->perfil . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         } else {
             $resultado = $this->db->Execute($sql);
@@ -103,7 +103,7 @@ class ManterUsuario extends Model {
         return $resultado;
     }
     function getEditoresPorTarefa($id_tarefa) {
-        $sql = "select u.id,u.nome,u.cpf,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u, editor as e WHERE e.id_usuario=u.id AND e.id_tarefa=".$id_tarefa." order by u.nome";
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u, editor as e WHERE e.id_usuario=u.id AND e.id_tarefa=".$id_tarefa." order by u.nome";
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
@@ -114,7 +114,7 @@ class ManterUsuario extends Model {
             }
             $dados->id = $registro["id"];
             $dados->nome = $registro["nome"];
-            $dados->cpf = $registro["cpf"];
+            $dados->login = $registro["login"];
             $dados->senha = $registro["senha"];
             $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
@@ -126,7 +126,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getNaoEditoresPorTarefa($id_tarefa) {
-        $sql = "select u.id,u.nome,u.cpf,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE u.id NOT IN(SELECT id_usuario FROM editor WHERE id_tarefa=".$id_tarefa.") order by u.nome";
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE u.id NOT IN(SELECT id_usuario FROM editor WHERE id_tarefa=".$id_tarefa.") order by u.nome";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -135,7 +135,7 @@ class ManterUsuario extends Model {
             $dados->excluir = true;
             $dados->id = $registro["id"];
             $dados->nome = $registro["nome"];
-            $dados->cpf = $registro["cpf"];
+            $dados->login = $registro["login"];
             $dados->senha = $registro["senha"];
             $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
@@ -147,7 +147,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getUsuariosEquipePorTarefa($id_tarefa) {
-        $sql = "select u.id,u.nome,u.cpf,u.senha,u.email,u.ativo,u.id_equipe,,u.id_setoru.id_perfil FROM usuario as u, tarefa as t WHERE t.id=$id_tarefa AND u.id_equipe=t.id_equipe order by u.nome";
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,,u.id_setoru.id_perfil FROM usuario as u, tarefa as t WHERE t.id=$id_tarefa AND u.id_equipe=t.id_equipe order by u.nome";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -159,7 +159,7 @@ class ManterUsuario extends Model {
             }
             $dados->id = $registro["id"];
             $dados->nome = $registro["nome"];
-            $dados->cpf = $registro["cpf"];
+            $dados->login = $registro["login"];
             $dados->senha = $registro["senha"];
             $dados->email = $registro["email"];
             $dados->ativo = $registro["ativo"];
