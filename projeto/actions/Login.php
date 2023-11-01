@@ -8,25 +8,39 @@ class Login extends Model {
         parent::__construct();
     }
 
-    function logar($cpf, $senha) {
-        $sql = "SELECT id, nome, cpf, senha, id_perfil, id_equipe FROM usuario   WHERE cpf='" . $cpf . "' AND ativo=1";
+    function logar($login, $senha) {
+        $sql = "SELECT id, nome, login, senha, id_perfil, id_equipe FROM usuario   WHERE login='" . $login . "' AND ativo=1";
         //echo 'SQL:'.$sql;
         $resultado = $this->db->Execute($sql);
         if ($registro = $resultado->fetchRow()) {
-            if (!strcmp($registro["senha"], $senha)) {
-                $dados = new Usuario();
-                $dados->id          = $registro["id"];
-                $dados->nome        = $registro["nome"];
-                $dados->cpf         = $registro["cpf"];
-                $dados->senha         = $registro["senha"];
-                $dados->ativo       = $registro["ativo"];
-                $dados->equipe      = $registro["id_equipe"];
-                $dados->perfil      = $registro["id_perfil"];
-                
-                return $dados; 
-            } else {
+            $server = '10.194.250.111';
+            $domain = '@governo.gdfnet.df';
+            $port = 389;
+
+            $connection = ldap_connect($server, $port);
+            if (!$connection) {
                 return false;
             }
+
+            // Help talking to AD
+            ldap_set_option($connection , LDAP_OPT_PROTOCOL_VERSION, 3);
+            ldap_set_option($connection , LDAP_OPT_REFERRALS, 0);
+
+            $bind = @ldap_bind($connection, $login.$domain, $senha);
+            if (!$bind) {
+                return false;
+            }
+            $dados = new Usuario();
+            $dados->id          = $registro["id"];
+            $dados->nome        = $registro["nome"];
+            $dados->login       = $registro["login"];
+            $dados->senha       = $senha;
+            $dados->ativo       = $registro["ativo"];
+            $dados->equipe      = $registro["id_equipe"];
+            $dados->perfil      = $registro["id_perfil"];
+
+            ldap_close($connection );
+            return $dados;
         }
         return false;
     }
