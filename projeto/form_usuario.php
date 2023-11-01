@@ -12,9 +12,9 @@
             <input type="hidden" id="id" name="id"/>
             <div class="form-group row">
 
-                <label for="cpf" class="col-sm-2 col-form-label">CPF:</label>
+                <label for="login" class="col-sm-2 col-form-label">Login:</label>
                 <div class="col-sm-10 input-group">
-                    <input type="text" name="cpf" class="form-control form-control-sm" id="cpf" placeholder="apenas números"  onkeypress="$(this).mask('000.000.000-00');" required>
+                    <input type="text" name="login" class="form-control form-control-sm" id="login" placeholder="apenas números"  onkeypress="$(this).mask('000.000.000-00');" required>
                 </div>
             </div>
             <div class="form-group row">
