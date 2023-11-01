@@ -8,7 +8,7 @@ $db_usuario = new ManterUsuario();
 $usuario = new Usuario();
 
 $id     = isset($_POST['id']) ? $_POST['id'] : 0;
-$cpf    = addslashes($_POST['cpf']);
+$login    = addslashes($_POST['login']);
 $nome   = addslashes($_POST['nome']);
 $senha  = $_POST['senha'];
 $email  = $_POST['email'];
@@ -18,7 +18,7 @@ $perfil = $_POST['perfil'];
 $ativo  = isset($_POST['ativo']) ? $_POST['ativo'] : 1;
 
 $usuario->id      = $id;
-$usuario->cpf     = $cpf;
+$usuario->login     = $login;
 $usuario->nome    = $nome;
 $usuario->senha   = $senha;   
 $usuario->email   = $email;
