@@ -14,7 +14,7 @@
 
                 <label for="login" class="col-sm-2 col-form-label">Login:</label>
                 <div class="col-sm-10 input-group">
-                    <input type="text" name="login" class="form-control form-control-sm" id="login" placeholder="apenas números"  onkeypress="$(this).mask('000.000.000-00');" required>
+                    <input type="text" name="login" class="form-control form-control-sm" id="login" placeholder="login da rede" required>
                 </div>
             </div>
             <div class="form-group row">
