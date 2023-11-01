@@ -57,7 +57,7 @@
                     <form id="form_login" action="valida_login.php" method="post">
                         <div class="row">
                             <div class="col c2 ml-2 text-left"> 
-                                <label for="login" class="col-sm-2 col-form-label">CPF:</label>
+                                <label for="login" class="col-sm-2 col-form-label">Login:</label>
                                 <div class="col">
                                     <input type="text" name="login" class="form-control form-control-sm" id="login" required>
                                 </div>
