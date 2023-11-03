@@ -36,23 +36,25 @@
                         <option value="">Selecione</option>    
                     </select>
                 </div>                            
-            </div>                          
-            <div id="equipes" class="form-group row">
-                <div class="col input-group">
-                    <label for="equipe" class="col-sm-4 col-form-label">Equipe:</label>
-                    <select id="equipe" name="equipe" class="form-control form-control-sm" onChange="atualizaUsuarios(this.options[this.selectedIndex].value)" required>
-                        <option value="0"> Todos </option>    
-                    </select>
-                </div>
-            </div>   
-            <div class="form-group row">
-                <div class="col input-group">
-                    <label for="responsavel" class="col-sm-4 col-form-label">Responsável:</label>
-                    <select id="responsavel" name="responsavel" class="form-control form-control-sm" required>
-                        <option value="">Selecione</option>    
-                    </select>
-                </div>
-            </div>                         
+            </div>  
+            <div id="equipes" >                        
+                <div class="form-group row">
+                    <div class="col input-group">
+                        <label for="equipe" class="col-sm-4 col-form-label">Equipe:</label>
+                        <select id="equipe" name="equipe" class="form-control form-control-sm" onChange="atualizaUsuarios(this.options[this.selectedIndex].value)" required>
+                            <option value="0"> Todos </option>    
+                        </select>
+                    </div>
+                </div>   
+                <div class="form-group row">
+                    <div class="col input-group">
+                        <label for="responsavel" class="col-sm-4 col-form-label">Responsável:</label>
+                        <select id="responsavel" name="responsavel" class="form-control form-control-sm" required>
+                            <option value="">Selecione</option>    
+                        </select>
+                    </div>
+                </div>        
+            </div>                 
             <div class="col border">
                 <fieldset class="form-group form-inline">
                     <legend class="col c1 col-form-label pt-0">Realização</legend>
