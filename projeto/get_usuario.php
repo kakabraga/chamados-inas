@@ -16,7 +16,11 @@
             echo "  <td>".$obj->id."</td>";
             echo "  <td>".$obj->login."</td>";
             echo "  <td>".$obj->nome ."</td>";
-            echo "  <td>".$manterEquipe->getEquipePorId($obj->equipe)->equipe."</td>";
+            $txt_equipe = "";
+            if(isset($obj->equipe) && $obj->equipe!=''){
+                $txt_equipe = $manterEquipe->getEquipePorId($obj->equipe)->equipe;
+            }
+            echo "  <td>".$txt_equipe."</td>";
             echo "  <td>".$manterSetor->getSetorPorId($obj->setor)->sigla."</td>";
             echo "  <td>".$manterPerfil->getPerfilPorId($obj->perfil)->perfil."</td>";
             echo "  <td>".($obj->ativo > 0 ? 'Sim':'Não')."</td>";
