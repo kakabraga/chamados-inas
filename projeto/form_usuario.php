@@ -29,12 +29,12 @@
                     <input type="email" name="email" class="form-control form-control-sm" id="email" placeholder="e-mail" required>
                 </div>
             </div>
-            <div class="form-group row">
+            <!--div class="form-group row">
                 <label for="senha" class="col-sm-2 col-form-label">Senha:</label>
                 <div class="col-sm-10">
                     <input type="password" name="senha" class="form-control form-control-sm" placeholder="senha" id="senha" required>
                 </div>
-            </div>
+            </div-->
             <div class="form-group row">
                 <label for="equipe" class="col-sm-2 col-form-label">Equipe:</label>
                 <div class="col-sm-10">
