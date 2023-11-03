@@ -37,7 +37,7 @@
                     </select>
                 </div>                            
             </div>                          
-            <div class="form-group row">
+            <div id="equipes" class="form-group row">
                 <div class="col input-group">
                     <label for="equipe" class="col-sm-4 col-form-label">Equipe:</label>
                     <select id="equipe" name="equipe" class="form-control form-control-sm" onChange="atualizaUsuarios(this.options[this.selectedIndex].value)" required>
