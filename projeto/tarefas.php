@@ -15,7 +15,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>ENDC - Gerente de Tarefas</title>
+        <title>INAS - Gerente de Tarefas</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -191,7 +191,7 @@ foreach ($listaUsuario as $obj) {
             carregaUsuarios(0, 0);
             carregaCategorias(0);
             carregaTipos(0);
-            $(".curso").hide();
+            $("#equipes").show();
         });
         function excluir(id, nome) {
             $('#delete').attr('href', 'del_tarefa.php?id=' + id);
@@ -244,10 +244,10 @@ foreach ($listaUsuario as $obj) {
             $('#form_cadastro').reset();
         }
         function verificaTipo(tipo) {
-            if (tipo == "Curso") {
-                $(".curso").show();
+            if (tipo == "Pessoal") {
+                $("#equipes").hide();
             } else {
-                $(".curso").hide();
+                $("#equipes").show();
             }
         }
 
