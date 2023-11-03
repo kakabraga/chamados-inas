@@ -26,13 +26,13 @@
             </div>                        <div class="form-group row">
                 <div class="col input-group">
                     <label for="categoria" class="col-sm-4 col-form-label">Categoria:</label>
-                    <select id="categoria" name="categoria" class="form-control form-control-sm" required>
+                    <select id="categoria" name="categoria" class="form-control form-control-sm" onChange="verificaCategoria(this.options[this.selectedIndex].value)" required>
                         <option value="">Selecione</option>    
                     </select>
                 </div>
                 <div class="col input-group">
                     <label for="tipo" class="col-sm-4 col-form-label">Tipo:</label>
-                    <select id="tipo" name="tipo" class="form-control form-control-sm" onChange="verificaTipo(this.options[this.selectedIndex].value)" required>
+                    <select id="tipo" name="tipo" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
                 </div>                            

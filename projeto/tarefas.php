@@ -243,7 +243,7 @@ foreach ($listaUsuario as $obj) {
 
             $('#form_cadastro').reset();
         }
-        function verificaTipo(tipo) {
+        function verificaCategoria(tipo) {
             if (tipo == "Pessoal") {
                 $("#equipes").hide();
             } else {
