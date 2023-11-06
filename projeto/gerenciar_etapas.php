@@ -42,10 +42,19 @@ and open the template in the editor.
             var editores = [];
             var naoEditores = [];
             <?php
+                include_once('actions/ManterEquipe.php');
                 include_once('actions/ManterUsuario.php');
-                $manterUsuario = new ManterUsuario();
+                include_once('actions/ManterTarefa.php');
+                include_once('actions/ManterAcao.php');
 
-                $listaNaoEditores = $manterUsuario->getNaoEditoresPorTarefa($_REQUEST['tarefa']);
+                $manterAcao = new ManterAcao();
+                $manterEquipe = new ManterEquipe();
+                $manterUsuario = new ManterUsuario();
+                $manterTarefa = new ManterTarefa();
+
+                $tarefa = $manterTarefa->getTarefaPorId($_REQUEST['tarefa']);
+                $usuarioCriador = $manterUsuario->getUsuarioPorId($tarefa->criador);
+                $listaNaoEditores = $manterUsuario->getNaoEditoresPorTarefa($_REQUEST['tarefa'],$usuarioCriador->equipe);
                 $listaEditores = $manterUsuario->getEditoresPorTarefa($_REQUEST['tarefa']);
 
                 $txt_editores="";
@@ -205,15 +214,7 @@ and open the template in the editor.
                 <div id="content">
                     <?php include './top_bar.php'; ?>
                     <?php
-                    include_once('actions/ManterEquipe.php');
-                    include_once('actions/ManterUsuario.php');
-                    include_once('actions/ManterTarefa.php');
-                    include_once('actions/ManterAcao.php');
 
-                    $manterAcao = new ManterAcao();
-                    $manterEquipe = new ManterEquipe();
-                    $manterUsuario = new ManterUsuario();
-                    $manterTarefa = new ManterTarefa();
 
                     if (isset($_REQUEST['tarefa'])) {
                         $id_tarefa = $_REQUEST['tarefa'];

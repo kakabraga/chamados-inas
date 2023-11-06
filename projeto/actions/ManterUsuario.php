@@ -72,10 +72,6 @@ class ManterUsuario extends Model {
         return $dados;
     }
     function salvar(Usuario $dados) {
-        $dados->nome = $dados->nome;
-        $dados->login = $dados->login;
-        $dados->senha = $dados->senha;
-        $dados->email = $dados->email;
         $sql = "insert into usuario (nome, login, senha, email, ativo, id_equipe, id_setor, id_perfil) values ('" . $dados->nome . "','" . $dados->login . "','" . $dados->senha . "','" . $dados->email . "','" . $dados->ativo . "','" . $dados->equipe . "','" . $dados->setor . "','" . $dados->perfil . "')";
 //        echo $sql . "<BR/>";
 //        exit;
@@ -125,8 +121,9 @@ class ManterUsuario extends Model {
         }
         return $array_dados;
     }
-    function getNaoEditoresPorTarefa($id_tarefa) {
-        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE u.id NOT IN(SELECT id_usuario FROM editor WHERE id_tarefa=".$id_tarefa.") order by u.nome";
+    function getNaoEditoresPorTarefa($id_tarefa, $equipe) {
+
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE u.id NOT IN(SELECT id_usuario FROM editor WHERE id_tarefa=".$id_tarefa.") AND u.id IN(SELECT id_usuario FROM usuario WHERE id_equipe=".$equipe.") order by u.nome";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
