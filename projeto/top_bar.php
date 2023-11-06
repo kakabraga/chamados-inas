@@ -1,9 +1,9 @@
 <?php
 
-require_once('./actions/ManterEquipe.php');
+require_once('./actions/ManterSetor.php');
 require_once('./dto/Usuario.php');
 
-$mEquipe = new ManterEquipe();
+$mSetor = new ManterSetor();
 
 ?>        
         <!-- Topbar -->
@@ -29,7 +29,7 @@ $mEquipe = new ManterEquipe();
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600"><?=$usuario_logado->nome ?>( <?=$mEquipe->getSetorPorId($usuario_logado->setor)->sigla ?> )</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600"><?=$usuario_logado->nome ?>( <?=$mSetor->getSetorPorId($usuario_logado->setor)->sigla ?> )</span>
                                     <?php
                                     $dir = './ft/';
                                     $imagem = '<i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>';
