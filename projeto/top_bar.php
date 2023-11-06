@@ -30,7 +30,21 @@ $mEquipe = new ManterEquipe();
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600"><?=$usuario_logado->nome ?>( <?=$mEquipe->getSetorPorId($usuario_logado->setor)->sigla ?> )</span>
-                                    <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+                                    <?php
+                                    $dir = './ft/';
+                                    $imagem = '<i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>';
+                                    if (file_exists($dir . $usuario_logado->id . '.png' )) {
+                                        $foto = $dir . $usuario_logado->id . '.png';
+                                        $imagem = '<img class="circulo" src="'.$foto.'" alt="Foto perfil" />';
+                                    } else if (file_exists($dir .$usuario_logado->id . '.jpg' )) {
+                                        $foto = $dir . $usuario_logado->id . '.jpg';
+                                        $imagem = '<img class="circulo" src="'.$foto.'" alt="Foto perfil" />';
+                                    } else if (file_exists($dir .$usuario_logado->id . '.jpeg' )) {
+                                        $foto = $dir . $usuario_logado->id . '.jpeg';
+                                        $imagem = '<img class="circulo" src="'.$foto.'" alt="Foto perfil" />';
+                                    }
+                                    echo $imagem;
+                                    ?>        
                                 </a>
                       
                                 <!-- Dropdown - User Information --> 
