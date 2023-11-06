@@ -37,7 +37,10 @@ $mSetor = new ManterSetor();
                                     if (file_exists($dir .$usuario_logado->id . '.jpg' )) {
                                         $foto = $dir . $usuario_logado->id . '.jpg';
                                         $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';
-                                    }
+                                    } else if (file_exists($dir .$usuario_logado->id . '.jpeg' )) {
+                                        $foto = $dir . $usuario_logado->id . '.jpeg';
+                                        $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';
+                                    } 
                                     echo $imagem;
                                     ?>        
                                 </a>

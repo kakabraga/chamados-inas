@@ -74,7 +74,7 @@ and open the template in the editor.
                             <form method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="id" value="<?= $usuario_logado->id ?>"/>
                                 <label for="conteudo">Selecionar imagem:</label>
-                                <input type="file" name="img_perfil" accept="image/jpg" class="form-control">
+                                <input type="file" name="img_perfil" accept=".jpg,.jpeg" class="form-control">
 
                                 <div align="center">
                                     <button type="submit" class="btn btn-success">Enviar imagem</button>
@@ -92,7 +92,10 @@ and open the template in the editor.
                                 if (file_exists($dir . $usuario_logado->id . '.jpg' )) {
                                     echo "Achou JPG!";
                                     unlink($dir .$usuario_logado->id . '.jpg');
-                                } 
+                                } else if (file_exists($dir . $usuario_logado->id . '.jpeg' )) {
+                                    echo "Achou JPEG!";
+                                    unlink($dir . $usuario_logado->id . '.jpeg');
+                                }
                                 move_uploaded_file($_FILES['img_perfil']['tmp_name'], $dir . $new_name); //Fazer upload do arquivo
                                 echo '<div class="alert alert-success" role="alert" align="center">
           <img src="./ft/' . $new_name . '" class="img img-responsive img-thumbnail" width="200"> 
@@ -104,6 +107,8 @@ and open the template in the editor.
                                 $imagem = '';
                                 if (file_exists($dir .$usuario_logado->id . '.jpg' )) {
                                     $imagem = $dir . $usuario_logado->id . '.jpg';
+                                } else if (file_exists($dir .$usuario_logado->id . '.jpeg' )) {
+                                    $imagem = $dir . $usuario_logado->id . '.jpeg';
                                 }
                                 echo '<div class="alert alert-light" role="alert" align="center">
           <img src="' . $imagem . '" class="img img-responsive img-thumbnail" width="200"> 
