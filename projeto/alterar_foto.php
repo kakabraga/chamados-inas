@@ -89,12 +89,12 @@ and open the template in the editor.
                                 $ext = strtolower(substr($_FILES['img_perfil']['name'], -4)); //Pegando extensão do arquivo
                                 $new_name = $usuario_logado->id . $ext; //Definindo um novo nome para o arquivo
                                 $dir = './ft/'; //Diretório para uploads
-                                if (file_exists($usuario_logado->id . 'png' )) {
-                                    unlink('test.html');
-                                } else if (file_exists($usuario_logado->id . 'jpg' )) {
-                                    unlink($usuario_logado->id . 'jpg');
-                                } else if (file_exists($usuario_logado->id . 'jpeg' )) {
-                                    unlink($usuario_logado->id . 'jpeg');
+                                if (file_exists($dir . $usuario_logado->id . 'png' )) {
+                                    unlink($dir . $usuario_logado->id . 'png');
+                                } else if (file_exists($dir . $usuario_logado->id . 'jpg' )) {
+                                    unlink($dir .$usuario_logado->id . 'jpg');
+                                } else if (file_exists($dir . $usuario_logado->id . 'jpeg' )) {
+                                    unlink($dir . $usuario_logado->id . 'jpeg');
                                 }
                                 move_uploaded_file($_FILES['img_perfil']['tmp_name'], $dir . $new_name); //Fazer upload do arquivo
                                 echo '<div class="alert alert-success" role="alert" align="center">
