@@ -33,15 +33,10 @@ $mSetor = new ManterSetor();
                                     <?php
                                     $dir = './ft/';
                                     $imagem = '<i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>';
-                                    if (file_exists($dir . $usuario_logado->id . '.png' )) {
-                                        $foto = $dir . $usuario_logado->id . '.png';
-                                        $imagem = '<img class="circulo" src="'.$foto.'" alt="Foto perfil" />';
-                                    } else if (file_exists($dir .$usuario_logado->id . '.jpg' )) {
+                                    $style = 'style=" border-radius: 50%; background-color: #ddd; height: 60px; object-fit: cover; width: 60px;"';
+                                    if (file_exists($dir .$usuario_logado->id . '.jpg' )) {
                                         $foto = $dir . $usuario_logado->id . '.jpg';
-                                        $imagem = '<img class="circulo" src="'.$foto.'" alt="Foto perfil" />';
-                                    } else if (file_exists($dir .$usuario_logado->id . '.jpeg' )) {
-                                        $foto = $dir . $usuario_logado->id . '.jpeg';
-                                        $imagem = '<img class="circulo" src="'.$foto.'" alt="Foto perfil" />';
+                                        $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';
                                     }
                                     echo $imagem;
                                     ?>        
