@@ -85,10 +85,17 @@ and open the template in the editor.
 
                             <?php
                             if (isset($_FILES['img_perfil'])) {
-                                $ext = strtolower(substr($_FILES['img_perfil']['name'], -4)); //Pegando extensão do arquivo
-                                $new_name = $id . $ext; //Definindo um novo nome para o arquivo
-                                $dir = './ft/'; //Diretório para uploads
 
+                                $ext = strtolower(substr($_FILES['img_perfil']['name'], -4)); //Pegando extensão do arquivo
+                                $new_name = $usuario_logado->id . $ext; //Definindo um novo nome para o arquivo
+                                $dir = './ft/'; //Diretório para uploads
+                                if (file_exists($usuario_logado->id . 'png' )) {
+                                    unlink('test.html');
+                                } else if (file_exists($usuario_logado->id . 'jpg' )) {
+                                    unlink($usuario_logado->id . 'jpg');
+                                } else if (file_exists($usuario_logado->id . 'jpeg' )) {
+                                    unlink($usuario_logado->id . 'jpeg');
+                                }
                                 move_uploaded_file($_FILES['img_perfil']['tmp_name'], $dir . $new_name); //Fazer upload do arquivo
                                 echo '<div class="alert alert-success" role="alert" align="center">
           <img src="./ft/' . $new_name . '" class="img img-responsive img-thumbnail" width="200"> 
@@ -96,8 +103,17 @@ and open the template in the editor.
           Imagem enviada com sucesso!
           <br></div>';
                             } else {
+                                $dir = './ft/';
+                                $imagem = '';
+                                if (file_exists($dir . $usuario_logado->id . 'png' )) {
+                                    $imagem = $dir . $usuario_logado->id . 'png';
+                                } else if (file_exists($dir .$usuario_logado->id . 'jpg' )) {
+                                    $imagem = $dir . $usuario_logado->id . 'jpg';
+                                } else if (file_exists($dir .$usuario_logado->id . 'jpeg' )) {
+                                    $imagem = $dir . $usuario_logado->id . 'jpeg';
+                                }
                                 echo '<div class="alert alert-light" role="alert" align="center">
-          <img src="./ft/' . $usuario_logado->id . '.png" class="img img-responsive img-thumbnail" width="200"> 
+          <img src="' . $imagem . '" class="img img-responsive img-thumbnail" width="200"> 
           <br>
           Imagem atual!
           <br></div>';
