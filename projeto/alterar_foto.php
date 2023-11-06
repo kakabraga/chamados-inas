@@ -90,10 +90,13 @@ and open the template in the editor.
                                 $new_name = $usuario_logado->id . $ext; //Definindo um novo nome para o arquivo
                                 $dir = './ft/'; //Diretório para uploads
                                 if (file_exists($dir . $usuario_logado->id . 'png' )) {
+                                    echo "Achou PNG!";
                                     unlink($dir . $usuario_logado->id . 'png');
                                 } else if (file_exists($dir . $usuario_logado->id . 'jpg' )) {
+                                    echo "Achou JPG!";
                                     unlink($dir .$usuario_logado->id . 'jpg');
                                 } else if (file_exists($dir . $usuario_logado->id . 'jpeg' )) {
+                                    echo "Achou JPEG!";
                                     unlink($dir . $usuario_logado->id . 'jpeg');
                                 }
                                 move_uploaded_file($_FILES['img_perfil']['tmp_name'], $dir . $new_name); //Fazer upload do arquivo
