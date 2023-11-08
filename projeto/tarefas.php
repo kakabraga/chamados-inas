@@ -85,8 +85,14 @@ $manterEquipe = new ManterEquipe();
 $manterUsuario = new ManterUsuario();
 
 $listaEquipe = $manterEquipe->listar();
+if ($usuario_logado->perfil >= 2) {
+    $filtro = ' WHERE id='.$usuario_logado->equipe;
+    $listaEquipe = $manterEquipe->listar($filtro);
+}
 $listaUsuario = $manterUsuario->listar();
-
+if ($usuario_logado->perfil >= 2) {
+    $listaUsuario = $manterUsuario->getUsuariosPorEquipe($usuario_logado->equipe);
+}
 
 
 foreach ($listaEquipe as $obj) {

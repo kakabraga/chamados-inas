@@ -10,8 +10,8 @@ class ManterEquipe extends Model {
         parent::__construct();
     }
 
-    function listar() {
-        $sql = "select e.id,e.equipe,e.descricao, (select count(*) from usuario as u where u.id_equipe=e.id) as dep FROM equipe as e order by e.id";
+    function listar($filtro = '' ) {
+        $sql = "select e.id,e.equipe,e.descricao, (select count(*) from usuario as u where u.id_equipe=e.id) as dep FROM equipe as e $filtro order by e.id";
         $resultado = $this->db->Execute($sql);
         //print_r($resultado);
         //echo $sql;

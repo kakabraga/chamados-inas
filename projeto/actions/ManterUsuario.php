@@ -143,7 +143,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getUsuariosEquipePorTarefa($id_tarefa) {
-        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,,u.id_setoru.id_perfil FROM usuario as u, tarefa as t WHERE t.id=$id_tarefa AND u.id_equipe=t.id_equipe order by u.nome";
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u, tarefa as t WHERE t.id=$id_tarefa AND u.id_equipe=t.id_equipe order by u.nome";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -166,7 +166,30 @@ class ManterUsuario extends Model {
         }
         return $array_dados;
     }
-
+    function getUsuariosPorEquipe($id_equipe) {
+        $sql = "select u.id,u.nome,u.login,u.senha,u.email,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE u.id_equipe=$id_equipe order by u.nome";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Usuario();
+            $dados->excluir = true;
+            if ($registro["dep"] > 0) {
+                $dados->excluir = false;
+            }
+            $dados->id = $registro["id"];
+            $dados->nome = $registro["nome"];
+            $dados->login = $registro["login"];
+            $dados->senha = $registro["senha"];
+            $dados->email = $registro["email"];
+            $dados->ativo = $registro["ativo"];
+            $dados->equipe = $registro["id_equipe"];
+            $dados->setor = $registro["id_setor"];
+            $dados->perfil = $registro["id_perfil"];
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
     function salvarEditor($id,$tarefa,$op="add"){
         $sql = "insert into editor (id_usuario, id_tarefa) values ('" . $id . "','" . $tarefa . "')";
         //echo $sql . "<BR/>";
