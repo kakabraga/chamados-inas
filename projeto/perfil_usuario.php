@@ -55,7 +55,7 @@ $manterUsuario = new ManterUsuario();
 $id = $_REQUEST['id'];
 $usuario = new Usuario();
 $usuario =  $manterUsuario->getUsuarioPorId($id);
-print_r($usuario);
+//print_r($usuario);
 
 $manterEquipe = new ManterEquipe();
 $manterSetor = new ManterSetor();
@@ -133,8 +133,8 @@ foreach ($listaP as $obj) {
         }
 
         $(document).ready(function () {
-            $('#usuarios').DataTable();
-            $('#id').val(0);
+            //$('#usuarios').DataTable();
+            //$('#id').val(0);
             carregaEquipes(0);
             carregaSetores(0);
             carregaPerfis(0);
