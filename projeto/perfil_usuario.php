@@ -205,6 +205,13 @@ foreach ($listaP as $obj) {
                         </center>
                     </div>
                     <div class="card mb-4 border-primary" id="form_usuario" style="max-width:900px">
+                    <div class="card-body">
+                    <p class="card-text">
+                        <?=$usuario->nome ?><br/>
+                        <?=$usuario->email ?><br/>
+                        <?=$manterSetor->getSetorPorId($usuario->setor) ?><br/>
+                    </p>
+                    </div>
                         <!-- Card Header - Accordion -->
                         <div class="card-header py-2 card-body bg-gradient-primary align-middle" style="min-height: 2.5rem;">               
                             <span class="h6 m-0 font-weight text-white">Cadastro de Usuário</span>
