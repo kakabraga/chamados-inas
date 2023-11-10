@@ -189,10 +189,14 @@ foreach ($listaP as $obj) {
                     <!-- Collapsable Form -->
                     
                     <div class="card mb-4 border-primary" id="form_usuario" style="max-width:900px">
+                    
                     <div class="card-deck">
-                <div class="card" id="foto" style="max-width:900px">
-                    <center>
-                    <?php
+<!-- Page Content-->
+<div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7">
+                <?php
                         $dir = './ft/';
                         $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';
                         $style = 'style=" border-radius: 50%; background-color: #ddd; height: 190px; object-fit: cover; width: 190px;"';
@@ -205,80 +209,52 @@ foreach ($listaP as $obj) {
                         } 
                         echo $imagem;
                         ?>
-                        </center>
-                    </div>
-                    <div  class="card">
-                    <p class="card-text">
-                        <?=$usuario->nome ?><br/>
-                        <?=$usuario->email ?><br/>
+                </div>
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light"><?=$usuario->nome ?></h1>
+                    <p><?=$usuario->email ?><br/>
                         <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                     </p>
-                    </div>
-                    </div>
-                        <!-- Card Header - Accordion -->
-                        <div class="card-header py-2 card-body bg-gradient-primary align-middle" style="min-height: 2.5rem;">               
-                            <span class="h6 m-0 font-weight text-white">Cadastro de Usuário</span>
-                        </div>  
-                        <!-- Card Content - Collapse -->
+                    <a class="btn btn-primary" href="#!">Alterar</a>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Minhas Tarefas</p></div>
+            </div>
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <form id="form_cadastro" action="save_usuario.php" method="post">
-                                <input type="hidden" id="id" name="id"/>
-                                <div class="form-group row">
-                                    <label for="login" class="col-sm-2 col-form-label">Login:</label>
-                                    <div class="col-sm-10 input-group">
-                                        <input type="text" name="login" class="form-control form-control-sm" id="login" placeholder="login da rede" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="nome" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="email" class="col-sm-2 col-form-label">E-mail:</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" name="email" class="form-control form-control-sm" id="email" placeholder="e-mail" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="equipe" class="col-sm-2 col-form-label">Equipe:</label>
-                                    <div class="col-sm-10">
-                                        <select id="equipe" name="equipe" class="form-control form-control-sm" required>
-                                            <option value="">Selecione</option>    
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="form-group row">
-                                    <label for="setor" class="col-sm-2 col-form-label">Setor:</label>
-                                    <div class="col-sm-10">
-                                        <select id="setor" name="setor" class="form-control form-control-sm" required>
-                                            <option value="">Selecione</option>    
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="form-group row">
-                                    <label for="perfil" class="col-sm-2 col-form-label">Perfil:*</label>
-                                    <div class="col-sm-10">
-                                        <?=$manterPerfil->getPerfilPorId($usuario->perfil)->perfil ?>
-                                    </div>
-                                </div> 
-
-                                <div class="form-group row float-right">
-                                    <button type="reset" onclick="$('#btn_cadastrar').show();" data-toggle="collapse" data-target="#form_usuario" class="btn btn-danger btn-sm"><i class="fa fa-minus-square"></i> Cancelar</button>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
-                                    &nbsp;&nbsp;&nbsp;
-                                </div>
-                            </form>                  
+                            <h2 class="card-title">Card One</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
                         </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
-                    <!-- /.container-fluid -->
-
-
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Two</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
-                    <!-- End of Main Content -->
-                </div> 
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Three</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                
                 <?php include './rodape.php'; ?>
 
             </div>
