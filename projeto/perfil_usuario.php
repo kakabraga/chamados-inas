@@ -190,12 +190,11 @@ foreach ($listaP as $obj) {
                     
                     <div class="card mb-4 border-primary" id="form_usuario" style="max-width:900px">
                     
-                    <div class="card-deck">
 <!-- Page Content-->
 <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-7">
+                <div class="col-lg-5">
                 <?php
                         $dir = './ft/';
                         $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';
