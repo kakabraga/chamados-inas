@@ -206,12 +206,12 @@ foreach ($listaP as $obj) {
                                 echo $imagem;
                                 ?>
                         </div>
-                        <div class="col-lg-5">
-                            <h1 class="font-weight-light"><?=$usuario->nome ?></h1>
+                        <div class="col-lg-7">
+                            <strong><h3 class="font-weight-light"><?=$usuario->nome ?></h3></strong>
                             <p><?=$usuario->email ?><br/>
                                 <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                             </p>
-                            <a class="btn btn-primary" href="#!">Alterar</a>
+                            <a class="btn btn-danger" href="#!">Alterar</a>
                         </div>
                     </div>
                     <!-- Call to Action-->
