@@ -187,7 +187,10 @@ foreach ($listaP as $obj) {
                         <!-- Begin Page Content -->
 
                     <!-- Collapsable Form -->
-                    <div class="card" id="foto" style="max-width:900px">
+                    
+                    <div class="card mb-4 border-primary" id="form_usuario" style="max-width:900px">
+                    <div class="card-deck">
+                <div class="card" id="foto" style="max-width:900px">
                     <center>
                     <?php
                         $dir = './ft/';
@@ -204,13 +207,13 @@ foreach ($listaP as $obj) {
                         ?>
                         </center>
                     </div>
-                    <div class="card mb-4 border-primary" id="form_usuario" style="max-width:900px">
-                    <div class="card-body">
+                    <div  class="card">
                     <p class="card-text">
                         <?=$usuario->nome ?><br/>
                         <?=$usuario->email ?><br/>
-                        <?=$manterSetor->getSetorPorId($usuario->setor) ?><br/>
+                        <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                     </p>
+                    </div>
                     </div>
                         <!-- Card Header - Accordion -->
                         <div class="card-header py-2 card-body bg-gradient-primary align-middle" style="min-height: 2.5rem;">               
