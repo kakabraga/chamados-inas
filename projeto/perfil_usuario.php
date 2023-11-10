@@ -233,7 +233,7 @@ foreach ($listaP as $obj) {
                                 <div class="form-group row">
                                     <label for="perfil" class="col-sm-2 col-form-label">Perfil:*</label>
                                     <div class="col-sm-10">
-                                        <?=$usuario->perfil ?>
+                                        <?=$manterPerfil->getPerfilPorId($usuario->perfil) ?>
                                     </div>
                                 </div> 
 
