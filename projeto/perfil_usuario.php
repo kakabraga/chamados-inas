@@ -187,7 +187,8 @@ foreach ($listaP as $obj) {
                         <!-- Begin Page Content -->
 
                     <!-- Collapsable Form -->
-                    <div class="card text-center" id="foto" style="max-width:900px">
+                    <div class="card" id="foto" style="max-width:900px">
+                    <center>
                     <?php
                         $dir = './ft/';
                         $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';
@@ -201,6 +202,7 @@ foreach ($listaP as $obj) {
                         } 
                         echo $imagem;
                         ?>
+                        </center>
                     </div>
                     <div class="card mb-4 border-primary" id="form_usuario" style="max-width:900px">
                         <!-- Card Header - Accordion -->
