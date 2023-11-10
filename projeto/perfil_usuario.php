@@ -55,6 +55,7 @@ $manterUsuario = new ManterUsuario();
 $id = $_REQUEST['id'];
 $usuario = new Usuario();
 $usuario =  $manterUsuario->getUsuarioPorId($id);
+print_r($usuario);
 
 $manterEquipe = new ManterEquipe();
 $manterSetor = new ManterSetor();
@@ -196,7 +197,6 @@ foreach ($listaP as $obj) {
                             <form id="form_cadastro" action="save_usuario.php" method="post">
                                 <input type="hidden" id="id" name="id"/>
                                 <div class="form-group row">
-
                                     <label for="login" class="col-sm-2 col-form-label">Login:</label>
                                     <div class="col-sm-10 input-group">
                                         <input type="text" name="login" class="form-control form-control-sm" id="login" placeholder="login da rede" required>
@@ -214,12 +214,6 @@ foreach ($listaP as $obj) {
                                         <input type="email" name="email" class="form-control form-control-sm" id="email" placeholder="e-mail" required>
                                     </div>
                                 </div>
-                                <!--div class="form-group row">
-                                    <label for="senha" class="col-sm-2 col-form-label">Senha:</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" name="senha" class="form-control form-control-sm" placeholder="senha" id="senha" required>
-                                    </div>
-                                </div-->
                                 <div class="form-group row">
                                     <label for="equipe" class="col-sm-2 col-form-label">Equipe:</label>
                                     <div class="col-sm-10">
@@ -239,7 +233,7 @@ foreach ($listaP as $obj) {
                                 <div class="form-group row">
                                     <label for="perfil" class="col-sm-2 col-form-label">Perfil:*</label>
                                     <div class="col-sm-10">
-                                        <?= $manterPerfil->getPerfilPorId($usuario->perfil) ?>
+                                        <?=$manterPerfil->getPerfilPorId($usuario->perfil) ?>
                                     </div>
                                 </div> 
 
