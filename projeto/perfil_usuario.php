@@ -187,6 +187,21 @@ foreach ($listaP as $obj) {
                         <!-- Begin Page Content -->
 
                     <!-- Collapsable Form -->
+                    <div>
+                    <?php
+                        $dir = './ft/';
+                        $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';
+                        $style = 'style=" border-radius: 50%; background-color: #ddd; height: 150px; object-fit: cover; width: 150px;"';
+                        if (file_exists($dir .$usuario->id . '.jpg' )) {
+                            $foto = $dir . $usuario->id . '.jpg';
+                            $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';
+                        } else if (file_exists($dir .$usuario->id . '.jpeg' )) {
+                            $foto = $dir . $usuario->id . '.jpeg';
+                            $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';
+                        } 
+                        echo $imagem;
+                        ?>
+                    </div>
                     <div class="card mb-4 border-primary" id="form_usuario" style="max-width:900px">
                         <!-- Card Header - Accordion -->
                         <div class="card-header py-2 card-body bg-gradient-primary align-middle" style="min-height: 2.5rem;">               
@@ -233,7 +248,7 @@ foreach ($listaP as $obj) {
                                 <div class="form-group row">
                                     <label for="perfil" class="col-sm-2 col-form-label">Perfil:*</label>
                                     <div class="col-sm-10">
-                                        <?=$manterPerfil->getPerfilPorId($usuario->perfil) ?>
+                                        <?=$manterPerfil->getPerfilPorId($usuario->perfil)->perfil ?>
                                     </div>
                                 </div> 
 
