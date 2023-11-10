@@ -187,11 +187,11 @@ foreach ($listaP as $obj) {
                         <!-- Begin Page Content -->
 
                     <!-- Collapsable Form -->
-                    <div class="card center" id="foto" style="max-width:900px">
+                    <div class="card text-center" id="foto" style="max-width:900px">
                     <?php
                         $dir = './ft/';
                         $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';
-                        $style = 'style=" border-radius: 50%; background-color: #ddd; height: 150px; object-fit: cover; width: 150px;"';
+                        $style = 'style=" border-radius: 50%; background-color: #ddd; height: 190px; object-fit: cover; width: 190px;"';
                         if (file_exists($dir .$usuario->id . '.jpg' )) {
                             $foto = $dir . $usuario->id . '.jpg';
                             $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';
