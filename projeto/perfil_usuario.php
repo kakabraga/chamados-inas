@@ -190,7 +190,7 @@ foreach ($listaP as $obj) {
                     <!-- Page Content-->
                     <div class="container px-4 px-lg-5 border-primary" id="form_usuario" style="max-width:900px">
                     <!-- Heading Row-->
-                    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                    <div class="row gx-4 gx-lg-4 align-items-center my-5">
                         <div class="col-lg-5">
                         <?php
                                 $dir = './ft/';
@@ -249,7 +249,7 @@ foreach ($listaP as $obj) {
                         </div>
                     </div>
                 </div>
-
+            </div>
                 
                 <?php include './rodape.php'; ?>
 
