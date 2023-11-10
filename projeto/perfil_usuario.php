@@ -250,7 +250,7 @@ foreach ($listaP as $obj) {
                     </div>
                 </div>
             </div>
-                
+        </div>    
                 <?php include './rodape.php'; ?>
 
             </div>
