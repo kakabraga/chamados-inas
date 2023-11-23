@@ -29,12 +29,24 @@
                     <input type="email" name="email" class="form-control form-control-sm" id="email" placeholder="e-mail" required>
                 </div>
             </div>
-            <!--div class="form-group row">
-                <label for="senha" class="col-sm-2 col-form-label">Senha:</label>
+            <div class="form-group row">
+                <label for="nascimento" class="col-sm-2 col-form-label">Nascimento:</label>
                 <div class="col-sm-10">
-                    <input type="password" name="senha" class="form-control form-control-sm" placeholder="senha" id="senha" required>
+                    <input type="date" name="nascimento" class="form-control form-control-sm" id="nascimento" required>
                 </div>
-            </div-->
+            </div>
+            <div class="form-group row">
+                <label for="whatsapp" class="col-sm-2 col-form-label">WhatsApp:</label>
+                <div class="col-sm-10">
+                    <input type="date" name="whatsapp" class="form-control form-control-sm" id="whatsapp" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="linkedin" class="col-sm-2 col-form-label">LinkedIn:</label>
+                <div class="col-sm-10">
+                    <input type="date" name="linkedin" class="form-control form-control-sm" id="linkedin" required>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="equipe" class="col-sm-2 col-form-label">Equipe:</label>
                 <div class="col-sm-10">
