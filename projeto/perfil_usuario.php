@@ -195,7 +195,7 @@ foreach ($listaP as $obj) {
                         <?php
                                 $dir = './ft/';
                                 $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';
-                                $style = 'style=" border-radius: 50%; background-color: #ddd; height: 190px; object-fit: cover; width: 190px;"';
+                                $style = 'style=" border-radius: 10%; background-color: #ddd; height: 190px; object-fit: cover; width: 190px;"';
                                 if (file_exists($dir .$usuario->id . '.jpg' )) {
                                     $foto = $dir . $usuario->id . '.jpg';
                                     $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';
@@ -216,7 +216,7 @@ foreach ($listaP as $obj) {
                     </div>
                     <!-- Call to Action-->
                     <div class="card text-white bg-gradient-primary my-5 py-2 text-center">
-                        <div class="card-body"><p class="text-white m-0">Minhas Tarefas</p></div>
+                        <p class="text-white m-0 h4">Minhas Tarefas</p>
                     </div>
                     <!-- Content Row-->
                     <div class="row gx-4 gx-lg-5">
