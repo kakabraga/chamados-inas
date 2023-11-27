@@ -169,6 +169,7 @@ foreach ($listaP as $obj) {
             body{
                 font-size: small;
             }
+            a:link {text-decoration: none;}
         </style>
     </head>
 
