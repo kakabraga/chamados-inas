@@ -1,4 +1,6 @@
 <?php
+
+date_default_timezone_set('America/Sao_Paulo'); 
 require_once('./verifica_login.php');
 ?>  
 <!DOCTYPE html>
@@ -216,7 +218,7 @@ foreach ($listaP as $obj) {
                                 $txt_whatsapp = str_replace( ')', '', $txt_whatsapp);
                                 $txt_whatsapp = str_replace( '-', '', $txt_whatsapp);
 
-                                $txt_aniversario = date('dd/mm', strtotime($usuario->nascimento));
+                                $txt_aniversario = date('d/m/Y', strtotime($usuario->nascimento));
                                 ?>
                                 Aniversário: <b><?=$txt_aniversario ?></b><br/>
                                 <br/>
