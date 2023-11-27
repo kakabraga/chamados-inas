@@ -217,12 +217,12 @@ foreach ($listaP as $obj) {
                                 $txt_whatsapp = str_replace( '-', '', $txt_whatsapp);
                                 ?>
                                 <?=$usuario->email ?><br/>
-                                <a href="mailto:<?=$usuario->email ?>" target="_blank">
+                                <a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank">
                                 <img src="img/email.svg" width="5%"> <?=$usuario->email ?></a><br/>
                                 <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
-                                <img src="img/whatsapp.svg" width="5%"> <?=$usuario->whatsapp ?></a><br/>
+                                <img src="img/whatsapp.svg" width="6%"> <?=$usuario->whatsapp ?></a><br/>
                                 <a href="<?=$usuario->linkedin ?>" target="_blank">
-                                <img src="img/linkedin.svg" width="5%"> <?=$usuario->linkedin ?></a><br/>
+                                <img src="img/linkedin.svg" width="6%"> <?=$usuario->linkedin ?></a><br/>
                                 
                             </p>
                             <a class="btn btn-danger" href="#!">Alterar</a>
