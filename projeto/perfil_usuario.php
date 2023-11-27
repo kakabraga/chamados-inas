@@ -210,8 +210,10 @@ foreach ($listaP as $obj) {
                             <strong><h3 class="font-weight-light"><?=$usuario->nome ?></h3></strong>
                             <p> <?=$usuario->email ?><br/>
                                 <?=$usuario->matricula ?><br/>
-                                <?=$usuario->whatsapp ?><br/>
-                                <?=$usuario->linkedin ?><br/>
+                                <?=$usuario->whatsapp ?> <a href="https://web.whatsapp.com/send?phone=55<?=$usuario->whatsapp ?>" target="_blank">
+		<i class="fa fa-whatsapp"></i></a><br/>
+                                <?=$usuario->linkedin ?> <a href="<?=$usuario->linkedin ?>" target="_blank">
+		<i class="fa fa-linkedin"></i></a><br/>
                                 <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                             </p>
                             <a class="btn btn-danger" href="#!">Alterar</a>
