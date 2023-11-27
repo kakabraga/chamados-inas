@@ -217,9 +217,9 @@ foreach ($listaP as $obj) {
                                 $txt_whatsapp = str_replace( '-', '', $txt_whatsapp);
                                 ?>
                                 <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
-		<i class="fa fa-whatsapp" style="color:green;"></i> <?=$usuario->whatsapp ?></a><br/>
+                                <img src="img/whatsapp.svg" width="100%"> <?=$usuario->whatsapp ?></a><br/>
         <a href="<?=$usuario->linkedin ?>" target="_blank">
-		<i class="fa fa-linkedin"></i> <?=$usuario->linkedin ?></a><br/>
+		<img src="img/linkedin.svg" width="100%"> <?=$usuario->linkedin ?></a><br/>
                                 <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                             </p>
                             <a class="btn btn-danger" href="#!">Alterar</a>
