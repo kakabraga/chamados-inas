@@ -25,7 +25,7 @@ class ManterUsuario extends Model {
             $dados->login = $registro["login"];
             $dados->matricula = $registro["matricula"];
             $dados->email = $registro["email"];
-            $dados->nascimento = $registro["nascimento"];
+            $dados->nascimento = date('Y-m-d', $registro["nascimento"]);
             $dados->whatsapp = $registro["whatsapp"];
             $dados->linkedin = $registro["linkedin"];
             $dados->ativo = $registro["ativo"];
@@ -48,7 +48,7 @@ class ManterUsuario extends Model {
             $dados->login = $registro["login"];
             $dados->matricula = $registro["matricula"];
             $dados->email = $registro["email"];
-            $dados->nascimento = $registro["nascimento"];
+            $dados->nascimento = date('Y-m-d', $registro["nascimento"]);
             $dados->whatsapp = $registro["whatsapp"];
             $dados->linkedin = $registro["linkedin"];
             $dados->ativo = $registro["ativo"];
