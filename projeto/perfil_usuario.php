@@ -210,7 +210,12 @@ foreach ($listaP as $obj) {
                             <strong><h3 class="font-weight-light"><?=$usuario->nome ?></h3></strong>
                             <p> <?=$usuario->email ?><br/>
                                 <?=$usuario->matricula ?><br/>
-                                <?=$usuario->whatsapp ?> <a href="https://web.whatsapp.com/send?phone=55<?=$usuario->whatsapp ?>" target="_blank">
+                                <?php
+                                $txt_whatsapp = str_replace( '(', '', $usuario->whatsapp);
+                                $txt_whatsapp = str_replace( ')', '', $txt_whatsapp);
+                                $txt_whatsapp = str_replace( '-', '', $txt_whatsapp);
+                                ?>
+                                <?=$usuario->whatsapp ?> <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
 		<i class="fa fa-whatsapp"></i></a><br/>
                                 <?=$usuario->linkedin ?> <a href="<?=$usuario->linkedin ?>" target="_blank">
 		<i class="fa fa-linkedin"></i></a><br/>
