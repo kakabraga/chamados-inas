@@ -220,7 +220,7 @@ foreach ($listaP as $obj) {
 
                                 $txt_aniversario = date('d/m', strtotime($usuario->nascimento));
                                 ?>
-                                Aniversário: <b><?=$txt_aniversario ?></b><br/>
+                                <img src="img/aniversario.svg" width="5%"> <b><?=$txt_aniversario ?></b><br/>
                                 <br/>
                                 <a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank">
                                 <img src="img/email.svg" width="5%"> <?=$usuario->email ?></a><br/>
