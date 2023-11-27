@@ -1,6 +1,6 @@
 <?php
 
-
+date_default_timezone_set('America/Sao_Paulo');   
 require_once('./actions/ManterUsuario.php');
 require_once('./dto/Usuario.php');
 
@@ -12,7 +12,7 @@ $usuario->login         = addslashes($_POST['login']);
 $usuario->nome          = addslashes($_POST['nome']);
 $usuario->matricula     = $_POST['matricula'];
 $usuario->email         = $_POST['email'];
-$usuario->nascimento    = $_POST['nascimento'];
+$usuario->nascimento    = isset($_POST['nascimento']) ? strtotime($_POST['nascimento']) : '';
 $usuario->whatsapp      = $_POST['whatsapp'];
 $usuario->linkedin      = $_POST['linkedin'];
 $usuario->equipe        = $_POST['equipe'];
