@@ -209,18 +209,21 @@ foreach ($listaP as $obj) {
                         </div>
                         <div class="col-lg-7">
                             <strong><h3 class="font-weight-light"><?=$usuario->nome ?></h3></strong>
-                            <p> <?=$usuario->email ?><br/>
-                                <?=$usuario->matricula ?><br/>
+                            <p> <?=$usuario->matricula ?><br/>
                                 <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                                 <?php
                                 $txt_whatsapp = str_replace( '(', '', $usuario->whatsapp);
                                 $txt_whatsapp = str_replace( ')', '', $txt_whatsapp);
                                 $txt_whatsapp = str_replace( '-', '', $txt_whatsapp);
                                 ?>
-                                <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
-                                <img src="img/whatsapp.svg" width="100%"> <?=$usuario->whatsapp ?></a><br/>
+                                <?=$usuario->email ?><br/>
+                                <a href="mailto:<?=$usuario->email ?>" target="_blank">
+                                <img src="img/email.svg" width="5%"> <?=$usuario->email ?></a><br/>
         <a href="<?=$usuario->linkedin ?>" target="_blank">
-		<img src="img/linkedin.svg" width="100%"> <?=$usuario->linkedin ?></a><br/>
+                                <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
+                                <img src="img/whatsapp.svg" width="5%"> <?=$usuario->whatsapp ?></a><br/>
+        <a href="<?=$usuario->linkedin ?>" target="_blank">
+		<img src="img/linkedin.svg" width="5%"> <?=$usuario->linkedin ?></a><br/>
                                 
                             </p>
                             <a class="btn btn-danger" href="#!">Alterar</a>
