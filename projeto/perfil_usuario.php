@@ -211,6 +211,7 @@ foreach ($listaP as $obj) {
                             <strong><h3 class="font-weight-light"><?=$usuario->nome ?></h3></strong>
                             <p> <?=$usuario->email ?><br/>
                                 <?=$usuario->matricula ?><br/>
+                                <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                                 <?php
                                 $txt_whatsapp = str_replace( '(', '', $usuario->whatsapp);
                                 $txt_whatsapp = str_replace( ')', '', $txt_whatsapp);
@@ -220,7 +221,7 @@ foreach ($listaP as $obj) {
                                 <img src="img/whatsapp.svg" width="100%"> <?=$usuario->whatsapp ?></a><br/>
         <a href="<?=$usuario->linkedin ?>" target="_blank">
 		<img src="img/linkedin.svg" width="100%"> <?=$usuario->linkedin ?></a><br/>
-                                <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
+                                
                             </p>
                             <a class="btn btn-danger" href="#!">Alterar</a>
                         </div>
