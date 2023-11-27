@@ -215,8 +215,11 @@ foreach ($listaP as $obj) {
                                 $txt_whatsapp = str_replace( '(', '', $usuario->whatsapp);
                                 $txt_whatsapp = str_replace( ')', '', $txt_whatsapp);
                                 $txt_whatsapp = str_replace( '-', '', $txt_whatsapp);
+
+                                $txt_aniversario = date('dd/mm', strtotime($usuario->nascimento));
                                 ?>
-                                <?=$usuario->email ?><br/>
+                                Aniversário: <b><?=$txt_aniversario ?></b><br/>
+                                <br/>
                                 <a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank">
                                 <img src="img/email.svg" width="5%"> <?=$usuario->email ?></a><br/>
                                 <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
