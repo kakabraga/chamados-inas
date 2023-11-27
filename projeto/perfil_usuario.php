@@ -219,11 +219,10 @@ foreach ($listaP as $obj) {
                                 <?=$usuario->email ?><br/>
                                 <a href="mailto:<?=$usuario->email ?>" target="_blank">
                                 <img src="img/email.svg" width="5%"> <?=$usuario->email ?></a><br/>
-        <a href="<?=$usuario->linkedin ?>" target="_blank">
                                 <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
                                 <img src="img/whatsapp.svg" width="5%"> <?=$usuario->whatsapp ?></a><br/>
-        <a href="<?=$usuario->linkedin ?>" target="_blank">
-		<img src="img/linkedin.svg" width="5%"> <?=$usuario->linkedin ?></a><br/>
+                                <a href="<?=$usuario->linkedin ?>" target="_blank">
+                                <img src="img/linkedin.svg" width="5%"> <?=$usuario->linkedin ?></a><br/>
                                 
                             </p>
                             <a class="btn btn-danger" href="#!">Alterar</a>
