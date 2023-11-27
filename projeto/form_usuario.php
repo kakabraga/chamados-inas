@@ -11,10 +11,15 @@
         <form id="form_cadastro" action="save_usuario.php" method="post">
             <input type="hidden" id="id" name="id"/>
             <div class="form-group row">
-
                 <label for="login" class="col-sm-2 col-form-label">Login:</label>
                 <div class="col-sm-10 input-group">
                     <input type="text" name="login" class="form-control form-control-sm" id="login" placeholder="login da rede" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="matricula" class="col-sm-2 col-form-label">Nome:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="matricula" class="form-control form-control-sm" id="matricula" placeholder="matricula" required>
                 </div>
             </div>
             <div class="form-group row">
@@ -38,13 +43,13 @@
             <div class="form-group row">
                 <label for="whatsapp" class="col-sm-2 col-form-label">WhatsApp:</label>
                 <div class="col-sm-10">
-                    <input type="date" name="whatsapp" class="form-control form-control-sm" id="whatsapp" required>
+                    <input type="text" name="whatsapp" class="form-control form-control-sm" id="whatsapp" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="linkedin" class="col-sm-2 col-form-label">LinkedIn:</label>
                 <div class="col-sm-10">
-                    <input type="date" name="linkedin" class="form-control form-control-sm" id="linkedin" required>
+                    <input type="text" name="linkedin" class="form-control form-control-sm" id="linkedin" required>
                 </div>
             </div>
             <div class="form-group row">

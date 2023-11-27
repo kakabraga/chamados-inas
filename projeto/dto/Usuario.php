@@ -3,8 +3,11 @@
 	    public $id;
             public $nome;
             public $login;
-            public $senha;
+            public $matricula;
             public $email;
+            public $nascimento;
+            public $whatsapp;
+            public $linkedin;
             public $equipe;
             public $setor;
             public $perfil;

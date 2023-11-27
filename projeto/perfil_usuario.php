@@ -208,7 +208,10 @@ foreach ($listaP as $obj) {
                         </div>
                         <div class="col-lg-7">
                             <strong><h3 class="font-weight-light"><?=$usuario->nome ?></h3></strong>
-                            <p><?=$usuario->email ?><br/>
+                            <p> <?=$usuario->email ?><br/>
+                                <?=$usuario->matricula ?><br/>
+                                <?=$usuario->whatsapp ?><br/>
+                                <?=$usuario->linkedin ?><br/>
                                 <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
                             </p>
                             <a class="btn btn-danger" href="#!">Alterar</a>
