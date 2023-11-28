@@ -135,12 +135,15 @@ foreach ($listaP as $obj) {
             $('#nome_excluir').text(nome);
             $('#confirm').modal({show: true});
         }
-        function alterar(id, login, nome, senha, email, ativo, id_equipe, id_setor, id_perfil) {
+        function alterar(id, login, nome, matricula, email,nascimento,whatsapp,linkedin, ativo, id_equipe, id_setor, id_perfil) {
             $('#id').val(id);
             $('#login').val(login);
             $('#nome').val(nome);
-            $('#senha').val(senha);
+            $('#matricula').val(matricula);
             $('#email').val(email);
+            $('#nascimento').val(nascimento);
+            $('#whatsapp').val(whatsapp);
+            $('#linkedin').val(linkedin);
             $('#ativo').val(ativo);
             if (ativo == 1) {
                 $('#ativo').prop('checked', true);
@@ -196,7 +199,7 @@ foreach ($listaP as $obj) {
                                     <thead>
                                         <tr>
                                             <th scope="col" style="width:5%;">ID</th>
-                                            <th scope="col" style="width:20%;">LOGIN</th>
+                                            <th scope="col" style="width:20%;">MATRÍCULA</th>
                                             <th scope="col" style="width:35%;">Nome</th>
                                             <th scope="col">Equipe</th>
                                             <th scope="col">Setor</th>
