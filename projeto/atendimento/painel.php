@@ -44,12 +44,12 @@
 		<div class="row">
 			<div class="senhaAtual">
 				<div class="row">
-					<div class="col-xs-5 col-xs-offset-1" style="text-align: center;"><br><br>
+					<div style="text-align: center;"><br><br>
 						<span class="senhaAtualTexto">Maria da Silva &nbsp;</span>
 					</div>
                 </div>
                 <div class="row">
-					<div class="col-xs-5"  style="text-align: center;">
+					<div style="text-align: center;">
 						<span id="senhaAtualNumero">Guichê 02</span>
 					</div>
 					<input type="hidden" id="senhaNormal" value="0000">
@@ -67,7 +67,7 @@
             <div class="col-xs-4 col-xs-offset-4 ultimaSenha">
 				<br>
 				<span id="ultimaSenhaTexto">ÚLTIMA CHAMADA</span><br>
-				<span>Paula Antunes de Almeida </span>
+				<span>Paula Antunes de Almeida </span><br>
 				<span id="ultimaSenhaNumero">Guichê 01</span>
 			</div>
 		</div>
