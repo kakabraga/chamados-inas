@@ -58,16 +58,16 @@
 			</div>
 		</div>
 		<div class="row row gx-4 gx-lg-5">
-        <center><span class="ultimaSenhaTexto"><i class="fa fa-arrow-down" aria-hidden="true"></i> CHAMADAS ANTERIORES<i class="fa fa-arrow-down" aria-hidden="true"> </i></span></center>
-			<div class="col-md-4 mb-5  ultimaSenha">
+        <center><span class="h4"><i class="fa fa-arrow-down" aria-hidden="true"></i> CHAMADAS ANTERIORES<i class="fa fa-arrow-down" aria-hidden="true"> </i></span></center>
+			<div class="col-md-4 mb-5  ultimaSenha"><br/>
 				<span class="ultimaSenhaTexto" id="ultimaSenhaTexto">Manuel Martins Pereira </span><br>
 				<span id="ultimaSenhaNumero">Guichê 03</span>
 			</div>
-            <div class="col-md-4 mb-5  ultimaSenha">
+            <div class="col-md-4 mb-5  ultimaSenha"><br/>
 				<span class="ultimaSenhaTexto"id="ultimaSenhaTexto">Paula Antunes de Almeida </span><br>
 				<span id="ultimaSenhaNumero">Guichê 01</span>
 			</div>
-            <div class="col-md-4 mb-5  ultimaSenha">
+            <div class="col-md-4 mb-5  ultimaSenha"><br/>
 				<span class="ultimaSenhaTexto" id="ultimaSenhaTexto">Manuel Martins Pereira </span><br>
 				<span id="ultimaSenhaNumero">Guichê 03</span>
 			</div>
