@@ -59,14 +59,19 @@
 		</div>
 		<div class="row row gx-4 gx-lg-5">
 			<div class="col-md-4 mb-5  ultimaSenha">
-				<span id="ultimaSenhaTexto">ÚLTIMA CHAMADA</span><br>
-				<span class="ultimaSenhaTexto">Manuel Martins Pereira </span><br>
+				<span class="ultimaSenhaTitulo">ÚLTIMA CHAMADA</span><br>
+				<span id="ultimaSenhaTexto">Manuel Martins Pereira </span><br>
 				<span id="ultimaSenhaNumero">Guichê 03</span>
 			</div>
             <div class="col-md-4 mb-5  ultimaSenha">
-				<span id="ultimaSenhaTitulo">ÚLTIMA CHAMADA</span><br>
-				<span class="ultimaSenhaTexto">Paula Antunes de Almeida </span><br>
+				<span class="ultimaSenhaTitulo">PENÚLTIMA CHAMADA</span><br>
+				<span id="ultimaSenhaTexto">Paula Antunes de Almeida </span><br>
 				<span id="ultimaSenhaNumero">Guichê 01</span>
+			</div>
+            <div class="col-md-4 mb-5  ultimaSenha">
+				<span class="ultimaSenhaTitulo">ANTEPENÚLTIMA CHAMADA</span><br>
+				<span id="ultimaSenhaTexto">Manuel Martins Pereira </span><br>
+				<span id="ultimaSenhaNumero">Guichê 03</span>
 			</div>
 		</div>
 	</div>
