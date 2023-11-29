@@ -45,7 +45,7 @@
 			<div class="senhaAtual">
 				<div class="row">
 					<div style="text-align: center;"><br><br>
-						<span class="senhaAtualTexto">Joaquim José ds Silva Xavier de Alencar</span>
+						<span class="senhaAtualTexto">Joaquim José da Silva Xavier</span>
 					</div>
                 </div>
                 <div class="row">
