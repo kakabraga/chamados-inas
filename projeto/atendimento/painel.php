@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="row row gx-4 gx-lg-5">
-        <center><span class="ultimaSenhaTitulo">CHAMADAS ANTERIORES</span></center>
+        <center><span class="ultimaSenhaTitulo"><i class="fa fa-arrow-down" aria-hidden="true"></i>CHAMADAS ANTERIORES<i class="fa fa-arrow-down" aria-hidden="true"></i></span></center>
 			<div class="col-md-4 mb-5  ultimaSenha">
 				<span class="ultimaSenhaTexto" id="ultimaSenhaTexto">Manuel Martins Pereira </span><br>
 				<span id="ultimaSenhaNumero">Guichê 03</span>
