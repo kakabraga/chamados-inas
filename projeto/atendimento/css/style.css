@@ -12,12 +12,12 @@
 }
 
 .senhaAtualTexto{
-	font-size: 60pt;
+	font-size: 50pt;
     font-weight: 570;
 }
 
 #senhaAtualNumero{
-	font-size: 100pt;
+	font-size: 90pt;
 	font-weight: 800;
 	color: limegreen;
 }
