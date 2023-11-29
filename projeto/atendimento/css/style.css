@@ -1,5 +1,5 @@
 .barraSuperior{
-	height: 200px;
+	height: 165px;
 	margin-top: 10px;
 }
 
@@ -8,10 +8,11 @@
 	background-color: #003a5f;
 	color: white;
 	margin-top: 0px;
+	min-height: 410px;
 }
 
 .senhaAtualTexto{
-	font-size: 85pt;
+	font-size: 70pt;
     font-weight: 570;
 }
 
