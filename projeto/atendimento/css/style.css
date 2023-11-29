@@ -29,13 +29,17 @@
 	margin-top: 20px;
 }
 
-#ultimaSenhaTexto{
+#ultimaSenhaTitulo{
 	font-size: 20px;
 	color: #a50;
 }
 
 #ultimaSenhaNumero{
-	font-size: 40px;
+	font-size: 35px;
+	color: black;
+}
+.ultimaSenhaTexto{
+	font-size: 35px;
 	color: black;
 }
 
