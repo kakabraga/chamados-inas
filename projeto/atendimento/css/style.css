@@ -31,15 +31,15 @@
 
 #ultimaSenhaTitulo{
 	font-size: 20px;
-	color: #a50;
+	color: rgb(82, 79, 79)
 }
 
 #ultimaSenhaNumero{
-	font-size: 35px;
+	font-size: 30px;
 	color: black;
 }
 .ultimaSenhaTexto{
-	font-size: 35px;
+	font-size: 30px;
 	color: black;
 }
 
