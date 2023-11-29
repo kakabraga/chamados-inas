@@ -44,10 +44,12 @@
 		<div class="row">
 			<div class="senhaAtual">
 				<div class="row">
-					<div class="col-xs-5 col-xs-offset-1" style="text-align: right;"><br><br>
+					<div class="col-xs-5 col-xs-offset-1" style="text-align: center;"><br><br>
 						<span class="senhaAtualTexto">Maria da Silva &nbsp;</span>
 					</div>
-					<div class="col-xs-5"  style="text-align: left;">
+                </div>
+                <div class="row">
+					<div class="col-xs-5"  style="text-align: center;">
 						<span id="senhaAtualNumero">Guichê 02</span>
 					</div>
 					<input type="hidden" id="senhaNormal" value="0000">
