@@ -34,7 +34,7 @@
 	<div class="container page">
 		<div class="row barraSuperior">
 			<div class="col-xs-1">
-				<img src="imagens/logogdfsaude.png" class="uespiLogo">
+				<img src="imagens/logogdfsaude.png" class="logo">
 			</div>
 			<div class="col-xs-11" style="text-align: right;"><p></p>
 				<span class="uespiTexto">Atendimento GDF Saúde</span><br>

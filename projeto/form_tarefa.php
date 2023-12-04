@@ -41,7 +41,7 @@
                 <div class="form-group row">
                     <div class="col input-group">
                         <label for="equipe" class="col-sm-4 col-form-label">Equipe:</label>
-                        <select id="equipe" name="equipe" class="form-control form-control-sm" onChange="atualizaUsuarios(this.options[this.selectedIndex].value)" required>
+                        <select id="equipe" name="equipe" class="form-control form-control-sm" onChange="atualizaUsuarios(this.options[this.selectedIndex].value)">
                             <option value="0"> Todos </option>    
                         </select>
                     </div>
@@ -49,7 +49,7 @@
                 <div class="form-group row">
                     <div class="col input-group">
                         <label for="responsavel" class="col-sm-4 col-form-label">Responsável:</label>
-                        <select id="responsavel" name="responsavel" class="form-control form-control-sm" required>
+                        <select id="responsavel" name="responsavel" class="form-control form-control-sm">
                             <option value="">Selecione</option>    
                         </select>
                     </div>

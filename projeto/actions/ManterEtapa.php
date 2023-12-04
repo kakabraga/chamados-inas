@@ -53,7 +53,9 @@ class ManterEtapa extends Model {
     }
 
     function salvar(Etapa $dados) {
-        $dados->nome = $dados->nome;
+        if($dados->data_base == ''){
+            $dados->data_base = 0;
+         }
         $sql = "insert into etapa (nome, ordem, data_base, id_tarefa) values ('" . $dados->nome . "','" . $dados->ordem . "','" . $dados->data_base . "','" . $dados->tarefa . "')";
         //echo $sql . "<BR/>";
         if ($dados->id > 0) {

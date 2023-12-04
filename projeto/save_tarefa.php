@@ -20,6 +20,10 @@ $responsavel    = isset($_POST['responsavel']) ? $_POST['responsavel'] : 0;
 $equipe         = isset($_POST['equipe']) ? $_POST['equipe'] : 0;
 $duplicar       = isset($_POST['duplicar']) ? $_POST['duplicar'] : 0;
 
+if($responsavel==''){
+    $responsavel = 0;
+}
+
 $tarefa->id                  = $id;
 $tarefa->nome                = $nome;
 $tarefa->descricao           = $descricao;

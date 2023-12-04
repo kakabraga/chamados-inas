@@ -15,6 +15,7 @@
 
             //variaveis de manipulação
             public $excluir;
+            public $senha;
             public $status = true;
             public $msg;
 		

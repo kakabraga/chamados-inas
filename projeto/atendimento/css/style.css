@@ -49,15 +49,12 @@
 	color: black;
 }
 
-.uespiLogo{
+.logo{
 	max-width: 250px;
 }
 
-.sisuLogo{
-	max-width: 400px;
-}
 
-.uespiTexto{
+.barraTexto{
 	font-size: 27pt;
 	font-weight: 800;
 	color: #003a5f;
