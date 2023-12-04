@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors',1);
-ini_set('display_startup_erros',1);
-error_reporting(E_ALL);
 
 require_once('./verifica_login.php');
 ?> 
@@ -45,16 +42,14 @@ and open the template in the editor.
 include_once('./actions/ManterUsuario.php');
 $manterUsuario = new ManterUsuario();
 
-$listaU = $manterEquipe->getUsuariosPorEquipe(14);
+$listaU = $manterUsuario->getUsuariosPorEquipe(14);
 
 foreach ($listaU as $obj) {
     ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
         usuarios.push(item);
     <?php
 }
-
 ?>         
-
             $(document).ready(function () {
                 $('#guichees').DataTable();
                 carregaPerfis(0);
@@ -89,7 +84,7 @@ foreach ($listaU as $obj) {
                 }
                 html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
             }
-            $('#guiche').html(html);
+            $('#atendente').html(html);
         }
 
         </script>
