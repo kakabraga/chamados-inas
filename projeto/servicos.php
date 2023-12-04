@@ -96,7 +96,7 @@ and open the template in the editor.
                             </div>                            
 
                             <div class="card-body">
-                                <table id="servicoes" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="servicos" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
