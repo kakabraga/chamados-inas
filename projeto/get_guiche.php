@@ -11,7 +11,7 @@
             echo "<tr>";
             echo "  <td>".$obj->id."</td>";
             echo "  <td>".$obj->numero."</td>";
-            echo "  <td>".$manterUsuario->getSetorPorId($obj->id_usuario)->nome."</td>";
+            echo "  <td>".$manterUsuario->getUsuarioPorId($obj->usuario)->nome."</td>";
             if($obj->excluir){
                 echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(".$obj->id.",\"".$obj->numero."\",\"".$obj->id_usuario."\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$obj->id.",\"".$obj->numero."\")'><i class='far fa-trash-alt'></i></button></td>";
             } else {
