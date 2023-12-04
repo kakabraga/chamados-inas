@@ -28,7 +28,7 @@ class ManterServico extends Model {
         return $array_dados;
     }
     function getSetorPorId($id) {
-        $sql = "select s.id,s.nome, FROM servico as s WHERE id=$id";
+        $sql = "select s.id,s.nome FROM servico as s WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Setor();
