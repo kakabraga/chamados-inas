@@ -1,7 +1,6 @@
 <?php
 
 require_once('Model.php');
-//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/samj/dto/Setor.php');
 require_once('dto/Servico.php');
 
 class ManterServico extends Model {
@@ -16,7 +15,7 @@ class ManterServico extends Model {
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
-            $dados = new Setor();
+            $dados = new Servico();
             $dados->excluir = true;
             if ($registro["dep"] > 0) {
                 $dados->excluir = false;
@@ -27,18 +26,18 @@ class ManterServico extends Model {
         }
         return $array_dados;
     }
-    function getSetorPorId($id) {
+    function getServicoPorId($id) {
         $sql = "select s.id,s.nome FROM servico as s WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
-        $dados = new Setor();
+        $dados = new Servico();
         while ($registro = $resultado->fetchRow()) {
             $dados->id          = $registro["id"];
             $dados->nome       = $registro["nome"];
         }
         return $dados;
     }
-    function salvar(Setor $dados) {
+    function salvar(Servico $dados) {
         $sql = "insert into servico (nome) values ('" . $dados->nome . "')";
         if ($dados->id > 0) {
             $sql = "update servico set nome='" . $dados->nome . "' where id=$dados->id";
