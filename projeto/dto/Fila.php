@@ -8,6 +8,7 @@
       public $atendido;
       public $servico;
       public $chamar;
+      public $ultima_chamada;
 
       //variaveis de manipulação
       public $excluir;

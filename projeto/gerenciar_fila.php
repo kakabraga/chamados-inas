@@ -16,7 +16,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Chamados - INAS</title>
+        <title>Fila de atendimento - GDF Saúde</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,43 +37,43 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
-            var usuarios = [];
+            var servicos = [];
 <?php
-include_once('./actions/ManterUsuario.php');
-$manterUsuario = new ManterUsuario();
+include_once('./actions/ManterServico.php');
+$manterServico = new ManterServico();
 
-$listaU = $manterUsuario->getUsuariosPorEquipe(14);
+$listaU = $manterServico->listar();
 
 foreach ($listaU as $obj) {
     ?>item = {id: "<?= $obj->id ?>", nome: "<?= strupper($obj->nome) ?>"};
-        usuarios.push(item);
+        servicos.push(item);
     <?php
 }
 ?>         
             $(document).ready(function () {
-                $('#guichees').DataTable();
-                carregaPerfis(0);
+                $('#fila').DataTable();
+                carregaServicos(0);
             });
             function excluir(id, nome) {
-                $('#delete').attr('href', 'del_guiche.php?id=' + id);
+                $('#delete').attr('href', 'del_fila.php?id=' + id);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
-            function alterar(id, numero, id_usuario) {
+            function alterar(id, nome, id_servico) {
                 $('#id').val(id);
-                $('#numero').val(numero);
-                $('#form_guiche').collapse("show");
+                $('#nome').val(nome);
+                $('#form_fila').collapse("show");
                 $('#btn_cadastrar').hide();
-                carregaPerfis(id_usuario);
+                carregaServicos(id_servico);
             }
 
             function selectByText(select, text) {
                 $(select).find('option:contains("' + text + '")').prop('selected', true);
             }
-            function carregaUsuarios(id_atual) {
+            function carregaServicos(id_atual) {
             var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < usuarios.length; i++) {
-                var option = usuarios[i];
+            for (var i = 0; i < servicos.length; i++) {
+                var option = servicos[i];
                 var selected = "";
                 if (id_atual > 0) {
                     if (option.id == id_atual) {
@@ -84,7 +84,7 @@ foreach ($listaU as $obj) {
                 }
                 html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
             }
-            $('#atendente').html(html);
+            $('#servico').html(html);
         }
 
         </script>
@@ -107,7 +107,7 @@ foreach ($listaU as $obj) {
                     <?php include './top_bar.php'; ?>
 
                     <div class="container-fluid">
-                        <?php include './form_guiche.php'; ?>
+                        <?php include './form_fila.php'; ?>
                         <!-- Project Card Example -->
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
@@ -118,14 +118,14 @@ foreach ($listaU as $obj) {
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Guichês</span>
                                 </div>
                                 <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_guiche" aria-expanded="false" aria-controls="form_guiche">
+                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_fila" aria-expanded="false" aria-controls="form_fila">
                                         <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>                            
 
                             <div class="card-body">
-                                <table id="guichees" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="filaes" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
@@ -135,7 +135,7 @@ foreach ($listaU as $obj) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php include './get_guiche.php'; ?>
+                                        <?php include './get_fila.php'; ?>
                                     </tbody>
                                 </table>
                             </div>
