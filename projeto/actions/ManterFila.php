@@ -38,7 +38,7 @@ class ManterFila extends Model {
     function getFila() {
         $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada 
         FROM fila as f 
-        WHERE f.atendido = NULL AND order by DESC f.preferencial, ASC f.id ";
+        WHERE f.atendido = NULL AND order by DESC f.preferencial, DESC f.id ";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();

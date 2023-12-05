@@ -42,16 +42,16 @@ and open the template in the editor.
 include_once('./actions/ManterServico.php');
 $manterServico = new ManterServico();
 
-$listaU = $manterServico->listar();
+$listaS = $manterServico->listar();
 
-foreach ($listaU as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", nome: "<?= strupper($obj->nome) ?>"};
+foreach ($listaS as $obj) {
+    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
         servicos.push(item);
     <?php
 }
 ?>         
             $(document).ready(function () {
-                $('#fila').DataTable();
+                //$('#fila').DataTable();
                 carregaServicos(0);
             });
             function excluir(id, nome) {
@@ -115,12 +115,7 @@ foreach ($listaU as $obj) {
                                     <i class="fas fa-users fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Guichês</span>
-                                </div>
-                                <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_fila" aria-expanded="false" aria-controls="form_fila">
-                                        <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
-                                    </button>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Fila</span>
                                 </div>
                             </div>                            
 
@@ -128,10 +123,10 @@ foreach ($listaU as $obj) {
                                 <table id="filaes" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Numero</th>
-                                            <th scope="col">Atendente</th>
-                                            <th scope="col" style="width:30px;">Opções</th>
+                                            <th scope="col">Ordem</th>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Preferencial</th>
+                                            <th scope="col">Chamado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
