@@ -24,9 +24,16 @@
                     </select>
                 </div>
             </div>
-
+            <div class="form-group row">
+                <div class="col-sm-10">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" value="1" name="preferencial" role="switch" id="preferencial">
+                    <label class="form-check-label" for="preferencial">Preferencial</label>
+                </div>
+                </div>
+            </div>
             <div class="form-group row float-right">
-                <button type="reset" data-toggle="collapse" data-target="#form_fila" class="btn btn-danger btn-sm"><i class="fa fa-minus-square"></i> Cancelar</button>
+                <button type="reset" data-target="#form_fila" class="btn btn-danger btn-sm"><i class="fa fa-minus-square"></i> Cancelar</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
                 &nbsp;&nbsp;&nbsp;
