@@ -11,7 +11,8 @@ class ManterFila extends Model {
     }
 
     function listar() {
-        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, (select count(*) from atendimento as a where a.id_fila=f.id) as dep FROM fila as f order by f.id";
+        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
+        f.ultima_chamada, (select count(*) from atendimento as a where a.id_fila=f.id) as dep FROM fila as f order by f.id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -44,10 +45,6 @@ class ManterFila extends Model {
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
             $dados = new Fila();
-            $dados->excluir = true;
-            if ($registro["dep"] > 0) {
-                $dados->excluir = false;
-            }
             $dados->id              = $registro["id"];
             $dados->numero          = $registro["nome"];
             $dados->preferencial    = $registro["preferencial"];
@@ -62,7 +59,8 @@ class ManterFila extends Model {
         return $array_dados;
     }
     function getFilaPorId($id) {
-        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, FROM fila as f WHERE id=$id";
+        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
+        f.ultima_chamada, FROM fila as f WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Fila();

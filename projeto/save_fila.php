@@ -2,7 +2,8 @@
 
 require_once('./actions/ManterFila.php');
 require_once('./dto/Fila.php');
-
+echo "Vixe";
+exit;
 $db_fila = new ManterFila();
 $f = new Fila();
 
@@ -16,7 +17,7 @@ $f->nome = $nome;
 $f->servico = $id_servico;
 $f->preferencial = $preferencial;
 print_r($f);
-exit;
+
 $db_fila->salvar($f);
 header('Location: filas.php');
 
