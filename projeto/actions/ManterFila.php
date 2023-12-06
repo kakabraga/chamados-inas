@@ -28,7 +28,7 @@ class ManterFila extends Model {
             $dados->entrada         = $registro["entrada"];
             $dados->qtd_chamadas    = $registro["qtd_chamadas"];
             $dados->atendido        = $registro["atendido"];
-            $dados->id_servico      = $registro["id_servico"];
+            $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
             $array_dados[]      = $dados;
@@ -37,9 +37,9 @@ class ManterFila extends Model {
     }
 
     function getFila() {
-        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada 
+        $sql = "SELECT f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada 
         FROM fila as f 
-        WHERE f.atendido is NULL order by  f.preferencial DESC,  f.id DESC";
+        WHERE f.atendido is NULL order by  f.preferencial DESC,  f.entrada";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -51,7 +51,7 @@ class ManterFila extends Model {
             $dados->entrada         = $registro["entrada"];
             $dados->qtd_chamadas    = $registro["qtd_chamadas"];
             $dados->atendido        = $registro["atendido"];
-            $dados->id_servico      = $registro["id_servico"];
+            $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
             $array_dados[]          = $dados;
@@ -71,7 +71,7 @@ class ManterFila extends Model {
             $dados->entrada         = $registro["entrada"];
             $dados->qtd_chamadas    = $registro["qtd_chamadas"];
             $dados->atendido        = $registro["atendido"];
-            $dados->id_servico      = $registro["id_servico"];
+            $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
         }

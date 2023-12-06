@@ -1,11 +1,11 @@
 <?php
 	include_once('actions/ManterAtendimento.php'); 
-    include_once('actions/ManterGuiche.php');
+    include_once('actions/ManterServico.php');
     include_once('actions/ManterFila.php');
 	
 	$manterAtendimento = new ManterAtendimento();
     $manterFila = new ManterFila();
-    $manterGuiche = new ManterGuiche();
+    $manterServico = new ManterServico();
 	
 	$lista = $manterFila->getFila();
         $count = 0;
@@ -20,8 +20,9 @@
                 $txt_chamado = "  Guichê ".$manterAtendimento->getGuichePorFila($obj->id)->numero;
             }
             echo "<tr>";
-            echo "  <td>".$count."&ord;</td>";
+            echo "  <td>".$count."<sup>o</sup></td>";
             echo "  <td>".$obj->nome."</td>";
+            echo "  <td>".$manterAtendimento->getServicoPorId($obj->servico)->nome."</td>";
             echo "  <td>".$txt_preferencial."</td>";
             echo "  <td>".$txt_chamado."</td>";
             echo "</tr>";
