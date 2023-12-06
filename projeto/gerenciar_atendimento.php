@@ -117,7 +117,7 @@ foreach ($listaS as $obj) {
     <!-- Collapsable Form -->
     <div class="card mb-4" id="atendente" style="max-width:900px">              
         <!-- Card Content - Collapse -->
-        <div class="card-body card-deck">
+        <div class="card-body card-deck d-flex justify-content-center">
             <center>
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header h4"><center>Atendente</center></div>
@@ -128,7 +128,7 @@ foreach ($listaS as $obj) {
             <div class="card bg-info mb-3 text-white" style="max-width: 18rem;">
                 <div class="card-header h4"><center>Guichê</center></div>
                 <div class="card-body">
-                    <center><h1 class="card-title"><?=$guiche->numero ?></h2></center>
+                    <center><spam class="card-title" style="text-size:40px;"><?=$guiche->numero ?></spam></center>
                 </div>
             </div> 
             </center>          
