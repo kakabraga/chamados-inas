@@ -1,5 +1,5 @@
 <?php
-  class Atendimento{
+  class Fila{
 	    public $id;
       public $nome;
       public $preferencial;
