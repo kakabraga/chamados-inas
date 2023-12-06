@@ -121,17 +121,17 @@ foreach ($listaS as $obj) {
             <span class="h6 m-0 font-weight text-white">Atendente</span>
         </div>                  
         <!-- Card Content - Collapse -->
-        <div class="card-body">
+        <div class="card-body card-deck">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Nome</div>
+                <div class="card-header h4">Nome</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?=$usuario_logado->nome ?></h5>
+                <center><h5 class="card-title"><?=$usuario_logado->nome ?></h5></center>
                 </div>
             </div>
-            <div class="card bg-gradient-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Guichê</div>
+            <div class="card bg-gradient-primary mb-3 text-white" style="max-width: 18rem;">
+                <div class="card-header h4">Guichê</div>
                 <div class="card-body">
-                    <h2 class="card-title"><?=$guiche->numero ?></h2>
+                    <center><h1 class="card-title"><?=$guiche->numero ?></h2></center>
                 </div>
             </div>           
         </div>
