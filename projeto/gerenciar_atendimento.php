@@ -112,26 +112,25 @@ foreach ($listaS as $obj) {
     include_once('./actions/ManterGuiche.php');
     $manterGuiche = new ManterGuiche();
     $guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);
+    $atender = false;
     if(isset($guiche->id)){  
 ?>
     <!-- Collapsable Form -->
     <div class="card mb-4" id="atendente" style="max-width:900px">              
         <!-- Card Content - Collapse -->
-        <div class="card-body card-deck d-flex justify-content-center">
-            <center>
+        <div class="card-body card-deck d-flex justify-content-center" style="mim-width:200px">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header h4"><center>Atendente</center></div>
-                <div class="card-body">
+                <div class="card-body"><br/>
                 <center><h3 class="card-title"><?=$usuario_logado->nome ?></h3></center>
                 </div>
             </div>
             <div class="card bg-info mb-3 text-white" style="max-width: 18rem;">
                 <div class="card-header h4"><center>Guichê</center></div>
                 <div class="card-body">
-                    <center><spam class="card-title" style="text-size:40px;"><?=$guiche->numero ?></spam></center>
+                    <center><spam class="card-title" style="font-size:70px;"><b><?=$guiche->numero ?></b></spam></center>
                 </div>
-            </div> 
-            </center>          
+            </div>          
         </div>
     </div>
     <!-- /.container-fluid -->
@@ -159,10 +158,17 @@ foreach ($listaS as $obj) {
                                             <th scope="col">Serviço</th>
                                             <th scope="col">Preferencial</th>
                                             <th scope="col">Chamado</th>
+                                            <?php
+                                            if($atender){
+                                            ?>
+                                            <th scope="col">Atender</th>
+                                            <?php
+                                            }?>
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php include './get_fila.php'; ?>
+                                        <?php include './get_fila_atendimento.php'; ?>
                                     </tbody>
                                 </table>
                             </div>
