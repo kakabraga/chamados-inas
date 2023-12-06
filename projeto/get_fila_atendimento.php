@@ -13,7 +13,7 @@
             $count++;
             $txt_preferencial = "<center> - </center>";
             if($obj->preferencial== 1){
-                $txt_preferencial = "<center><img src='img/check.svg' width='5%'></center>";
+                $txt_preferencial = "<center><img src='img/check.svg' width='18%'></center>";
             }
             $txt_chamado = "<center> - </center>";
             if($obj->ultima_chamada!= null){
@@ -26,7 +26,16 @@
             echo "  <td>".$txt_preferencial."</td>";
             echo "  <td>".$txt_chamado."</td>";
             if($atender){
-              echo "  <td>chamar</td>";
+                echo "  <td>chamar</td>";
+                if(isset($obj->guiche_chamador)){
+                    if($obj->guiche_chamador == $guiche->id) {
+                        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='chamar(".$obj->id.",".$guiche->id.")'>Chamar +</button>&nbsp;&nbsp;<button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
+                    } else {
+                        echo "  <td align='center'> - </td>";
+                    }                    
+                } else {
+                    echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='chamar(".$obj->id.",".$obj->perfil.")'>Chamar</button></td>";                
+                }
             }
             echo "</tr>";
         }
