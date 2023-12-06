@@ -122,12 +122,18 @@ foreach ($listaS as $obj) {
         </div>                  
         <!-- Card Content - Collapse -->
         <div class="card-body">
-            <div class="row">
-                Nome:<spam><?=$usuario_logado->nome ?></spam>
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">Nome</div>
+                <div class="card-body">
+                    <h5 class="card-title"><?=$usuario_logado->nome ?></h5>
+                </div>
             </div>
-            <div class="row">
-                Guichê:<spam><?=$guiche->numero ?></spam>
-            </div>            
+            <div class="card bg-gradient-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Guichê</div>
+                <div class="card-body">
+                    <h2 class="card-title"><?=$guiche->numero ?></h2>
+                </div>
+            </div>           
         </div>
     </div>
     <!-- /.container-fluid -->
