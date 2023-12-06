@@ -36,53 +36,31 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-        <script type="text/javascript" class="init">
-            var servicos = [];
-<?php
-include_once('./actions/ManterServico.php');
-$manterServico = new ManterServico();
-
-$listaS = $manterServico->listar();
-
-foreach ($listaS as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
-        servicos.push(item);
-    <?php
-}
-?>         
+        <script type="text/javascript" class="init">       
             $(document).ready(function () {
-                //$('#fila').DataTable();
-                carregaServicos(0);
+                //....
             });
-            function excluir(id, nome) {
-                $('#delete').attr('href', 'del_fila.php?id=' + id);
-                $('#nome_excluir').text(nome);
-                $('#confirm').modal({show: true});              
-            }
-            function alterar(id, nome, id_servico) {
+            function chamar(id, id_guiche) {
                 $('#id').val(id);
                 $('#nome').val(nome);
                 $('#form_fila').collapse("show");
                 $('#btn_cadastrar').hide();
                 carregaServicos(id_servico);
             }
-
+            function atender(id, id_guiche) {
+                $('#id').val(id);
+                $('#nome').val(nome);
+                $('#form_fila').collapse("show");
+                $('#btn_cadastrar').hide();
+                carregaServicos(id_servico);
+            }
             function selectByText(select, text) {
                 $(select).find('option:contains("' + text + '")').prop('selected', true);
             }
-            function carregaServicos(id_atual) {
+            function verificaFila() {
             var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < servicos.length; i++) {
-                var option = servicos[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
+            if (1+1) {
+
             }
             $('#servico').html(html);
         }
@@ -188,29 +166,5 @@ foreach ($listaS as $obj) {
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-        <!-- Modal excluir -->
-        <div class="modal fade" id="confirm" role="dialog">
-            <div class="modal-dialog modal-sm">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Confirmação</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Deseja excluir <strong>"<span id="nome_excluir"></span>"</strong>?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" type="button" class="btn btn-danger" id="delete">Excluir</a>
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
     </body>
-
 </html>
