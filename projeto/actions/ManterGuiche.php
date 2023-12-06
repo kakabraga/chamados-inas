@@ -40,6 +40,18 @@ class ManterGuiche extends Model {
         }
         return $dados;
     }
+    function getGuichePorUsuario($id_usuario) {
+        $sql = "select g.id,g.numero,g.id_usuario FROM guiche as g WHERE id_usuario=$id_usuario";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $dados = new Guiche();
+        while ($registro = $resultado->fetchRow()) {
+            $dados->id          = $registro["id"];
+            $dados->numero       = $registro["numero"];
+            $dados->usuario   = $registro["id_usuario"];
+        }
+        return $dados;
+    }
     function salvar(Guiche $dados) {
         $sql = "insert into guiche (numero,id_usuario) values ('" . $dados->numero . "','" . $dados->usuario . "')";
         if ($dados->id > 0) {
