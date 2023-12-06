@@ -46,7 +46,7 @@ class ManterFila extends Model {
         while ($registro = $resultado->fetchRow()) {
             $dados = new Fila();
             $dados->id              = $registro["id"];
-            $dados->numero          = $registro["nome"];
+            $dados->nome            = $registro["nome"];
             $dados->preferencial    = $registro["preferencial"];
             $dados->entrada         = $registro["entrada"];
             $dados->qtd_chamadas    = $registro["qtd_chamadas"];
@@ -79,9 +79,9 @@ class ManterFila extends Model {
     }
     function salvar(Fila $dados) {
         $sql = "insert into fila (nome, preferencial, entrada, qtd_chamadas, atendido, id_servico, chamar, ultima_chamada) 
-        values ('" . $dados->nome . "','" . $dados->preferencial . "',now(),0,NULL,'" . $dados->id_servico . "',0,NULL)";
+        values ('" . $dados->nome . "','" . $dados->preferencial . "',now(),0,NULL,'" . $dados->servico . "',0,NULL)";
         if ($dados->id > 0) {
-            $sql = "update fila set nome='" . $dados->nome . "',preferencial='" . $dados->preferencial . "',id_servico='" . $dados->id_servico . "' where id=$dados->id";
+            $sql = "update fila set nome='" . $dados->nome . "',preferencial='" . $dados->preferencial . "',id_servico='" . $dados->servico . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         } else {
             $resultado = $this->db->Execute($sql);

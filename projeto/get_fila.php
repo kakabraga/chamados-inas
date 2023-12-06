@@ -17,13 +17,13 @@
             }
             $txt_chamado = " - ";
             if($obj->ultima_chamada!= null){
-                $txt_chamado = "<b>Sim</b>";
+                $txt_chamado = "  Guichê ".$manterAtendimento->getGuichePorFila($obj->id)->numero;
             }
             echo "<tr>";
-            echo "  <td>".$count."</td>";
+            echo "  <td>".$count."&ord;</td>";
             echo "  <td>".$obj->nome."</td>";
             echo "  <td>".$txt_preferencial."</td>";
-            echo "  <td>Guichê ".$manterAtendimento->getGuichePorFila($obj->id)->numero."</td>";
+            echo "  <td>".$txt_chamado."</td>";
             echo "</tr>";
         }
 
