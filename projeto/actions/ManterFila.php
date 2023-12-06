@@ -11,8 +11,7 @@ class ManterFila extends Model {
     }
 
     function listar() {
-        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
-        f.ultima_chamada, (select count(*) from atendimento as a where a.id_fila=f.id) as dep FROM fila as f order by f.id";
+        $sql = "select g.id,g.numero,g.id_usuario, (select count(*) from atendimento as a where a.id_guiche=g.id) as dep FROM guiche as g order by g.numero";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -22,66 +21,29 @@ class ManterFila extends Model {
             if ($registro["dep"] > 0) {
                 $dados->excluir = false;
             }
-            $dados->id              = $registro["id"];
-            $dados->numero          = $registro["nome"];
-            $dados->preferencial    = $registro["preferencial"];
-            $dados->entrada         = $registro["entrada"];
-            $dados->qtd_chamadas    = $registro["qtd_chamadas"];
-            $dados->atendido        = $registro["atendido"];
-            $dados->id_servico      = $registro["id_servico"];
-            $dados->chamar          = $registro["chamar"];
-            $dados->ultima_chamada  = $registro["ultima_chamada"];
+            $dados->id          = $registro["id"];
+            $dados->numero      = $registro["numero"];
+            $dados->usuario     = $registro["id_usuario"];
             $array_dados[]      = $dados;
         }
         return $array_dados;
     }
-
-    function getFila() {
-        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada 
-        FROM fila as f 
-        WHERE f.atendido = NULL AND order by DESC f.preferencial, DESC f.id ";
-        //echo $sql;
-        $resultado = $this->db->Execute($sql);
-        $array_dados = array();
-        while ($registro = $resultado->fetchRow()) {
-            $dados = new Fila();
-            $dados->id              = $registro["id"];
-            $dados->numero          = $registro["nome"];
-            $dados->preferencial    = $registro["preferencial"];
-            $dados->entrada         = $registro["entrada"];
-            $dados->qtd_chamadas    = $registro["qtd_chamadas"];
-            $dados->atendido        = $registro["atendido"];
-            $dados->id_servico      = $registro["id_servico"];
-            $dados->chamar          = $registro["chamar"];
-            $dados->ultima_chamada  = $registro["ultima_chamada"];
-            $array_dados[]          = $dados;
-        }
-        return $array_dados;
-    }
     function getFilaPorId($id) {
-        $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
-        f.ultima_chamada, FROM fila as f WHERE id=$id";
+        $sql = "select g.id,g.numero,g.id_usuario FROM guiche as g WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Fila();
         while ($registro = $resultado->fetchRow()) {
-            $dados->id              = $registro["id"];
-            $dados->numero          = $registro["nome"];
-            $dados->preferencial    = $registro["preferencial"];
-            $dados->entrada         = $registro["entrada"];
-            $dados->qtd_chamadas    = $registro["qtd_chamadas"];
-            $dados->atendido        = $registro["atendido"];
-            $dados->id_servico      = $registro["id_servico"];
-            $dados->chamar          = $registro["chamar"];
-            $dados->ultima_chamada  = $registro["ultima_chamada"];
+            $dados->id          = $registro["id"];
+            $dados->numero       = $registro["numero"];
+            $dados->usuario   = $registro["id_usuario"];
         }
         return $dados;
     }
     function salvar(Fila $dados) {
-        $sql = "insert into fila (nome, preferencial, entrada, qtd_chamadas, atendido, id_servico, chamar, ultima_chamada) 
-        values ('" . $dados->nome . "','" . $dados->preferencial . "','" . $dados->entrada . "',0,NULL,'" . $dados->id_servico . "',0,NULL)";
+        $sql = "insert into guiche (numero,id_usuario) values ('" . $dados->numero . "','" . $dados->usuario . "')";
         if ($dados->id > 0) {
-            $sql = "update fila set nome='" . $dados->nome . "',preferencial='" . $dados->preferencial . "',id_servico='" . $dados->id_servico . "' where id=$dados->id";
+            $sql = "update guiche set numero='" . $dados->numero . "',id_usuario='" . $dados->usuario . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         } else {
             $resultado = $this->db->Execute($sql);
@@ -91,7 +53,7 @@ class ManterFila extends Model {
     }
 
     function excluir($id) {
-        $sql = "delete from fila where id=" . $id;
+        $sql = "delete from guiche where id=" . $id;
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
