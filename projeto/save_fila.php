@@ -2,8 +2,7 @@
 
 require_once('./actions/ManterFila.php');
 require_once('./dto/Fila.php');
-echo "Vixe";
-exit;
+
 $db_fila = new ManterFila();
 $f = new Fila();
 
