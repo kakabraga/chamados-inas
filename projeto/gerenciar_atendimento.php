@@ -115,25 +115,23 @@ foreach ($listaS as $obj) {
     if(isset($guiche->id)){  
 ?>
     <!-- Collapsable Form -->
-    <div class="card mb-4 border-primary" id="atendente" style="max-width:900px">
-        <!-- Card Header - Accordion -->
-        <div class="card-header py-2 card-body bg-gradient-primary align-middle" style="min-height: 2.5rem;">               
-            <span class="h6 m-0 font-weight text-white">Atendente</span>
-        </div>                  
+    <div class="card mb-4" id="atendente" style="max-width:900px">              
         <!-- Card Content - Collapse -->
         <div class="card-body card-deck">
+            <center>
             <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header h4">Nome</div>
+                <div class="card-header h4"><center>Atendente</center></div>
                 <div class="card-body">
-                <center><h5 class="card-title"><?=$usuario_logado->nome ?></h5></center>
+                <center><h3 class="card-title"><?=$usuario_logado->nome ?></h3></center>
                 </div>
             </div>
-            <div class="card bg-gradient-primary mb-3 text-white" style="max-width: 18rem;">
-                <div class="card-header h4">Guichê</div>
+            <div class="card bg-info mb-3 text-white" style="max-width: 18rem;">
+                <div class="card-header h4"><center>Guichê</center></div>
                 <div class="card-body">
                     <center><h1 class="card-title"><?=$guiche->numero ?></h2></center>
                 </div>
-            </div>           
+            </div> 
+            </center>          
         </div>
     </div>
     <!-- /.container-fluid -->
