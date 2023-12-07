@@ -93,12 +93,12 @@ class ManterFila extends Model {
         return $resultado;
     }
     function chamar($id,$id_guiche) {
-        $sql = "update fila set chamar=1,  qtd_chamadas=(qtd_chamadas+1), ultima_chamada = now(), id_guiche_chamador=$id_guiche where id=id";
+        $sql = "update fila set chamar=1,  qtd_chamadas=(qtd_chamadas+1), ultima_chamada = now(), id_guiche_chamador=$id_guiche where id=$id";
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
     function chamouPainel($id) {
-        $sql = "update fila set chamar=0 where id=id";
+        $sql = "update fila set chamar=0 where id=$id";
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
