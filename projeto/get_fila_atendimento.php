@@ -32,9 +32,9 @@
                 if(isset($obj->guiche_chamador)){
                     if($obj->guiche_chamador == $guiche->id) {
                         if($obj->qtd_chamadas == 3){
-                            echo "  <td align='center'><a class='btn btn-danger btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."'>Cancelar</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
+                            echo "  <td align='center'><a class='btn btn-danger btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=del'>Cancelar</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
                         } else {
-                            echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."'>Chamar +</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
+                            echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=add'>Chamar +</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
                         }
                     } else {
                         echo "  <td align='center'> - </td>";
@@ -43,7 +43,7 @@
                     if($chamou){
                         echo "  <td align='center'> - </td>";
                     }else {
-                        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."'>Chamar</a></td>";                
+                        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=add'>Chamar</a></td>";                
                     }
                 }
             }

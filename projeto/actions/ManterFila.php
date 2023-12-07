@@ -97,6 +97,11 @@ class ManterFila extends Model {
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
+    function cancelarChamado($id) {
+        $sql = "update fila set chamar=0,  qtd_chamadas=0, ultima_chamada = NULL, id_guiche_chamador=NULL where id=$id";
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
     function chamouPainel($id) {
         $sql = "update fila set chamar=0 where id=$id";
         $resultado = $this->db->Execute($sql);
