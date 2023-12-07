@@ -18,7 +18,7 @@
             }
             $txt_chamado = "<center> - </center>";
             if($obj->ultima_chamada!= null){
-                $txt_chamado = "<center>Guichê ".$manterAtendimento->getGuichePorFila($obj->id)->numero."</center>";
+                $txt_chamado = "<center>Guichê ".$manterGuiche->getGuichePorId($obj->guiche_chamador)->numero."</center>";
             }
             echo "<tr>";
             echo "  <td>".$count."<sup>o</sup></td>";
