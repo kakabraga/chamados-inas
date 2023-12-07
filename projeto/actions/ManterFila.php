@@ -12,7 +12,7 @@ class ManterFila extends Model {
 
     function listar() {
         $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
-        f.ultima_chamada, (select count(*) from atendimento as a where a.id_fila=f.id) as dep FROM fila as f order by f.id";
+        f.ultima_chamada, f.id_guiche_chamador, (select count(*) from atendimento as a where a.id_fila=f.id) as dep FROM fila as f order by f.id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -31,13 +31,14 @@ class ManterFila extends Model {
             $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
+            $dados->guiche_chamador  = $registro["id_guiche_chamador"];
             $array_dados[]      = $dados;
         }
         return $array_dados;
     }
 
     function getFila() {
-        $sql = "SELECT f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada 
+        $sql = "SELECT f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador 
         FROM fila as f 
         WHERE f.atendido is NULL order by  f.preferencial DESC,  f.entrada";
         //echo $sql;
@@ -54,13 +55,14 @@ class ManterFila extends Model {
             $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
+            $dados->guiche_chamador = $registro["id_guiche_chamador"];
             $array_dados[]          = $dados;
         }
         return $array_dados;
     }
     function getFilaPorId($id) {
         $sql = "select f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
-        f.ultima_chamada, FROM fila as f WHERE id=$id";
+        f.ultima_chamada, f.id_guiche_chamador FROM fila as f WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Fila();
@@ -74,6 +76,7 @@ class ManterFila extends Model {
             $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
+            $dados->guiche_chamador = $registro["id_guiche_chamador"];
         }
         return $dados;
     }
@@ -89,7 +92,39 @@ class ManterFila extends Model {
         }
         return $resultado;
     }
-
+    function chamar($id,$id_guiche) {
+        $sql = "update fila set chamar=1,  qtd_chamadas=(qtd_chamadas+1), ultima_chamada = now(), id_guiche_chamador=$id_guiche where id=id";
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+    function chamouPainel($id) {
+        $sql = "update fila set chamar=0 where id=id";
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+    function getChamadosPainel() {
+        $sql = "SELECT f.id, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador 
+        FROM fila as f 
+        WHERE f.ultima_chamada is not NULL order by  f.ultima_chamada LIMIT 4";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Fila();
+            $dados->id              = $registro["id"];
+            $dados->nome            = $registro["nome"];
+            $dados->preferencial    = $registro["preferencial"];
+            $dados->entrada         = $registro["entrada"];
+            $dados->qtd_chamadas    = $registro["qtd_chamadas"];
+            $dados->atendido        = $registro["atendido"];
+            $dados->servico         = $registro["id_servico"];
+            $dados->chamar          = $registro["chamar"];
+            $dados->ultima_chamada  = $registro["ultima_chamada"];
+            $dados->guiche_chamador = $registro["id_guiche_chamador"];
+            $array_dados[]          = $dados;
+        }
+        return $array_dados;
+    }
     function excluir($id) {
         $sql = "delete from fila where id=" . $id;
         $resultado = $this->db->Execute($sql);
