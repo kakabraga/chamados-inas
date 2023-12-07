@@ -41,13 +41,14 @@ and open the template in the editor.
                 //....
             });
             function chamar(id, id_guiche) {
-                $("#exibe").html('Aguarde...');
-                $.get( "save_chamado_fila.php" ,{ id: id, guiche: id_guiche } )
-                .done(function(data) {
-                    var resp = JSON.parse(data);
-                    console.log(resp)
-                    $("#exibe").html(data);
-                });
+                
+                ///$("#exibe").html('Aguarde...');
+                //$.get( "save_chamado_fila.php" ,{ id: id, guiche: id_guiche } )
+                //.done(function(data) {
+                //    var resp = JSON.parse(data);
+                //    console.log(resp);
+                //    $("#exibe").html(data);
+                //});
 
             }
             function atender(id, id_guiche) {
