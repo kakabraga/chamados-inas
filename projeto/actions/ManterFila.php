@@ -126,13 +126,13 @@ class ManterFila extends Model {
         return $array_dados;
     }
 
-    function getFilaChamou($guiche) {
-        $sql = "SELECT count(*) as total  
+    function isChamou($guiche) {
+        $sql = "SELECT *  
         FROM fila as f 
         WHERE f.atendido is NULL AND f.id_guiche_chamador =" . $guiche;
         //echo $sql;
         $resultado = $this->db->Execute($sql);
-        if($resultado->total > 0){
+        while ($registro = $resultado->fetchRow()) {
             return true;
         }
         return false;
