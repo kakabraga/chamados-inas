@@ -12,7 +12,8 @@ $guiche = $_REQUEST['guiche'];
 $f->id = $id;
 $f->guiche_chamador = $guiche;
 
-print_r($f);
+//print_r($f);
+echo json_encode($f);
 //$db_fila->salvar($f);
 //header('Location: filas.php');
 

@@ -44,6 +44,8 @@ and open the template in the editor.
                 $("#exibe").html('Aguarde...');
                 $.get( "save_chamado_fila.php" ,{ id: id, guiche: id_guiche } )
                 .done(function(data) {
+                    var resp = JSON.parse(data);
+                    console.log(resp)
                     $("#exibe").html(data);
                 });
 
