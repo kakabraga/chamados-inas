@@ -11,18 +11,18 @@
         $count = 0;
         foreach ($lista as $obj) {
             $count++;
-            $txt_preferencial = " - ";
+            $txt_preferencial = "<center> - </center>";
             if($obj->preferencial== 1){
-                $txt_preferencial = "<b>Sim</b>";
+                $txt_preferencial = "<center><img src='img/check.svg' width='5%'></center>";
             }
-            $txt_chamado = " - ";
+            $txt_chamado = "<center> - </center>";
             if($obj->ultima_chamada!= null){
-                $txt_chamado = "  Guichê ".$manterAtendimento->getGuichePorFila($obj->id)->numero;
+                $txt_chamado = "<center>Guichê ".$manterAtendimento->getGuichePorFila($obj->id)->numero."</center>";
             }
             echo "<tr>";
             echo "  <td>".$count."<sup>o</sup></td>";
             echo "  <td>".$obj->nome."</td>";
-            echo "  <td>".$manterAtendimento->getServicoPorId($obj->servico)->nome."</td>";
+            echo "  <td>".$manterServico->getServicoPorId($obj->servico)->nome."</td>";
             echo "  <td>".$txt_preferencial."</td>";
             echo "  <td>".$txt_chamado."</td>";
             echo "</tr>";

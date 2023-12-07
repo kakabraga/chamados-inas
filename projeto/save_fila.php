@@ -15,7 +15,6 @@ $f->id = $id;
 $f->nome = $nome;
 $f->servico = $id_servico;
 $f->preferencial = $preferencial;
-print_r($f);
 
 $db_fila->salvar($f);
 header('Location: filas.php');

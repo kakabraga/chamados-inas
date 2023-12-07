@@ -41,11 +41,12 @@ and open the template in the editor.
                 //....
             });
             function chamar(id, id_guiche) {
-                $('#id').val(id);
-                $('#nome').val(nome);
-                $('#form_fila').collapse("show");
-                $('#btn_cadastrar').hide();
-                carregaServicos(id_servico);
+                $("#exibe").html('Aguarde...');
+                $.get( "save_chamado_fila.php" ,{ id: id, guiche: id_guiche } )
+                .done(function(data) {
+                    $("#exibe").html(data);
+                });
+
             }
             function atender(id, id_guiche) {
                 $('#id').val(id);
@@ -58,12 +59,12 @@ and open the template in the editor.
                 $(select).find('option:contains("' + text + '")').prop('selected', true);
             }
             function verificaFila() {
-            var html = '<option value="">Selecione </option>';
-            if (1+1) {
+                var html = '<option value="">Selecione </option>';
+                if (1+1) {
 
+                }
+                $('#servico').html(html);
             }
-            $('#servico').html(html);
-        }
 
         </script>
         <style>
@@ -92,6 +93,7 @@ and open the template in the editor.
     $guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);
     $atender = false;
     if(isset($guiche->id)){  
+        $atender = true;
 ?>
     <!-- Collapsable Form -->
     <div class="card mb-4" id="atendente" style="max-width:900px">              
@@ -117,6 +119,8 @@ and open the template in the editor.
 ?>
 
                         <!-- Project Card Example -->
+                        <div id="exibe">
+                        </div>
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">

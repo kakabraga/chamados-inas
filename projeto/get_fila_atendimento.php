@@ -33,7 +33,7 @@
                         echo "  <td align='center'> - </td>";
                     }                    
                 } else {
-                    echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='chamar(".$obj->id.",".$obj->perfil.")'>Chamar</button></td>";                
+                    echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='chamar(".$obj->id.",".$guiche->id.")'>Chamar</button></td>";                
                 }
             }
             echo "</tr>";
