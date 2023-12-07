@@ -34,7 +34,8 @@
                         if($obj->qtd_chamadas == 3){
                             echo "  <td align='center'><a class='btn btn-danger btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=del'>Cancelar</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
                         } else {
-                            echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=add'>Chamar +</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
+                            $total_chamadas = $obj->qtd_chamadas+1;
+                            echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=add'>Chamar(".$total_chamadas.")</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
                         }
                     } else {
                         echo "  <td align='center'> - </td>";
