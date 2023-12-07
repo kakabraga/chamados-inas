@@ -18,7 +18,7 @@
             }
             $txt_chamado = "<center> - </center>";
             if($obj->ultima_chamada!= null){
-                $txt_chamado = "<center>Guichê ".$manterGuiche->getGuichePorId($obj->guiche_chamador)->numero."</center>";
+                $txt_chamado = "<center><b>Guichê ".$manterGuiche->getGuichePorId($obj->guiche_chamador)->numero."</b></center>";
             }
             echo "<tr>";
             echo "  <td>".$count."<sup>o</sup></td>";
@@ -32,10 +32,10 @@
                 if(isset($obj->guiche_chamador)){
                     if($obj->guiche_chamador == $guiche->id) {
                         if($obj->qtd_chamadas == 3){
-                            echo "  <td align='center'><a class='btn btn-danger btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=del'>Cancelar</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
+                            echo "  <td align='center'><a class='btn btn-danger btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=del'>Cancelar</a>&nbsp;&nbsp;<a class='btn btn-success btn-sm' type='button' href='form_atendimento.php?id=".$obj->id."&guiche=".$guiche->id."'>Atender</a></td>";
                         } else {
                             $total_chamadas = $obj->qtd_chamadas+1;
-                            echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=add'>Chamar(".$total_chamadas.")</a>&nbsp;&nbsp;<button class='btn btn-success btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
+                            echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."&op=add'>Chamar(".$total_chamadas.")</a>&nbsp;&nbsp;<a class='btn btn-success btn-sm' type='button' href='form_atendimento.php?id=".$obj->id."&guiche=".$guiche->id."'>Atender</a></td>";
                         }
                     } else {
                         echo "  <td align='center'> - </td>";
