@@ -7,6 +7,7 @@
     $manterFila = new ManterFila();
     $manterServico = new ManterServico();
 	
+    $chamou = $manterFila->isChamou($guiche->id);
 	$lista = $manterFila->getFila();
         $count = 0;
         foreach ($lista as $obj) {
@@ -26,8 +27,8 @@
             echo "  <td>".$txt_preferencial."</td>";
             echo "  <td>".$txt_chamado."</td>";
             if($atender){
-                echo "#" . $guiche->id . "#";
-                echo "#" . $obj->guiche_chamador . "#";
+                //echo "#" . $guiche->id . "#";
+                //echo "#" . $obj->guiche_chamador . "#";
                 if(isset($obj->guiche_chamador)){
                     if($obj->guiche_chamador == $guiche->id) {
                         echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."'>Chamar +</a>&nbsp;&nbsp;<button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
@@ -35,7 +36,11 @@
                         echo "  <td align='center'> - </td>";
                     }                    
                 } else {
-                    echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."'>Chamar</a></td>";                
+                    if($chamou){
+                        echo "  <td align='center'> - </td>";
+                    }else {
+                        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='save_chamado_fila.php?id=".$obj->id."&guiche=".$guiche->id."'>Chamar</a></td>";                
+                    }
                 }
             }
             echo "</tr>";
