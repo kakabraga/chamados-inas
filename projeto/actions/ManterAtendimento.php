@@ -67,6 +67,7 @@ class ManterAtendimento extends Model {
         } else {
             $resultado = $this->db->Execute($sql);
             $dados->id = $this->db->insert_Id();
+            return $dados;
         }
         return $resultado;
     }
