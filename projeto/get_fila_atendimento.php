@@ -26,6 +26,8 @@
             echo "  <td>".$txt_preferencial."</td>";
             echo "  <td>".$txt_chamado."</td>";
             if($atender){
+                echo "#" . $guiche->id . "#";
+                echo "#" . $obj->guiche_chamador . "#";
                 if(isset($obj->guiche_chamador)){
                     if($obj->guiche_chamador == $guiche->id) {
                         echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='chamar(".$obj->id.",".$guiche->id.")'>Chamar +</button>&nbsp;&nbsp;<button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",".$guiche->id.")'>Atender</button></td>";
