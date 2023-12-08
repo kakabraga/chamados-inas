@@ -88,7 +88,16 @@ foreach ($listaS as $obj) {
             }
             $('#servico').html(html);
         }
+        function atualizarFila() {
+                $("#fila").html('Atualizando...');
+                $.get( "get_fila.php")
+                .done(function(data) {
+                    //var resp = JSON.parse(data);
+                    //console.log(resp);
+                    $("#fila").html(data);
+                });
 
+            }
         </script>
         <style>
             body{
@@ -119,6 +128,11 @@ foreach ($listaS as $obj) {
                                 <div class="col mb-0">
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Fila</span>
                                 </div>
+                                <div class="col text-right" style="max-width:20%">
+                                    <button id="btn_atualizar" class="btn btn-outline-light btn-sm" type="button"  onclick="atualizarFila()">
+                                        <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>                            
 
                             <div class="card-body">
@@ -134,7 +148,7 @@ foreach ($listaS as $obj) {
                                             <th scope="col">Chamado</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="fila">
                                         <?php include './get_fila.php'; ?>
                                     </tbody>
                                 </table>
