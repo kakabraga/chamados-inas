@@ -47,7 +47,7 @@ and open the template in the editor.
             });
             function atualizarFila() {
                 $("#fila").html('Atualizando...');
-                $.get( "get_fila_atendimento.php?id_guiche=<?=$guiche->id?>")
+                $.get( "get_fila_atendimento.php")
                 .done(function(data) {
                     //var resp = JSON.parse(data);
                     //console.log(resp);

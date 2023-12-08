@@ -2,17 +2,18 @@
 	include_once('actions/ManterAtendimento.php'); 
     include_once('actions/ManterServico.php');
     include_once('actions/ManterFila.php');
+    include_once('actions/ManterGuiche.php');
 	
 	$manterAtendimento = new ManterAtendimento();
     $manterFila = new ManterFila();
     $manterServico = new ManterServico();
-	
-    $id_guiche = $_REQUEST["id_guiche"];
-    if(!isset($id_guiche)){
-        $id_guiche =$guiche->id;
-    }
+    $manterGuiche = new ManterGuiche();
 
-    $chamou = $manterFila->isChamou($id_guiche);
+    $usuario_logado = unserialize($_SESSION['usuario']);
+    
+    $guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);
+
+    $chamou = $manterFila->isChamou($guiche->id);
 	$lista = $manterFila->getFila();
         $count = 0;
         foreach ($lista as $obj) {
