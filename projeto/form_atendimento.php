@@ -80,7 +80,9 @@ and open the template in the editor.
         $atendimento->guiche    = $id_guiche;
         $atendimento->usuario   = $usuario_logado->id;
         $atendimento = $manterAtendimento->salvar($atendimento);
-
+        if(isset($atendimento->id)){
+            $manterFila->atender($id_fila);
+        }
 ?>
     <!-- Collapsable Form -->
     <div class="card mb-4" id="atendente" style="max-width:900px">              
@@ -124,7 +126,7 @@ and open the template in the editor.
                             <form id="form_atendimento" action="save_atendimento.php" method="post">
                                 <input type="hidden" id="id" name="id" value="<?=$atendimento->id ?>"/>
                                 <div class="form-group row">
-                                    <label for="detalhamento" class="col-sm-2 col-form-label">Descrição:</label>
+                                    <label for="detalhamento" class="col-sm-2 col-form-label">Detalhamento:</label>
                                     <div class="col-sm-10">
                                         <textarea rows="3" name="detalhamento" class="form-control form-control-sm" id="detalhamento" placeholder="Detalhamento" required></textarea>
                                     </div>

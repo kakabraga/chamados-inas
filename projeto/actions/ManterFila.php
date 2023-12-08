@@ -23,7 +23,7 @@ class ManterFila extends Model {
                 $dados->excluir = false;
             }
             $dados->id              = $registro["id"];
-            $dados->numero          = $registro["nome"];
+            $dados->nome            = $registro["nome"];
             $dados->preferencial    = $registro["preferencial"];
             $dados->entrada         = $registro["entrada"];
             $dados->qtd_chamadas    = $registro["qtd_chamadas"];
@@ -68,7 +68,7 @@ class ManterFila extends Model {
         $dados = new Fila();
         while ($registro = $resultado->fetchRow()) {
             $dados->id              = $registro["id"];
-            $dados->numero          = $registro["nome"];
+            $dados->nome          = $registro["nome"];
             $dados->preferencial    = $registro["preferencial"];
             $dados->entrada         = $registro["entrada"];
             $dados->qtd_chamadas    = $registro["qtd_chamadas"];
@@ -104,6 +104,11 @@ class ManterFila extends Model {
     }
     function chamouPainel($id) {
         $sql = "update fila set chamar=0 where id=$id";
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+    function atender($id) {
+        $sql = "update fila set atendido=now() where id=$id";
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
