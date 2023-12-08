@@ -1,6 +1,11 @@
 <?php
 
 require_once('./verifica_login.php');
+
+include_once('./actions/ManterGuiche.php');
+$manterGuiche = new ManterGuiche();
+$guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);
+
 ?> 
 <!DOCTYPE html>
 <!--
@@ -42,7 +47,7 @@ and open the template in the editor.
             });
             function atualizarFila() {
                 $("#fila").html('Atualizando...');
-                $.get( "get_fila_atendimento.php")
+                $.get( "get_fila_atendimento.php?id_guiche=<?=$guiche->id?>")
                 .done(function(data) {
                     //var resp = JSON.parse(data);
                     //console.log(resp);
@@ -92,9 +97,7 @@ and open the template in the editor.
                     <div class="container-fluid">
                         <!-- Begin Page Content -->
 <?php
-    include_once('./actions/ManterGuiche.php');
-    $manterGuiche = new ManterGuiche();
-    $guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);
+
     $atender = false;
     if(isset($guiche->id)){  
         $atender = true;

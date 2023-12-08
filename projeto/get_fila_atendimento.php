@@ -7,7 +7,12 @@
     $manterFila = new ManterFila();
     $manterServico = new ManterServico();
 	
-    $chamou = $manterFila->isChamou($guiche->id);
+    $id_guiche = $_REQUEST["id_guiche"];
+    if(!isset($id_guiche)){
+        $id_guiche =$guiche->id;
+    }
+
+    $chamou = $manterFila->isChamou($id_guiche);
 	$lista = $manterFila->getFila();
         $count = 0;
         foreach ($lista as $obj) {
