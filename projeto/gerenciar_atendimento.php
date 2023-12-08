@@ -139,6 +139,7 @@ and open the template in the editor.
                                     <thead>
                                         <tr>
                                             <th scope="col">Ordem</th>
+                                            <th scope="col">CPF</th>
                                             <th scope="col">Nome</th>
                                             <th scope="col">Serviço</th>
                                             <th scope="col">Preferencial</th>

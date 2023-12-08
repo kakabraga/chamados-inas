@@ -36,6 +36,7 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
             var servicos = [];
 <?php
@@ -59,8 +60,9 @@ foreach ($listaS as $obj) {
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
-            function alterar(id, nome, id_servico) {
+            function alterar(id, cpf, nome, id_servico) {
                 $('#id').val(id);
+                $('#cpf').val(cpf);
                 $('#nome').val(nome);
                 $('#form_fila').collapse("show");
                 $('#btn_cadastrar').hide();
@@ -124,6 +126,7 @@ foreach ($listaS as $obj) {
                                     <thead>
                                         <tr>
                                             <th scope="col">Ordem</th>
+                                            <th scope="col">CPF</th>
                                             <th scope="col">Nome</th>
                                             <th scope="col">Serviço</th>
                                             <th scope="col">Preferencial</th>

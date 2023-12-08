@@ -19,10 +19,11 @@
             }
             $txt_chamado = "<center> - </center>";
             if($obj->ultima_chamada!= null){
-                $txt_chamado = "<center>Guichê ".$manterGuiche->getGuichePorId($obj->guiche_chamador)->numero."</center>";
+                $txt_chamado = "<center><b>Guichê ".$manterGuiche->getGuichePorId($obj->guiche_chamador)->numero."</b></center>";
             }
             echo "<tr>";
             echo "  <td>".$count."<sup>o</sup></td>";
+            echo "  <td>".$obj->cpf."</td>";
             echo "  <td>".$obj->nome."</td>";
             echo "  <td>".$manterServico->getServicoPorId($obj->servico)->nome."</td>";
             echo "  <td>".$txt_preferencial."</td>";

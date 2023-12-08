@@ -22,6 +22,7 @@
             }
             echo "<tr>";
             echo "  <td>".$count."<sup>o</sup></td>";
+            echo "  <td>".$obj->cpf."</td>";
             echo "  <td>".$obj->nome."</td>";
             echo "  <td>".$manterServico->getServicoPorId($obj->servico)->nome."</td>";
             echo "  <td>".$txt_preferencial."</td>";

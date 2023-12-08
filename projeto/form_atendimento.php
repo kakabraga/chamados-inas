@@ -123,8 +123,11 @@ and open the template in the editor.
                             </div>                            
 
                             <div class="card-body">
-                                Nome: <?=$fila->nome ?><br/>
-                                Serviço: <?=$manterServico->getServicoPorId($fila->servico)->nome ?><br/>
+                                <spam class="h3">
+                                CPF: <b><?=$fila->cpf ?></b><br/>
+                                Nome: <b><?=$fila->nome ?></b><br/>
+                                Serviço: <b><?=$manterServico->getServicoPorId($fila->servico)->nome ?></b><br/><br/>
+                                </spam>
                             <form id="form_atendimento" action="save_atendimento.php" method="post">
                                 <input type="hidden" id="id" name="id" value="<?=$atendimento->id ?>"/>
                                 <div class="form-group row">
