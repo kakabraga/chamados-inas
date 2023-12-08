@@ -10,9 +10,10 @@
     $manterGuiche = new ManterGuiche();
 
     $usuario_logado = unserialize($_SESSION['usuario']);
-    
-    $guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);
 
+    $guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);
+    if(isset($guiche->id)){  
+        $atender = true;
     $chamou = $manterFila->isChamou($guiche->id);
 	$lista = $manterFila->getFila();
         $count = 0;
@@ -58,4 +59,5 @@
             }
             echo "</tr>";
         }
+    }
 
