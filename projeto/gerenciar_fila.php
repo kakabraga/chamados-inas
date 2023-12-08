@@ -98,6 +98,7 @@ foreach ($listaS as $obj) {
                 });
 
             }
+            setInterval(atualizarFila, 5000);
         </script>
         <style>
             body{
@@ -127,11 +128,6 @@ foreach ($listaS as $obj) {
                                 </div>
                                 <div class="col mb-0">
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Fila</span>
-                                </div>
-                                <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_atualizar" class="btn btn-outline-light btn-sm" type="button"  onclick="atualizarFila()">
-                                        <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
-                                    </button>
                                 </div>
                             </div>                            
 
