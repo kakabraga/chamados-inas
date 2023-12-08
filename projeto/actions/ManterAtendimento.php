@@ -71,6 +71,11 @@ class ManterAtendimento extends Model {
         }
         return $resultado;
     }
+    function salvarDetalhamento(Atendimento $dados) {
+        $sql = "update atendimento set detalhamento='" . $dados->detalhamento . "' where id=$dados->id";
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
 
     function excluir($id) {
         $sql = "delete from atendimento where id=" . $id;
