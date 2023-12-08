@@ -130,6 +130,7 @@ foreach ($listaS as $obj) {
                                             <th scope="col">Nome</th>
                                             <th scope="col">Serviço</th>
                                             <th scope="col">Preferencial</th>
+                                            <th scope="col">Espera</th>
                                             <th scope="col">Chamado</th>
                                         </tr>
                                     </thead>

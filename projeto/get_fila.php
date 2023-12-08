@@ -27,6 +27,7 @@
             echo "  <td>".$obj->nome."</td>";
             echo "  <td>".$manterServico->getServicoPorId($obj->servico)->nome."</td>";
             echo "  <td>".$txt_preferencial."</td>";
+            echo "  <td>".$obj->tempo." min</td>";
             echo "  <td>".$txt_chamado."</td>";
             echo "</tr>";
         }

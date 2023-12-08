@@ -143,6 +143,7 @@ and open the template in the editor.
                                             <th scope="col">Nome</th>
                                             <th scope="col">Serviço</th>
                                             <th scope="col">Preferencial</th>
+                                            <th scope="col">Espera</th>
                                             <th scope="col">Chamado</th>
                                             <?php
                                             if($atender){

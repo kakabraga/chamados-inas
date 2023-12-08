@@ -12,7 +12,7 @@ class ManterFila extends Model {
 
     function listar() {
         $sql = "select f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
-        f.ultima_chamada, f.id_guiche_chamador, (select count(*) from atendimento as a where a.id_fila=f.id) as dep FROM fila as f order by f.id";
+        f.ultima_chamada, f.id_guiche_chamador,TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo, (select count(*) from atendimento as a where a.id_fila=f.id) as dep FROM fila as f order by f.id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -33,13 +33,14 @@ class ManterFila extends Model {
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
             $dados->guiche_chamador  = $registro["id_guiche_chamador"];
+            $dados->tempo           = $registro["tempo"];
             $array_dados[]      = $dados;
         }
         return $array_dados;
     }
 
     function getFila() {
-        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador 
+        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo 
         FROM fila as f 
         WHERE f.atendido is NULL order by  f.preferencial DESC,  f.entrada";
         //echo $sql;
@@ -58,13 +59,14 @@ class ManterFila extends Model {
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
             $dados->guiche_chamador = $registro["id_guiche_chamador"];
+            $dados->tempo           = $registro["tempo"];
             $array_dados[]          = $dados;
         }
         return $array_dados;
     }
     function getFilaPorId($id) {
         $sql = "select f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, 
-        f.ultima_chamada, f.id_guiche_chamador FROM fila as f WHERE id=$id";
+        f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo FROM fila as f WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Fila();
@@ -80,6 +82,7 @@ class ManterFila extends Model {
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
             $dados->guiche_chamador = $registro["id_guiche_chamador"];
+            $dados->tempo           = $registro["tempo"];
         }
         return $dados;
     }
@@ -116,7 +119,7 @@ class ManterFila extends Model {
         return $resultado;
     }
     function getChamadosPainel() {
-        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador 
+        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo
         FROM fila as f 
         WHERE f.ultima_chamada is not NULL order by  f.ultima_chamada LIMIT 4";
         //echo $sql;
@@ -135,6 +138,7 @@ class ManterFila extends Model {
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
             $dados->guiche_chamador = $registro["id_guiche_chamador"];
+            $dados->tempo           = $registro["tempo"];
             $array_dados[]          = $dados;
         }
         return $array_dados;
