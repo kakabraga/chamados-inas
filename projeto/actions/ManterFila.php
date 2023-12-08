@@ -42,7 +42,7 @@ class ManterFila extends Model {
     function getFila() {
         $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo 
         FROM fila as f 
-        WHERE f.atendido is NULL order by  f.preferencial DESC,  f.entrada";
+        WHERE f.atendido is NULL  AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 650 order by  f.preferencial DESC,  f.entrada";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -121,7 +121,7 @@ class ManterFila extends Model {
     function getChamadosPainel() {
         $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo
         FROM fila as f 
-        WHERE f.ultima_chamada is not NULL order by  f.ultima_chamada LIMIT 4";
+        WHERE f.ultima_chamada is not NULL AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 650 order by  f.ultima_chamada LIMIT 4";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
