@@ -46,15 +46,17 @@ class ManterAtendimento extends Model {
         }
         return $dados;
     }
-    function getGuichePorFila($id_fila) {
-        $sql = "select g.id,g.numero,g.id_usuario FROM atendimento as a, guiche as g WHERE g.id=a.id_guiche AND a.id_fila=$id_fila";
+    function getAtendimentoPorFila($id_fila) {
+        $sql = "sselect a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a WHERE a.id_fila=$id_fila";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
-        $dados = new Guiche();
+        $dados = new Atendimento();
         while ($registro = $resultado->fetchRow()) {
             $dados->id              = $registro["id"];
-            $dados->numero          = $registro["numero"];
+            $dados->fila            = $registro["id_fila"];
+            $dados->guiche          = $registro["id_guiche"];
             $dados->usuario         = $registro["id_usuario"];
+            $dados->detalhamento    = $registro["detalhamento"];
         }
         return $dados;
     }

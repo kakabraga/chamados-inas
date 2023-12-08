@@ -75,7 +75,9 @@ and open the template in the editor.
     if($guiche->id == $guicheA->id){  
 
         require_once('./dto/Atendimento.php');
+
         $atendimento            = new Atendimento();
+        $atendimento            = $manterAtendimento->getAtendimentoPorFila($id_fila);
         $atendimento->fila      = $id_fila;
         $atendimento->guiche    = $id_guiche;
         $atendimento->usuario   = $usuario_logado->id;
