@@ -40,17 +40,18 @@ and open the template in the editor.
             $(document).ready(function () {
                 //....
             });
-            function chamar(id, id_guiche) {
-                
-                ///$("#exibe").html('Aguarde...');
-                //$.get( "save_chamado_fila.php" ,{ id: id, guiche: id_guiche } )
-                //.done(function(data) {
-                //    var resp = JSON.parse(data);
-                //    console.log(resp);
-                //    $("#exibe").html(data);
-                //});
+            function atualizarFila() {
+                $("#fila").html('Atualizando...');
+                $.get( "get_fila_atendimento.php")
+                .done(function(data) {
+                    //var resp = JSON.parse(data);
+                    //console.log(resp);
+                    $("#fila").html(data);
+                });
 
             }
+            setInterval(atualizarFila, 10000);
+
             function atender(id, id_guiche) {
                 $('#id').val(id);
                 $('#nome').val(nome);
@@ -154,7 +155,7 @@ and open the template in the editor.
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="fila">
                                         <?php include './get_fila_atendimento.php'; ?>
                                     </tbody>
                                 </table>
