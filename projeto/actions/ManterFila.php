@@ -32,7 +32,7 @@ class ManterFila extends Model {
             $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
-            $dados->guiche_chamador  = $registro["id_guiche_chamador"];
+            $dados->guiche_chamador = $registro["id_guiche_chamador"];
             $dados->tempo           = $registro["tempo"];
             $array_dados[]      = $dados;
         }
@@ -42,7 +42,7 @@ class ManterFila extends Model {
     function getFila() {
         $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo 
         FROM fila as f 
-        WHERE f.atendido is NULL  AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 650 order by  f.preferencial DESC,  f.entrada";
+        WHERE f.atendido is NULL  AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 720 order by  f.preferencial DESC,  f.entrada";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -118,10 +118,34 @@ class ManterFila extends Model {
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
-    function getChamadosPainel() {
-        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada,  now()) as tempo
+    function getProximoChamadoPainel() {
+        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada, now()) as tempo 
         FROM fila as f 
-        WHERE f.ultima_chamada is not NULL AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 650 order by  f.ultima_chamada LIMIT 4";
+        WHERE f.ultima_chamada is not NULL AND f.chamar=1 AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 720 order by f.ultima_chamada DESC LIMIT 1";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $dados = new Fila();
+        while ($registro = $resultado->fetchRow()) {
+            
+            $dados->id              = $registro["id"];
+            $dados->cpf             = $registro["cpf"];
+            $dados->nome            = $registro["nome"];
+            $dados->preferencial    = $registro["preferencial"];
+            $dados->entrada         = $registro["entrada"];
+            $dados->qtd_chamadas    = $registro["qtd_chamadas"];
+            $dados->atendido        = $registro["atendido"];
+            $dados->servico         = $registro["id_servico"];
+            $dados->chamar          = $registro["chamar"];
+            $dados->ultima_chamada  = $registro["ultima_chamada"];
+            $dados->guiche_chamador = $registro["id_guiche_chamador"];
+            $dados->tempo           = $registro["tempo"];
+        }
+        return $dados;
+    }
+    function getChamadosPainel() {
+        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada, now()) as tempo 
+        FROM fila as f 
+        WHERE f.ultima_chamada is not NULL AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 720 order by f.ultima_chamada DESC LIMIT 4;";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();

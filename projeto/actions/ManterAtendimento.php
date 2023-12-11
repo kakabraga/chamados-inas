@@ -66,6 +66,7 @@ class ManterAtendimento extends Model {
         if ($dados->id > 0) {
             $sql = "update atendimento set id_fila='" . $dados->fila . "',id_guiche='" . $dados->guiche . "',id_usuario='" . $dados->usuario . "',detalhamento='" . $dados->detalhamento . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
+            return $dados;
         } else {
             $resultado = $this->db->Execute($sql);
             $dados->id = $this->db->insert_Id();
