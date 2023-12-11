@@ -8,6 +8,8 @@ var ultimaSenhaGuiche2  = $("#ultimaSenhaGuiche2");
 var ultimaSenhaNome3   = $("#ultimaSenhaNome3");
 var ultimaSenhaGuiche3  = $("#ultimaSenhaGuiche3");
 
+var chamadoAtual = JSON.parse('{"id":null,"nome":null,"preferencial":null,"entrada":null,"qtd_chamadas":null,"atendido":null,"servico":null,"chamar":null,"ultima_chamada":null,"excluir":null,"status":true,"msg":null}');
+
 var audioChamada = $("#audioChamada");
 
 function getProximo() {
@@ -15,8 +17,13 @@ function getProximo() {
     $.get( "../get_proximo_painel.php")
     .done(function(data) {
         var resp = JSON.parse(data);
-        console.log(resp);
-        $("#fila").html(data);
+        if(resp.id != chamadoAtual.id && resp.qtd_chamadas > chamadoAtual.qtd_chamadas){
+            chamadoAtual = resp;
+            console.log(chamadoAtual);
+            senhaAtualNome.html(resp.nome);
+            senhaAtualGuiche.html(resp.ultima_chamada);
+            audioChamada.trigger("play");
+        }
     });
 
 }
