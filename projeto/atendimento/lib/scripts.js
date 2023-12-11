@@ -12,8 +12,11 @@ var chamadoAtual = JSON.parse('{"id":null,"nome":null,"preferencial":null,"entra
 
 var audioChamada = $("#audioChamada");
 
+var cont = 0;
+
 function getProximo() {
     //$("#fila").html('Atualizando...');
+    
     $.get( "../get_proximo_painel.php")
     .done(function(data) {
         var resp = JSON.parse(data);
@@ -24,6 +27,8 @@ function getProximo() {
             senhaAtualGuiche.html(resp.ultima_chamada);
             audioChamada.trigger("play");
         }
+        cont++;
+        console.log(cont);
     });
 
 }
