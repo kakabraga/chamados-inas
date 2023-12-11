@@ -11,6 +11,7 @@ var ultimaSenhaGuiche3  = $("#ultimaSenhaGuiche3");
 var chamadoAtual = JSON.parse('{"id":null,"nome":null,"preferencial":null,"entrada":null,"qtd_chamadas":null,"atendido":null,"servico":null,"chamar":null,"ultima_chamada":null,"excluir":null,"status":true,"msg":null}');
 
 var audioChamada = $("#audioChamada");
+const apito = new Audio('../audio/chamada.wav');
 
 var cont = 0;
 
@@ -27,7 +28,7 @@ function getProximo() {
             alert(senhaAtualNome.html());
             senhaAtualGuiche.html(resp.ultima_chamada);
             audioChamada.trigger("play");
-            alert(audioChamada);
+            apito.play();
         }
         cont++;
         console.log(cont);
