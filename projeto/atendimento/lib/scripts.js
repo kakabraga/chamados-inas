@@ -24,8 +24,10 @@ function getProximo() {
             chamadoAtual = resp;
             console.log(chamadoAtual);
             senhaAtualNome.html(resp.nome);
+            alert(senhaAtualNome.html());
             senhaAtualGuiche.html(resp.ultima_chamada);
             audioChamada.trigger("play");
+            alert(audioChamada);
         }
         cont++;
         console.log(cont);
