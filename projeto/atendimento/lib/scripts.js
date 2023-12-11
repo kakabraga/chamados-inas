@@ -1,41 +1,23 @@
-function pad(num, size) {
-    var s = num+"";
-    while (s.length < size) s = "0" + s;
-    return s;
-}
+var senhaAtualNome   = $("#senhaAtualNome");
+var senhaAtualGuiche  = $("#senhaAtualGuiche");
 
-jQuery(document).ready(function($) {
+var ultimaSenhaNome1   = $("#ultimaSenhaNome1");
+var ultimaSenhaGuiche1  = $("#ultimaSenhaGuiche1");
+var ultimaSenhaNome2   = $("#ultimaSenhaNome2");
+var ultimaSenhaGuiche2  = $("#ultimaSenhaGuiche2");
+var ultimaSenhaNome3   = $("#ultimaSenhaNome3");
+var ultimaSenhaGuiche3  = $("#ultimaSenhaGuiche3");
 
-	$("body").on('keydown', function(e) {
-		var senhaAtual   = $("#senhaAtualNumero");
-		var senhaNormal  = $("#senhaNormal");
-		var senhaPrior   = $("#senhaPrioridade");
-		var ultimaSenha  = $("#ultimaSenhaNumero");
-		var audioChamada = $("#audioChamada");
+var audioChamada = $("#audioChamada");
 
-        if(e.keyCode == 39){
-        	ultimaSenha.html(senhaAtual.html());
-            senha = parseInt(senhaNormal.val()) + 1;
-            senhaAtual.html(pad(senha, 4));
-            senhaNormal.val(pad(senha, 4));
-            audioChamada.trigger("play");
-        }
-        if(e.keyCode == 65){
-            senha = parseInt(senhaNormal.val()) - 1;
-            senhaAtual.html(pad(senha, 4));
-            senhaNormal.val(pad(senha, 4));
-        }
-        if(e.keyCode == 38){
-        	ultimaSenha.html(senhaAtual.html());
-            senha = parseInt(senhaPrior.val().replace("P","")) + 1;
-            senhaAtual.html("P" + pad(senha, 3));
-            senhaPrior.val("P" + pad(senha, 3));
-            audioChamada.trigger("play");
-        }
-        if(e.keyCode == 83){
-            senha = parseInt(senhaPrior.val().replace("P","")) - 1;
-            senhaAtual.html("P" + pad(senha, 3));
-            senhaPrior.val("P" + pad(senha, 3));
-        }
+function getProximo() {
+    //$("#fila").html('Atualizando...');
+    $.get( "../get_proximo_painel.php")
+    .done(function(data) {
+        var resp = JSON.parse(data);
+        console.log(resp);
+        $("#fila").html(data);
     });
-});
+
+}
+setInterval(getProximo, 10000);
