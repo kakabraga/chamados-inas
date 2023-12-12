@@ -21,7 +21,63 @@
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <script src="lib/jquery-3.3.1.min.js"></script>
-        <script src="lib/scripts.js"></script>
+        <script type="text/javascript" class="init">
+
+		var chamadoAtual = JSON.parse('{"id":null,"nome":null,"preferencial":null,"entrada":null,"qtd_chamadas":null,"atendido":null,"servico":null,"chamar":null,"ultima_chamada":null,"excluir":null,"status":true,"msg":null}');
+		var chamadoAnt1 = JSON.parse('{"id":null,"nome":null,"preferencial":null,"entrada":null,"qtd_chamadas":null,"atendido":null,"servico":null,"chamar":null,"ultima_chamada":null,"excluir":null,"status":true,"msg":null}');
+		var chamadoAnt2 = JSON.parse('{"id":null,"nome":null,"preferencial":null,"entrada":null,"qtd_chamadas":null,"atendido":null,"servico":null,"chamar":null,"ultima_chamada":null,"excluir":null,"status":true,"msg":null}');
+		var chamadoAnt3 = JSON.parse('{"id":null,"nome":null,"preferencial":null,"entrada":null,"qtd_chamadas":null,"atendido":null,"servico":null,"chamar":null,"ultima_chamada":null,"excluir":null,"status":true,"msg":null}');
+
+		var cont = 0;
+
+		function getProximo() {
+			//$("#fila").html('Atualizando...');
+			
+			$.get( "../get_proximo_painel.php")
+			.done(function(data) {
+				var resp = JSON.parse(data);
+				if(resp.id == chamadoAtual.id && resp.qtd_chamadas > chamadoAtual.qtd_chamadas){
+					chamadoAtual = resp;
+					//console.log(chamadoAtual);
+					if(chamadoAtual.id != null){
+						document.getElementById('senhaAtualNome').innerHTML = resp.nome;
+						document.getElementById('senhaAtualGuiche').innerHTML = 'Guichê ' +resp.guiche_chamador;
+						document.getElementById('audioChamada').play();
+						document.getElementById('tag').classList.add("blink");
+						getlista();
+						$.get( "../registrar_chamado.php", { id: chamadoAtual.id } );
+					}
+				}if(resp.id != chamadoAtual.id){
+					chamadoAtual = resp;
+					//console.log(chamadoAtual);
+					if(chamadoAtual.id != null){
+						document.getElementById('senhaAtualNome').innerHTML = resp.nome;
+						document.getElementById('senhaAtualGuiche').innerHTML = 'Guichê ' +resp.guiche_chamador;
+						document.getElementById('audioChamada').play();
+						getlista();
+						$.get( "../registrar_chamado.php", { id: chamadoAtual.id } );
+					}
+				}
+				cont++;
+				//console.log(cont);
+			});
+
+		}
+		function getlista() {
+			$.get( "../get_chamados_painel.php")
+			.done(function(data) {
+				var lista = JSON.parse(data);
+				console.log(lista);
+				for (var i = 0; i < lista.length; i++) {
+					if (i > 0) {
+						document.getElementById('ultimaSenhaNome'+i).innerHTML = lista[i]..nome;
+						document.getElementById('ultimaSenhaGuiche'+i).innerHTML = 'Guichê ' +lista[i]..guiche_chamador;
+					}
+				}
+			});
+		}
+		setInterval(getProximo, 10000);
+		</script>
         <style>
             body{
                 font-size: small;
@@ -50,7 +106,7 @@
                 </div>
                 <div class="row">
 					<div style="text-align: center;">
-						<span id="senhaAtualGuiche">Guichê 02</span>
+					<i id="tag" class="fa fa-arrow-right senhaAtualSeta" aria-hidden="true"></i> <span id="senhaAtualGuiche" class="senhaAtualSeta">Guichê 02</span>
 					</div>
 				</div>
 			</div>
@@ -59,18 +115,21 @@
         <center><span class="h3"><i class="fa fa-arrow-down" aria-hidden="true"></i> CHAMADAS ANTERIORES <i class="fa fa-arrow-down" aria-hidden="true"> </i></span></center>
 			<div class="col-md-4 mb-5  ultimaSenha"><br/>
 				<span class="ultimaSenhaTexto" id="ultimaSenhaNome1">Manuel Martins Pereira </span><br>
-				<span class="ultimaSenhaNumero" id="ultimaSenhaGuiche1">Guichê 03</span>
+				<span class="h1 text-danger" id="ultimaSenhaGuiche1">Guichê 03</span>
 			</div>
             <div class="col-md-4 mb-5  ultimaSenha"><br/>
 				<span class="ultimaSenhaTexto"id="ultimaSenhaNome2">Paula Antunes de Almeida </span><br>
-				<span class="ultimaSenhaNumero" id="ultimaSenhaGuiche2">Guichê 01</span>
+				<span class="h1 text-danger" id="ultimaSenhaGuiche2">Guichê 01</span>
 			</div>
             <div class="col-md-4 mb-5  ultimaSenha"><br/>
 				<span class="ultimaSenhaTexto" id="ultimaSenhaNome3">Manuel Martins Pereira </span><br>
-				<span class="ultimaSenhaNumero" id="ultimaSenhaGuiche3">Guichê 03</span>
+				<span class="h1 text-danger" id="ultimaSenhaGuiche3">Guichê 03</span>
 			</div>
 		</div>
 	</div>
-	<audio id="audioChamada" src="audio/chamada.wav"></audio>
+	<audio id="audioChamada" autoplay>
+        <source src="./audio/chamada.wav" type="audio/mp3" />
+          seu navegador não suporta HTML5
+        </audio>
 </body>
 </html>
