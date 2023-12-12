@@ -119,9 +119,9 @@ class ManterFila extends Model {
         return $resultado;
     }
     function getProximoChamadoPainel() {
-        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, TIMESTAMPDIFF(MINUTE, f.entrada, now()) as tempo 
-        FROM fila as f 
-        WHERE f.ultima_chamada is not NULL AND f.chamar=1 AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 720 order by f.ultima_chamada DESC LIMIT 1";
+        $sql = "SELECT f.id, f.cpf, f.nome, f.preferencial, f.entrada, f.qtd_chamadas, f.atendido, f.id_servico, f.chamar, f.ultima_chamada, f.id_guiche_chamador, g.numero, TIMESTAMPDIFF(MINUTE, f.entrada, now()) as tempo 
+        FROM fila as f, guiche as g 
+        WHERE g.id=f.id_guiche_chamador AND f.ultima_chamada is not NULL AND f.chamar=1 AND TIMESTAMPDIFF(MINUTE, f.entrada, now()) <= 720 order by f.ultima_chamada DESC LIMIT 1";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Fila();
@@ -137,7 +137,7 @@ class ManterFila extends Model {
             $dados->servico         = $registro["id_servico"];
             $dados->chamar          = $registro["chamar"];
             $dados->ultima_chamada  = $registro["ultima_chamada"];
-            $dados->guiche_chamador = $registro["id_guiche_chamador"];
+            $dados->guiche_chamador = $registro["numero"];
             $dados->tempo           = $registro["tempo"];
         }
         return $dados;
