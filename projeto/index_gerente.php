@@ -15,7 +15,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SISTEMAS INAS-DF</title>
+        <title>Chamados - INAS</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,43 +46,13 @@ and open the template in the editor.
 
         <!-- Page Wrapper -->
         <div id="wrapper">
+            <?php include './menu.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
                 <div id="content">
                     <?php include './top_bar.php'; ?>
-                    
-                    <!-- Links sistemas -->
-                    <div class="card-group">
-        <?php
-        if ($usuario_logado->perfil <= 2) {
-            ?> 
-            <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Gerente</div>
-                <div class="card-body">
-                    <img src="img/tarefas.svg" width="100%" />
-                </div>
-            </div>       
-            <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Atendimento Chamados</div>
-                <div class="card-body">
-                    <img src="img/chamados.svg" width="100%" />
-                </div>
-            </div>  
-            <?php
-        }
-        if ($usuario_logado->perfil == 2 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
-            ?> 
-            <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Atendimento</div>
-                <div class="card-body">
-                    <img src="img/atendimento.svg" width="100%" />
-                </div>
-            </div> 
-            <?php
-        }
-        ?>  
-                    <!-- End of Links sistemas -->
+                    <?php include './home.php'; ?>
                 </div>
                 <!-- End of Main Content -->
 
