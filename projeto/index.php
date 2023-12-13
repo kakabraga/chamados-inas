@@ -58,28 +58,52 @@ and open the template in the editor.
         <?php
         if ($usuario_logado->perfil <= 2) {
             ?> 
-            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 16rem;">
-                <div class="text-white bg-gradient-primary card-header h6">Gerente</div>
-                <div class="card-body">
-                <a href="index_gerente.php"><img src="img/tarefas.svg" width="80%" /></a>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Gerente</div>
+                                <div class="h4 mb-0 font-weight-bold text-gray-800">
+                                    <a href="index_gerente.php"><img src="img/tarefas.svg" width="80%" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>&nbsp;&nbsp;
-            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 16rem;">
-                <div class="text-white bg-gradient-primary card-header h6">Atendimento Chamados</div>
-                <div class="card-body">
-                <a href="index_chamados.php"><img src="img/chamados.svg" width="80%" /></a>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Chamados</div>
+                                <div class="h4 mb-0 font-weight-bold text-gray-800">
+                                    <a href="index_chamados.php"><img src="img/chamados.svg" width="80%" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>&nbsp;&nbsp;
+            </div>
             <?php
         }
         if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
             ?> 
-            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 16rem;">
-                <div class="text-white bg-gradient-primary card-header h6">Atendimento</div>
-                <div class="card-body">
-                <a href="index_atendimento.php"><img src="img/atendimento.svg" width="80%" /></a>
-                </div>&nbsp;&nbsp;
-            </div> 
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Atendimento</div>
+                                <div class="h4 mb-0 font-weight-bold text-gray-800">
+                                    <a href="index_atendimento.php"><img src="img/atendimento.svg" width="80%" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php
         }
         ?>  
@@ -88,12 +112,6 @@ and open the template in the editor.
                 <!-- End of Main Content -->
 
                 <?php include './rodape.php'; ?>
-                <!-- Page level plugins -->
-                <script src="vendor/chart.js/Chart.min.js"></script>
-
-                <!-- Page level custom scripts -->
-                <script src="js/demo/chart-area-demo.js"></script>
-                <script src="js/demo/chart-pie-demo.js"></script>
             </div>
             <!-- End of Content Wrapper -->
 
