@@ -23,7 +23,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="servicos.php">
-                    <i class="fa fa-id-card"></i>
+                    <i class="fa fa-cogs"></i>
                     <span>Gerenciar Serviços</span>
                 </a>
             </li>
@@ -51,7 +51,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="gerenciar_fila.php">
-                    <i class="fa fa-id-card"></i>
+                    <i class="fa fa-list-ol"></i>
                     <span>Gerenciar Fila</span>
                 </a>
             </li>
@@ -65,7 +65,7 @@
              <!-- Nav Item - Pages Collapse Menu -->
              <li class="nav-item">
                 <a class="nav-link collapsed" target="_black" href="atendimento/painel.php">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-window-maximize"></i>
                     <span>Painel</span>
                 </a>
             </li>
