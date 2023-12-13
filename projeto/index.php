@@ -46,6 +46,7 @@ and open the template in the editor.
 
         <!-- Page Wrapper -->
         <div id="wrapper">
+        <?php include './menu.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
@@ -57,27 +58,27 @@ and open the template in the editor.
         <?php
         if ($usuario_logado->perfil <= 2) {
             ?> 
-            <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Gerente</div>
+            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 16rem;">
+                <div class="text-white bg-gradient-primary card-header h6">Gerente</div>
                 <div class="card-body">
-                    <img src="img/tarefas.svg" width="100%" />
+                <a href="index_gerente.php"><img src="img/tarefas.svg" width="80%" /></a>
                 </div>
-            </div>       
-            <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Atendimento Chamados</div>
+            </div>&nbsp;&nbsp;
+            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 16rem;">
+                <div class="text-white bg-gradient-primary card-header h6">Atendimento Chamados</div>
                 <div class="card-body">
-                    <img src="img/chamados.svg" width="100%" />
+                <a href="index_chamados.php"><img src="img/chamados.svg" width="80%" /></a>
                 </div>
-            </div>  
+            </div>&nbsp;&nbsp;
             <?php
         }
-        if ($usuario_logado->perfil == 2 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
+        if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
             ?> 
-            <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Atendimento</div>
+            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 16rem;">
+                <div class="text-white bg-gradient-primary card-header h6">Atendimento</div>
                 <div class="card-body">
-                    <img src="img/atendimento.svg" width="100%" />
-                </div>
+                <a href="index_atendimento.php"><img src="img/atendimento.svg" width="80%" /></a>
+                </div>&nbsp;&nbsp;
             </div> 
             <?php
         }
