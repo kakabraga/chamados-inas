@@ -32,6 +32,27 @@ class ManterAtendimento extends Model {
         }
         return $array_dados;
     }
+    function listarRelatorio($filtro = "") {
+        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a, fila as f $filtro order by a.id";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Atendimento();
+            $dados->excluir = true;
+            if ($registro["dep"] > 0) {
+                $dados->excluir = false;
+            }
+            $dados->id              = $registro["id"];
+            $dados->fila            = $registro["id_fila"];
+            $dados->guiche          = $registro["id_guiche"];
+            $dados->usuario         = $registro["id_usuario"];
+            $dados->detalhamento    = $registro["detalhamento"];
+            
+            $array_dados[]      = $dados;
+        }
+        return $array_dados;
+    }
     function getAtendimentoPorId($id) {
         $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a WHERE id=$id";
         //echo $sql;
