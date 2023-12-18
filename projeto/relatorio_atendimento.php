@@ -117,9 +117,9 @@ and open the template in the editor.
 
         $atendimentos = array();
         if ($cont_param > 0) {
-            $atendimentos = $mAtendimento->listar($where);
+            $atendimentos = $mAtendimento->listarRelatorio($where);
         } else {
-            $atendimentos = $mAtendimento->listar();
+            $atendimentos = $mAtendimento->listarRelatorio();
         }
         ?>
         <!-- Begin Page Content -->
