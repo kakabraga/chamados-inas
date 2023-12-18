@@ -33,7 +33,7 @@ class ManterAtendimento extends Model {
         return $array_dados;
     }
     function listarRelatorio($filtro = "") {
-        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a, fila as f $filtro order by a.id";
+        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a, fila as f WHERE f.id=a.id_fila AND $filtro order by a.id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
