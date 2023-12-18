@@ -15,7 +15,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>ENDC - Secretaria Acadêmica</title>
+        <title>INAS-DF - Relatório de atendimento</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,138 +35,6 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-        <script type="text/javascript" class="init">
-
-var categorias = [{id: "Pessoal", nome: "Pessoal"}, {id: "INAS", nome: "INAS"}, {id: "DIAD", nome: "DIAD"}, {id: "UTIC", nome: "UTIC"}];
-            var tipos = [{id: "Desenvolvimento", nome: "Desenvolvimento"}, {id: "Suporte", nome: "Suporte"}, {id: "SEI", nome: "SEI"}, {id: "Serviços", nome: "Serviços"}, {id: "Outro", nome: "Outro"}];
-            var equipes = [];
-            var responsaveis = [];
-<?php
-include_once('actions/ManterEquipe.php');
-
-include_once('actions/ManterUsuario.php');
-
-$manterEquipe = new ManterEquipe();
-$manterUsuario = new ManterUsuario();
-
-$listaEquipe = $manterEquipe->listar();
-$listaUsuario = $manterUsuario->listar();
-
-foreach ($listaEquipe as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->equipe ?>"};
-                equipes.push(item);
-    <?php
-}
-
-foreach ($listaUsuario as $obj) {
-    ?>item2 = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>", equipe: "<?= $obj->equipe ?>"};
-            responsaveis.push(item2);
-    <?php
-}
-?>
-        function carregaEquipes(id_atual) {
-            var html = '<option value="">indiferente</option>';
-            for (var i = 0; i < equipes.length; i++) {
-                var option = equipes[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
-            }
-            $('#equipe').html(html);
-        }
-
-//        function atualizaUsuarios(equipe) {
-//            var responsavel = $('#responsavel').val();
-//            if (responsavel > 0) {
-//                carregaUsuarios(responsavel, equipe);
-//            } else {
-//                carregaUsuarios(0, equipe);
-//            }
-//        }
-
-        function carregaUsuarios(id_atual, equipe) {
-            var html = '<option value="">indiferente</option>';
-            for (var i = 0; i < responsaveis.length; i++) {
-                var option = responsaveis[i];
-                if (option.equipe == equipe || equipe == 0) {
-                    var selected = "";
-                    if (id_atual > 0) {
-                        if (option.id == id_atual) {
-                            selected = "selected";
-                        } else {
-                            selected = "";
-                        }
-                    }
-                    html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
-                }
-            }
-            $('#responsavel').html(html);
-        }
-
-        function carregaCategorias(id_atual) {
-            var html = '<option value="">indiferente</option>';
-            for (var i = 0; i < categorias.length; i++) {
-                var option = categorias[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
-            }
-            $('#categoria').html(html);
-        }
-        function carregaTipos(id_atual) {
-            var html = '<option value="">indiferente</option>';
-            for (var i = 0; i < tipos.length; i++) {
-                var option = tipos[i];
-                var selected = "";
-                if (id_atual != "") {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
-            }
-            $('#tipo').html(html);
-        }
-
-        $(document).ready(function () {
-            carregaEquipes(0);
-            carregaUsuarios(0, 0);
-            carregaCategorias(0);
-            carregaTipos(0);
-            verificaTipo(0);
-        });
-
-        function cancelar() {
-            carregaEquipes(0);
-            carregaUsuarios(0, 0);
-            carregaCategorias(0);
-            verificaTipo(0);
-            
-            $('#form_relatorio').reset();
-        }
-        function verificaTipo(tipo) {
-            if (tipo == "Curso") {
-                $(".curso").show();
-            } else {
-                $(".curso").hide();
-            }
-        }
-
-        </script>
         <style>
             body{
                 font-size: small;
@@ -178,7 +46,7 @@ foreach ($listaUsuario as $obj) {
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include './menu_gerente.php'; ?>
+            <?php include './menu_atendimento.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
@@ -187,7 +55,7 @@ foreach ($listaUsuario as $obj) {
 
                     <div class="container-fluid">
                         <?php
-                        include './form_relatorio.php';
+                        include './form_relatorio_atendimento.php';
                         ?>
                     </div>
                     <!-- End of Main Content -->

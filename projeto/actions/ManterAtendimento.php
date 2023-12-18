@@ -11,8 +11,8 @@ class ManterAtendimento extends Model {
         parent::__construct();
     }
 
-    function listar() {
-        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a order by a.id";
+    function listar($filtro = "") {
+        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a $filtro order by a.id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -47,7 +47,7 @@ class ManterAtendimento extends Model {
         return $dados;
     }
     function getAtendimentoPorFila($id_fila) {
-        $sql = "sselect a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a WHERE a.id_fila=$id_fila";
+        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento FROM atendimento as a WHERE a.id_fila=$id_fila";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Atendimento();
