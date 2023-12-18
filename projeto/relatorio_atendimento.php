@@ -98,8 +98,8 @@ and open the template in the editor.
         $inicio = isset($_REQUEST['inicio']) ? $_REQUEST['inicio'] : 0;
         $termino = isset($_REQUEST['termino']) ? $_REQUEST['termino'] : 0;
 
-        $where = " WHERE ";
-        $cont_param = 0;
+        $where = " ";
+        $cont_param = 1;
         if ($inicio != 0) {
             if ($cont_param > 0) {
                 $where .= " AND ";
