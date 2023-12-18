@@ -143,12 +143,13 @@ and open the template in the editor.
                         </tr>
                         <?php
                         foreach ($atendimentos as $obj) {
+                            $fila = $mFila->getFilaPorId($obj->fila);
                             ?>
                             <tr class="">
-                                <td class="cell c0 text-dark text-center" style=""><?= $obj->cpf ?></td>
-                                <td class="cell c1 text-dark text-center" style=""><?= $obj->nome ?></td>
-                                <td class="cell c2 text-dark text-center" style=""><?= date('d/m/Y', strtotime($obj->fim)) ?></td>
-                                <td class="cell c3 text-dark text-center" style=""><?= $mServico->getServicoPorId($obj->servico)->nome ?></td>
+                                <td class="cell c0 text-dark text-center" style=""><?= $fila->cpf ?></td>
+                                <td class="cell c1 text-dark text-center" style=""><?= $fila->nome ?></td>
+                                <td class="cell c2 text-dark text-center" style=""><?= date('d/m/Y', strtotime($fila->atendimento)) ?></td>
+                                <td class="cell c3 text-dark text-center" style=""><?= $mServico->getServicoPorId($fila->servico)->nome ?></td>
                                 <td class="cell c4 text-dark text-center" style=""><?= $mUsuario->getUsuarioPorId($obj->usuario)->nome ?></td>                                
                                 <td class="cell c5 text-dark text-center" style="">Guichê <?= $mGuiche->getGuichePorId($obj->guiche)->numero ?></td>
                                 <td class="cell c6 text-dark text-center" style=""><?= $obj->detalhamento ?></td>
