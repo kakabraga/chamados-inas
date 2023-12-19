@@ -131,12 +131,12 @@ $manterPerfil = new ManterPerfil();
                                     <span><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a></span>
                                     <br/>
                                     <img src="img/whatsapp.svg" width="6%">
-                                    <input type="text" class="editar" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
+                                    <input type="text" class="editar form-control form-control-sm" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
                                     <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a></span>
                                     <br/>
                                     
                                     <img src="img/linkedin.svg" width="6%">
-                                    <input type="text" class="editar" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
+                                    <input type="text" class="editar form-control form-control-sm" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
                                     <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
                                     <br/>
                                     <button type="submit" class="btn btn-primary btn-sm editar" style="display: none;"><i class="fas fa-save"></i> Salvar</button>
