@@ -61,26 +61,12 @@ $manterSetor = new ManterSetor();
 $manterPerfil = new ManterPerfil();
 
 ?>
-            function alterarEtapa(id, email, whatsapp, linkedin) {
-                $('#id').val(id);
-                $('#email').val(email);
-                $('#whatsapp').val(whatsapp);
-                $('#linkedin').val(linkedin);
-                $('#email').focus();
-            }
-            function editar(op = 0) {
-                $('#editar').val(op);
-                if (op == 1) {
-                    $(".editar").toggle();
-                    $(".neditar").toggle();
-                    $('#btn_editar').toggleClass('fa-lock fa-unlock');
-                }
-                if ($("#editor").val() == 1) {
-                    $(".editar").toggle();
-                    $(".neditar").toggle();
-                    $('#btn_editar').toggleClass('fa-lock fa-unlock');
-                }
-            }
+        function editar(op = 0) {
+            $('#editar').val(op);
+            $(".editar").toggle();
+            $(".neditar").toggle();
+            $('#btn_editar').toggleClass('fa-lock fa-unlock');
+        }
 
         </script>
         <style>
