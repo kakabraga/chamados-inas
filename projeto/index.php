@@ -55,31 +55,49 @@ and open the template in the editor.
                     
                     <!-- Links sistemas -->
                     <div class="card-group">
-        <?php
-        if ($usuario_logado->perfil <= 2) {
+                    <?php
+        if ($usuario_logado->perfil == 1) {
             ?> 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4" style="max-width: 220px; max-height: 165px;" >
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Gerente</div>
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Administração</div>
                                 <div class="h4 mb-0 font-weight-bold text-gray-800">
-                                    <a href="index_gerente.php"><img src="img/tarefas.svg" width="80%" /></a>
+                                    <a href="index_admin.php"><img src="img/admin_sistema.svg" width="100" /></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6 mb-4">
+            <?php
+        }
+        if ($usuario_logado->perfil <= 2) {
+            ?> 
+            <div class="col-xl-3 col-md-6 mb-4" style="max-width: 220px; max-height: 165px;" >
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Gerente</div>
+                                <div class="h4 mb-0 font-weight-bold text-gray-800">
+                                    <a href="index_gerente.php"><img src="img/tarefas.svg" width="100" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4" style="max-width: 220px; max-height: 165px;">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Chamados</div>
                                 <div class="h4 mb-0 font-weight-bold text-gray-800">
-                                    <a href="index_chamados.php"><img src="img/chamados.svg" width="80%" /></a>
+                                    <a href="index_chamados.php"><img src="img/chamados.svg" width="100" /></a>
                                 </div>
                             </div>
                         </div>
@@ -90,14 +108,14 @@ and open the template in the editor.
         }
         if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
             ?> 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4" style="max-width: 220px; max-height: 165px;">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Atendimento</div>
                                 <div class="h4 mb-0 font-weight-bold text-gray-800">
-                                    <a href="index_atendimento.php"><img src="img/atendimento.svg" width="80%" /></a>
+                                    <a href="index_atendimento.php"><img src="img/atendimento.svg" width="100" /></a>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +128,7 @@ and open the template in the editor.
                     <!-- End of Links sistemas -->
                 </div>
                 <!-- End of Main Content -->
-
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 <?php include './rodape.php'; ?>
             </div>
             <!-- End of Content Wrapper -->
