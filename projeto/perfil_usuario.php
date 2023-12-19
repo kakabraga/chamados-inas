@@ -72,19 +72,15 @@ $manterPerfil = new ManterPerfil();
                 $('#editar').val(op);
                 if (op == 1) {
                     $(".editar").toggle();
+                    $(".neditar").toggle();
                     $('#btn_editar').toggleClass('fa-lock fa-unlock');
                 }
                 if ($("#editor").val() == 1) {
                     $(".editar").toggle();
+                    $(".neditar").toggle();
                     $('#btn_editar').toggleClass('fa-lock fa-unlock');
                 }
             }
-            function save_perfil_usuario() { 
-                    jQuery.post('save_perfil_usuario.php',
-                            {editar: 1}, function (res) {
-                    });
-                    
-                }
 
         </script>
         <style>
@@ -140,34 +136,26 @@ $manterPerfil = new ManterPerfil();
 
                                 $txt_aniversario = date('d/m', strtotime($usuario->nascimento));
                                 ?>
-                                <img src="img/aniversario.svg" width="5%">
-                                <input type="text" class="editar" style="display: none;" name="nascimento" id="nascimento" value="<?=$usuario->nascimento ?>"/>
-                                <span class="neditar"><b><?=$txt_aniversario ?></b><span>            
-                                <br/>
-                                <br/>
-                                <img src="img/email.svg" width="5%"> 
-                                <input type="text" class="editar" style="display: none;" name="email" id="email" value="<?=$usuario->email ?>"/>
-                                <span class="neditar"><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a><span>
-                                <br/>
-                                <img src="img/whatsapp.svg" width="6%">
-                                <input type="text" class="editar" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
-                                <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a><span>
-                                <br/>
-                                
-                                <img src="img/linkedin.svg" width="6%">
-                                <input type="text" class="editar" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
-                                <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a><span>
-                                <br/>
-                                <div class="text-xs font-weight-bold  text-uppercase mb-1 editar" style="display: none;">Editores
-                                    <form action="save_editores_tarefa.php" method="get">
-                                        <div>
-                                        <input type="hidden" name="tarefa" value="<?= $usuario->id ?>"/><input type="hidden" name="op" value="add"/>
-                                            <select class="align-middle" id="editores_incluir" name="id" required>
-                                                <option value="">Selecione</option>    
-                                            </select><input class="align-middle" type="submit" value="+"/>
-                                        </div>
-                                    </form>
-                                </div>
+                                <form action="save_perfil_usuario.php" method="get">
+                                    <img src="img/aniversario.svg" width="5%">
+                                    <input type="date" class="editar" style="display: none;" name="nascimento" id="nascimento" value="<?=$usuario->nascimento ?>"/>
+                                    <span class="neditar"><b><?=$txt_aniversario ?></b><span>            
+                                    <br/>
+                                    <br/>
+                                    <img src="img/email.svg" width="5%"> 
+                                    <input type="text" class="editar" style="display: none;" name="email" id="email" value="<?=$usuario->email ?>"/>
+                                    <span class="neditar"><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a><span>
+                                    <br/>
+                                    <img src="img/whatsapp.svg" width="6%">
+                                    <input type="text" class="editar" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
+                                    <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a><span>
+                                    <br/>
+                                    
+                                    <img src="img/linkedin.svg" width="6%">
+                                    <input type="text" class="editar" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
+                                    <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a><span>
+                                    <br/>
+                                </form>
                             </p>
                             <input type="hidden" id="editor" value="1"/>
                             <div class="c3 ml-4 text-right" >
