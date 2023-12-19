@@ -69,6 +69,7 @@ $manterPerfil = new ManterPerfil();
                 $('#email').focus();
             }
             function editar(op = 0) {
+                $('#editar').val(op);
                 if (op == 1) {
                     $(".editar").toggle();
                     $('#btn_editar').toggleClass('fa-lock fa-unlock');
@@ -149,7 +150,10 @@ $manterPerfil = new ManterPerfil();
                                 <img src="img/linkedin.svg" width="6%"> <?=$usuario->linkedin ?></a><br/>
                                 
                             </p>
-                            <a class="btn btn-danger" href="#!">Alterar</a>
+                            <input type="hidden" id="editar" value="0" name="editar"/>
+                            <div class="c3 ml-4 text-right" >
+                                    <i id="btn_editar" onclick="editar();" class="fa fa-unlock"></i>
+                            </div>
                         </div>
                     </div>
                     <!-- Call to Action-->
@@ -182,9 +186,7 @@ $manterPerfil = new ManterPerfil();
                                     <h2 class="card-title">Card Three</h2>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
                                 </div>
-                                <div class="c3 ml-4 text-right" >
-                                    <i id="btn_editar" onclick="editar();" class="fa fa-unlock"></i>
-                                </div>
+                                <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                             </div>
                         </div>
                     </div>
