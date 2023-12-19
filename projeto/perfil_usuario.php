@@ -124,13 +124,11 @@ $manterPerfil = new ManterPerfil();
                                 ?>
                                 <form action="save_perfil_usuario.php" method="get">
                                     <img src="img/aniversario.svg" width="5%">
-                                    <input type="date" class="editar" style="display: none;" name="nascimento" id="nascimento" value="<?=$usuario->nascimento ?>"/>
-                                    <span class="neditar"><b><?=$txt_aniversario ?></b></span>            
+                                    <span><b><?=$txt_aniversario ?></b></span>            
                                     <br/>
                                     <br/>
                                     <img src="img/email.svg" width="5%"> 
-                                    <input type="text" class="editar" style="display: none;" name="email" id="email" value="<?=$usuario->email ?>"/>
-                                    <span class="neditar"><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a></span>
+                                    <span><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a></span>
                                     <br/>
                                     <img src="img/whatsapp.svg" width="6%">
                                     <input type="text" class="editar" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
@@ -141,6 +139,7 @@ $manterPerfil = new ManterPerfil();
                                     <input type="text" class="editar" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
                                     <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
                                     <br/>
+                                    <input class="align-middle editar" type="submit" value="Salvar"/>
                                 </form>
                             </p>
                             <input type="hidden" id="editor" value="1"/>
