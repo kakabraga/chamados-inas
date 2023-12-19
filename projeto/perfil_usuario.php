@@ -159,7 +159,7 @@ $manterPerfil = new ManterPerfil();
                                     </form>
                                 </div>
                             </p>
-                            <input type="hidden" id="editar" value="0" name="editar"/>
+                            <input type="hidden" id="editor" value="1"/>
                             <div class="c3 ml-4 text-right" >
                                     <i id="btn_editar" onclick="editar();" class="fa fa-unlock"></i>
                             </div>
