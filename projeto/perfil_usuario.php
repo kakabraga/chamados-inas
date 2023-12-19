@@ -125,21 +125,21 @@ $manterPerfil = new ManterPerfil();
                                 <form action="save_perfil_usuario.php" method="get">
                                     <img src="img/aniversario.svg" width="5%">
                                     <input type="date" class="editar" style="display: none;" name="nascimento" id="nascimento" value="<?=$usuario->nascimento ?>"/>
-                                    <span class="neditar"><b><?=$txt_aniversario ?></b><span>            
+                                    <span class="neditar"><b><?=$txt_aniversario ?></b></span>            
                                     <br/>
                                     <br/>
                                     <img src="img/email.svg" width="5%"> 
                                     <input type="text" class="editar" style="display: none;" name="email" id="email" value="<?=$usuario->email ?>"/>
-                                    <span class="neditar"><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a><span>
+                                    <span class="neditar"><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a></span>
                                     <br/>
                                     <img src="img/whatsapp.svg" width="6%">
                                     <input type="text" class="editar" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
-                                    <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a><span>
+                                    <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a></span>
                                     <br/>
                                     
                                     <img src="img/linkedin.svg" width="6%">
                                     <input type="text" class="editar" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
-                                    <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a><span>
+                                    <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
                                     <br/>
                                 </form>
                             </p>
