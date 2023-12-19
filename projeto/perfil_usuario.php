@@ -11,16 +11,16 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>INAS - Perfil do usuário</title>
+        <title>SISTEMAS INAS-DF</title>
 
         <!-- Custom fonts for this template-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
@@ -33,13 +33,10 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
         <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-            
         <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
 
             var equipes = [];
@@ -63,107 +60,7 @@ $manterEquipe = new ManterEquipe();
 $manterSetor = new ManterSetor();
 $manterPerfil = new ManterPerfil();
 
-$listaE = $manterEquipe->listar();
-$listaS = $manterSetor->listar();
-$listaP = $manterPerfil->listar();
-
-foreach ($listaE as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", equipe: "<?= $obj->equipe ?>"};
-                equipes.push(item);
-    <?php
-}
-foreach ($listaS as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", setor: "<?= $obj->sigla ?>"};
-                setores.push(item);
-    <?php
-}
-foreach ($listaP as $obj) {
-    if ($obj->id >= $usuario_logado->perfil) {
-        ?>item = {id: "<?= $obj->id ?>", perfil: "<?= $obj->perfil ?>"};
-                perfis.push(item);
-        <?php
-    }
-}
 ?>
-        function carregaEquipes(id_atual) {
-            var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < equipes.length; i++) {
-                var option = equipes[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.equipe + '</option>';
-            }
-            $('#equipe').html(html);
-        }
-        function carregaSetores(id_atual) {
-            var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < setores.length; i++) {
-                var option = setores[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.setor + '</option>';
-            }
-            $('#setor').html(html);
-        }
-        function carregaPerfis(id_atual) {
-            var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < perfis.length; i++) {
-                var option = perfis[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.perfil + '</option>';
-            }
-            $('#perfil').html(html);
-        }
-
-        $(document).ready(function () {
-            //$('#usuarios').DataTable();
-            //$('#id').val(0);
-            carregaEquipes(0);
-            carregaSetores(0);
-            carregaPerfis(0);
-        });
-        function excluir(id, nome) {
-            $('#delete').attr('href', 'del_usuario.php?id=' + id);
-            $('#nome_excluir').text(nome);
-            $('#confirm').modal({show: true});
-        }
-        function alterar(id, login, nome, senha, email, ativo, id_equipe, id_setor, id_perfil) {
-            $('#id').val(id);
-            $('#login').val(login);
-            $('#nome').val(nome);
-            $('#senha').val(senha);
-            $('#email').val(email);
-            $('#ativo').val(ativo);
-            if (ativo == 1) {
-                $('#ativo').prop('checked', true);
-            } else {
-                $('#ativo').prop('checked', false);
-            }
-            carregaEquipes(id_equipe);
-            carregaSetores(id_setor);
-            carregaPerfis(id_perfil);
-            $('#form_usuario').collapse("show");
-            $('#btn_cadastrar').hide();
-        }
 
 
         </script>
