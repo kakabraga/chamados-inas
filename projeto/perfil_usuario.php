@@ -139,7 +139,7 @@ $manterPerfil = new ManterPerfil();
                                     <input type="text" class="editar" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
                                     <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
                                     <br/>
-                                    <input class="align-middle editar" type="submit" value="Salvar"/>
+                                    <button type="submit" class="btn btn-primary btn-sm editar" style="display: none;"><i class="fas fa-save"></i> Salvar</button>
                                 </form>
                             </p>
                             <input type="hidden" id="editor" value="1"/>
