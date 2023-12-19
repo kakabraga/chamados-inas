@@ -18,45 +18,30 @@
         Gestão de Tarefas
         </div>
         <?php
-        if ($usuario_logado->perfil <= 1) {
+        if ($usuario_logado->perfil == 1) {
             ?>        
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="equipes.php">
+            <a class="nav-link collapsed" href="setores.php">
                 <i class="fa fa-users"></i>
-                <span>Equipes</span>
+                <span>Setores</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="tarefas.php">
+            <a class="nav-link collapsed" href="usuarios.php">
                 <i class="fa fa-tasks"></i>
-                <span>Tarefas</span>
+                <span>Usurios</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="gerar_relatorio.php">
+            <a class="nav-link collapsed" href="'perfis'.php">
                 <i class="fa fa-file"></i>
-                <span>Relatórios</span>
+                <span>Perfis</span>
             </a>
         </li> 
             <?php
         }
-        ?>        
-        <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="tarefas.php?filtro=equipe">
-            <i class="fa fa-tasks"></i>
-            <span>Tarefas da Equipe</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="tarefas.php?filtro=criador">
-            <i class="fa fa-tasks"></i>
-            <span>Minhas Tarefas</span>
-        </a>
-    </li>
-        <?php
     }
     ?>
 
