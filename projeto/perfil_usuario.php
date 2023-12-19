@@ -61,7 +61,29 @@ $manterSetor = new ManterSetor();
 $manterPerfil = new ManterPerfil();
 
 ?>
-
+            function alterarEtapa(id, email, whatsapp, linkedin) {
+                $('#id').val(id);
+                $('#email').val(email);
+                $('#whatsapp').val(whatsapp);
+                $('#linkedin').val(linkedin);
+                $('#email').focus();
+            }
+            function editar(op = 0) {
+                if (op == 1) {
+                    $(".editar").toggle();
+                    $('#btn_editar').toggleClass('fa-lock fa-unlock');
+                }
+                if ($("#editor").val() == 1) {
+                    $(".editar").toggle();
+                    $('#btn_editar').toggleClass('fa-lock fa-unlock');
+                }
+            }
+            function save_perfil_usuario() { 
+                    jQuery.post('save_perfil_usuario.php',
+                            {editar: 1}, function (res) {
+                    });
+                    
+                }
 
         </script>
         <style>
@@ -160,7 +182,9 @@ $manterPerfil = new ManterPerfil();
                                     <h2 class="card-title">Card Three</h2>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
                                 </div>
-                                <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                                <div class="c3 ml-4 text-right" >
+                                    <i id="btn_editar" onclick="editar();" class="fa fa-unlock"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
