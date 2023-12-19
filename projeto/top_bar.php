@@ -47,6 +47,10 @@ $mSetor = new ManterSetor();
                       
                                 <!-- Dropdown - User Information --> 
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Meu perfil
+                                    </a>
                                     <a class="dropdown-item" href="alterar_foto.php">
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Alterar Foto
