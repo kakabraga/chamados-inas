@@ -140,14 +140,24 @@ $manterPerfil = new ManterPerfil();
 
                                 $txt_aniversario = date('d/m', strtotime($usuario->nascimento));
                                 ?>
-                                <img src="img/aniversario.svg" width="5%"> <b><?=$txt_aniversario ?></b><br/>
+                                <img src="img/aniversario.svg" width="5%">
+                                <input type="text" class="editar" style="display: none;" name="nascimento" id="nascimento" value="<?=$usuario->nascimento ?>"/>
+                                <span class="neditar"><b><?=$txt_aniversario ?></b><span>            
                                 <br/>
-                                <a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank">
-                                <img src="img/email.svg" width="5%"> <?=$usuario->email ?></a><br/>
-                                <a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank">
-                                <img src="img/whatsapp.svg" width="6%"> <?=$usuario->whatsapp ?></a><br/>
-                                <a href="<?=$usuario->linkedin ?>" target="_blank">
-                                <img src="img/linkedin.svg" width="6%"> <?=$usuario->linkedin ?></a><br/>
+                                <br/>
+                                <img src="img/email.svg" width="5%"> 
+                                <input type="text" class="editar" style="display: none;" name="email" id="email" value="<?=$usuario->email ?>"/>
+                                <span class="neditar"><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a><span>
+                                <br/>
+                                <img src="img/whatsapp.svg" width="6%">
+                                <input type="text" class="editar" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
+                                <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a><span>
+                                <br/>
+                                
+                                <img src="img/linkedin.svg" width="6%">
+                                <input type="text" class="editar" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
+                                <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a><span>
+                                <br/>
                                 <div class="text-xs font-weight-bold  text-uppercase mb-1 editar" style="display: none;">Editores
                                     <form action="save_editores_tarefa.php" method="get">
                                         <div>
@@ -161,7 +171,7 @@ $manterPerfil = new ManterPerfil();
                             </p>
                             <input type="hidden" id="editor" value="1"/>
                             <div class="c3 ml-4 text-right" >
-                                    <i id="btn_editar" onclick="editar();" class="fa fa-unlock"></i>
+                                    <i id="btn_editar" onclick="editar();" class="fa fa-lock"></i>
                             </div>
                         </div>
                     </div>
