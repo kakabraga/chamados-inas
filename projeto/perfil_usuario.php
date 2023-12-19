@@ -148,7 +148,17 @@ $manterPerfil = new ManterPerfil();
                                 <img src="img/whatsapp.svg" width="6%"> <?=$usuario->whatsapp ?></a><br/>
                                 <a href="<?=$usuario->linkedin ?>" target="_blank">
                                 <img src="img/linkedin.svg" width="6%"> <?=$usuario->linkedin ?></a><br/>
-                                
+                                <div class="text-xs font-weight-bold  text-uppercase mb-1"><small class="text-muted">Editores<div class="editar text-right">
+                                    <form action="save_editores_tarefa.php" method="get">
+                                        <div>
+                                        <input type="hidden" name="tarefa" value="<?= $usuario->id ?>"/><input type="hidden" name="op" value="add"/>
+                                            <select class="align-middle" id="editores_incluir" name="id" required>
+                                                <option value="">Selecione</option>    
+                                            </select><input class="align-middle" type="submit" value="+"/>
+                                            
+                                        </div>
+                                    </form>
+                                </div>
                             </p>
                             <input type="hidden" id="editar" value="0" name="editar"/>
                             <div class="c3 ml-4 text-right" >
