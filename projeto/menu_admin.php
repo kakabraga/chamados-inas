@@ -23,20 +23,20 @@
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="setores.php">
-                <i class="fa fa-users"></i>
+                <i class="fa fa-address-book"></i>
                 <span>Setores</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="usuarios.php">
-                <i class="fa fa-tasks"></i>
-                <span>Usurios</span>
+                <i class="fa fa-user"></i>
+                <span>Usuários</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="'perfis'.php">
-                <i class="fa fa-file"></i>
+                <i class="fa fa-users"></i>
                 <span>Perfis</span>
             </a>
         </li> 
