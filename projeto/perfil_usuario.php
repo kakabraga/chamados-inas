@@ -12,12 +12,13 @@ and open the template in the editor.
 <html>
     <head>
     <meta charset="utf-8">
+    <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SISTEMAS INAS-DF</title>
+        <title>GERENTE - Gerenciador de tarefas</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,10 +34,13 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
         <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+            
         <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
 
             var equipes = [];
@@ -132,7 +136,7 @@ $manterPerfil = new ManterPerfil();
                                     <span><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a></span>
                                     <br/>
                                     <img src="img/whatsapp.svg" width="6%">
-                                    <input type="text" class="editar form-control form-control-sm" style="display: none;" name="whatsapp" id="whatsapp" value="<?=$usuario->whatsapp ?>"/>
+                                    <input type="text" class="editar form-control form-control-sm" style="display: none;" name="whatsapp" id="whatsapp"  pattern='\d*' onkeypress="$(this).mask('(00)00000-0000');" value="<?=$usuario->whatsapp ?>"/>
                                     <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a></span>
                                     <br/>
                                     
