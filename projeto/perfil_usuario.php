@@ -281,6 +281,7 @@ and open the template in the editor.
                     <div class="collapse" id="collapseMinhasTarefas">
                         <div class="card-body card-deck">
                             <?php
+                            $contx = 0;
                             foreach ($tarefas_criador as $obj) {
                                 $percentual = round($mTarefa->getPercentualTarefaPorId($obj->id), 1);
                                 $islistar = true;
@@ -300,6 +301,9 @@ and open the template in the editor.
                                         $bg_progress = "bg-warning";
                                     }
                                     $txt_extra = "Início: " . date('d/m/Y', strtotime($obj->inicio)) . " Fim: " . date('d/m/Y', strtotime($obj->fim));
+                                    if ($contx%4 == 0) {
+                                        echo "<br/>";
+                                    }
                                     ?>
                                     <div class="card text-white bg-gradient-primary mb-3" style="max-width: 18rem;">
                                         <div class="card-header"><span class="float-right"><a href='gerenciar_etapas.php?tarefa=<?= $obj->id ?>' class='badge text-white' title='Gerenciar etapa'><i class='fa fa-cog fa-2x'></i></a></span><strong><?= $obj->nome ?></strong></div>
@@ -315,6 +319,7 @@ and open the template in the editor.
 
                                     <?php
                                 }
+                                $contx++;
                             }
                             ?>
                         </div>
