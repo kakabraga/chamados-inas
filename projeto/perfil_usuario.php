@@ -131,7 +131,7 @@ and open the template in the editor.
                                     <?php
                                     }
                                     ?>
-                                    <img class="editar" src="img/whatsapp.svg" width="6%">
+                                    <img class="editar" src="img/whatsapp.svg" width="6%" style="display: none;">
                                     <input type="text" class="editar form-control form-control-sm" style="display: none;" name="whatsapp" id="whatsapp" onkeypress="$(this).mask('(00)00000-0000');" value="<?=$usuario->whatsapp ?>"/>
                                     <br/>
                                     <?php
@@ -142,7 +142,7 @@ and open the template in the editor.
                                     <?php
                                     }
                                     ?>
-                                    <img class="editar" src="img/linkedin.svg" width="6%">
+                                    <img class="editar" src="img/linkedin.svg" width="6%" style="display: none;">
                                     <input type="text" class="editar form-control form-control-sm" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
                                     <br/>
                                     <button type="submit" class="btn btn-primary btn-sm editar" style="display: none;"><i class="fas fa-save"></i> Salvar</button>
@@ -204,11 +204,11 @@ and open the template in the editor.
                             <i class="fa fa-bars" aria-hidden="true"></i> Todas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </a>
 
-                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>listar=pendentes&categoria=">
+                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>&listar=pendentes&categoria=">
                             <i class="fa fa-minus-square" aria-hidden="true"></i> Pendentes
                         </a>
 
-                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>listar=concluidas&categoria=">
+                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>&listar=concluidas&categoria=">
                             <i class="fa fa-check-square" aria-hidden="true"></i> Concluídas
                         </a>                                                         
                     </div>
