@@ -200,15 +200,15 @@ and open the template in the editor.
                         <span style="align:left;" class="h6 m-0 font-weight text-white">Tarefas Importantes <?= $txt_extra_titulo ?> </span>
                     </div>
                     <div class="col text-right" style="min-width:60%">
-                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?listar=todas&categoria=">  
+                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>&listar=todas&categoria=">  
                             <i class="fa fa-bars" aria-hidden="true"></i> Todas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </a>
 
-                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?listar=pendentes&categoria=">
+                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>listar=pendentes&categoria=">
                             <i class="fa fa-minus-square" aria-hidden="true"></i> Pendentes
                         </a>
 
-                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?listar=concluidas&categoria=">
+                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?id=<?=$usuario_logado->id ?>listar=concluidas&categoria=">
                             <i class="fa fa-check-square" aria-hidden="true"></i> Concluídas
                         </a>                                                         
                     </div>
