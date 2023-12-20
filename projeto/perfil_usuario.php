@@ -200,7 +200,7 @@ and open the template in the editor.
                         <span style="align:left;" class="h6 m-0 font-weight text-white">Tarefas Importantes <?= $txt_extra_titulo ?> </span>
                     </div>
                     <div class="col text-right" style="min-width:60%">
-                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?categoria=">  
+                        <a class="btn btn-outline-light btn-sm" href="perfil_usuario.php?listar=todas&categoria=">  
                             <i class="fa fa-bars" aria-hidden="true"></i> Todas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </a>
 
