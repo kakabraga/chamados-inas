@@ -94,6 +94,13 @@ class ManterUsuario extends Model {
         return $resultado;
     }
 
+    function salvarPerfil(Usuario $dados) {
+        $sql = "update usuario set whatsapp='" . $dados->whatsapp . "',linkedin='" . $dados->linkedin . "' where id=$dados->id";
+        $resultado = $this->db->Execute($sql);
+        //echo $sql . "<BR/>";
+        return $resultado;
+    }
+
     function excluir($id) {
         $sql = "delete from usuario where id=" . $id;
         $resultado = $this->db->Execute($sql);

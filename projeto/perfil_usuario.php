@@ -123,6 +123,7 @@ $manterPerfil = new ManterPerfil();
                                 $txt_aniversario = date('d/m', strtotime($usuario->nascimento));
                                 ?>
                                 <form action="save_perfil_usuario.php" method="get">
+                                    <input type="hidden" name="id" value="<?=$usuario->id ?>"/>
                                     <img src="img/aniversario.svg" width="5%">
                                     <span><b><?=$txt_aniversario ?></b></span>            
                                     <br/>
