@@ -2,6 +2,18 @@
 
 date_default_timezone_set('America/Sao_Paulo'); 
 require_once('./verifica_login.php');
+
+include_once('./actions/ManterUsuario.php');
+include_once('./dto/Usuario.php');
+include_once('./actions/ManterSetor.php');
+
+$manterUsuario = new ManterUsuario();
+$manterSetor = new ManterSetor();
+
+$id = $_REQUEST['id'];
+$usuario = new Usuario();
+$usuario =  $manterUsuario->getUsuarioPorId($id);
+
 ?>  
 <!DOCTYPE html>
 <!--
@@ -42,36 +54,12 @@ and open the template in the editor.
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
-
-            var equipes = [];
-            var setores = [];
-            var perfis = [];
-<?php
-include_once('./actions/ManterUsuario.php');
-include_once('./dto/Usuario.php');
-include_once('./actions/ManterEquipe.php');
-include_once('./actions/ManterSetor.php');
-include_once('./actions/ManterPerfil.php');
-
-$manterUsuario = new ManterUsuario();
-
-$id = $_REQUEST['id'];
-$usuario = new Usuario();
-$usuario =  $manterUsuario->getUsuarioPorId($id);
-//print_r($usuario);
-
-$manterEquipe = new ManterEquipe();
-$manterSetor = new ManterSetor();
-$manterPerfil = new ManterPerfil();
-
-?>
-        function editar(op = 0) {
-            $('#editar').val(op);
-            $(".editar").toggle();
-            $(".neditar").toggle();
-            $('#btn_editar').toggleClass('fa-lock fa-unlock');
-        }
-
+            function editar(op = 0) {
+                $('#editar').val(op);
+                $(".editar").toggle();
+                $(".neditar").toggle();
+                $('#btn_editar').toggleClass('fa-lock fa-unlock');
+            }
         </script>
         <style>
             body{
@@ -97,7 +85,7 @@ $manterPerfil = new ManterPerfil();
 
                     <!-- Collapsable Form -->
                     <!-- Page Content-->
-                    <div class="container px-4 px-lg-5 border-primary" id="form_usuario" style="max-width:900px">
+                    <div class="container px-4 px-lg-5 border-primary" id="form_usuario" style="max-width:1200px">
                     <!-- Heading Row-->
                     <div class="row gx-4 gx-lg-4 align-items-center my-5">
                         <div class="col-lg-5">
@@ -187,7 +175,7 @@ $manterPerfil = new ManterPerfil();
 
         if ($painel->total_responsavel > 0 || $painel->total_criador) {
 
-            $listar = isset($_REQUEST['listar']) ? $_REQUEST['listar'] : 'todas';
+            $listar = isset($_REQUEST['listar']) ? $_REQUEST['listar'] : 'pendentes';
             $txt_extra_titulo = "<small>(Todas)</small>";
             switch ($listar) {
                 case 'pendentes':
