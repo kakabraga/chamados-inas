@@ -116,33 +116,31 @@ and open the template in the editor.
                                 ?>
                                 <form action="save_perfil_usuario.php" method="post">
                                     <input type="hidden" name="id" value="<?=$usuario->id ?>"/>
-                                     <img src="img/aniversario.svg" width="5%">
+                                     <img src="img/aniversario.svg" width="30">
                                      <span><b><?=$txt_aniversario ?></b></span>            
                                     <br/>
                                     <br/>
-                                    <img src="img/email.svg" width="5%"> 
+                                    <img src="img/email.svg" class="ml-1" width="30"> 
                                     <span><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a></span>
                                     <br/>
                                     <?php
                                     if (trim($usuario->whatsapp) != "") {
                                     ?>
-                                        <img class="neditar" src="img/whatsapp.svg" width="6%">
-                                        <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a></span>
+                                        <span class="neditar"><img class="neditar" src="img/whatsapp.svg" width="37"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a></span>
                                     <?php
                                     }
                                     ?>
-                                    <img class="editar" src="img/whatsapp.svg" width="6%" style="display: none;">
+                                    <img class="editar" src="img/whatsapp.svg" width="37" style="display: none;">
                                     <input type="text" class="editar form-control form-control-sm" style="display: none;" name="whatsapp" id="whatsapp" onkeypress="$(this).mask('(00)00000-0000');" value="<?=$usuario->whatsapp ?>"/>
                                     <br/>
                                     <?php
                                     if (trim($usuario->linkedin) != "") {
                                     ?>                                    
-                                        <img class="neditar" src="img/linkedin.svg" width="6%">
-                                        <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
+                                        <span class="neditar"><img class="neditar" src="img/linkedin.svg" width="37"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
                                     <?php
                                     }
                                     ?>
-                                    <img class="editar" src="img/linkedin.svg" width="6%" style="display: none;">
+                                    <img class="editar" src="img/linkedin.svg" width="37" style="display: none;">
                                     <input type="text" class="editar form-control form-control-sm" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
                                     <br/>
                                     <button type="submit" class="btn btn-primary btn-sm editar" style="display: none;"><i class="fas fa-save"></i> Salvar</button>
