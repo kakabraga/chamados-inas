@@ -60,12 +60,6 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
                 </div>
             </div>
         </div>
-        <?php
-//                             require_once('./ws/wsmoodle.php');
-//                             $moodle = new WSMoodle();
-//                             $courses = $moodle->getTotalCourses();
-//                             $users = $moodle->getTotalUsers();
-        ?>
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
@@ -117,14 +111,6 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
 
     <div class="row">
         <?php
-        //echo $date->getTimestamp();
-        
-        //$ano_inicio  = mktime (0, 0, 0, 1  , 1, $ano);
-        //$ano_fim  = mktime (0, 0, 0, 12  , 31 , $ano);
-//        echo ' INICIO: ' . date('d/m/Y', $date_inicio->getTimestamp());
-//        echo ' FIM: ' . date('d/m/Y', $date_fim->getTimestamp());
-//        echo '<br/>';
-//        exit;
         
         $tarefas_responsavel = $mTarefa->listar(" WHERE t.id_responsavel=" . $usuario_logado->id);
         $tarefas_criador = $mTarefa->listar(" WHERE t.id_criador=" . $usuario_logado->id);
@@ -153,15 +139,15 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
                         <span style="align:left;" class="h6 m-0 font-weight text-white">Tarefas Importantes <?= $txt_extra_titulo ?> </span>
                     </div>
                     <div class="col text-right" style="min-width:60%">
-                        <a class="btn btn-outline-light btn-sm" href="index.php?categoria=">  
+                        <a class="btn btn-outline-light btn-sm" href="index_gerente.php?categoria=">  
                             <i class="fa fa-bars" aria-hidden="true"></i> Todas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </a>
 
-                        <a class="btn btn-outline-light btn-sm" href="index.php?listar=pendentes&categoria=">
+                        <a class="btn btn-outline-light btn-sm" href="index_gerente.php?listar=pendentes&categoria=">
                             <i class="fa fa-minus-square" aria-hidden="true"></i> Pendentes
                         </a>
 
-                        <a class="btn btn-outline-light btn-sm" href="index.php?listar=concluidas&categoria=">
+                        <a class="btn btn-outline-light btn-sm" href="index_gerente.php?listar=concluidas&categoria=">
                             <i class="fa fa-check-square" aria-hidden="true"></i> Concluídas
                         </a>                                                         
                     </div>
@@ -181,6 +167,7 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
                     <div class="collapse show" id="collapseTarefasAtribuidas">
                         <div class="card-body card-deck">
                             <?php
+                            $contx = 0;
                             foreach ($tarefas_responsavel as $obj) {
                                 $percentual = round($mTarefa->getPercentualTarefaPorId($obj->id), 1);
                                 $islistar = true;
@@ -200,6 +187,11 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
                                         $bg_progress = "bg-warning";
                                     }
                                     $txt_extra = "Início: " . date('d/m/Y', strtotime($obj->inicio)) . " Fim: " . date('d/m/Y', strtotime($obj->fim));
+                                    if ($contx == 3) {
+                                        $contx=0;
+                                        echo "</div> <div class='card-body card-deck'>";
+                                    }
+                                    $contx++;
                                     ?>
                                     <div class="card text-white bg-gradient-primary mb-3" style="max-width: 18rem;">
                                         <div class="card-header"><span class="float-right"><a href='gerenciar_etapas.php?tarefa=<?= $obj->id ?>' class='badge text-white' title='Gerenciar etapa'><i class='fa fa-cog fa-2x'></i></a></span><strong><?= $obj->nome ?></strong></div>
@@ -234,6 +226,7 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
                     <div class="collapse" id="collapseMinhasTarefas">
                         <div class="card-body card-deck">
                             <?php
+                            $contx = 0;
                             foreach ($tarefas_criador as $obj) {
                                 $percentual = round($mTarefa->getPercentualTarefaPorId($obj->id), 1);
                                 $islistar = true;
@@ -253,6 +246,11 @@ $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
                                         $bg_progress = "bg-warning";
                                     }
                                     $txt_extra = "Início: " . date('d/m/Y', strtotime($obj->inicio)) . " Fim: " . date('d/m/Y', strtotime($obj->fim));
+                                    if ($contx == 3) {
+                                        $contx=0;
+                                        echo "</div> <div class='card-body card-deck'>";
+                                    }
+                                    $contx++;
                                     ?>
                                     <div class="card text-white bg-gradient-primary mb-3" style="max-width: 18rem;">
                                         <div class="card-header"><span class="float-right"><a href='gerenciar_etapas.php?tarefa=<?= $obj->id ?>' class='badge text-white' title='Gerenciar etapa'><i class='fa fa-cog fa-2x'></i></a></span><strong><?= $obj->nome ?></strong></div>
