@@ -173,6 +173,9 @@ and open the template in the editor.
         $tarefas_responsavel = $mTarefa->listar(" WHERE t.id_responsavel=" . $usuario_logado->id);
         $tarefas_criador = $mTarefa->listar(" WHERE t.id_criador=" . $usuario_logado->id);
 
+        $painel = $mTarefa->getPainelTarefa($usuario_logado);
+        $painel_concluidas = $mTarefa->getPainelTarefaConcluidas($usuario_logado);
+
         if ($painel->total_responsavel > 0 || $painel->total_criador) {
 
             $listar = isset($_REQUEST['listar']) ? $_REQUEST['listar'] : 'pendentes';
