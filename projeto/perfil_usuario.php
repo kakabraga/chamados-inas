@@ -126,7 +126,7 @@ $manterPerfil = new ManterPerfil();
 
                                 $txt_aniversario = date('d/m', strtotime($usuario->nascimento));
                                 ?>
-                                <form action="save_perfil_usuario.php" method="get">
+                                <form action="save_perfil_usuario.php" method="post">
                                     <input type="hidden" name="id" value="<?=$usuario->id ?>"/>
                                     <img src="img/aniversario.svg" width="5%">
                                     <span><b><?=$txt_aniversario ?></b></span>            
@@ -135,22 +135,41 @@ $manterPerfil = new ManterPerfil();
                                     <img src="img/email.svg" width="5%"> 
                                     <span><a class="ml-1" href="mailto:<?=$usuario->email ?>" target="_blank"><?=$usuario->email ?></a></span>
                                     <br/>
-                                    <img src="img/whatsapp.svg" width="6%">
-                                    <input type="text" class="editar form-control form-control-sm" style="display: none;" name="whatsapp" id="whatsapp"  pattern='\d*' onkeypress="$(this).mask('(00)00000-0000');" value="<?=$usuario->whatsapp ?>"/>
-                                    <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a></span>
+                                    <?php
+                                    if (str_trim($usuario->whatsapp) != "") {
+                                    ?>
+                                        <img class="neditar" src="img/whatsapp.svg" width="6%">
+                                        <span class="neditar"><a href="https://api.whatsapp.com/send?phone=55<?=$txt_whatsapp ?>" target="_blank"><?=$usuario->whatsapp ?></a></span>
+                                    <?php
+                                    }
+                                    ?>
+                                    <img class="editar" src="img/whatsapp.svg" width="6%">
+                                    <input type="text" class="editar form-control form-control-sm" style="display: none;" name="whatsapp" id="whatsapp" onkeypress="$(this).mask('(00)00000-0000');" value="<?=$usuario->whatsapp ?>"/>
                                     <br/>
-                                    
-                                    <img src="img/linkedin.svg" width="6%">
+                                    <?php
+                                    if (str_trim($usuario->linkedin) != "") {
+                                    ?>                                    
+                                        <img class="neditar" src="img/linkedin.svg" width="6%">
+                                        <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
+                                    <?php
+                                    }
+                                    ?>
+                                    <img class="editar" src="img/linkedin.svg" width="6%">
                                     <input type="text" class="editar form-control form-control-sm" style="display: none;" name="linkedin" id="linkedin" value="<?=$usuario->linkedin ?>"/>
-                                    <span class="neditar"><a href="<?=$usuario->linkedin ?>" target="_blank"><?=$usuario->linkedin ?></a></span>
                                     <br/>
                                     <button type="submit" class="btn btn-primary btn-sm editar" style="display: none;"><i class="fas fa-save"></i> Salvar</button>
                                 </form>
                             </p>
+                            <?php
+                            if ($usuario->id === $usuario_logado->id) {
+                            ?>
                             <input type="hidden" id="editor" value="1"/>
                             <div class="c3 ml-4 text-right" >
                                     <i id="btn_editar" onclick="editar();" class="fa fa-lock"></i>
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                     <!-- Call to Action-->
