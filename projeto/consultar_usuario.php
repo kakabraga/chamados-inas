@@ -68,9 +68,7 @@ and open the template in the editor.
                                     <div class="col border">
                                         <div class="input-group" style="width: 300px">
                                             <label for="busca" class="col c0 col-form-label">Busca:</label>
-                                            <input type="text" name="busca" class="col c1 form-control form-control-sm" id="busca">
-                                        </div>
-                                        <div class="input-group" style="width: 300px">
+                                            <input type="text" name="busca" class="col c1 form-control form-control-sm" id="busca" style="width: 300px">
                                             <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-search" aria-hidden="true"></i> buscar </button>
                                         </div>
                                     </div>
@@ -88,13 +86,19 @@ and open the template in the editor.
     $busca = isset($_REQUEST['busca']) ? addslashes($_REQUEST['busca']) : '';
 
     if ($busca != '') {
-        echo "<table>";
-	    echo "<tr>";
-            echo "  <td>Foto</td>";
-            echo "  <td>Matrícula</td>";
-            echo "  <td>Setor</td>";
-            echo "  <td>Nome</td>";
-            echo "  <td>Ver Perfil</td>";
+        ?>
+        <table id="usuarios" class="table-sm table-striped table-bordered dt-responsive wrap" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width:5%;">FOTO</th>
+                                            <th scope="col" style="width:20%;">MATRÍCULA</th>
+                                            <th scope="col" style="width:35%;">SETOR</th>
+                                            <th scope="col">NOME</th>
+                                            <th scope="col" class="align-middle nowrap" style="width:15%;">Ver Perfil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+        <?php
 
         $filtro = " WHERE nome LIKE '%".$busca."%' OR matricula LIKE '%".$busca."%' ";
         $lista = $manterUsuario->listar($filtro);
@@ -120,7 +124,7 @@ and open the template in the editor.
                     </button></td>';
             echo "</tr>";
         }
-        echo "</table>";
+        echo "</tbody></table>";
     }
         ?>
                         </div>
