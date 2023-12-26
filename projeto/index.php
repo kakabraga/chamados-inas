@@ -127,12 +127,10 @@ and open the template in the editor.
         ?>  
                     <!-- End of Links sistemas -->
                 </div>
-                <!-- End of Main Content -->
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <?php include './rodape.php'; ?>
+                <!-- End of Main Content -->                
             </div>
             <!-- End of Content Wrapper -->
-
+            <?php include './rodape.php'; ?>
         </div>
         <!-- End of Page Wrapper -->
 
