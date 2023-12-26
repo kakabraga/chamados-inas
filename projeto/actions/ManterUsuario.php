@@ -133,7 +133,13 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getNaoEditoresPorTarefa($id_tarefa) {
-        $sql = "select u.id,u.nome,u.login,u.matricula,u.email,u.nascimento, u.whatsapp, u.linkedin,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u WHERE u.id NOT IN(SELECT id_usuario FROM editor WHERE id_tarefa=".$id_tarefa.") order by u.nome";
+        $sql = "SELECT u.id,u.nome,u.login,u.matricula,u.email,u.nascimento, u.whatsapp, 
+                u.linkedin,u.ativo,u.id_equipe,u.id_setor,u.id_perfil 
+                FROM usuario as u 
+                WHERE u.id NOT IN(SELECT id_usuario FROM editor WHERE id_tarefa=".$id_tarefa.") 
+                AND u.id_equipe = (SELECT id_equipe FROM tarefa WHERE id=".$id_tarefa.") 
+                ORDER BY u.nome";
+        ;
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -216,13 +222,8 @@ class ManterUsuario extends Model {
         //exit;
         if ($op != "add") {
             $sql = "DELETE FROM editor WHERE id_usuario=" . $id . " AND id_tarefa=" . $tarefa ;
-            $resultado = $this->db->Execute($sql);
-        } else {
-            $resultado = $this->db->Execute($sql);
-            $dados->id = $this->db->insert_Id();
         }
-        //echo $sql . "<BR/>";
-        //exit;
+        $resultado = $this->db->Execute($sql);
         return $resultado;
     }
 }
