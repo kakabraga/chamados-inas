@@ -56,6 +56,11 @@ $mSetor = new ManterSetor();
                                         Alterar Foto
                                     </a>
                                     <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="consultar_usuario.php">
+                                        <i class="fa fa-search fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Buscar Perfil
+                                    </a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="sair.php" >
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Sair
