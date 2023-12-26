@@ -1,5 +1,7 @@
 <?php
 require_once('./verifica_login.php');
+
+$busca = isset($_REQUEST['busca']) ? addslashes($_REQUEST['busca']) : '';
 ?> 
 <!DOCTYPE html>
 <!--
@@ -67,7 +69,7 @@ and open the template in the editor.
                                 <form id="form_busca" action="consultar_usuario.php" method="post">                       
                                     <div class="input-group" style="width: 600px">
                                         <label for="busca" class="col c0 col-form-label">Busca:</label>
-                                        <input type="text" name="busca" class="col c1 form-control form-control-sm" id="busca" style="width: 350px">
+                                        <input type="text" name="busca" value="<?=$busca ?>" class="col c1 form-control form-control-sm" id="busca" style="width: 350px">
                                         <button type="submit" class="ml-2 btn btn-primary btn-sm"><i class="fa fa-search" aria-hidden="true"></i> buscar </button>
                                     </div>
                                 </form>                  
@@ -81,7 +83,7 @@ and open the template in the editor.
 	$manterUsuario = new ManterUsuario();
     $manterSetor = new ManterSetor();
     
-    $busca = isset($_REQUEST['busca']) ? addslashes($_REQUEST['busca']) : '';
+    
 
     if ($busca != '') {
         ?>
