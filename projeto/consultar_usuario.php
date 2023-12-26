@@ -57,7 +57,7 @@ and open the template in the editor.
                         <!-- Begin Page Content -->
 
                         <!-- Collapsable Form -->
-                        <div class="card mb-4 border-primary" style="max-width: 900px;">
+                        <div class="card mb-4 border-primary" style="max-width: 700px;">
                             <!-- Card Header - Accordion -->
                             <div class="card-header py-2 card-body bg-gradient-primary align-middle" style="min-height: 2.5rem;">               
                                 <span class="h6 m-0 font-weight text-white">Buscar Perfil</span>
@@ -65,12 +65,10 @@ and open the template in the editor.
                             <!-- Card Content - Collapse -->
                             <div class="card-body">
                                 <form id="form_busca" action="consultar_usuario.php" method="post">                       
-                                    <div class="col border">
-                                        <div class="input-group" style="width: 300px">
-                                            <label for="busca" class="col c0 col-form-label">Busca:</label>
-                                            <input type="text" name="busca" class="col c1 form-control form-control-sm" id="busca" style="width: 300px">
-                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-search" aria-hidden="true"></i> buscar </button>
-                                        </div>
+                                    <div class="input-group" style="width: 600px">
+                                        <label for="busca" class="col c0 col-form-label">Busca:</label>
+                                        <input type="text" name="busca" class="col c1 form-control form-control-sm" id="busca" style="width: 350px">
+                                        <button type="submit" class="ml-2 btn btn-primary btn-sm"><i class="fa fa-search" aria-hidden="true"></i> buscar </button>
                                     </div>
                                 </form>                  
                             </div>
@@ -87,7 +85,7 @@ and open the template in the editor.
 
     if ($busca != '') {
         ?>
-        <table id="usuarios" class="table-sm table-striped table-bordered dt-responsive wrap" style="width:100%">
+        <table id="usuarios" class="table-sm table-striped table-bordered dt-responsive wrap" style="max-width: 700px;">
                                     <thead>
                                         <tr>
                                             <th scope="col" style="width:5%;">FOTO</th>
