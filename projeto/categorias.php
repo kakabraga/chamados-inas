@@ -1,7 +1,6 @@
 <?php
 require_once('./verifica_login.php');
 ?> 
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -40,19 +39,18 @@ and open the template in the editor.
          
 
             $(document).ready(function () {
-                $('#categorias').DataTable();
-                carregaCategoriasPai(0, 0);
+                $('#setores').DataTable();
             });
             function excluir(id, nome) {
-                $('#delete').attr('href', 'del_categoria.php?id=' + id);
+                $('#delete').attr('href', 'del_setor.php?id=' + id);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
-            function alterar(id, nome, descricao) {
+            function alterar(id, sigla, descricao) {
                 $('#id').val(id);
-                $('#nome').val(nome);
+                $('#sigla').val(sigla);
                 $('#descricao').val(descricao);
-                $('#form_categoria').collapse("show");
+                $('#form_setor').collapse("show");
                 $('#btn_cadastrar').hide();
             }
 
@@ -86,23 +84,24 @@ and open the template in the editor.
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fa fa-id-card fa-2x text-white"></i> 
+                                    <i class="fas fa-users fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Perfis</span>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Setores</span>
                                 </div>
                                 <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_categoria" aria-expanded="false" aria-controls="form_categoria">
+                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_setor" aria-expanded="false" aria-controls="form_setor">
                                         <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
                                     </button>
                                 </div>
-                            </div>
+                            </div>                            
+
                             <div class="card-body">
-                                <table id="categorias" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="setores" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Categoria</th>
+                                            <th scope="col">Nome</th>
                                             <th scope="col">Descrição</th>
                                             <th scope="col" style="width:30px;">Opções</th>
                                         </tr>
