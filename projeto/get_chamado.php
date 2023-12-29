@@ -18,6 +18,14 @@ foreach ($lista as $obj) {
     $txt_setor = $manterSetor->getSetorPorId($manterUsuario->getUsuarioPorId($obj->usuario)->setor)->sigla;
     $txt_usuario = $manterUsuario->getUsuarioPorId($obj->usuario)->nome;
     $txt_categoria = $manterCategoria->getCategoriaPorId($obj->categoria)->nome;
+    /****************** Status legend *****************
+     * 0 - Aberto
+     * 1 - Em atendimento
+     * 2 - Concluído
+     * 3 - Cancelado
+     * 4 - Reaberto
+     *************************************************/
+
     $txt_status = '<img src="img/chamado_aberto.svg" title="Novo" width="40" />';
     switch ($obj->status) {
         case 0:
@@ -31,6 +39,9 @@ foreach ($lista as $obj) {
             break;
         case 3:
             $txt_status = '<img src="img/chamado_cancelado.svg" title="Cancelado" width="40" />';
+            break;
+        case 4:
+            $txt_status = '<img src="img/chamado_reaberto.svg" title="Reaberto" width="40" />';
             break;
     }
     echo "<tr>";
