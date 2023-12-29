@@ -90,7 +90,7 @@ and open the template in the editor.
             }
         function carregaCategorias(id_atual) {
             var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < responsaveis.length; i++) {
+            for (var i = 0; i < categorias.length; i++) {
                 var option = categorias[i];
                 if (option.nome == nome || nome == 0) {
                     var selected = "";
@@ -161,6 +161,15 @@ and open the template in the editor.
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div>
+                            Legenda:<br/>
+                            <img src="img/chamado_aberto.svg" title="Chamado Aberto" width="20" /> Aberto 
+                            <img src="img/chamado_atendimento.svg" title="Chamado Em atendimento" width="20" /> Em atendimento 
+                            <img src="img/chamado_concluido.svg" title="Chamado Concluído" width="20" /> Concluído 
+                            <img src="img/chamado_cancelado.svg" title="Chamado Cancelado" width="20" /> Cancelado 
+                            <img src="img/chamado_reaberto.svg" title="Chamado Reaberto" width="20" /> Reaberto 
+
                         </div>
                     </div>
                     <!-- End of Main Content -->
