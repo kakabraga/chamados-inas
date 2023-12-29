@@ -15,6 +15,9 @@ $manterSetor = new ManterSetor();
 $lista = $manterChamado->listar();
 
 foreach ($lista as $obj) {
+    $txt_setor = $manterSetor->getSetorPorId($manterUsuario->getUsuarioPorId($obj->usuario)->setor)->sigla;
+    $txt_usuario = $manterUsuario->getUsuarioPorId($obj->usuario)->nome;
+    $txt_categoria = $manterCategoria->getCategoriaPorId($obj->categoria)->sigla;
     $txt_status = '<img src="img/chamado_aberto.svg" title="Novo" width="50" />';
     switch ($obj->status) {
         case 0:
@@ -32,13 +35,13 @@ foreach ($lista as $obj) {
     }
     echo "<tr>";
     echo "  <td>".$obj->id."</td>";
-    echo "  <td>" . $manterSetor->getSetorPorId($manterUsuario->getUsuarioPorId($obj->usuario)->setor)->sigla . "</td>";
-    echo "  <td>" . $manterUsuario->getUsuarioPorId($obj->usuario)->nome . "</td>";
-    echo "  <td>" . $manterCategoria->getCategoriaPorId($obj->categoria)->nome . "</td>";
+    echo "  <td>" . $txt_setor . "</td>";
+    echo "  <td>" . $txt_usuario . "</td>";
+    echo "  <td>" . $txt_categoria . "</td>";
     echo "  <td>" . date('d/m/Y', strtotime($obj->data_abertura)) . "</td>";
     echo "  <td>" . $txt_status . "</td>";
     if($obj->status != 2){
-        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"".$manterUsuario->getUsuarioPorId($obj->usuario)->nome."\",\"".$obj->descricao."\",".$obj->categoria.")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"".$obj->nome."\")'><i class='far fa-trash-alt'></i></button></td>";
+        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"".$obj->nome."\")'><i class='far fa-trash-alt'></i></button></td>";
     } else {
         echo "  <td align='center'> - </td>";
     }
