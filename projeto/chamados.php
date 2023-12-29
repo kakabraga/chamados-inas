@@ -108,6 +108,7 @@ and open the template in the editor.
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Usuário</th>
+                                            <th scope="col">Categoria</th>
                                             <th scope="col">Aberto em</th>
                                             <th scope="col">Status</th>
                                             <th scope="col" style="width:30px;">Opções</th>
