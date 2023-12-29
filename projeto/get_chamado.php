@@ -38,7 +38,7 @@ foreach ($lista as $obj) {
     echo "  <td>" . $txt_setor . "</td>";
     echo "  <td>" . $txt_usuario . "</td>";
     echo "  <td>" . $txt_categoria . "</td>";
-    echo "  <td>" . date('d/m/Y', strtotime($obj->data_abertura)) . "</td>";
+    echo "  <td>" . date('d/m/Y h:i', strtotime($obj->data_abertura)) . "</td>";
     echo "  <td align='center'>" . $txt_status . "</td>";
     if($obj->status == 0){
         echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")' title='Atender chamado'><i class='fa fa-clock'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"".$txt_usuario."\")'  title='Cancelar chamado'><i class='fa fa-ban'></i></button></td>";
