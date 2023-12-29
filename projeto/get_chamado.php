@@ -45,7 +45,7 @@ foreach ($lista as $obj) {
     } else if($obj->status == 1){
         echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='interacoes_chamado.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"".$txt_usuario."\")'  title='Cancelar chamado'><i class='fa fa-ban'></i></button></td>";
     } else if($obj->status == 2){
-        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='interacoes_chamado.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a>&nbsp;&nbsp;<button class='btn btn-primary btn-sm' type='button' onclick='reabrir(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")' title='Reabrir chamado'><i class='fa fa-history'></i></button></td>";
+        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='interacoes_chamado.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a>&nbsp;&nbsp;<button class='btn btn-warning btn-sm' type='button' onclick='reabrir(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")' title='Reabrir chamado'><i class='fa fa-history'></i></button></td>";
     } else {
         echo "  <td align='center'> - </td>";
     }
