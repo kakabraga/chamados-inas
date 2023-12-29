@@ -164,11 +164,11 @@ and open the template in the editor.
                         </div>
                         <div>
                             Legenda:<br/>
-                            <img src="img/chamado_aberto.svg" title="Chamado Aberto" width="20" /> Aberto 
-                            <img src="img/chamado_atendimento.svg" title="Chamado Em atendimento" width="20" /> Em atendimento 
-                            <img src="img/chamado_concluido.svg" title="Chamado Concluído" width="20" /> Concluído 
-                            <img src="img/chamado_cancelado.svg" title="Chamado Cancelado" width="20" /> Cancelado 
-                            <img src="img/chamado_reaberto.svg" title="Chamado Reaberto" width="20" /> Reaberto 
+                            <img src="img/chamado_aberto.svg" title="Chamado Aberto" width="30" /> Aberto 
+                            <img src="img/chamado_atendimento.svg" title="Chamado Em atendimento" width="30" /> Em atendimento 
+                            <img src="img/chamado_concluido.svg" title="Chamado Concluído" width="30" /> Concluído 
+                            <img src="img/chamado_cancelado.svg" title="Chamado Cancelado" width="30" /> Cancelado 
+                            <img src="img/chamado_reaberto.svg" title="Chamado Reaberto" width="30" /> Reaberto 
 
                         </div>
                     </div>
