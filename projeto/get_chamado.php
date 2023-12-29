@@ -41,7 +41,7 @@ foreach ($lista as $obj) {
     echo "  <td>" . date('d/m/Y', strtotime($obj->data_abertura)) . "</td>";
     echo "  <td>" . $txt_status . "</td>";
     if($obj->status != 2){
-        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"".$txt_usuario."\")'><i class='far fa-trash-alt'></i></button></td>";
+        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")' title='Atender chamado'><i class='fa fa-clock'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"".$txt_usuario."\")'  title='Cancelar'><i class='fa fa-ban'></i></button></td>";
     } else {
         echo "  <td align='center'> - </td>";
     }
