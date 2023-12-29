@@ -32,12 +32,16 @@ foreach ($lista as $obj) {
     }
     echo "<tr>";
     echo "  <td>".$obj->id."</td>";
-    echo "  <td>" . $manterSetor->getSetorPorId($manterUsuario->getUsuarioPorId($obj->usuario)->setor)->nome . "</td>";
+    echo "  <td>" . $manterSetor->getSetorPorId($manterUsuario->getUsuarioPorId($obj->usuario)->setor)->sigla . "</td>";
     echo "  <td>" . $manterUsuario->getUsuarioPorId($obj->usuario)->nome . "</td>";
     echo "  <td>" . $manterCategoria->getCategoriaPorId($obj->categoria)->nome . "</td>";
     echo "  <td>" . date('d/m/Y', strtotime($obj->data_abertura)) . "</td>";
     echo "  <td>" . $txt_status . "</td>";
-    echo "  <td align='center'> - </td>";
+    if($obj->status != 2){
+        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"".$manterUsuario->getUsuarioPorId($obj->usuario)->nome."\",\"".$obj->descricao."\",".$obj->categoria.")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"".$obj->nome."\")'><i class='far fa-trash-alt'></i></button></td>";
+    } else {
+        echo "  <td align='center'> - </td>";
+    }
     echo "</tr>";
 }
 

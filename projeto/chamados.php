@@ -43,15 +43,39 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
-         
+            var categorias = [];
+            
+            <?php
+            include_once('actions/ManterCategoria.php');
+            $mCategoria = new ManterCategoria();
+            
+            if ($usuario_logado->perfil <= 2) {
+                $listaCatgorias = $mCategoria->listar();
+                foreach ($listaCatgorias as $obj) {
+                    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->equipe ?>"};
+                        categorias.push(item);
+                    <?php
+                }
+            }
+
+
+            ?>
 
             $(document).ready(function () {
                 $('#chamados').DataTable();
+                carregaCategorias(0);
             });
             function excluir(id, nome) {
                 $('#delete').attr('href', 'del_chamado.php?id=' + id);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
+            }
+            function atender(id,usuario,descricao,categoria) {
+                $('#atender_id').val(id);
+                $('#atender_usuario').text(usuario);
+                $('#atender_descricao').text(descricao);
+                carregaCategorias(categoria);
+                $('#atender').modal({show: true});              
             }
             function alterar(id, nome, descricao) {
                 $('#id').val(id);
@@ -64,7 +88,24 @@ and open the template in the editor.
             function selectByText(select, text) {
                 $(select).find('option:contains("' + text + '")').prop('selected', true);
             }
-
+        function carregaCategorias(id_atual) {
+            var html = '<option value="">Selecione </option>';
+            for (var i = 0; i < responsaveis.length; i++) {
+                var option = categorias[i];
+                if (option.nome == nome || nome == 0) {
+                    var selected = "";
+                    if (id_atual > 0) {
+                        if (option.id == id_atual) {
+                            selected = "selected";
+                        } else {
+                            selected = "";
+                        }
+                    }
+                    html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
+                }
+            }
+            $('#categoria').html(html);
+        }
 
         </script>
         <style>
@@ -157,6 +198,37 @@ and open the template in the editor.
                 </div>
 
             </div>
+        </div>
+        <!-- Modal excluir -->
+        <div class="modal fade" id="atender" role="dialog">
+            <form id="form_atendimento" action="atender_chamado.php" method="post">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Atender chamado</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><span id="atender_usuario"></span><br/>
+                            <strong>"<span id="atender_descricao"></span>"</strong>?</p>
+                        </div>
+                        <div class="form-group row">
+                    <label for="categoria" class="col-sm-2 col-form-label">Categoria:</label>
+                    <div class="col-sm-10">
+                        <select id="categoria" name="categoria" class="form-control form-control-sm" required>
+                            <option value="">Selecione</option>    
+                        </select>
+                    </div>
+                    </div> 
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="btn_atender">Atender</button>
+                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
+                        </div>
+                    </div>            
+                </div>
+            </form>
         </div>
 
     </body>
