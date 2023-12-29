@@ -5,10 +5,12 @@ date_default_timezone_set('America/Sao_Paulo');
 include_once('actions/ManterChamado.php');
 include_once('actions/ManterUsuario.php');
 include_once('actions/ManterCategoria.php');
+include_once('actions/ManterSetor.php');
 
 $manterChamado = new ManterChamado();
 $manterUsuario = new ManterUsuario();
 $manterCategoria = new ManterCategoria();
+$manterSetor = new ManterSetor();
 
 $lista = $manterChamado->listar();
 
@@ -30,6 +32,7 @@ foreach ($lista as $obj) {
     }
     echo "<tr>";
     echo "  <td>".$obj->id."</td>";
+    echo "  <td>" . $manterSetor->getSetorPorId($manterUsuario->getUsuarioPorId($obj->usuario)->setor)->nome . "</td>";
     echo "  <td>" . $manterUsuario->getUsuarioPorId($obj->usuario)->nome . "</td>";
     echo "  <td>" . $manterCategoria->getCategoriaPorId($obj->categoria)->nome . "</td>";
     echo "  <td>" . date('d/m/Y', strtotime($obj->data_abertura)) . "</td>";

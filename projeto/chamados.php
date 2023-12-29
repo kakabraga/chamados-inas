@@ -107,6 +107,7 @@ and open the template in the editor.
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
+                                            <th scope="col">Setor</th>
                                             <th scope="col">Usuário</th>
                                             <th scope="col">Categoria</th>
                                             <th scope="col">Aberto em</th>
