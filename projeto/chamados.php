@@ -52,7 +52,7 @@ and open the template in the editor.
             if ($usuario_logado->perfil <= 2) {
                 $listaCatgorias = $mCategoria->listar();
                 foreach ($listaCatgorias as $obj) {
-                    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->equipe ?>"};
+                    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
                         categorias.push(item);
                     <?php
                 }
@@ -92,17 +92,15 @@ and open the template in the editor.
             var html = '<option value="">Selecione </option>';
             for (var i = 0; i < categorias.length; i++) {
                 var option = categorias[i];
-                if (option.nome == nome || nome == 0) {
-                    var selected = "";
-                    if (id_atual > 0) {
-                        if (option.id == id_atual) {
-                            selected = "selected";
-                        } else {
-                            selected = "";
-                        }
+                var selected = "";
+                if (id_atual > 0) {
+                    if (option.id == id_atual) {
+                        selected = "selected";
+                    } else {
+                        selected = "";
                     }
-                    html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
                 }
+                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
             }
             $('#categoria').html(html);
         }
@@ -209,7 +207,7 @@ and open the template in the editor.
             </div>
         </div>
         <!-- Modal excluir -->
-        <div class="modal fade" id="atender" role="dialog">
+        <div class="modal fade" id="atender" role="dialog" style="mim-width:300px">
             <form id="form_atendimento" action="atender_chamado.php" method="post">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
