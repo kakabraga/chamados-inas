@@ -104,14 +104,14 @@ and open the template in the editor.
             if ($cont_param > 0) {
                 $where .= " AND ";
             }
-            $where .= " f.atendimento >=" . strtotime($inicio);
+            $where .= " f.atendimento >='" . $inicio . " 07:00'";
             $cont_param++;
         }
         if ($termino != 0) {
             if ($cont_param > 0) {
                 $where .= " AND ";
             }
-            $where .= " f.atendimento <=" . strtotime($termino);
+            $where .= " f.atendimento <='" . $termino . " 19:00'";
             $cont_param++;
         }
 
@@ -133,7 +133,7 @@ and open the template in the editor.
             <div id="containerAtendimento" role="main" class="align-items-center" style="width:100%"><h2 class="text-center">Relatório de Atendimentos</h2><img src="img/iconexcel.png" width="30" height="30" class="d-print-none" id="btnExport" />
                     <table class="table table-striped" id="atendimentos">
                         <tr class="thead-dark">
-                            <th class="header c0 text-nowrap text-center" style="width:50px;" scope="col"><i class="fa fa-minus-square text-white c0" onclick="naover('c0');" aria-hidden="true" title="Remover coluna"></i> CPF </th>
+                            <th class="header c0 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c0" onclick="naover('c0');" aria-hidden="true" title="Remover coluna"></i> CPF </th>
                             <th class="header c1 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c1" onclick="naover('c1');" aria-hidden="true" title="Remover coluna"></i> NOME </th>
                             <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c2" onclick="naover('c2');" aria-hidden="true" title="Remover coluna"></i> ATENDIMENTO </th>
                             <th class="header c3 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c3" onclick="naover('c3');" aria-hidden="true" title="Remover coluna"></i> SERVIÇO </th>
@@ -146,13 +146,14 @@ and open the template in the editor.
                             $fila = $mFila->getFilaPorId($obj->fila);
                             ?>
                             <tr class="">
-                                <td class="cell c0 text-dark text-center" style=""><?= $fila->cpf ?></td>
-                                <td class="cell c1 text-dark text-center" style=""><?= $fila->nome ?></td>
-                                <td class="cell c2 text-dark text-center" style=""><?= date('d/m/Y', strtotime($fila->atendimento)) ?></td>
-                                <td class="cell c3 text-dark text-center" style=""><?= $mServico->getServicoPorId($fila->servico)->nome ?></td>
-                                <td class="cell c4 text-dark text-center" style=""><?= $mUsuario->getUsuarioPorId($obj->usuario)->nome ?></td>                                
+                                <td class="cell c0 text-dark " style=""><?= $fila->cpf ?></td>
+                                <td class="cell c1 text-dark " style=""><?= $fila->nome ?></td>
+                                <td class="cell c2 text-dark " style=""><?= date('d/m/Y h:i', strtotime($fila->atendimento)) ?></td>
+                                <td class="cell c2 text-dark " style=""><?= $obj->tempo ?></td>
+                                <td class="cell c3 text-dark " style=""><?= $mServico->getServicoPorId($fila->servico)->nome ?></td>
+                                <td class="cell c4 text-dark " style=""><?= $mUsuario->getUsuarioPorId($obj->usuario)->nome ?></td>                                
                                 <td class="cell c5 text-dark text-center" style="">Guichê <?= $mGuiche->getGuichePorId($obj->guiche)->numero ?></td>
-                                <td class="cell c6 text-dark text-center" style=""><?= $obj->detalhamento ?></td>
+                                <td class="cell c6 text-dark " style=""><?= $obj->detalhamento ?></td>
                             </tr>   
                             <?php
                         }
