@@ -136,10 +136,11 @@ and open the template in the editor.
                             <th class="header c0 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c0" onclick="naover('c0');" aria-hidden="true" title="Remover coluna"></i> CPF </th>
                             <th class="header c1 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c1" onclick="naover('c1');" aria-hidden="true" title="Remover coluna"></i> NOME </th>
                             <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c2" onclick="naover('c2');" aria-hidden="true" title="Remover coluna"></i> ATENDIMENTO </th>
-                            <th class="header c3 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c3" onclick="naover('c3');" aria-hidden="true" title="Remover coluna"></i> SERVIÇO </th>
-                            <th class="header c4 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c4" onclick="naover('c4');" aria-hidden="true" title="Remover coluna"></i> ATENDENTE </th>
-                            <th class="header c5 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c5" onclick="naover('c5');" aria-hidden="true" title="Remover coluna"></i> GUICHÊ</th>
-                            <th class="header c6 lastcol text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c6" onclick="naover('c6');" aria-hidden="true" title="Remover coluna"></i> DETALHAMENTO </th>
+                            <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c3" onclick="naover('c3');" aria-hidden="true" title="Remover coluna"></i> TEMPO </th>
+                            <th class="header c3 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c4" onclick="naover('c4');" aria-hidden="true" title="Remover coluna"></i> SERVIÇO </th>
+                            <th class="header c4 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c5" onclick="naover('c5');" aria-hidden="true" title="Remover coluna"></i> ATENDENTE </th>
+                            <th class="header c5 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c6" onclick="naover('c6');" aria-hidden="true" title="Remover coluna"></i> GUICHÊ</th>
+                            <th class="header c6 lastcol text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c7" onclick="naover('c7');" aria-hidden="true" title="Remover coluna"></i> DETALHAMENTO </th>
                         </tr>
                         <?php
                         foreach ($atendimentos as $obj) {
