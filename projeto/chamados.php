@@ -206,8 +206,29 @@ and open the template in the editor.
 
             </div>
         </div>
-        <!-- Modal excluir -->
-        <div class="modal fade" id="atender" role="dialog" style="mim-width:300px">
+        <!-- Modal atendimento -->
+        <div class="modal fade" id="atender" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar mudanças</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="modal fade" id="atenderxxx" role="dialog" style="mim-width:300px">
             <form id="form_atendimento" action="atender_chamado.php" method="post">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
