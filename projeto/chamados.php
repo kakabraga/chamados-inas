@@ -207,23 +207,36 @@ and open the template in the editor.
             </div>
         </div>
         <!-- Modal atendimento -->
-        <div class="modal fade" id="atender" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+        <div class="modal fade" id="atender" tabindex="-1" role="dialog" aria-labelledby="TituloAtendimento" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
+        <form id="form_atendimento" action="atender_chamado.php" method="post">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
+                <h5 class="modal-title" id="TituloAtendimento">Atender chamado</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <p>
+                    <span id="atender_usuario"></span><br/>
+                    <strong>"<span id="atender_descricao"></span>"</strong>?
+                </p>
+                <div class="form-group row">
+                    <label for="categoria" class="col-sm-2 col-form-label">Categoria:</label>
+                    <div class="col-sm-10">
+                        <select id="categoria" name="categoria" class="form-control form-control-sm" required>
+                            <option value="">Selecione</option>    
+                        </select>
+                    </div>
+                    </div> 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                <button type="submit" class="btn btn-primary" id="btn_atender">Atender</button>
+                <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
             </div>
             </div>
+            </form>
         </div>
         </div>
 
