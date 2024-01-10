@@ -239,39 +239,6 @@ and open the template in the editor.
             </form>
         </div>
         </div>
-
-
-        <div class="modal fade" id="atenderxxx" role="dialog" style="mim-width:300px">
-            <form id="form_atendimento" action="atender_chamado.php" method="post">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Atender chamado</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p><span id="atender_usuario"></span><br/>
-                            <strong>"<span id="atender_descricao"></span>"</strong>?</p>
-                        </div>
-                        <div class="form-group row">
-                    <label for="categoria" class="col-sm-2 col-form-label">Categoria:</label>
-                    <div class="col-sm-10">
-                        <select id="categoria" name="categoria" class="form-control form-control-sm" required>
-                            <option value="">Selecione</option>    
-                        </select>
-                    </div>
-                    </div> 
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="btn_atender">Atender</button>
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
-                        </div>
-                    </div>            
-                </div>
-            </form>
-        </div>
-
     </body>
 
 </html>
