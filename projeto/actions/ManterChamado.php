@@ -71,12 +71,32 @@ class ManterChamado extends Model {
     }
     function atender(Chamado $dados) {
         if ($dados->id > 0) {
-            $sql = "update chamado set id_categoria='" . $dados->categoria . "',data_atendimento=now() where id=$dados->id";
+            $sql = "update chamado set id_categoria='" . $dados->categoria . "', status=1, data_atendimento=now() where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         }
         return $resultado;
     }
-
+    function concluir($id) {
+        if ($dados->id > 0) {
+            $sql = "update chamado set status=2, data_atendido=now() where id=$id";
+            $resultado = $this->db->Execute($sql);
+        }
+        return $resultado;
+    }
+    function cancelar($id) {
+        if ($dados->id > 0) {
+            $sql = "update chamado set status=3, data_cancelado=now() where id=$id";
+            $resultado = $this->db->Execute($sql);
+        }
+        return $resultado;
+    }
+    function reabrir($id) {
+        if ($id > 0) {
+            $sql = "update chamado set status=2, data_atendido=now() where id=$id";
+            $resultado = $this->db->Execute($sql);
+        }
+        return $resultado;
+    }
     function excluir($id) {
         $sql = "delete from chamado where id=" . $id;
         $resultado = $this->db->Execute($sql);

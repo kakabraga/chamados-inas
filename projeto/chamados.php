@@ -65,8 +65,8 @@ and open the template in the editor.
                 $('#chamados').DataTable();
                 carregaCategorias(0);
             });
-            function excluir(id, nome) {
-                $('#delete').attr('href', 'del_chamado.php?id=' + id);
+            function cancelar(id, nome) {
+                $('#delete').attr('href', 'cancelar_chamado.php?id=' + id);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
@@ -196,11 +196,13 @@ and open the template in the editor.
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Deseja excluir <strong>"<span id="nome_excluir"></span>"</strong>?</p>
+                        <p>Confimação de cancelamento do chamado:<br/>
+                        <span id="atender_usuario"></span><br/>
+                    <strong>"<span id="atender_descricao"></span>"</strong></p>
                     </div>
                     <div class="modal-footer">
-                        <a href="#" type="button" class="btn btn-danger" id="delete">Excluir</a>
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
+                        <a href="#" type="button" class="btn btn-danger" id="delete">Confirmar</a>
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Desistir</button>
                     </div>
                 </div>
 
@@ -210,6 +212,7 @@ and open the template in the editor.
         <div class="modal fade" id="atender" tabindex="-1" role="dialog" aria-labelledby="TituloAtendimento" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <form id="form_atendimento" action="atender_chamado.php" method="post">
+            <input name="id" id="atender_id"/>
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="TituloAtendimento">Atender chamado</h5>
@@ -220,7 +223,7 @@ and open the template in the editor.
             <div class="modal-body">
                 <p>
                     <span id="atender_usuario"></span><br/>
-                    <strong>"<span id="atender_descricao"></span>"</strong>?
+                    <strong>"<span id="atender_descricao"></span>"</strong>
                 </p>
                 <div class="form-group row">
                     <label for="categoria" class="col-sm-2 col-form-label">Categoria:</label>
