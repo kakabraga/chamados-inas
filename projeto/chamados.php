@@ -65,12 +65,22 @@ and open the template in the editor.
                 $('#chamados').DataTable();
                 carregaCategorias(0);
             });
-            function cancelar(id, nome) {
-                $('#delete').attr('href', 'cancelar_chamado.php?id=' + id);
-                $('#atender_usuario').text(usuario);
-                $('#atender_descricao').text(descricao);
+            function cancelar(id,usuario) {
+                $('#acao').attr('href', 'cancelar_chamado.php?id=' + id);
+                $('#acao_texto').text("Confimação de cancelamento do chamado:");
+                $('#acao_usuario').text(usuario);
+                $('#acao_descricao').text(descricao);
                 $('#confirm').modal({show: true});              
             }
+            function reabrir(id,usuario) {
+                $('#acao').attr('href', 'cancelar_chamado.php?id=' + id);
+                $('#acao_texto').text("Confimação de reabertura do chamado:");
+                $('#acao_usuario').text(usuario);
+                $('#acao_descricao').text(descricao);
+                $('#confirm').modal({show: true});              
+            }
+
+            
             function atender(id,usuario,descricao,categoria) {
                 $('#atender_id').val(id);
                 $('#atender_usuario').text(usuario);
@@ -197,12 +207,12 @@ and open the template in the editor.
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Confimação de cancelamento do chamado:<br/>
-                        <span id="cancelar_usuario"></span><br/>
-                    <strong>"<span id="cancelar_descricao"></span>"</strong></p>
+                        <p><span id="acao_texto"></span><br/>
+                        <span id="acao_usuario"></span><br/>
+                    <strong>"<span id="acao_descricao"></span>"</strong></p>
                     </div>
                     <div class="modal-footer">
-                        <a href="#" type="button" class="btn btn-danger" id="delete">Confirmar</a>
+                        <a href="#" type="button" class="btn btn-danger" id="acao">Confirmar</a>
                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Desistir</button>
                     </div>
                 </div>
