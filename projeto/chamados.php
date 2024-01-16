@@ -67,7 +67,8 @@ and open the template in the editor.
             });
             function cancelar(id, nome) {
                 $('#delete').attr('href', 'cancelar_chamado.php?id=' + id);
-                $('#nome_excluir').text(nome);
+                $('#atender_usuario').text(usuario);
+                $('#atender_descricao').text(descricao);
                 $('#confirm').modal({show: true});              
             }
             function atender(id,usuario,descricao,categoria) {
@@ -197,8 +198,8 @@ and open the template in the editor.
                     </div>
                     <div class="modal-body">
                         <p>Confimação de cancelamento do chamado:<br/>
-                        <span id="atender_usuario"></span><br/>
-                    <strong>"<span id="atender_descricao"></span>"</strong></p>
+                        <span id="cancelar_usuario"></span><br/>
+                    <strong>"<span id="cancelar_descricao"></span>"</strong></p>
                     </div>
                     <div class="modal-footer">
                         <a href="#" type="button" class="btn btn-danger" id="delete">Confirmar</a>
