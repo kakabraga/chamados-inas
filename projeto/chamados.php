@@ -62,8 +62,8 @@ and open the template in the editor.
                 }
                 $listaUsuarios = $manterUsuario->listar();
                 foreach ($listaUsuarios as $obj) {
-                    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
-                        usuarios.push(item);
+                    ?>item2 = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
+                        usuarios.push(item2);
                     <?php
                 }
                 

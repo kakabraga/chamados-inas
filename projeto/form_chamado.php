@@ -12,7 +12,7 @@
             <div class="form-group row">
                 <label for="usuario" class="col-sm-2 col-form-label">Usuário:</label>
                 <div class="col-sm-10">
-                    <select id="equipe" name="usuario" class="form-control form-control-sm" required>
+                    <select id="usuario" name="usuario" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
                 </div>
