@@ -58,7 +58,7 @@ class ManterChamado extends Model {
     }
 
     function salvar(Chamado $dados) {
-        $sql = "insert into chamado (descricao,data_abertura,id_usuario) values ('" . $dados->descricao . "',now()," . $dados->usuario . ")";
+        $sql = "insert into chamado (descricao,data_abertura,id_usuario,id_categoria) values ('" . $dados->descricao . "',now()," . $dados->usuario . ",1)";
         //echo $sql . "<BR/>";
         if ($dados->id > 0) {
             $sql = "update chamado set descricao='" . $dados->descricao . "',data_abertura=now(),id_usuario='" . $dados->usuario . "' where id=$dados->id";
@@ -77,14 +77,14 @@ class ManterChamado extends Model {
         return $resultado;
     }
     function concluir($id) {
-        if ($dados->id > 0) {
+        if ($id > 0) {
             $sql = "update chamado set status=2, data_atendido=now() where id=$id";
             $resultado = $this->db->Execute($sql);
         }
         return $resultado;
     }
     function cancelar($id) {
-        if ($dados->id > 0) {
+        if ($id > 0) {
             $sql = "update chamado set status=3, data_cancelado=now() where id=$id";
             $resultado = $this->db->Execute($sql);
         }
@@ -92,7 +92,7 @@ class ManterChamado extends Model {
     }
     function reabrir($id) {
         if ($id > 0) {
-            $sql = "update chamado set status=2, data_atendido=now() where id=$id";
+            $sql = "update chamado set status=4, data_reaberto=now() where id=$id";
             $resultado = $this->db->Execute($sql);
         }
         return $resultado;
