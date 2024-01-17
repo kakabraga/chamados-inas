@@ -12,9 +12,20 @@
             <div class="form-group row">
                 <label for="usuario" class="col-sm-2 col-form-label">Usuário:</label>
                 <div class="col-sm-10">
-                    <select id="usuario" name="usuario" class="form-control form-control-sm" required>
-                        <option value="">Selecione</option>    
-                    </select>
+                    <?php
+                    if ($usuario_logado->perfil <= 2) {
+                    ?>
+                        <select id="usuario" name="usuario" class="form-control form-control-sm" required>
+                            <option value="">Selecione</option>    
+                        </select>
+                    <?php
+                    } else {
+                    ?>
+                        <input type="hidden" name="usuario" value="<?=$usuario_logado->id ?>"/>
+                        <?=$usuario_logado->nome ?>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div> 
             <div class="form-group row">
