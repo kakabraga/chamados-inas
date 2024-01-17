@@ -44,19 +44,31 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
             var categorias = [];
+            var usuarios = [];
             
             <?php
             include_once('actions/ManterCategoria.php');
             $mCategoria = new ManterCategoria();
+
+            include_once('actions/ManterUsuario.php');
+                $manterUsuario = new ManterUsuario();
             
             if ($usuario_logado->perfil <= 2) {
-                $listaCatgorias = $mCategoria->listar();
-                foreach ($listaCatgorias as $obj) {
+                $listaCategorias = $mCategoria->listar();
+                foreach ($listaCategorias as $obj) {
                     ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
                         categorias.push(item);
                     <?php
                 }
+                $listaUsuarios = $manterUsuario->listar();
+                foreach ($listaUsuarios as $obj) {
+                    ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
+                        usuarios.push(item);
+                    <?php
+                }
+                
             }
+
 
 
             ?>
@@ -64,16 +76,17 @@ and open the template in the editor.
             $(document).ready(function () {
                 $('#chamados').DataTable();
                 carregaCategorias(0);
+                carregaUsuarios(0);
             });
-            function cancelar(id,usuario) {
+            function cancelar(id,usuario,descricao) {
                 $('#acao').attr('href', 'cancelar_chamado.php?id=' + id);
                 $('#acao_texto').text("Confimação de cancelamento do chamado:");
                 $('#acao_usuario').text(usuario);
                 $('#acao_descricao').text(descricao);
                 $('#confirm').modal({show: true});              
             }
-            function reabrir(id,usuario) {
-                $('#acao').attr('href', 'cancelar_chamado.php?id=' + id);
+            function reabrir(id,usuario,descricao) {
+                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id);
                 $('#acao_texto').text("Confimação de reabertura do chamado:");
                 $('#acao_usuario').text(usuario);
                 $('#acao_descricao').text(descricao);
@@ -114,6 +127,22 @@ and open the template in the editor.
                 html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
             }
             $('#categoria').html(html);
+        }
+        function carregaUsuarios(id_atual) {
+            var html = '<option value="">Selecione </option>';
+            for (var i = 0; i < usuarios.length; i++) {
+                var option = usuarios[i];
+                var selected = "";
+                if (id_atual > 0) {
+                    if (option.id == id_atual) {
+                        selected = "selected";
+                    } else {
+                        selected = "";
+                    }
+                }
+                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
+            }
+            $('#usuario').html(html);
         }
 
         </script>

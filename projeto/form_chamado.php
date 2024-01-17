@@ -9,7 +9,6 @@
     <!-- Card Content - Collapse -->
     <div class="card-body">
         <form id="form_cadastro" action="save_chamado.php" method="post">
-            <input type="hidden" id="id" name="id"/>
             <div class="form-group row">
                 <label for="usuario" class="col-sm-2 col-form-label">Usuário:</label>
                 <div class="col-sm-10">
