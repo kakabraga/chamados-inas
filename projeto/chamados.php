@@ -6,7 +6,7 @@ $txt_tipo = "Pendentes";
 $filtro     = " WHERE status IN (0,1,4) ";
 if($tipo!=0){
     $txt_tipo = "Concluídas";
-    $filtro   = " WHERE status = 2 ";
+    $filtro   = " WHERE status IN (2,3) ";
 }
 ?> 
 
