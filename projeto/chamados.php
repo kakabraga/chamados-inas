@@ -3,8 +3,10 @@ require_once('./verifica_login.php');
 
 $tipo     = isset($_REQUEST['s']) ? $_REQUEST['s'] : 0;
 $txt_tipo = "Pendentes";
+$filtro     = " WHERE status IN (0,1,4) ";
 if($tipo!=0){
     $txt_tipo = "Concluídas";
+    $filtro   = " WHERE status = 2 ";
 }
 ?> 
 
@@ -252,7 +254,7 @@ and open the template in the editor.
         <div class="modal fade" id="atender" tabindex="-1" role="dialog" aria-labelledby="TituloAtendimento" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <form id="form_atendimento" action="atender_chamado.php" method="post">
-            <input name="id" id="atender_id"/>
+            <input type="hidden" name="id" id="atender_id"/>
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="TituloAtendimento">Atender chamado</h5>

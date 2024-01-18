@@ -12,7 +12,7 @@ $manterUsuario = new ManterUsuario();
 $manterCategoria = new ManterCategoria();
 $manterSetor = new ManterSetor();
 
-$lista = $manterChamado->listar();
+$lista = $manterChamado->listar($filtro);
 
 foreach ($lista as $obj) {
     $txt_setor = $manterSetor->getSetorPorId($manterUsuario->getUsuarioPorId($obj->usuario)->setor)->sigla;
