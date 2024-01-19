@@ -38,13 +38,13 @@
         ?>        
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="chamados.php?status=0">
+            <a class="nav-link collapsed" href="chamados.php?s=0">
                 <i class="fa fa-address-book"></i>
                 <span>Chamados Pendentes</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="chamados.php?status=1">
+            <a class="nav-link collapsed" href="chamados.php?s=1">
                 <i class="fa fa-user"></i>
                 <span>Chamados Concluídos</span>
             </a>

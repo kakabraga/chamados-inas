@@ -4,10 +4,10 @@ require_once('./verifica_login.php');
 $tipo     = isset($_REQUEST['s']) ? $_REQUEST['s'] : 0;
 $txt_tipo = "Pendentes";
 $filtro     = " WHERE status IN (0,1,4) ";
-if($tipo!=0){
+if($tipo == 1){
     $txt_tipo = "Concluídas";
     $filtro   = " WHERE status IN (2,3) ";
-}
+} 
 ?> 
 
 <!DOCTYPE html>
