@@ -57,7 +57,7 @@ and open the template in the editor.
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include './menu_gerente.php'; ?>
+            <?php include './menu_chamado.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
@@ -98,10 +98,10 @@ and open the template in the editor.
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="row">                           
+                                    <div class="row">
                                         <div class="c1 ml-4">
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">Aberto em:</div>
-                                            <div class="mb-0"><?= date('d/m/Y hh:mm', strtotime($chamado->data_abertura)) ?></div>
+                                            <div class="mb-0"><?= date('d/m/Y h:m', strtotime($chamado->data_abertura)) ?></div>
                                         </div>
                                         <div class="c2 ml-4">
                                             <?php

@@ -255,6 +255,7 @@ and open the template in the editor.
         <div class="modal-dialog modal-dialog-centered" role="document">
         <form id="form_atendimento" action="atender_chamado.php" method="post">
             <input type="hidden" name="id" id="atender_id"/>
+            <input type="hidden" name="atendente" value="<?=$usuario_logado->id ?>"/>
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="TituloAtendimento">Atender chamado</h5>

@@ -13,7 +13,7 @@ class ManterChamado extends Model {
     }
 
     function listar($filtro = "") {
-        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario, (select count(*) from interacao as i where i.id_chamado=c.id) as dep FROM chamado as c " . $filtro . " ORDER BY data_abertura desc";
+        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario,id_atendente, (select count(*) from interacao as i where i.id_chamado=c.id) as dep FROM chamado as c " . $filtro . " ORDER BY data_abertura desc";
         //echo 'SQL: ' . $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -32,6 +32,7 @@ class ManterChamado extends Model {
             $dados->status = $registro["status"];
             $dados->categoria = $registro["id_categoria"];
             $dados->usuario = $registro["id_usuario"];
+            $dados->atendente = $registro["id_atendente"];
 
             $array_dados[] = $dados;
         }
@@ -39,7 +40,7 @@ class ManterChamado extends Model {
     }
 
     function getChamadoPorId($id) {
-        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario FROM chamado as c WHERE id=$id";
+        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario,id_atendente FROM chamado as c WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Chamado();
@@ -53,6 +54,7 @@ class ManterChamado extends Model {
             $dados->status = $registro["status"];
             $dados->categoria = $registro["id_categoria"];
             $dados->usuario = $registro["id_usuario"];
+            $dados->atendente = $registro["id_atendente"];
         }
         return $dados;
     }
@@ -71,7 +73,7 @@ class ManterChamado extends Model {
     }
     function atender(Chamado $dados) {
         if ($dados->id > 0) {
-            $sql = "update chamado set id_categoria='" . $dados->categoria . "', status=1, data_atendimento=now() where id=$dados->id";
+            $sql = "update chamado set id_categoria='" . $dados->categoria . "', id_atendente='" . $dados->atendente . "', status=1, data_atendimento=now() where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         }
         return $resultado;
