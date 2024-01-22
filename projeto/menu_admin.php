@@ -35,9 +35,16 @@
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="'perfis'.php">
+            <a class="nav-link collapsed" href="perfis.php">
                 <i class="fa fa-users"></i>
                 <span>Perfis</span>
+            </a>
+        </li> 
+                <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="modulos.php">
+                <i class="fa fa-window-restore"></i>
+                <span>Módulos</span>
             </a>
         </li> 
             <?php
