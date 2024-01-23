@@ -40,7 +40,7 @@
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="index_chamados.php">
+                <a class="nav-link collapsed" href="chamados.php">
                     <i class="fa fa-laptop"></i>
                     <span>CHAMADOS</span>
                 </a>

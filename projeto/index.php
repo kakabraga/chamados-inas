@@ -97,7 +97,7 @@ and open the template in the editor.
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Chamados</div>
                                 <div class="h4 mb-0 font-weight-bold text-gray-800">
-                                    <a href="index_chamados.php"><img src="img/chamados.svg" width="100" /></a>
+                                    <a href="chamados.php"><img src="img/chamados.svg" width="100" /></a>
                                 </div>
                             </div>
                         </div>
