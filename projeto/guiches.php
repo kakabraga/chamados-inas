@@ -2,7 +2,7 @@
 //Atendimento
 $mod = 4;
 require_once('./verifica_login.php');
-?> 
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -21,37 +21,31 @@ and open the template in the editor.
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,6>
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon.ico" />
         <!------ Include the above in your HEAD tag ---------->
 
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter>        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTab>        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/cs>
 
-        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-        <script type="text/javascript" class="init">
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.>        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></sc>        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.2>        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/respon>        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/respon>        <script type="text/javascript" class="init">
             var usuarios = [];
 <?php
 include_once('./actions/ManterUsuario.php');
 $manterUsuario = new ManterUsuario();
 
+
 $listaU = $manterUsuario->getUsuariosPorEquipe(14);
 
 foreach ($listaU as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", nome: "<?= strupper($obj->nome) ?>"};
+    ?>item = {id: "<?= $obj->id ?>", nome: "<?= strtoupper($obj->nome) ?>"};
         usuarios.push(item);
     <?php
 }
-?>         
-           $(document).ready(function () {
+?>
+            $(document).ready(function () {
                 $('#guiches').DataTable();
                 carregaUsuarios(0);
             });
@@ -99,7 +93,7 @@ foreach ($listaU as $obj) {
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include './menu.php'; ?>
+            <?php include './menu_atendimento.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
@@ -110,23 +104,17 @@ foreach ($listaU as $obj) {
                         <?php include './form_guiche.php'; ?>
                         <!-- Project Card Example -->
                         <div class="card mb-4 border-primary" style="max-width:900px">
-                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
-                                <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fa fa-desktop fa-2x text-white"></i> 
+                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width>                                <div class="col-sm ml-0" style="max-width:50px;">
+                                    <i class="fa fa-desktop fa-2x text-white"></i>
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Guichês</span>
-                                </div>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">                                </div>
                                 <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_guiche" aria-expanded="false" aria-controls="form_guiche">
-                                        <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
-                                    </button>
+                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm">                                        <i class="fa fa-plus-circle text-white" aria-hidden="true">>                                    </button>
                                 </div>
-                            </div>                            
-
+                            </div>
                             <div class="card-body">
-                                <table id="guiches" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
-                                    <thead>
+                                <table id="guiches" class="table-sm table-striped table-bordered dt>                                    <thead>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Numero</th>
@@ -142,7 +130,7 @@ foreach ($listaU as $obj) {
                         </div>
                     </div>
                     <!-- End of Main Content -->
-                </div> 
+                </div>
                 <?php include './rodape.php'; ?>
 
             </div>
@@ -162,8 +150,7 @@ foreach ($listaU as $obj) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Confirmação</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -171,8 +158,7 @@ foreach ($listaU as $obj) {
                     </div>
                     <div class="modal-footer">
                         <a href="#" type="button" class="btn btn-danger" id="delete">Excluir</a>
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
-                    </div>
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel>                    </div>
                 </div>
 
             </div>
