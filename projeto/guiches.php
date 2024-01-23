@@ -1,8 +1,7 @@
 <?php
-//Atendimento
-$mod = 4;
+
 require_once('./verifica_login.php');
-?>
+?> 
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -17,7 +16,8 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Guiches - INAS</title>
+        <title>Chamados - INAS</title>
+
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -38,19 +38,18 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
             var usuarios = [];
-            <?php
-            include_once('./actions/ManterUsuario.php');
-            $manterUsuario = new ManterUsuario();
+<?php
+include_once('./actions/ManterUsuario.php');
+$manterUsuario = new ManterUsuario();
 
+$listaU = $manterUsuario->getUsuariosPorEquipe(14);
 
-            $listaU = $manterUsuario->getUsuariosPorEquipe(14);
-
-            foreach ($listaU as $obj) {
-                ?>item = {id: "<?= $obj->id ?>", nome: "<?= strtoupper($obj->nome) ?>"};
-                    usuarios.push(item);
-                <?php
-            }
-            ?>
+foreach ($listaU as $obj) {
+    ?>item = {id: "<?= $obj->id ?>", nome: "<?= strtoupper($obj->nome) ?>"};
+        usuarios.push(item);
+    <?php
+}
+?>         
             $(document).ready(function () {
                 $('#guiches').DataTable();
                 carregaUsuarios(0);
@@ -58,7 +57,7 @@ and open the template in the editor.
             function excluir(id, nome) {
                 $('#delete').attr('href', 'del_guiche.php?id=' + id);
                 $('#nome_excluir').text(nome);
-                $('#confirm').modal({show: true});
+                $('#confirm').modal({show: true});              
             }
             function alterar(id, numero, id_usuario) {
                 $('#id').val(id);
@@ -72,21 +71,21 @@ and open the template in the editor.
                 $(select).find('option:contains("' + text + '")').prop('selected', true);
             }
             function carregaUsuarios(id_atual) {
-                var html = '<option value="">Selecione </option>';
-                for (var i = 0; i < usuarios.length; i++) {
-                    var option = usuarios[i];
-                    var selected = "";
-                    if (id_atual > 0) {
-                        if (option.id == id_atual) {
-                            selected = "selected";
-                        } else {
-                            selected = "";
-                        }
+            var html = '<option value="">Selecione </option>';
+            for (var i = 0; i < usuarios.length; i++) {
+                var option = usuarios[i];
+                var selected = "";
+                if (id_atual > 0) {
+                    if (option.id == id_atual) {
+                        selected = "selected";
+                    } else {
+                        selected = "";
                     }
-                    html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</op>  
-                }          
-                $('#atendente').html(html);
+                }
+                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
             }
+            $('#atendente').html(html);
+        }
 
         </script>
         <style>
@@ -111,22 +110,23 @@ and open the template in the editor.
                         <?php include './form_guiche.php'; ?>
                         <!-- Project Card Example -->
                         <div class="card mb-4 border-primary" style="max-width:900px">
-                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">                                
-                            <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fa fa-desktop fa-2x text-white"></i>
+                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
+                                <div class="col-sm ml-0" style="max-width:50px;">
+                                    <i class="fa fa-desktop fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">                                
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Guichês</span>
                                 </div>
                                 <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm">                                        
-                                    <i class="fa fa-plus-circle text-white" aria-hidden="true">>                                    
+                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_guiche" aria-expanded="false" aria-controls="form_guiche">
+                                        <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
                                     </button>
                                 </div>
-                            </div>
+                            </div>                            
+
                             <div class="card-body">
-                                <table id="guiches" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">                                   
-                                 <thead>
+                                <table id="guiches" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                    <thead>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Numero</th>
@@ -142,7 +142,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <!-- End of Main Content -->
-                </div>
+                </div> 
                 <?php include './rodape.php'; ?>
 
             </div>
@@ -162,7 +162,8 @@ and open the template in the editor.
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Confirmação</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -170,7 +171,8 @@ and open the template in the editor.
                     </div>
                     <div class="modal-footer">
                         <a href="#" type="button" class="btn btn-danger" id="delete">Excluir</a>
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel>                    </div>
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
+                    </div>
                 </div>
 
             </div>
