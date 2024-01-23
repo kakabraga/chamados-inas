@@ -52,7 +52,7 @@ foreach ($listaU as $obj) {
 }
 ?>         
             $(document).ready(function () {
-                $('#guichees').DataTable();
+                $('#atendimento').DataTable();
                 carregaPerfis(0);
             });
             function excluir(id, nome) {
@@ -126,7 +126,7 @@ foreach ($listaU as $obj) {
                             </div>                            
 
                             <div class="card-body">
-                                <table id="guichees" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="guiches" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
