@@ -7,7 +7,7 @@ require_once('./dto/Acao.php');
 $db_acao = new ManterAcao();
 $a = new Acao();
 
-echo 'ID:' .$_POST['id'] . ' ACAO: '.$_POST['acao'] . ' ORDEM: '.$_POST['ordem'] . ' ETAPA: '.$_POST['etapa'] ;
+//echo 'ID:' .$_POST['id'] . ' ACAO: '.$_POST['acao'] . ' ORDEM: '.$_POST['ordem'] . ' ETAPA: '.$_POST['etapa'] ;
 
 $id     = isset($_POST['id']) ? $_POST['id'] : 0;
 $acao   = $_POST['acao'];

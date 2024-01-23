@@ -66,7 +66,7 @@ and open the template in the editor.
                             </div>                
                             <!-- Card Content - Collapse -->
                             <div class="card-body">
-                                <form id="form_busca" action="consultar_usuario.php" method="post">                       
+                                <form id="form_busca" action="consultar_usuario.php" method="get">                       
                                     <div class="input-group" style="width: 600px">
                                         <label for="busca" class="col c0 col-form-label">Busca:</label>
                                         <input type="text" name="busca" value="<?=$busca ?>" class="col c1 form-control form-control-sm" id="busca" style="width: 350px">
@@ -92,7 +92,7 @@ and open the template in the editor.
                                         <tr>
                                             <th scope="col" style="width:5%;">FOTO</th>
                                             <th scope="col" style="width:20%;">MATRÍCULA</th>
-                                            <th scope="col" style="width:35%;">SETOR</th>
+                                            <th scope="col" style="width:15%;">SETOR</th>
                                             <th scope="col">NOME</th>
                                             <th scope="col" class="align-middle nowrap" style="width:15%;">Ver Perfil</th>
                                         </tr>
@@ -105,7 +105,7 @@ and open the template in the editor.
         foreach ($lista as $obj) {
             $dir = './ft/';
             $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';
-            $style = 'style=" border-radius: 10%; background-color: #ddd; height: 30px; object-fit: cover; width: 30px;"';
+            $style = 'style=" border-radius: 10%; background-color: #ddd; height: 50px; object-fit: cover; width: 50px;"';
             if (file_exists($dir .$obj->id . '.jpg' )) {
                 $foto = $dir . $obj->id . '.jpg';
                 $imagem = '<img '.$style.' src="'.$foto.'" alt="Foto perfil" />';

@@ -18,7 +18,7 @@
             SISTEMAS
         </div>
         <?php
-        if ($usuario_logado->perfil == 21) {
+        if ($usuario_logado->perfil == 1) {
             ?>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">

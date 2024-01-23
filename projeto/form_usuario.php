@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="matricula" class="col-sm-2 col-form-label">Nome:</label>
+                <label for="matricula" class="col-sm-2 col-form-label">Matrícula:</label>
                 <div class="col-sm-10">
                     <input type="text" name="matricula" class="form-control form-control-sm" id="matricula" placeholder="matricula" required>
                 </div>
@@ -43,13 +43,13 @@
             <div class="form-group row">
                 <label for="whatsapp" class="col-sm-2 col-form-label">WhatsApp:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="whatsapp" class="form-control form-control-sm" id="whatsapp" required>
+                    <input type="text" name="whatsapp" class="form-control form-control-sm" id="whatsapp">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="linkedin" class="col-sm-2 col-form-label">LinkedIn:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="linkedin" class="form-control form-control-sm" id="linkedin" required>
+                    <input type="text" name="linkedin" class="form-control form-control-sm" id="linkedin">
                 </div>
             </div>
             <div class="form-group row">

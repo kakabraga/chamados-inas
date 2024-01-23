@@ -11,7 +11,7 @@
         <form id="form_cadastro" action="save_fila.php" method="post">
             <input type="hidden" id="id" name="id"/>
             <div class="form-group row">
-                <label for="cpf" class="col-sm-2 col-form-label">Nome:</label>
+                <label for="cpf" class="col-sm-2 col-form-label">CPF:</label>
                 <div class="col-sm-10">
                     <input type="text" name="cpf" class="form-control form-control-sm" id="cpf" placeholder="Só números" onkeypress="$(this).mask('000.000.000-00');" required>
                 </div>

@@ -82,6 +82,8 @@ and open the template in the editor.
         $atendimento->guiche    = $id_guiche;
         $atendimento->usuario   = $usuario_logado->id;
         $atendimento = $manterAtendimento->salvar($atendimento);
+
+        print_r($atendimento);
         if(isset($atendimento->id)){
             $manterFila->atender($id_fila);
         }
@@ -123,15 +125,16 @@ and open the template in the editor.
                             </div>                            
 
                             <div class="card-body">
-                                <spam class="h3">
+                                <spam class="h5">
                                 CPF: <b><?=$fila->cpf ?></b><br/>
                                 Nome: <b><?=$fila->nome ?></b><br/>
                                 Serviço: <b><?=$manterServico->getServicoPorId($fila->servico)->nome ?></b><br/><br/>
                                 </spam>
                             <form id="form_atendimento" action="save_atendimento.php" method="post">
                                 <input type="hidden" id="id" name="id" value="<?=$atendimento->id ?>"/>
+                                <input type="hidden" id="id_fila" name="id_fila" value="<?=$fila->id ?>"/>
                                 <div class="form-group row">
-                                    <label for="detalhamento" class="col-sm-2 col-form-label">Detalhamento:</label>
+                                    <label for="detalhamento" class="col-sm-2 col-form-label h5">Detalhamento:</label>
                                     <div class="col-sm-10">
                                         <textarea rows="3" name="detalhamento" class="form-control form-control-sm" id="detalhamento" placeholder="Detalhamento" required></textarea>
                                     </div>

@@ -1,4 +1,6 @@
 <?php
+//Administraçao
+$mod = 1;
 require_once('./verifica_login.php');
 ?> 
 

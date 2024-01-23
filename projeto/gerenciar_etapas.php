@@ -1,4 +1,6 @@
 <?php
+//Gerente
+$mod = 3;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>

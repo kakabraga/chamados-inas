@@ -1,4 +1,5 @@
 <?php
+    session_start();
 	include_once('actions/ManterAtendimento.php'); 
     include_once('actions/ManterServico.php');
     include_once('actions/ManterFila.php');
@@ -9,6 +10,9 @@
     $manterServico = new ManterServico();
     $manterGuiche = new ManterGuiche();
 
+    require_once('./dto/Usuario.php');
+
+    $usuario_logado = new Usuario;
     $usuario_logado = unserialize($_SESSION['usuario']);
 
     $guiche = $manterGuiche->getGuichePorUsuario($usuario_logado->id);

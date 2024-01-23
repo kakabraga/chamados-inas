@@ -88,7 +88,7 @@ and open the template in the editor.
                     <div class="container px-4 px-lg-5 border-primary" id="form_usuario" style="max-width:1200px">
                     <!-- Heading Row-->
                     <div class="row gx-4 gx-lg-4 align-items-center my-5">
-                        <div class="col-lg-5">
+                        <div class="col-lg-5 text-right">
                         <?php
                                 $dir = './ft/';
                                 $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';

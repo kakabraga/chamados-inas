@@ -7,7 +7,7 @@ $db_modulo = new ManterModulo();
 $m = new Modulo();
 
 $id = isset($_POST['id']) ? $_POST['id'] : 0;
-$nome = $_POST['nome'];
+$nome = $_POST['modulo'];
 $descricao = isset($_POST['descricao']) ? $_POST['descricao'] : '';
 
 $m->id = $id;

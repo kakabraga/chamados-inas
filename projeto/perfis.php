@@ -1,4 +1,6 @@
 <?php
+//Administraçao
+$mod = 1;
 require_once('./verifica_login.php');
 ?> 
 
@@ -41,7 +43,6 @@ and open the template in the editor.
 
             $(document).ready(function () {
                 $('#perfis').DataTable();
-                carregaPerfilsPai(0, 0);
             });
             function excluir(id, nome) {
                 $('#delete').attr('href', 'del_perfil.php?id=' + id);
@@ -73,7 +74,7 @@ and open the template in the editor.
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include './menu.php'; ?>
+            <?php include './menu_admin.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->

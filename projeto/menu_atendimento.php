@@ -34,6 +34,13 @@
                     <span>Gerenciar Guichês</span>
                 </a>
             </li>
+              <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="gerar_relatorio_atendimento.php">
+                    <i class="fa fa-laptop"></i>
+                    <span>Relatório Atendimento</span>
+                </a>
+            </li>
             <?php
         }
         ?>

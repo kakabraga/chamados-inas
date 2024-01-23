@@ -1,4 +1,6 @@
 <?php
+//Gerente
+$mod = 3;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -249,7 +251,7 @@ foreach ($listaUsuario as $obj) {
 
             $('#form_cadastro').reset();
         }
-        function verificaCategoria(tipo) {
+        function verificaTipo(tipo) {
             if (tipo == "Pessoal") {
                 $("#equipes").hide();
             } else {

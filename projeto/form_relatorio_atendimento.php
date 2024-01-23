@@ -12,11 +12,11 @@
             <div class="col border">
                 <fieldset class="form-group form-inline">
                     <legend class="col c1 col-form-label pt-0">Período</legend>
-                    <div class="input-group">
+                    <div class="input-group" style="width: 300px">
                         <label for="inicio" class="col c0 col-form-label">Data inicial:</label>
                         <input type="date" name="inicio" class="col c1 form-control form-control-sm" id="inicio">
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" style="width: 300px">
                         <label for="termino" class=" col c2 col-form-label">Data final:</label>
                         <input type="date" name="termino" class="col c3 form-control form-control-sm" id="termino">
                     </div>

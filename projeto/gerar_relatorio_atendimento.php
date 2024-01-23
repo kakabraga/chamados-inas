@@ -1,4 +1,6 @@
 <?php
+//Atendimento
+$mod = 4;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>

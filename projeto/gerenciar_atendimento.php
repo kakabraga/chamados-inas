@@ -1,5 +1,6 @@
 <?php
-
+//Atendimento
+$mod = 4;
 require_once('./verifica_login.php');
 
 include_once('./actions/ManterGuiche.php');
