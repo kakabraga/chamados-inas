@@ -17,20 +17,27 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Chamados - INAS</title>
+        <title>Guiches - INAS</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,6>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon.ico" />
         <!------ Include the above in your HEAD tag ---------->
 
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter>        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTab>        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/cs>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
-        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.>        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></sc>        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.2>        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/respon>        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/respon>        <script type="text/javascript" class="init">
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+        <script type="text/javascript" class="init">
             var usuarios = [];
 <?php
 include_once('./actions/ManterUsuario.php');
@@ -66,20 +73,21 @@ foreach ($listaU as $obj) {
                 $(select).find('option:contains("' + text + '")').prop('selected', true);
             }
             function carregaUsuarios(id_atual) {
-            var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < usuarios.length; i++) {
-                var option = usuarios[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
+                var html = '<option value="">Selecione </option>';
+                for (var i = 0; i < usuarios.length; i++) {
+                    var option = usuarios[i];
+                    var selected = "";
+                    if (id_atual > 0) {
+                        if (option.id == id_atual) {
+                            selected = "selected";
+                        } else {
+                            selected = "";
+                        }
                     }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</op>            }
-            $('#atendente').html(html);
-        }
+                    html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</op>  
+                }          
+                $('#atendente').html(html);
+            }
 
         </script>
         <style>
@@ -104,17 +112,22 @@ foreach ($listaU as $obj) {
                         <?php include './form_guiche.php'; ?>
                         <!-- Project Card Example -->
                         <div class="card mb-4 border-primary" style="max-width:900px">
-                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width>                                <div class="col-sm ml-0" style="max-width:50px;">
+                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">                                
+                            <div class="col-sm ml-0" style="max-width:50px;">
                                     <i class="fa fa-desktop fa-2x text-white"></i>
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">                                </div>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">                                
+                                </div>
                                 <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm">                                        <i class="fa fa-plus-circle text-white" aria-hidden="true">>                                    </button>
+                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm">                                        
+                                    <i class="fa fa-plus-circle text-white" aria-hidden="true">>                                    
+                                    </button>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table id="guiches" class="table-sm table-striped table-bordered dt>                                    <thead>
+                                <table id="guiches" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">                                   
+                                 <thead>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Numero</th>
