@@ -36,22 +36,21 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
             var usuarios = [];
-<?php
-include_once('./actions/ManterUsuario.php');
-$manterUsuario = new ManterUsuario();
+            <?php
+            include_once('./actions/ManterUsuario.php');
+            $manterUsuario = new ManterUsuario();
 
 
-$listaU = $manterUsuario->getUsuariosPorEquipe(14);
+            $listaU = $manterUsuario->getUsuariosPorEquipe(14);
 
-foreach ($listaU as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", nome: "<?= strtoupper($obj->nome) ?>"};
-        usuarios.push(item);
-    <?php
-}
-?>
+            foreach ($listaU as $obj) {
+                ?>item = {id: "<?= $obj->id ?>", nome: "<?= strtoupper($obj->nome) ?>"};
+                    usuarios.push(item);
+                <?php
+            }
+            ?>
             $(document).ready(function () {
                 $('#guiches').DataTable();
                 carregaUsuarios(0);
