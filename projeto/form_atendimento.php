@@ -47,7 +47,7 @@ and open the template in the editor.
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include './menu.php'; ?>
+            <?php include './menu_atendimento.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
