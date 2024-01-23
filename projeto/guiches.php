@@ -51,21 +51,21 @@ foreach ($listaU as $obj) {
     <?php
 }
 ?>         
-            $(document).ready(function () {
-                $('#atendimento').DataTable();
-                carregaPerfis(0);
+           $(document).ready(function () {
+                $('#guiches').DataTable();
+                carregaUsuarios(0);
             });
             function excluir(id, nome) {
                 $('#delete').attr('href', 'del_guiche.php?id=' + id);
                 $('#nome_excluir').text(nome);
-                $('#confirm').modal({show: true});              
+                $('#confirm').modal({show: true});
             }
             function alterar(id, numero, id_usuario) {
                 $('#id').val(id);
                 $('#numero').val(numero);
                 $('#form_guiche').collapse("show");
                 $('#btn_cadastrar').hide();
-                carregaPerfis(id_usuario);
+                carregaUsuarios(id_usuario);
             }
 
             function selectByText(select, text) {
@@ -83,8 +83,7 @@ foreach ($listaU as $obj) {
                         selected = "";
                     }
                 }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</option>';
-            }
+                html += '<option value="' + option.id + '" ' + selected + '>' + option.nome + '</op>            }
             $('#atendente').html(html);
         }
 
