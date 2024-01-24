@@ -1,6 +1,4 @@
 <?php
-//Atendimento
-$mod = 4;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -106,14 +104,14 @@ and open the template in the editor.
             if ($cont_param > 0) {
                 $where .= " AND ";
             }
-            $where .= " f.atendimento >='" . $inicio . " 07:00'";
+            $where .= " f.atendido >='" . $inicio . " 07:00'";
             $cont_param++;
         }
         if ($termino != 0) {
             if ($cont_param > 0) {
                 $where .= " AND ";
             }
-            $where .= " f.atendimento <='" . $termino . " 19:00'";
+            $where .= " f.atendido <='" . $termino . " 19:00'";
             $cont_param++;
         }
 
@@ -139,12 +137,13 @@ and open the template in the editor.
                             <th class="header c1 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c1" onclick="naover('c1');" aria-hidden="true" title="Remover coluna"></i> NOME </th>
                             <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c2" onclick="naover('c2');" aria-hidden="true" title="Remover coluna"></i> CADASTRO </th>
                             <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c3" onclick="naover('c3');" aria-hidden="true" title="Remover coluna"></i> CHAMADO </th>
-                            <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c4" onclick="naover('c4');" aria-hidden="true" title="Remover coluna"></i> ATENDIDO </th>
-                            <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c5" onclick="naover('c5');" aria-hidden="true" title="Remover coluna"></i> TEMPO </th>
-                            <th class="header c3 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c6" onclick="naover('c6');" aria-hidden="true" title="Remover coluna"></i> SERVIÇO </th>
-                            <th class="header c4 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c7" onclick="naover('c7');" aria-hidden="true" title="Remover coluna"></i> ATENDENTE </th>
-                            <th class="header c5 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c8" onclick="naover('c8');" aria-hidden="true" title="Remover coluna"></i> GUICHÊ</th>
-                            <th class="header c6 lastcol text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c9" onclick="naover('c9');" aria-hidden="true" title="Remover coluna"></i> DETALHAMENTO </th>
+                            <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c4" onclick="naover('c4');" aria-hidden="true" title="Remover coluna"></i> TEMPO FILA </th>
+                            <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c5" onclick="naover('c5');" aria-hidden="true" title="Remover coluna"></i> ATENDIDO </th>
+                            <th class="header c2 text-nowrap text-center" style="" scope="col" style="width:50%"><i class="fa fa-minus-square text-white c6" onclick="naover('c6');" aria-hidden="true" title="Remover coluna"></i> TEMPO </th>
+                            <th class="header c3 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c7" onclick="naover('c7');" aria-hidden="true" title="Remover coluna"></i> SERVIÇO </th>
+                            <th class="header c4 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c8" onclick="naover('c8');" aria-hidden="true" title="Remover coluna"></i> ATENDENTE </th>
+                            <th class="header c5 text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c9" onclick="naover('c9');" aria-hidden="true" title="Remover coluna"></i> GUICHÊ</th>
+                            <th class="header c6 lastcol text-nowrap text-center" style="" scope="col"><i class="fa fa-minus-square text-white c10" onclick="naover('c10');" aria-hidden="true" title="Remover coluna"></i> DETALHAMENTO </th>
                         </tr>
                         <?php
                         foreach ($atendimentos as $obj) {
@@ -155,6 +154,7 @@ and open the template in the editor.
                                 <td class="cell c1 text-dark " style=""><?= $fila->nome ?></td>
                                 <td class="cell c2 text-dark " style=""><?= date('d/m/Y h:i', strtotime($fila->entrada)) ?></td>
                                 <td class="cell c2 text-dark " style=""><?= date('d/m/Y h:i', strtotime($fila->ultima_chamada)) ?></td>
+                                <td class="cell c2 text-dark " style=""><?= $obj->tempo_fila ?> minutos</td>
                                 <td class="cell c2 text-dark " style=""><?= date('d/m/Y h:i', strtotime($fila->atendido)) ?></td>
                                 <td class="cell c2 text-dark " style=""><?= $obj->tempo ?> minutos</td>
                                 <td class="cell c3 text-dark " style=""><?= $mServico->getServicoPorId($fila->servico)->nome ?></td>

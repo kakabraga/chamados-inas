@@ -33,7 +33,7 @@ class ManterAtendimento extends Model {
         return $array_dados;
     }
     function listarRelatorio($filtro = "") {
-        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento, f.entrada, f.ultima_chamada, f.atendido, TIMESTAMPDIFF(MINUTE, f.ultima_chamada,  f.atendido) as tempo FROM atendimento as a, fila as f WHERE f.id=a.id_fila $filtro order by a.id";
+        $sql = "select a.id,a.id_fila,a.id_guiche, a.id_usuario, a.detalhamento, f.entrada, f.ultima_chamada, f.atendido, TIMESTAMPDIFF(MINUTE, f.ultima_chamada,  f.atendido) as tempo, TIMESTAMPDIFF(MINUTE, f.entrada,  f.ultima_chamada) as tempo_fila FROM atendimento as a, fila as f WHERE f.id=a.id_fila $filtro order by a.id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -52,6 +52,7 @@ class ManterAtendimento extends Model {
             $dados->ultima_chamada  = $registro["ultima_chamada"];
             $dados->atendido        = $registro["atendido"];
             $dados->tempo           = $registro["tempo"];
+            $dados->tempo_fila      = $registro["tempo_fila"];
             
             $array_dados[]      = $dados;
         }
