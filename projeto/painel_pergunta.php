@@ -68,6 +68,8 @@
 					</div>
 					<div class="row" style="text-align: center;">
 						<div class="box">
+							<div style="width: 190px;"> 
+							</div>
 							<div>
 								<a href="registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
 								<br/>
