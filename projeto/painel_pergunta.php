@@ -50,24 +50,45 @@
 
 		$ordem = isset($_REQUEST['ordem']) ? $_REQUEST['ordem'] : 0;
 		$total = count($lista);
-		echo "Total: " . $total . " Ordem: " . $ordem;
+		//echo "Total: " . $total . " Ordem: " . $ordem;
 		if ($total > $ordem) {
 			$pergunta = $lista[$ordem];
 		?>
 			<div class="row">
 				<div style="border: 1px;">
 					<div class="row">
+					<br/><br/>
 					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 38px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
 						<?=$pergunta->descricao ?>
-					</h1>
+					</h1><br/><br/>
 					</div>
 					<div class="row">
 						<div style="text-align: center;">
-						<a href="registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
-						<a href="registrar_nota.php?nota=2&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota2.svg"  alt="Nota 2"  width="160"></a> &nbsp;&nbsp; 
-						<a href="registrar_nota.php?nota=3&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota3.svg"  alt="Nota 3"  width="140"></a> &nbsp;&nbsp; 
-						<a href="registrar_nota.php?nota=4&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota4.svg"  alt="Nota 4"  width="160"></a> &nbsp;&nbsp; 
-						<a href="registrar_nota.php?nota=5&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota5.svg"  alt="Nota 5"  width="140"></a> &nbsp;&nbsp; 
+							<div>
+								<a href="registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
+								<br/>
+								MUITO RUIM
+							</div>	
+							<div>
+								<a href="registrar_nota.php?nota=2&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota2.svg"  alt="Nota 2"  width="160"></a> &nbsp;&nbsp; 
+								<br/>
+								RUIM
+							</div>	
+							<div>
+								<a href="registrar_nota.php?nota=3&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota3.svg"  alt="Nota 3"  width="140"></a> &nbsp;&nbsp; 
+								<br/>
+								REGULAR
+							</div>	
+							<div>
+								<a href="registrar_nota.php?nota=4&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota4.svg"  alt="Nota 4"  width="160"></a> &nbsp;&nbsp; 
+								<br/>
+								BOM
+							</div>	
+							<div>
+								<a href="registrar_nota.php?nota=5&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota5.svg"  alt="Nota 5"  width="140"></a> &nbsp;&nbsp; 
+								<br/>
+								ÓTIMO
+							</div>	
 						</div>
 					</div>
 				</div>
@@ -78,8 +99,9 @@
 			<div class="row">
 				<div style="border: 1px;">
 					<div class="row">
+					<br/><br/><br/>
 					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 38px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
-						FIM!! <img src="img/check.svg"  alt="Concluído"  width="100"><br/>
+						FIM!! <img src="img/check.svg"  alt="Concluído"  width="100"><br/><br/><br/>
 						OBRIGADO POR PARTICIPAR DA NOSSA PESQUISA!
 						<script>
 							setTimeout(function() {
