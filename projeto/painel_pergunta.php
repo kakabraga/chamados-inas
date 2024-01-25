@@ -13,14 +13,14 @@
         <title>Perquisa de atentimento - GDF Saúde - Painel</title>
 
         <!-- Custom fonts for this template-->
-        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         
-        <link rel="shortcut icon" href="../favicon.ico" />
+        <link rel="shortcut icon" href="favicon.ico" />
         <!------ Include the above in your HEAD tag ---------->
 
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <script src="lib/jquery-3.3.1.min.js"></script>
+        <link href="atendimento/css/bootstrap.css" rel="stylesheet">
+        <link href="atendimento/css/style.css" rel="stylesheet">
+        <script src="atendimento/lib/jquery-3.3.1.min.js"></script>
         <style>
             body{
                 font-size: small;
@@ -33,7 +33,7 @@
 	<div class="container page">
 		<div class="row barraSuperior">
 			<div class="col-xs-1">
-				<img src="imagens/logogdfsaude.png" class="logo">
+				<img src="atendimento/imagens/logogdfsaude.png" class="logo">
 			</div>
 			<div class="col-xs-11" style="text-align: right;"><p></p>
 				<span class="uespiTexto">Atendimento GDF Saúde</span><br>
@@ -41,8 +41,8 @@
 			</div>
 		</div>
 		<?php
-		include_once('../actions/ManterPergunta.php'); 
-		include_once('../dto/Pergunta.php'); 
+		include_once('./actions/ManterPergunta.php'); 
+		include_once('./dto/Pergunta.php'); 
 
 		$manterPergunta = new ManterPergunta();
 		$filtro = " WHERE p.status=1 ";
@@ -63,11 +63,11 @@
 					</div>
 					<div class="row">
 						<div style="text-align: center;">
-						<a href="../registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
-						<a href="../registrar_nota.php?nota=2&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota2.svg"  alt="Nota 2"  width="160"></a> &nbsp;&nbsp; 
-						<a href="../registrar_nota.php?nota=3&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota3.svg"  alt="Nota 3"  width="140"></a> &nbsp;&nbsp; 
-						<a href="../registrar_nota.php?nota=4&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota4.svg"  alt="Nota 4"  width="160"></a> &nbsp;&nbsp; 
-						<a href="../registrar_nota.php?nota=5&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota5.svg"  alt="Nota 5"  width="140"></a> &nbsp;&nbsp; 
+						<a href="registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
+						<a href="registrar_nota.php?nota=2&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota2.svg"  alt="Nota 2"  width="160"></a> &nbsp;&nbsp; 
+						<a href="registrar_nota.php?nota=3&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota3.svg"  alt="Nota 3"  width="140"></a> &nbsp;&nbsp; 
+						<a href="registrar_nota.php?nota=4&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota4.svg"  alt="Nota 4"  width="160"></a> &nbsp;&nbsp; 
+						<a href="registrar_nota.php?nota=5&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota5.svg"  alt="Nota 5"  width="140"></a> &nbsp;&nbsp; 
 						</div>
 					</div>
 				</div>
