@@ -62,36 +62,36 @@
 				<div style="border: 1px;">
 					<div class="row">
 					<br/><br/>
-					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 38px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
-						<?=$pergunta->descricao ?>
+					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 45px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
+						<b><?=$pergunta->descricao ?></b>
 					</h1><br/><br/>
 					</div>
-					<div class="row">
-						<div style="text-align: center;" class="box">
+					<div class="row" style="text-align: center;">
+						<div class="box">
 							<div>
 								<a href="registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
 								<br/>
-								MUITO RUIM
+								<b>MUITO RUIM</b>
 							</div>	
 							<div>
 								<a href="registrar_nota.php?nota=2&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota2.svg"  alt="Nota 2"  width="160"></a> &nbsp;&nbsp; 
 								<br/>
-								RUIM
+								<b>RUIM</b>
 							</div>	
 							<div>
 								<a href="registrar_nota.php?nota=3&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota3.svg"  alt="Nota 3"  width="140"></a> &nbsp;&nbsp; 
 								<br/>
-								REGULAR
+								<b>REGULAR</b>
 							</div>	
 							<div>
 								<a href="registrar_nota.php?nota=4&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota4.svg"  alt="Nota 4"  width="160"></a> &nbsp;&nbsp; 
 								<br/>
-								BOM
+								<b>BOM</b>
 							</div>	
 							<div>
 								<a href="registrar_nota.php?nota=5&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota5.svg"  alt="Nota 5"  width="140"></a> &nbsp;&nbsp; 
 								<br/>
-								ÓTIMO
+								<b>ÓTIMO</b>
 							</div>	
 						</div>
 					</div>
@@ -104,13 +104,15 @@
 				<div style="border: 1px;">
 					<div class="row">
 					<br/><br/><br/>
-					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 38px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
-						FIM!! <img src="img/check.svg"  alt="Concluído"  width="100"><br/><br/><br/>
-						OBRIGADO POR PARTICIPAR DA NOSSA PESQUISA!
+					<h1 class="u-text u-text-1" style="color: #000000; text-align: center; font-size: 60px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
+					   <b>FIM!! <img src="img/check.svg"  alt="Concluído"  width="100"><br/><br/><br/>
+					</h1>  
+					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 45px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
+						OBRIGADO POR PARTICIPAR DA NOSSA PESQUISA!</b>
 						<script>
 							setTimeout(function() {
 								window.location.href = "painel_pergunta.php";
-							}, 8000);
+							}, 4000);
 						</script>
 					</h1>
 					</div>
