@@ -73,6 +73,24 @@
 				</div>
 			</div><br/><br/>
 		<?php
+		} else {
+			?>
+			<div class="row">
+				<div style="border: 1px;">
+					<div class="row">
+					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 38px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
+						FIM!! <img src="img/check.svg"  alt="Concluído"  width="100"><br/>
+						OBRIGADO POR PARTICIPAR DA NOSSA PESQUISA!
+						<script>
+							setTimeout(function() {
+								window.location.href = "painel_pergunta.php";
+							}, 8000);
+						</script>
+					</h1>
+					</div>
+				</div>
+			</div><br/><br/>			
+			<?php
 		}
 		?>
 	</div>
