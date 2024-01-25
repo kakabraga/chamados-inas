@@ -40,19 +40,41 @@
 				<span class="subtitulo">Unidade -  <strong>Plano Piloto</strong></span>
 			</div>
 		</div>
-		<div class="row">
-			<div class="senhaAtual">
-                <div class="row">
-					<div style="text-align: center;">
-					  <a href="../registrar_nota.php?nota=1"><img src="../img/nota1.svg"  alt="Nota 1"  width="78"></a> 
-					  <a href="../registrar_nota.php?nota=2"><img src="../img/nota2.svg"  alt="Nota 2"  width="78"></a> 
-					  <a href="../registrar_nota.php?nota=3"><img src="../img/nota3.svg"  alt="Nota 3"  width="78"></a> 
-					  <a href="../registrar_nota.php?nota=4"><img src="../img/nota4.svg"  alt="Nota 4"  width="78"></a>  
-					  <a href="../registrar_nota.php?nota=5"><img src="../img/nota5.svg"  alt="Nota 5"  width="78"></a> 
+		<?php
+		include_once('../actions/ManterPergunta.php'); 
+		include_once('../dto/Pergunta.php'); 
+
+		$manterPergunta = new ManterPergunta();
+		$filtro = " WHERE p.status=1 ";
+		$lista = $manterPergunta->listar($filtro);
+
+		$ordem = isset($_POST['ordem']) ? $_POST['ordem'] : 0;
+		$total = count($lista);
+		echo "Total: " . $total . " Ordem: " . $ordem;
+		if ($total >= $ordem) {
+			$pergunta = $lista[$ordem];
+		?>
+			<div class="row">
+				<div style="border: 1px;">
+					<div class="row">
+					<h1 class="u-text u-text-1" style="color: #0C4BAC; text-align: center; font-size: 38px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">
+						<?=$pergunta->descricao ?>
+					</h1>
+					</div>
+					<div class="row">
+						<div style="text-align: center;">
+						<a href="../registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
+						<a href="../registrar_nota.php?nota=2&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota2.svg"  alt="Nota 2"  width="160"></a> &nbsp;&nbsp; 
+						<a href="../registrar_nota.php?nota=3&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota3.svg"  alt="Nota 3"  width="140"></a> &nbsp;&nbsp; 
+						<a href="../registrar_nota.php?nota=4&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota4.svg"  alt="Nota 4"  width="160"></a> &nbsp;&nbsp; 
+						<a href="../registrar_nota.php?nota=5&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="../img/nota5.svg"  alt="Nota 5"  width="140"></a> &nbsp;&nbsp; 
+						</div>
 					</div>
 				</div>
-			</div>
-		</div><br/><br/>
+			</div><br/><br/>
+		<?php
+		}
+		?>
 	</div>
 </body>
 </html>
