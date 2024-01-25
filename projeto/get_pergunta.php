@@ -9,9 +9,9 @@
             echo "<tr>";
             echo "  <td>".$obj->id."</td>";
             echo "  <td>".$obj->descricao."</td>";
-            $txt_status = "<img src='./img/nao_visivel.svg' width='30'/>";
+            $txt_status = "<a href='mudar_status_pergunta.php?id=".$obj->id."&status=1' ><img src='./img/nao_visivel.svg' width='30'/></a>";
             if($obj->status == 1){
-                $txt_status = "<img src='./img/visivel.svg' width='30'/>";
+                $txt_status = "<a href='mudar_status_pergunta.php?id=".$obj->id."&status=0' ><img src='./img/visivel.svg' width='30'/></a>";
             }
             echo "  <td>".$txt_status."</td>";
             if($obj->excluir){

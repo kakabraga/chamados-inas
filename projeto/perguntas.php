@@ -49,9 +49,8 @@ and open the template in the editor.
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
-            function alterar(id, pergunta, descricao) {
+            function alterar(id, descricao) {
                 $('#id').val(id);
-                $('#pergunta').val(pergunta);
                 $('#descricao').val(descricao);
                 $('#form_pergunta').collapse("show");
                 $('#btn_cadastrar').hide();
@@ -87,7 +86,7 @@ and open the template in the editor.
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fa fa-id-card fa-2x text-white"></i> 
+                                    <i class="fa fa-question fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Perguntas</span>
@@ -104,6 +103,7 @@ and open the template in the editor.
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Pergunta</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col" style="width:30px;">Opções</th>
                                         </tr>
                                     </thead>
