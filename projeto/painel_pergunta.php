@@ -25,6 +25,10 @@
             body{
                 font-size: small;
             }
+			.box {
+				display: flex;
+				align-items: stretch;
+			}
         </style>
     </head>
 
@@ -63,7 +67,7 @@
 					</h1><br/><br/>
 					</div>
 					<div class="row">
-						<div style="text-align: center;">
+						<div style="text-align: center;" class="box">
 							<div>
 								<a href="registrar_nota.php?nota=1&id=<?=$pergunta->id ?>&ordem=<?=$ordem ?>"><img src="img/nota1.svg"  alt="Nota 1"  width="140"></a> &nbsp;&nbsp; 
 								<br/>
