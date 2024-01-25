@@ -51,7 +51,7 @@
 		$ordem = isset($_REQUEST['ordem']) ? $_REQUEST['ordem'] : 0;
 		$total = count($lista);
 		echo "Total: " . $total . " Ordem: " . $ordem;
-		if ($total >= $ordem) {
+		if ($total > $ordem) {
 			$pergunta = $lista[$ordem];
 		?>
 			<div class="row">

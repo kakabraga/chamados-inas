@@ -14,7 +14,9 @@ $n->pergunta =  $id_pergunta;
 $n->nota = $nota;
 $ordem++;
 
-header('Location: ./atendimento/painel_pergunta.php?ordem='.$ordem);
+$db_nota->salvar($n);
 
-$db_nota->sal($id);
+header('Location: painel_pergunta.php?ordem='.$ordem);
+
+
 
