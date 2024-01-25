@@ -48,7 +48,7 @@
 		$filtro = " WHERE p.status=1 ";
 		$lista = $manterPergunta->listar($filtro);
 
-		$ordem = isset($_POST['ordem']) ? $_POST['ordem'] : 0;
+		$ordem = isset($_REQUEST['ordem']) ? $_REQUEST['ordem'] : 0;
 		$total = count($lista);
 		echo "Total: " . $total . " Ordem: " . $ordem;
 		if ($total >= $ordem) {
