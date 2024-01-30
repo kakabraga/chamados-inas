@@ -123,9 +123,32 @@ and open the template in the editor.
                         ?>
 
 
-                        <!-- ETAPAS -->
-                        <?php //include './get_etapa.php'; ?>
-                        <!-- FIM ETAPAS -->
+                        <div class="card mb-4 border-primary" style="max-width:900px">
+                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
+                                <div class="col-sm ml-0" style="max-width:50px;">
+                                    <i class="fas fa-users fa-2x text-white"></i> 
+                                </div>
+                                <div class="col mb-0">
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Acessos concedidos</span>
+                                </div>
+                            </div>                            
+
+                            <div class="card-body">
+                                <table id="acessos" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">MÓDULO</th>
+                                            <th scope="col">PERFIL</th>
+                                            <th scope="col">REMOVER</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fila">
+                                        <?php include './get_acesso.php'; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <!-- End of Main Content -->
 
