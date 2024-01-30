@@ -3,6 +3,7 @@
 date_default_timezone_set('America/Sao_Paulo');
 require_once('Model.php');
 require_once('dto/Usuario.php');
+require_once('dto/Modulo.php');
 
 class ManterUsuario extends Model {
 
@@ -212,6 +213,44 @@ class ManterUsuario extends Model {
             $dados->equipe = $registro["id_equipe"];
             $dados->setor = $registro["id_setor"];
             $dados->perfil = $registro["id_perfil"];
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
+    function getAcessosUsuario($id_usuario) {
+        $sql = "SELECT a.id_modulo, a.id_usuario, a.id_perfil, m.nome as modulo, p.perfil  
+        FROM acesso as a, modulo as m, perfil as p 
+        WHERE p.id = a.id_perfil
+        AND m.id = a.id_modulo 
+        AND a.id_usuario =$id_usuario ORDER BY m.nome";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Usuario();
+            $dados->excluir = true;
+            $dados->id_modulo = $registro["id_modulo"];
+            $dados->id_usuario = $registro["id_usuario"];
+            $dados->id_perfil = $registro["id_perfil"];
+            $dados->modulo = $registro["modulo"];
+            $dados->perfil = $registro["perfil"];
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
+    function getModulosParaAcessosUsuario($id_usuario) {
+        $sql = "SELECT m.id, m.nome as modulo  
+        FROM modulo as m 
+        WHERE  m.id NOT IN (SELECT a.id_modulo FROM acesso as a WHERE a.id_usuario = $id_usuario)
+        ORDER BY m.nome";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Modulo();
+            $dados->excluir = true;
+            $dados->id = $registro["id"];
+            $dados->nome = $registro["nome"];
             $array_dados[] = $dados;
         }
         return $array_dados;
