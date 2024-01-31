@@ -239,7 +239,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getModulosParaAcessosUsuario($id_usuario) {
-        $sql = "SELECT m.id, m.nome as modulo  
+        $sql = "SELECT m.id, m.nome  
         FROM modulo as m 
         WHERE  m.id NOT IN (SELECT a.id_modulo FROM acesso as a WHERE a.id_usuario = $id_usuario)
         ORDER BY m.nome";
@@ -262,6 +262,16 @@ class ManterUsuario extends Model {
         if ($op != "add") {
             $sql = "DELETE FROM editor WHERE id_usuario=" . $id . " AND id_tarefa=" . $tarefa ;
         }
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+    function permitirAcesso($id_modulo,$id_usuario,$id_perfil){
+        $sql = "insert into acesso (id_modulo,id_usuario,id_perfil) values ('" . $id_modulo . "','" . $id_usuario . "','" . $id_perfil . "')";
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+    function removerAcesso($id_modulo,$id_usuario){
+        $sql = "DELETE FROM acesso WHERE id_usuario=" . $id_usuario . " AND id_modulo=" . $id_modulo ;
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
