@@ -40,12 +40,10 @@ and open the template in the editor.
         <script type="text/javascript" class="init">
             $(document).ready(function () {
             });
-            function alterarEtapa(id, nome, ordem, data_base) {
-                $('#id_etapa').val(id);
-                $('#nome_etapa').val(nome);
-                $('#ordem_etapa').val(ordem);
-                $('#data_base_etapa').val(data_base);
-                $('#nome_etapa').focus();
+            function excluir(id, nome,id_usuario) {
+                $('#delete').attr('href', 'remover_acesso.php?id_modulo=' + id + '&id_usuario=' + id_usuario);
+                $('#nome_excluir').text(nome);
+                $('#confirm').modal({show: true});              
             }
         </script>
         <style>
@@ -79,6 +77,8 @@ and open the template in the editor.
                     if (isset($_REQUEST['id'])) {
                         $id_usuario = $_REQUEST['id'];
                         $usuario    = $manterUsuario->getUsuarioPorId($id_usuario);
+                        $modulosSemPermissao = $manterUsuario->getModulosParaAcessosUsuario($id_usuario);
+                        $perfis = $manterPerfil->listar();
                         $editar = false;
                         
                         //if ($chamado->status == 1 || $chamado->status == 4) {
@@ -114,7 +114,46 @@ and open the template in the editor.
                                         </div> 
                                     </div>
                                     <h6 class="mt-3 ml-2 card-title">Novo acesso</h6>
-                                    <p class=" ml-2 card-text">...</p>
+                                    <p class=" ml-2 card-text">
+                                    <form id="form_cadastro" action="save_setor.php" method="post">
+                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$id_usuario ?>"/>
+                                        <div class="form-group row">
+                                            <label for="sigla" class="col-sm-2 col-form-label">Módulo:</label>
+                                            <div class="col-sm-10">
+                                            <select id="modulo" name="id_modulo" class="form-control form-control-sm" required>
+                                                <option value="">Selecione</option>   
+                                                <?php
+                                                foreach ($modulosSemPermissao as $modulo) {
+                                                ?> 
+                                                    <option value="<?=$modulo->id ?>"><?=$modulo->nome ?></option> 
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="descricao" class="col-sm-2 col-form-label">Perfil:</label>
+                                            <div class="col-sm-10">
+                                            <select id="perfil" name="id_perfil" class="form-control form-control-sm" required>
+                                                <option value="">Selecione</option>    
+                                                <?php
+                                                foreach ($perfis as $p) {
+                                                ?> 
+                                                    <option value="<?=$p->id ?>"><?=$p->perfil ?></option> 
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row float-right">
+                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>Conceder</button>
+                                        </div>
+                                    </form>   
+
+                                    </p>
                                 </div>
                             </div>
                             <!-- fim da exibição -->
@@ -123,7 +162,7 @@ and open the template in the editor.
                         ?>
 
 
-                        <div class="card mb-4 border-primary" style="max-width:900px">
+                        <div class="card mb-4 border-primary" style="max-width:800px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
                                     <i class="fas fa-users fa-2x text-white"></i> 

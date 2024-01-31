@@ -3,15 +3,15 @@
 	
 	$manterUsuario = new ManterUsuario();
 	
-	$lista = $manterAcesso->getAcessosUsuario($id_usuario);
+	$lista = $manterUsuario->getAcessosUsuario($id_usuario);
         
         foreach ($lista as $obj) {
             echo "<tr>";
-            echo "  <td>".$obj->id."</td>";
+            echo "  <td>".$obj->id_modulo."</td>";
             echo "  <td>".$obj->modulo."</td>";
             echo "  <td>".$obj->perfil."</td>";
             if($obj->excluir){
-                echo "  <td align='center'><button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$obj->id.",\"".$obj->modulo."\")'><i class='far fa-trash-alt'></i></button></td>";
+                echo "  <td align='center'><button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$obj->id.",\"".$obj->modulo."\",".$id_usuario.")'><i class='far fa-trash-alt'></i></button></td>";
             } else {
                 echo "  <td align='center'> - </td>";                
             }
