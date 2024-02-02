@@ -1,6 +1,7 @@
 <?php
-//Chamados
-$mod = 2;
+//Administração
+$mod = 1;
+$nivel = 0;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -113,9 +114,10 @@ and open the template in the editor.
                                             <div class="mb-0"><?= $usuario->nome ?></div>
                                         </div> 
                                     </div>
-                                    <h6 class="mt-3 ml-2 card-title">Novo acesso</h6>
+                                    <br/>
                                     <p class=" ml-2 card-text">
-                                    <form id="form_cadastro" action="save_setor.php" method="post">
+                                    <span class="mt-3 ml-2 h6 card-title">Novo acesso</span>
+                                    <form id="form_cadastro" action="conceder_acesso.php" method="post">
                                         <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$id_usuario ?>"/>
                                         <div class="form-group row">
                                             <label for="sigla" class="col-sm-2 col-form-label">Módulo:</label>

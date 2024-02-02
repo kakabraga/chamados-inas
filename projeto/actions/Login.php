@@ -1,6 +1,7 @@
 <?php
 
 include_once('Model.php');
+include_once('ManterUsuario.php');
 
 class Login extends Model {
 
@@ -34,12 +35,15 @@ class Login extends Model {
             $dados->id          = $registro["id"];
             $dados->nome        = $registro["nome"];
             $dados->login       = $registro["login"];
-            $dados->matricula   = $registro["login"];
+            $dados->matricula   = $registro["matricula"];
             $dados->senha       = $senha;
             $dados->ativo       = $registro["ativo"];
             $dados->equipe      = $registro["id_equipe"];
             $dados->setor       = $registro["id_setor"];
             $dados->perfil      = $registro["id_perfil"];
+            
+            $db_usuario = New ManterUsuario();
+            $dados->acessos = $db_usuario->getAcessosUsuario($registro["id"]);
 
             ldap_close($connection );
             return $dados;

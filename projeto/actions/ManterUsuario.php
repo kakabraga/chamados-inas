@@ -4,6 +4,7 @@ date_default_timezone_set('America/Sao_Paulo');
 require_once('Model.php');
 require_once('dto/Usuario.php');
 require_once('dto/Modulo.php');
+require_once('dto/Acesso.php');
 
 class ManterUsuario extends Model {
 
@@ -227,7 +228,7 @@ class ManterUsuario extends Model {
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
-            $dados = new Usuario();
+            $dados = new Acesso();
             $dados->excluir = true;
             $dados->id_modulo = $registro["id_modulo"];
             $dados->id_usuario = $registro["id_usuario"];

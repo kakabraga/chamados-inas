@@ -19,4 +19,10 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 } else {
     $usuario_logado = unserialize($_SESSION['usuario']);
+    foreach ($usuario_logado->acessos as $acess) {
+        if ($acess->id_modulo == $mod) {
+            $nivel = $acess->id_perfil;
+            break;
+        }
+    }
 }

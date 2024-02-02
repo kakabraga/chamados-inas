@@ -1,22 +1,23 @@
 <?php
   class Usuario{
 	    public $id;
-            public $nome;
-            public $login;
-            public $matricula;
-            public $email;
-            public $nascimento;
-            public $whatsapp;
-            public $linkedin;
-            public $equipe;
-            public $setor;
-            public $perfil;
-            public $ativo;
+      public $nome;
+      public $login;
+      public $matricula;
+      public $email;
+      public $nascimento;
+      public $whatsapp;
+      public $linkedin;
+      public $equipe;
+      public $setor;
+      public $perfil;
+      public $ativo;
+      public $acessos = array();
 
-            //variaveis de manipulação
-            public $excluir;
-            public $senha;
-            public $status = true;
-            public $msg;
+      //variaveis de manipulação
+      public $excluir;
+      public $senha;
+      public $status = true;
+      public $msg;
 		
   }

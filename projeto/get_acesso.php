@@ -11,7 +11,7 @@
             echo "  <td>".$obj->modulo."</td>";
             echo "  <td>".$obj->perfil."</td>";
             if($obj->excluir){
-                echo "  <td align='center'><button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$obj->id.",\"".$obj->modulo."\",".$id_usuario.")'><i class='far fa-trash-alt'></i></button></td>";
+                echo "  <td align='center'><button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$obj->id_modulo.",\"".$obj->modulo."\",".$id_usuario.")'><i class='far fa-trash-alt'></i></button></td>";
             } else {
                 echo "  <td align='center'> - </td>";                
             }
