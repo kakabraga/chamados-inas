@@ -9,6 +9,7 @@
 session_start();
 date_default_timezone_set('America/Sao_Paulo'); 
 
+require_once('./actons/ManterUsuario.php');
 require_once('./dto/Usuario.php');
 
 $usuario_logado = new Usuario;
@@ -19,9 +20,11 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 } else {
     $usuario_logado = unserialize($_SESSION['usuario']);
-    foreach ($usuario_logado->acessos as $acess) {
-        if ($acess->id_modulo == $mod) {
-            $nivel = $acess->id_perfil;
+    $db_usuario = New ManterUsuario();
+    $acessos = $db_usuario->getAcessosUsuario($usuario_logado->id);
+    foreach ($acessos as $acesso) {
+        if ($acesso->id_modulo == $mod) {
+            $nivel = $acesso->id_perfil;
             break;
         }
     }

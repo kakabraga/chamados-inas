@@ -41,9 +41,6 @@ class Login extends Model {
             $dados->equipe      = $registro["id_equipe"];
             $dados->setor       = $registro["id_setor"];
             $dados->perfil      = $registro["id_perfil"];
-            
-            $db_usuario = New ManterUsuario();
-            $dados->acessos = $db_usuario->getAcessosUsuario($registro["id"]);
 
             ldap_close($connection );
             return $dados;
