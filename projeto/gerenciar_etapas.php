@@ -1,6 +1,7 @@
 <?php
 //Gerente
 $mod = 3;
+$nivel = 0;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -89,9 +90,6 @@ and open the template in the editor.
 
                 editar(<?= $_SESSION['editar'] ?>);
                 carregaEditoresIncluir();
-//                $('#etapas').DataTable();
-//                carregaEquipes(0);
-//                carregaPerfis(0);
             });
             function excluirEtapa(id, nome) {
                 $('#delete').attr('href', 'del_etapa.php?id=' + id);
@@ -104,9 +102,6 @@ and open the template in the editor.
                 $('#ordem_etapa').val(ordem);
                 $('#data_base_etapa').val(data_base);
                 $('#nome_etapa').focus();
-
-//                $('#form_etapa').collapse("show");
-//                $('#btn_cadastrar').hide();
             }
 
 
@@ -116,7 +111,6 @@ and open the template in the editor.
                 $('#confirm').modal({show: true});
             }
             function alterarAcao(id, acao, ordem, dias, etapa) {
-                //alert('ID: '+id+' ACAO: '+acao+' ORDEM: '+ordem);
                 $('#id_acao' + etapa).val(id);
                 $('#acao' + etapa).val(acao);
                 if (dias == 0)
@@ -125,15 +119,8 @@ and open the template in the editor.
                 $('#ordem_acao' + etapa).val(ordem);
                 $('#acao' + etapa).focus();
 
-//                $('#form_etapa').collapse("show");
-//                $('#btn_cadastrar').hide();
             }
 
-//            function checkAcao(id,data_prevista) {
-//                $('#delete').attr('href', 'del_acao.php?id=' + id +'&prevista='+data_prevista);
-//                $('#nome_excluir').text('AÇÃO: ' + nome);
-//                $('#confirm').modal({show: true});
-//            }
 
             function checkAcao(id, data_prevista) {
                 if (data_prevista == '') {
@@ -224,13 +211,14 @@ and open the template in the editor.
                         //Usada para somar a quantidade de dias e calcular a data prevista das açoes
                         $data_base = $manterAcao->subitrair_dias_uteis($tarefa->inicio, $tarefa->total_dias);
                         $editar = false;
-                        
-                        if ($usuario_logado->perfil == 1 || $usuario_logado->id == $tarefa->criador || $logadoIsEditor) {
+                        // Administrador ou criador ou editor
+                        if ($nivel == 1 || $usuario_logado->id == $tarefa->criador || $logadoIsEditor) {
                             $editar = true;
                         }
 
                         $executar = false;
-                        if ($usuario_logado->perfil <= 2 || $usuario_logado->id == $tarefa->responsavel) {
+                        // Administrador e Gerente
+                        if ($nivel <= 2 || $usuario_logado->id == $tarefa->responsavel) {
                             $executar = true;
                         }
                         ?>
