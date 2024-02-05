@@ -1,7 +1,6 @@
 <?php
 //Administração
 $mod = 1;
-$nivel = 0;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -115,6 +114,9 @@ and open the template in the editor.
                                         </div> 
                                     </div>
                                     <br/>
+                                    <?php
+                                        if($usuario_logado->perfil==1){
+                                     ?>
                                     <p class=" ml-2 card-text">
                                     <span class="mt-3 ml-2 h6 card-title">Novo acesso</span>
                                     <form id="form_cadastro" action="conceder_acesso.php" method="post">
@@ -151,11 +153,14 @@ and open the template in the editor.
                                         </div>
 
                                         <div class="form-group row float-right">
-                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>Conceder</button>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Conceder</button>
                                         </div>
                                     </form>   
 
                                     </p>
+                                    <?php
+                                     }
+                                    ?>
                                 </div>
                             </div>
                             <!-- fim da exibição -->

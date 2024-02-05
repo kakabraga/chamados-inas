@@ -1,7 +1,6 @@
 <?php
 //Gerente
 $mod = 3;
-$nivel = 0;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -118,10 +117,7 @@ and open the template in the editor.
                 $('#dias' + etapa).val(dias);
                 $('#ordem_acao' + etapa).val(ordem);
                 $('#acao' + etapa).focus();
-
             }
-
-
             function checkAcao(id, data_prevista) {
                 if (data_prevista == '') {
                     jQuery.post('check_acao.php',
@@ -212,13 +208,13 @@ and open the template in the editor.
                         $data_base = $manterAcao->subitrair_dias_uteis($tarefa->inicio, $tarefa->total_dias);
                         $editar = false;
                         // Administrador ou criador ou editor
-                        if ($nivel == 1 || $usuario_logado->id == $tarefa->criador || $logadoIsEditor) {
+                        if ($usuario_logado->perfil == 1 || $usuario_logado->id == $tarefa->criador || $logadoIsEditor) {
                             $editar = true;
                         }
 
                         $executar = false;
                         // Administrador e Gerente
-                        if ($nivel <= 2 || $usuario_logado->id == $tarefa->responsavel) {
+                        if ($usuario_logado->perfil <= 2 || $usuario_logado->id == $tarefa->responsavel) {
                             $executar = true;
                         }
                         ?>

@@ -22,9 +22,10 @@ if (!isset($_SESSION["usuario"])) {
     $usuario_logado = unserialize($_SESSION['usuario']);
     $db_usuario = New ManterUsuario();
     $acessos = $db_usuario->getAcessosUsuario($usuario_logado->id);
+    $usuario_logado->perfil = 100;
     foreach ($acessos as $acesso) {
         if ($acesso->id_modulo == $mod) {
-            $nivel = $acesso->id_perfil;
+            $usuario_logado->perfil = $acesso->id_perfil;
             break;
         }
     }
