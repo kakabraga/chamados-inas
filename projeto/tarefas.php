@@ -88,8 +88,8 @@ $manterUsuario = new ManterUsuario();
 
 $listaEquipe = $manterEquipe->listar();
 if ($usuario_logado->perfil >= 2) {
-    $filtro = ' WHERE id='.$usuario_logado->equipe;
-    $listaEquipe = $manterEquipe->listar($filtro);
+    $filtroE = ' WHERE id='.$usuario_logado->equipe;
+    $listaEquipe = $manterEquipe->listar($filtroE);
 }
 $listaUsuario = $manterUsuario->listar();
 if ($usuario_logado->perfil >= 2) {

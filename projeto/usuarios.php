@@ -1,6 +1,6 @@
 <?php
 //Administraçao
-$mod = 1;
+$mod = 2;
 require_once('./verifica_login.php');
 ?>  
 <!DOCTYPE html>

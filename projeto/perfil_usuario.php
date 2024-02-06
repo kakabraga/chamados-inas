@@ -1,6 +1,8 @@
 <?php
 
 date_default_timezone_set('America/Sao_Paulo'); 
+//Inicio
+$mod = 1;
 require_once('./verifica_login.php');
 
 include_once('./actions/ManterUsuario.php');

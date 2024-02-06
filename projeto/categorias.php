@@ -1,4 +1,6 @@
 <?php
+//Chamados
+$mod = 4;
 require_once('./verifica_login.php');
 ?> 
 

@@ -1,6 +1,6 @@
 <?php
+//Gerente
 $mod = 3;
-$nivel = 0;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>

@@ -1,4 +1,6 @@
 <?php
+//Chamados
+$mod = 4;
 require_once('./verifica_login.php');
 $filtro     = " WHERE id_usuario = " . $usuario_logado->id;
 ?> 
@@ -115,10 +117,10 @@ and open the template in the editor.
                 <div id="content">
                     <?php include './top_bar.php'; ?>
 
-                    <div class="container-fluid">
+                    <div class="container-fluid"> 
                         <?php include './form_meu_chamado.php'; ?>
                         <!-- Project Card Example -->
-                        <div class="card mb-4 border-primary" style="max-width:900px">
+                        <div class="card mb-4 border-primary" style="max-width:1000px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
                                     <i class="fa fa-id-card fa-2x text-white"></i> 

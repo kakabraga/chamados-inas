@@ -1,4 +1,6 @@
 <?php
+//Inicio
+$mod = 1;
 require_once('./verifica_login.php');
 
 $busca = isset($_REQUEST['busca']) ? addslashes($_REQUEST['busca']) : '';
