@@ -22,7 +22,6 @@
             }
             echo "  <td>".$txt_equipe."</td>";
             echo "  <td>".$manterSetor->getSetorPorId($obj->setor)->sigla."</td>";
-            echo "  <td>".$manterPerfil->getPerfilPorId($obj->perfil)->perfil."</td>";
             echo "  <td>".($obj->ativo > 0 ? 'Sim':'Não')."</td>";
             if($usuario_logado->perfil < $obj->perfil || $usuario_logado->id == $obj->id){
             if($obj->excluir){
