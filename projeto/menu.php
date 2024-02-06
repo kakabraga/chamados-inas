@@ -9,6 +9,7 @@
 <br/>
 <!-- Divider -->
 <hr class="sidebar-divider">
+
     <?php
     if ($usuario_logado->perfil >= 1) {
         ?>
@@ -17,53 +18,39 @@
         <div class="sidebar-heading">
             SISTEMAS
         </div>
-        <?php
-        if ($usuario_logado->perfil == 1) {
-            ?>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="setores.php">
-                    <i class="fa fa-id-card"></i>
-                    <span>ADMINISTRAÇÃO</span>
-                </a>
-            </li>
-            <?php
+<?php
+foreach ($acessos as $acesso) {
+    if($acesso->id_modulo != 1){
+        $icon_css = "";
+        switch ($acesso->id_modulo) {
+            case 2:
+                $icon_css = "fa fa-id-card";
+                break;
+            case 3:
+                $icon_css = "fa fa-id-card";
+                break;
+            case 4:
+                $icon_css = "fa fa-laptop";
+                break;
+            case 5:
+                $icon_css = "fa fa-tasks";
+                break;                                  
         }
-        if ($usuario_logado->perfil <= 2) {
-            ?>
+?> 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="index_gerente.php">
-                    <i class="fa fa-id-card"></i>
-                    <span>GERENTE</span>
+                <a class="nav-link collapsed" href="<?=$acesso->link ?>">
+                    <i class="<?=$icon_css ?>"></i>
+                    <span><?=$acesso->modulo ?></span>
                 </a>
             </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="chamados.php">
-                    <i class="fa fa-laptop"></i>
-                    <span>CHAMADOS</span>
-                </a>
-            </li>
+            <!-- Divider -->
+        <hr class="sidebar-divider">
             <?php
-        }
     }
-    ?>
-     <!-- Divider -->
-     <hr class="sidebar-divider">
 
-<!-- Nav Item - Pages Collapse Menu -->
-<?php
-    if ($usuario_logado->perfil <= 1 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
-        ?>
-<li class="nav-item">
-    <a class="nav-link collapsed" href="gerenciar_fila.php">
-        <i class="fa fa-tasks"></i>
-        <span>ATENDIMENTO</span>
-    </a>
-</li>
-<?php
     }
+}
 ?>
 
 <!-- Divider -->
