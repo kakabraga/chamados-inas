@@ -11,7 +11,7 @@ class ManterModulo extends Model {
     }
 
     function listar() {
-        $sql = "select m.id,m.nome,m.descricao, (select count(*) from acesso as a where a.id_modulo=m.id) as dep FROM modulo as m order by m.id";
+        $sql = "select m.id,m.nome,m.icone, m.link, (select count(*) from acesso as a where a.id_modulo=m.id) as dep FROM modulo as m order by m.id";
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
@@ -22,27 +22,29 @@ class ManterModulo extends Model {
             }
             $dados->id          = $registro["id"];
             $dados->nome        = $registro["nome"];
-            $dados->descricao   = $registro["descricao"];
+            $dados->icone       = $registro["icone"];
+            $dados->link        = $registro["link"];
             $array_dados[]      = $dados;
         }
         return $array_dados;
     }
     function getModuloPorId($id) {
-        $sql = "select m.id,m.nome,m.descricao FROM modulo as m WHERE id=$id";
+        $sql = "select m.id,m.nome,m.icone FROM modulo as m WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Modulo();
         while ($registro = $resultado->fetchRow()) {
             $dados->id          = $registro["id"];
             $dados->nome        = $registro["nome"];
-            $dados->descricao   = $registro["descricao"];
+            $dados->icone       = $registro["icone"];
+            $dados->link        = $registro["link"];
         }
         return $dados;
     }
     function salvar(Modulo $dados) {
-        $sql = "insert into modulo (nome,descricao) values ('" . $dados->nome . "','" . $dados->descricao . "')";
+        $sql = "insert into modulo (nome,icone,link) values ('" . $dados->nome . "','" . $dados->icone . "','" . $dados->link . "')";
         if ($dados->id > 0) {
-            $sql = "update modulo set nome='" . $dados->nome . "',descricao='" . $dados->descricao . "' where id=$dados->id";
+            $sql = "update modulo set nome='" . $dados->nome . "',icone='" . $dados->icone . "',link='" . $dados->link . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         } else {
             $resultado = $this->db->Execute($sql);

@@ -2,7 +2,8 @@
   class Modulo{
 	    public $id;
       public $nome;
-      public $descricao;
+      public $icone;
+      public $link;
 
       //variaveis de manipulação
       public $excluir;

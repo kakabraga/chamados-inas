@@ -17,9 +17,15 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="descricao" class="col-sm-2 col-form-label">Descrição:</label>
+                <label for="icone" class="col-sm-2 col-form-label">Ícone:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="descricao" class="form-control form-control-sm" id="descricao" placeholder="Descrição" required>
+                    <input type="text" name="icone" class="form-control form-control-sm" id="icone" placeholder="Ícone" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="link" class="col-sm-2 col-form-label">Link:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="link" class="form-control form-control-sm" id="link" placeholder="Link" required>
                 </div>
             </div>
 

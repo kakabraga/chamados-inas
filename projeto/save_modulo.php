@@ -8,11 +8,13 @@ $m = new Modulo();
 
 $id = isset($_POST['id']) ? $_POST['id'] : 0;
 $nome = $_POST['modulo'];
-$descricao = isset($_POST['descricao']) ? $_POST['descricao'] : '';
+$icone = isset($_POST['icone']) ? $_POST['icone'] : '';
+$link = isset($_POST['link']) ? $_POST['link'] : '';
 
 $m->id = $id;
 $m->nome = $nome;
-$m->descricao = $descricao;
+$m->icone = $icone;
+$m->link = $link;
 
 $db_modulo->salvar($m);
 header('Location: modulos.php');
