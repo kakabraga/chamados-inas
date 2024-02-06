@@ -67,7 +67,7 @@ and open the template in the editor.
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Administração</div>
                                 <div class="h4 mb-0 font-weight-bold text-gray-800">
-                                    <a href="index_admin.php"><img src="img/admin_sistema.svg" width="100" /></a>
+                                    <a href="setores.php"><img src="img/admin_sistema.svg" width="100" /></a>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ and open the template in the editor.
             </div>
             <?php
         }
-        if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
+        if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 2 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
             ?> 
             <div class="col-xl-3 col-md-6 mb-4" style="max-width: 220px; max-height: 165px;">
                 <div class="card border-left-primary shadow h-100 py-2">
