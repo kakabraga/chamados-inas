@@ -42,17 +42,18 @@ and open the template in the editor.
          
 
             $(document).ready(function () {
-                $('#perfis').DataTable();
+                $('#modulos').DataTable();
             });
             function excluir(id, nome) {
                 $('#delete').attr('href', 'del_modulo.php?id=' + id);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
-            function alterar(id, modulo, descricao) {
+            function alterar(id, modulo, icone,link) {
                 $('#id').val(id);
                 $('#modulo').val(modulo);
-                $('#descricao').val(descricao);
+                $('#icone').val(icone);
+                $('#link').val(link);
                 $('#form_modulo').collapse("show");
                 $('#btn_cadastrar').hide();
             }
@@ -99,12 +100,12 @@ and open the template in the editor.
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table id="perfis" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="modulos" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Modulo</th>
-                                            <th scope="col">Descrição</th>
+                                            <th scope="col">Link</th>
                                             <th scope="col" style="width:30px;">Opções</th>
                                         </tr>
                                     </thead>
