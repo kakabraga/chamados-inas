@@ -219,7 +219,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getAcessosUsuario($id_usuario) {
-        $sql = "SELECT a.id_modulo, a.id_usuario, a.id_perfil, m.nome as modulo, p.perfil  
+        $sql = "SELECT a.id_modulo, a.id_usuario, a.id_perfil, m.nome as modulo, p.perfil, m.icone, m.link 
         FROM acesso as a, modulo as m, perfil as p 
         WHERE p.id = a.id_perfil
         AND m.id = a.id_modulo 
@@ -235,6 +235,8 @@ class ManterUsuario extends Model {
             $dados->id_perfil = $registro["id_perfil"];
             $dados->modulo = $registro["modulo"];
             $dados->perfil = $registro["perfil"];
+            $dados->link = $registro["link"];
+            $dados->icone = $registro["icone"];
             $array_dados[] = $dados;
         }
         return $array_dados;
