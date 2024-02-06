@@ -59,6 +59,7 @@ and open the template in the editor.
                     <div class="card-group">
                     <?php
                     foreach ($acessos as $acesso) {
+                        if($acesso->id_modulo != 1){
                     ?> 
                         <div class="col-xl-3 col-md-6 mb-4" style="max-width: 220px; max-height: 165px;" >
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -76,6 +77,7 @@ and open the template in the editor.
                         </div>
                         <?php
                     }
+                }
                     ?> 
                     <!-- End of Links sistemas -->
                 </div>
