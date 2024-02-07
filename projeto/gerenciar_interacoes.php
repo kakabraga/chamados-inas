@@ -137,7 +137,7 @@ and open the template in the editor.
                                 
                                 <br/>
                                 <div class="row">
-                                        <div class="c1 ml-4">
+                                        <div class="c1 ml-4" style="width: 80%">
                                     <?php
                                         if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
                                      ?>
@@ -154,7 +154,7 @@ and open the template in the editor.
                                             </textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row text-right" style="width: 80%">
                                             <div class="col-sm-10">
                                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
                                             </div>
