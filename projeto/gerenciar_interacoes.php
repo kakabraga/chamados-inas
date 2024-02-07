@@ -92,7 +92,7 @@ and open the template in the editor.
                                     <div class="row">
                                         <div class="col c2 ml-2">
                                             <div class="h6 text-xs text-white font-weight-bold text-uppercase mb-1">Chamado</div>
-                                            <div class="h5 mb-0 text-white font-weight-bold">[<small><?= $chamado->id ?></small>] <?= $categoria->nome ?></div>
+                                            <div class="h5 mb-0 text-white font-weight-bold">[<small><?=$chamado->id ?></small>] <?= $categoria->nome ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa fa-tasks fa-3x text-white"></i>
@@ -135,6 +135,33 @@ and open the template in the editor.
                                     <h6 class="mt-3 ml-2 card-title">Descrição da solicitação</h6>
                                     <p class=" ml-2 card-text"><?= $chamado->descricao ?></p>
                                 </div>
+                                <br/>
+                                    <?php
+                                        if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
+                                     ?>
+                                    <p class=" ml-2 card-text">
+                                    <span class="mt-3 ml-2 h6 card-title">Novo acesso</span>
+                                    <form id="form_cadastro" action="conceder_acesso.php" method="post">
+                                        <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>
+                                        <input type="hidden" id="id_usuario_chamado" name="id_usuario_chamado" value="<?=$chamado->usuario ?>"/>                                        
+                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
+                                        <div class="form-group row">
+                                            <label for="interacao" class="col-sm-2 col-form-label">Texto interação:</label>
+                                            <div class="col-sm-10">
+                                            <textaera id="interacao" name="interacao" class="form-control form-control-sm" required>
+                                            </textaera>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row float-right">
+                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
+                                        </div>
+                                    </form>   
+
+                                    </p>
+                                    <?php
+                                     }
+                                    ?>
                             </div>
                             <!-- fim da exibição -->
                             <?php
