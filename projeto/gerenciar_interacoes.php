@@ -152,7 +152,7 @@ and open the template in the editor.
                                             <textarea id="interacao" name="interacao" class="form-control form-control-sm" required></textarea>
                                         </div>
                                         <div class="form-group row text-right">
-                                            <div class="col-sm-10">
+                                            <div class="w-100">
                                              <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
                                             </div>
                                         </div>
