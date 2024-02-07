@@ -134,7 +134,7 @@ and open the template in the editor.
                                     <p class=" ml-2 card-text"><?= $usuario->nome ?></p>
                                     <h6 class="mt-3 ml-2 card-title">Descrição da solicitação</h6>
                                     <p class=" ml-2 card-text"><?= $chamado->descricao ?></p>
-                                </div>
+                                
                                 <br/>
                                 <div class="row">
                                     <?php
@@ -164,6 +164,7 @@ and open the template in the editor.
                                     <?php
                                      }
                                     ?>
+                                    </div>
                             </div>
                             <!-- fim da exibição -->
                             <?php
