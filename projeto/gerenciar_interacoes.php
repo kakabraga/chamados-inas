@@ -149,14 +149,10 @@ and open the template in the editor.
                                         <input type="hidden" id="id_usuario_chamado" name="id_usuario_chamado" value="<?=$chamado->usuario ?>"/>                                        
                                         <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
                                         <div class="form-group row">
-                                            <div class="col-sm-10">
                                             <textarea id="interacao" name="interacao" class="form-control form-control-sm" required></textarea>
-                                            </div>
                                         </div>
                                         <div class="form-group row text-right">
-                                            <div class="col-sm-10">
                                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
-                                            </div>
                                         </div>
                                     </form>   
 
