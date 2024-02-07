@@ -137,11 +137,13 @@ and open the template in the editor.
                                 
                                 <br/>
                                 <div class="row">
+                                        <div class="c1 ml-4">
                                     <?php
                                         if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
                                      ?>
                                     <p class=" ml-2 card-text">
-                                    <span class="mt-3 ml-2 h6 card-title">Novo acesso</span>
+                                    <span class="mt-3 ml-2 h6 card-title">Nova interação</span>
+                                    <br/>
                                     <form id="form_cadastro" action="registrar_interacao.php" method="post">
                                         <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>
                                         <input type="hidden" id="id_usuario_chamado" name="id_usuario_chamado" value="<?=$chamado->usuario ?>"/>                                        
@@ -164,6 +166,7 @@ and open the template in the editor.
                                     <?php
                                      }
                                     ?>
+                                    </div>
                                     </div>
                             </div>
                             <!-- fim da exibição -->
