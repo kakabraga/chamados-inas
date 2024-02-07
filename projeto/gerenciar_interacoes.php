@@ -136,20 +136,21 @@ and open the template in the editor.
                                     <p class=" ml-2 card-text"><?= $chamado->descricao ?></p>
                                 </div>
                                 <br/>
+                                <div class="row">
                                     <?php
                                         if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
                                      ?>
                                     <p class=" ml-2 card-text">
                                     <span class="mt-3 ml-2 h6 card-title">Novo acesso</span>
-                                    <form id="form_cadastro" action="conceder_acesso.php" method="post">
+                                    <form id="form_cadastro" action="registrar_interacao.php" method="post">
                                         <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>
                                         <input type="hidden" id="id_usuario_chamado" name="id_usuario_chamado" value="<?=$chamado->usuario ?>"/>                                        
                                         <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
                                         <div class="form-group row">
                                             <label for="interacao" class="col-sm-2 col-form-label">Texto interação:</label>
-                                            <div class="col-sm-10">
-                                            <textaera id="interacao" name="interacao" class="form-control form-control-sm" required>
-                                            </textaera>
+                                            <div class="col-sm-8">
+                                            <textarea id="interacao" name="interacao" class="form-control form-control-sm" required>
+                                            </textarea>
                                             </div>
                                         </div>
 
@@ -159,6 +160,7 @@ and open the template in the editor.
                                     </form>   
 
                                     </p>
+                                    </div>
                                     <?php
                                      }
                                     ?>
