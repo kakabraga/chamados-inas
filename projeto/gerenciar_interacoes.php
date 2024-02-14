@@ -171,9 +171,8 @@ and open the template in the editor.
                         }
                         ?>
 
-
                         <!-- ETAPAS -->
-                        <?php //include './get_etapa.php'; ?>
+                        <?php include './get_interacao.php'; ?>
                         <!-- FIM ETAPAS -->
                     </div>
                     <!-- End of Main Content -->
