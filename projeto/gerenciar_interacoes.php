@@ -145,11 +145,10 @@ and open the template in the editor.
                                     <span class="h6 card-title">Nova interação</span>
                                     <br/>
                                     <form id="form_cadastro" action="registrar_interacao.php" method="post">
-                                        <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>
-                                        <input type="hidden" id="id_usuario_chamado" name="id_usuario_chamado" value="<?=$chamado->usuario ?>"/>                                        
+                                        <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>                        
                                         <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
                                         <div class="form-group row">
-                                            <textarea id="interacao" name="interacao" class="form-control form-control-sm" required></textarea>
+                                            <textarea id="texto" name="texto" class="form-control form-control-sm" required></textarea>
                                         </div>
                                         <div class="form-group row text-right">
                                             <div class="w-100">
