@@ -8,9 +8,13 @@
 	$lista = $manterInteracao->listar($id_chamado);
         
     foreach ($lista as $obj) {
+        $class_color = "border-left-primary";
+        if($obj->usuario != $chamado->usuario){
+            $class_color = "border-right-warning";
+        }
         ?>
-        <div class="col-xl-3 col-md-6 mb-4" style="max-width: 420px;" >
-            <div class="card border-left-primary shadow h-100 py-2">
+        <div class="col-xl-3 col-md-6 mb-4" style="max-width: 720px;" >
+            <div class="card <?=$class_color ?> shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
