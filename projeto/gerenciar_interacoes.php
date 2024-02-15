@@ -141,23 +141,25 @@ and open the template in the editor.
                                     <?php
                                         if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
                                      ?>
-                                    <p class=" ml-2 card-text">
-                                    <span class="h6 card-title">Nova interação</span>
-                                    <br/>
-                                    <form id="form_cadastro" action="registrar_interacao.php" method="post">
-                                        <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>                        
-                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
-                                        <div class="form-group row">
-                                            <textarea id="texto" name="texto" class="form-control form-control-sm" required></textarea>
-                                        </div>
-                                        <div class="form-group row text-right">
-                                            <div class="w-100">
-                                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#nova_interacao" aria-expanded="false" aria-controls="nova_interacao">
+                                        Nova interação
+                                    </button> 
+                                        <div class="collapse" id="nova_interacao">
+                                            <div class="card card-body">
+                                                <form id="form_cadastro" action="registrar_interacao.php" method="post">
+                                                    <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>                        
+                                                    <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
+                                                    <div class="form-group row">
+                                                        <textarea id="texto" name="texto" class="form-control form-control-sm" required></textarea>
+                                                    </div>
+                                                    <div class="form-group row text-right">
+                                                        <div class="w-100">
+                                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>   
                                             </div>
                                         </div>
-                                    </form>   
-
-                                    </p>
                                     </div>
                                     <?php
                                      }
