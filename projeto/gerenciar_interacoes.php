@@ -141,8 +141,8 @@ and open the template in the editor.
                                     <?php
                                         if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
                                      ?>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#nova_interacao" aria-expanded="false" aria-controls="nova_interacao">
-                                        Nova interação
+                                    <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#nova_interacao" aria-expanded="false" aria-controls="nova_interacao">
+                                    <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>  Nova interação
                                     </button> 
                                         <div class="collapse" id="nova_interacao">
                                             <div class="card card-body">
