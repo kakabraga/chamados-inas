@@ -42,6 +42,7 @@ and open the template in the editor.
             });
             function interacao() {
                 $('#nova').modal({show: true});  
+            }
         </script>
         <style>
             body{
@@ -187,38 +188,29 @@ and open the template in the editor.
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-        <!-- Modal excluir -->
-        <div class="modal fade" id="nova" role="dialog">
-            <div class="modal-dialog modal-sm">
 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Nova interação</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="form_cadastro" action="registrar_interacao.php" method="post">
-                            <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>                        
-                            <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
-                            <div class="form-group row">
-                                <textarea id="texto" name="texto" class="form-control form-control-sm" required></textarea>
-                            </div>
-                            <div class="form-group row text-right">
-                                <div class="w-100">
-                                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
-                                </div>
-                            </div>
-                        </form>   
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" type="button" class="btn btn-danger" id="delete">Excluir</a>
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
-                    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="nova" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <form id="form_cadastro" action="registrar_interacao.php" method="post">
+            <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>                        
+            <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalCentralizado">Nova interação</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-
+                <div class="modal-body">
+                    <textarea id="texto" name="texto" class="form-control form-control-sm" required></textarea>      
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
+                </div>
             </div>
+            </form>
+        </div>
         </div>
 
     </body>
