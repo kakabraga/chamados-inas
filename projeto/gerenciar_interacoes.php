@@ -43,6 +43,13 @@ and open the template in the editor.
             function interacao() {
                 $('#nova').modal({show: true});  
             }
+            function reabrir(id,usuario,descricao) {
+                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id);
+                $('#acao_texto').text("Confimação de reabertura do chamado:");
+                $('#acao_usuario').text(usuario);
+                $('#acao_descricao').text(descricao);
+                $('#confirm').modal({show: true});              
+            }
         </script>
         <style>
             body{
@@ -136,27 +143,21 @@ and open the template in the editor.
                                         <div class="c1 ml-4" style="width: 80%">
                                     <?php
                                         if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
-                                     ?>
-                                     
-                                    <button class="btn btn-success btn-sm" type="button" onclick="interacao()">
-                                    <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>  Nova interação
-                                    </button> 
-                                        <div class="collapse" id="nova_interacao">
-                                            <div class="card card-body">
-                                                <form id="form_cadastro" action="registrar_interacao.php" method="post">
-                                                    <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>                        
-                                                    <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
-                                                    <div class="form-group row">
-                                                        <textarea id="texto" name="texto" class="form-control form-control-sm" required></textarea>
-                                                    </div>
-                                                    <div class="form-group row text-right">
-                                                        <div class="w-100">
-                                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
-                                                        </div>
-                                                    </div>
-                                                </form>   
-                                            </div>
-                                        </div>
+
+                                            if($chamado->status == 2){
+                                                ?>
+                                                <button class="btn btn-warning btn-sm" type="button" onclick="reabrir('<?=$chamado->id ?>','<?=$usuario->nome  ?>','<?=$chamado->descricao ?>','<?=$chamado->categoria ?>')">
+                                                      <i class="fa fa-history text-white" aria-hidden="true"></i>  Reabrir chamado
+                                                </button>
+                                                <?php
+                                            } else if($chamado->status == 1 || $chamado->status == 4){
+                                            ?>                                     
+                                                <button class="btn btn-success btn-sm" type="button" onclick="interacao()">
+                                                    <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>  Nova interação
+                                                </button> 
+                                            <?php 
+                                            }
+                                    ?>
                                     </div>
                                     <?php
                                      }
@@ -222,7 +223,30 @@ and open the template in the editor.
             </form>
         </div>
         </div>
+        <!-- Modal reabrir -->
+        <div class="modal fade" id="confirm" role="dialog">
+            <div class="modal-dialog modal-sm">
 
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmação</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><span id="acao_texto"></span><br/>
+                        <span id="acao_usuario"></span><br/>
+                    <strong>"<span id="acao_descricao"></span>"</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" type="button" class="btn btn-danger" id="acao">Confirmar</a>
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Desistir</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </body>
 
 </html>
