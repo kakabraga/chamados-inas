@@ -195,7 +195,7 @@ and open the template in the editor.
         <form id="form_cadastro" action="registrar_interacao.php" method="post">
             <input type="hidden" id="id_chamado" name="id_chamado" value="<?=$chamado->id ?>"/>                        
             <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario_logado->id ?>"/>
-            <div class="modal-content">
+            <div class="modal-content" style="width: 600px;">
                 <div class="modal-header">
                     <h5 class="modal-title" id="TituloModalCentralizado">Nova interação</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
@@ -206,6 +206,16 @@ and open the template in the editor.
                     <textarea id="texto" name="texto" class="form-control form-control-sm" required></textarea>      
                 </div>
                 <div class="modal-footer">
+                <?php
+                    if($usuario_logado->id!=$chamado->usuario && $usuario_logado->perfil<=2){
+                    ?>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" value="1" name="finalizar" id="finalizar">
+                        <label class="form-check-label" for="finalizar">Finalizar chamado</label>
+                    </div>
+                    <?php
+                    }
+                    ?>
                     <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
                 </div>
             </div>
