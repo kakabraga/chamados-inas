@@ -82,15 +82,15 @@ and open the template in the editor.
                 carregaCategorias(0);
                 carregaUsuarios(0);
             });
-            function cancelar(id,usuario,descricao) {
-                $('#acao').attr('href', 'cancelar_chamado.php?id=' + id);
+            function cancelar(id,usuario,descricao,id_usuario_logado) {
+                $('#acao').attr('href', 'cancelar_chamado.php?id=' + id + '&id_usuario=' + id_usuario_logado);
                 $('#acao_texto').text("Confimação de cancelamento do chamado:");
                 $('#acao_usuario').text(usuario);
                 $('#acao_descricao').text(descricao);
                 $('#confirm').modal({show: true});              
             }
             function reabrir(id,usuario,descricao) {
-                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id);
+                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id + '&id_usuario=' + id_usuario_logado);
                 $('#acao_texto').text("Confimação de reabertura do chamado:");
                 $('#acao_usuario').text(usuario);
                 $('#acao_descricao').text(descricao);
