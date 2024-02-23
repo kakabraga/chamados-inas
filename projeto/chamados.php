@@ -89,7 +89,7 @@ and open the template in the editor.
                 $('#acao_descricao').text(descricao);
                 $('#confirm').modal({show: true});              
             }
-            function reabrir(id,usuario,descricao) {
+            function reabrir(id,usuario,descricao,id_usuario_logado) {
                 $('#acao').attr('href', 'reabrir_chamado.php?id=' + id + '&id_usuario=' + id_usuario_logado);
                 $('#acao_texto').text("Confimação de reabertura do chamado:");
                 $('#acao_usuario').text(usuario);
