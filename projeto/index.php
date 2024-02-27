@@ -61,16 +61,16 @@ and open the template in the editor.
                     foreach ($acessos as $acesso) {
                         if($acesso->id_modulo != 1){
                     ?> 
-                        <div class="col-xl-3 col-md-6 mb-4" style="max-width: 220px; max-height: 165px;" >
-                            <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="col-xl-3 col-md-2 mb-2" style="max-width: 280px; max-height: 100px;">
+                            <div class="card border-left-primary h-100 shadow">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$acesso->modulo ?></div>
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800">
-                                                <a href="<?=$acesso->link ?>"><img src="img/<?=$acesso->icone ?>" width="100" /></a>
-                                            </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mb-0 w-100">
+                                                <a href="<?=$acesso->link ?>">
+                                                    <img src="img/<?=$acesso->icone ?>" width="70">
+                                                </a> <?=$acesso->modulo ?>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
