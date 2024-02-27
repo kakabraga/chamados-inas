@@ -13,7 +13,7 @@ class ManterChamado extends Model {
     }
 
     function listar($filtro = "") {
-        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario,id_atendente, (select count(*) from interacao as i where i.id_chamado=c.id) as dep FROM chamado as c " . $filtro . " ORDER BY data_abertura desc";
+        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario,id_atendente, (select count(*) from interacao as i where i.id_chamado=c.id) as dep FROM chamado as c " . $filtro . " ORDER BY data_abertura ASC";
         //echo 'SQL: ' . $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -25,10 +25,10 @@ class ManterChamado extends Model {
             }
             $dados->id = $registro["id"];
             $dados->descricao = $registro["descricao"];
-            $dados->data_abertura = isset($registro["data_abertura"]) ? date('Y-m-d', $registro["data_abertura"]) : 0;
-            $dados->data_atendido = isset($registro["data_atendido"]) ? date('Y-m-d', $registro["data_atendido"]) : 0;;
-            $dados->data_atendimento = isset($registro["data_atendimento"]) ? date('Y-m-d', $registro["data_atendimento"]) : 0;;
-            $dados->data_cancelado = isset($registro["data_cancelado"]) ? date('Y-m-d', $registro["data_cancelado"]) : 0;;
+            $dados->data_abertura = isset($registro["data_abertura"]) ? $registro["data_abertura"] : 0;
+            $dados->data_atendido = isset($registro["data_atendido"]) ? $registro["data_atendido"] : 0;;
+            $dados->data_atendimento = isset($registro["data_atendimento"]) ? $registro["data_atendimento"] : 0;;
+            $dados->data_cancelado = isset($registro["data_cancelado"]) ? $registro["data_cancelado"] : 0;;
             $dados->status = $registro["status"];
             $dados->categoria = $registro["id_categoria"];
             $dados->usuario = $registro["id_usuario"];
@@ -47,10 +47,10 @@ class ManterChamado extends Model {
         while ($registro = $resultado->fetchRow()) {
             $dados->id = $registro["id"];
             $dados->descricao = $registro["descricao"];
-            $dados->data_abertura = isset($registro["data_abertura"]) ? date('Y-m-d', $registro["data_abertura"]) : 0;
-            $dados->data_atendido = isset($registro["data_atendido"]) ? date('Y-m-d', $registro["data_atendido"]) : 0;;
-            $dados->data_atendimento = isset($registro["data_atendimento"]) ? date('Y-m-d', $registro["data_atendimento"]) : 0;;
-            $dados->data_cancelado = isset($registro["data_cancelado"]) ? date('Y-m-d', $registro["data_cancelado"]) : 0;;
+            $dados->data_abertura = isset($registro["data_abertura"]) ? $registro["data_abertura"] : 0;
+            $dados->data_atendido = isset($registro["data_atendido"]) ? $registro["data_atendido"] : 0;
+            $dados->data_atendimento = isset($registro["data_atendimento"]) ? $registro["data_atendimento"] : 0;
+            $dados->data_cancelado = isset($registro["data_cancelado"]) ? $registro["data_cancelado"] : 0;
             $dados->status = $registro["status"];
             $dados->categoria = $registro["id_categoria"];
             $dados->usuario = $registro["id_usuario"];
@@ -69,7 +69,7 @@ class ManterChamado extends Model {
             $resultado = $this->db->Execute($sql);
             $dados->id = $this->db->insert_Id();
         }
-        return $resultado;
+        return $dados;
     }
     function atender(Chamado $dados) {
         if ($dados->id > 0) {
