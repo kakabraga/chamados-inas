@@ -13,7 +13,7 @@ class ManterChamado extends Model {
     }
 
     function listar($filtro = "") {
-        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario,id_atendente, (select count(*) from interacao as i where i.id_chamado=c.id) as dep FROM chamado as c " . $filtro . " ORDER BY data_abertura ASC";
+        $sql = "select id,descricao,data_abertura, data_atendido,data_atendimento,data_cancelado,status,id_categoria,id_usuario,id_atendente, (select count(*) from interacao as i where i.id_chamado=c.id) as dep FROM chamado as c " . $filtro . " ORDER BY id DESC";
         //echo 'SQL: ' . $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
