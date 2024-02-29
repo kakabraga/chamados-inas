@@ -295,7 +295,7 @@ foreach ($listaUsuario as $obj) {
                                 </div>
                                 <div class="col text-right" style="max-width:20%">
                                     <?php
-                                    if ($usuario_logado->perfil <= 2) {
+                                    if ($usuario_logado->perfil >= 1) {
                                         ?>
                                         <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_tarefa" aria-expanded="false" aria-controls="form_tarefa">
                                             <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
