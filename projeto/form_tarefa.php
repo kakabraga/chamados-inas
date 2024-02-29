@@ -49,6 +49,9 @@
                         </select>
                     </div>
                 </div>   
+                <?php
+                }
+                ?>
                 <div class="form-group row">
                     <div class="col input-group">
                         <label for="responsavel" class="col-sm-4 col-form-label">Responsável:</label>
@@ -57,10 +60,7 @@
                         </select>
                     </div>
                 </div>        
-            </div>   
-            <?php
-            }
-            ?>              
+            </div>                
             <div class="col border">
                 <fieldset class="form-group form-inline">
                     <legend class="col c1 col-form-label pt-0">Realização</legend>
