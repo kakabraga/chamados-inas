@@ -51,16 +51,30 @@ foreach ($lista as $obj) {
     echo "  <td>" . $txt_categoria . "</td>";
     echo "  <td>" . date('d/m/Y h:i', strtotime($obj->data_abertura)) . "</td>";
     echo "  <td align='center'>" . $txt_status . "</td>";
+
+    $link_atender = "";
+    $link_cancelar = "";
+    $link_reabrir = "";
+    if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 2 || $usuario_logado->perfil == 3) {
+        $link_atender = "<button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")' title='Atender chamado'><i class='fa fa-clock'></i></button>&nbsp;&nbsp;";
+        $link_cancelar = "<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$usuario_logado->id.")'  title='Cancelar chamado'><i class='fa fa-ban'></i></button>";
+        $link_reabrir = "<button class='btn btn-warning btn-sm' type='button' onclick='reabrir(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.",".$usuario_logado->id.")' title='Reabrir chamado'><i class='fa fa-history'></i></button>";
+    }
+    if($usuario_logado->id == $obj->usuario){
+        $link_cancelar = "<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$usuario_logado->id.")'  title='Cancelar chamado'><i class='fa fa-ban'></i></button>";
+        $link_reabrir = "<button class='btn btn-warning btn-sm' type='button' onclick='reabrir(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.",".$usuario_logado->id.")' title='Reabrir chamado'><i class='fa fa-history'></i></button>";
+    }
+
     if($obj->status == 0){
-        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")' title='Atender chamado'><i class='fa fa-clock'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$usuario_logado->id.")'  title='Cancelar chamado'><i class='fa fa-ban'></i></button></td>";
+        echo "  <td align='center'>".$link_atender." " . $link_cancelar;
     } else if($obj->status == 1){
-        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='gerenciar_interacoes.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$usuario_logado->id.")'  title='Cancelar chamado'><i class='fa fa-ban'></i></button></td>";
+        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='gerenciar_interacoes.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a>&nbsp;&nbsp;" . $link_cancelar . "</td>";
     } else if($obj->status == 2){
-        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='gerenciar_interacoes.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a>&nbsp;&nbsp;<button class='btn btn-warning btn-sm' type='button' onclick='reabrir(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.",".$usuario_logado->id.")' title='Reabrir chamado'><i class='fa fa-history'></i></button></td>";
+        echo "  <td align='center'><a class='btn btn-primary btn-sm' type='button' href='gerenciar_interacoes.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a>&nbsp;&nbsp;" . $link_reabrir . "</td>";
     } else if($obj->status == 4){
-        echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='atender(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$obj->categoria.")' title='Atender chamado'><i class='fa fa-clock'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='cancelar(".$obj->id.",\"". $txt_usuario ."\",\"".$obj->descricao."\",".$usuario_logado->id.")'  title='Cancelar chamado'><i class='fa fa-ban'></i></button></td>";
+        echo "  <td align='center'>".$link_atender."" . $link_cancelar . "</td>";
     } else {
-        echo "  <td align='center'> - </td>";
+        echo "  <td align='center'> <a class='btn btn-primary btn-sm' type='button' href='gerenciar_interacoes.php?id=".$obj->id."' title='Interações chamado'><i class='fa fa-bars'></i></a></td>";
     }
     echo "</tr>";
 }
