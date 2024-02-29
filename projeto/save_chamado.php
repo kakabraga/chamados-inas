@@ -8,10 +8,14 @@ $c = new Chamado();
 
 $id_usuario = isset($_POST['usuario']) ? $_POST['usuario'] : 0;
 $descricao = isset($_POST['descricao']) ? $_POST['descricao'] : '';
+$red = isset($_POST['red']) ? $_POST['red'] : '';
 
 $c->usuario = $id_usuario;
 $c->descricao = $descricao;
 
 $db_chamado->salvar($c);
-header('Location: chamados.php');
-
+if($red != ''){
+    header('Location: ' . $red);
+} else {
+    header('Location: chamados.php');
+}
