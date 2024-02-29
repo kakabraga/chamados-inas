@@ -12,6 +12,7 @@
             <div class="form-group row">
                 <label for="usuario" class="col-sm-2 col-form-label">Usuário:</label>
                 <div class="col-sm-10">
+                        <input type="hidden" name="red" value="meus_chamados.php"/>
                         <input type="hidden" name="usuario" value="<?=$usuario_logado->id ?>"/>
                         <?=$usuario_logado->nome ?>
                 </div>
