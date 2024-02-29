@@ -296,7 +296,7 @@ foreach ($listaUsuario as $obj) {
                                 <div class="col text-right" style="max-width:20%">
                                     <?php
                                     if ($usuario_logado->perfil >= 1) {
-                                        if($filtro == 'equipe' && ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 2 || $usuario_logado->perfil == 11) ){
+                                        if($filtro != 'equipe' || $usuario_logado->perfil == 1 || $usuario_logado->perfil == 2 || $usuario_logado->perfil == 11 ){
                                         ?>
                                         <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_tarefa" aria-expanded="false" aria-controls="form_tarefa">
                                             <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
