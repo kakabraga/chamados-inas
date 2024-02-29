@@ -48,10 +48,12 @@
                             <option value="0"> Todos </option>    
                         </select>
                     </div>
-                </div>   
+                </div> 
+            </div>   
                 <?php
                 }
                 ?>
+            <div id="responsaveis" > 
                 <div class="form-group row">
                     <div class="col input-group">
                         <label for="responsavel" class="col-sm-4 col-form-label">Responsável:</label>
