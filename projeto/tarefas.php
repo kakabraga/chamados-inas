@@ -48,7 +48,17 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
 
-            var categorias = [{id: "Pessoal", nome: "Pessoal"}, {id: "INAS", nome: "INAS"}, {id: "DIAD", nome: "DIAD"}, {id: "UTIC", nome: "UTIC"}];
+            <?php 
+            if ($usuario_logado->perfil == 3) {
+            ?>
+               var categorias = [{id: "Pessoal", nome: "Pessoal"}];
+            <?php
+            } else {
+            ?>
+               var categorias = [{id: "Pessoal", nome: "Pessoal"}, {id: "INAS", nome: "INAS"}, {id: "DIAD", nome: "DIAD"}, {id: "UTIC", nome: "UTIC"}];
+            <?php    
+            }
+            ?>
             var tipos = [{id: "Desenvolvimento", nome: "Desenvolvimento"}, {id: "Suporte", nome: "Suporte"}, {id: "SEI", nome: "SEI"}, {id: "Serviços", nome: "Serviços"}, {id: "Outro", nome: "Outro"}];
             var equipes = [];
             var responsaveis = [];
@@ -104,9 +114,17 @@ foreach ($listaEquipe as $obj) {
 }
 
 foreach ($listaUsuario as $obj) {
-    ?>item2 = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>", equipe: "<?= $obj->equipe ?>"};
-            responsaveis.push(item2);
-    <?php
+    if ($usuario_logado->perfil == 3 && $obj->id == $usuario_logado->id) {
+        ?>item2 = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>", equipe: "<?= $obj->equipe ?>"};
+        responsaveis.push(item2);
+        <?php
+        break;
+    } else if ($usuario_logado->perfil != 3) {
+        ?>item2 = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>", equipe: "<?= $obj->equipe ?>"};
+        responsaveis.push(item2);
+        <?php
+    }         
+    
 }
 ?>
         function carregaEquipes(id_atual) {
@@ -296,7 +314,7 @@ foreach ($listaUsuario as $obj) {
                                 <div class="col text-right" style="max-width:20%">
                                     <?php
                                     if ($usuario_logado->perfil >= 1) {
-                                        if($filtro != 'equipe' || $usuario_logado->perfil == 1 || $usuario_logado->perfil == 2 || $usuario_logado->perfil == 11 ){
+                                        if($pesquisa != 'equipe' || $usuario_logado->perfil == 1 || $usuario_logado->perfil == 2 || $usuario_logado->perfil == 11 ){
                                         ?>
                                         <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_tarefa" aria-expanded="false" aria-controls="form_tarefa">
                                             <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>

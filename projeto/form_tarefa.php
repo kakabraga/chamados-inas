@@ -37,6 +37,9 @@
                     </select>
                 </div>                            
             </div>  
+            <?php
+            if($usuario_logado->perfil == 1 || $usuario_logado->perfil == 2 || $usuario_logado->perfil == 11 ){
+            ?>
             <div id="equipes" >                        
                 <div class="form-group row">
                     <div class="col input-group">
@@ -54,7 +57,10 @@
                         </select>
                     </div>
                 </div>        
-            </div>                 
+            </div>   
+            <?php
+            }
+            ?>              
             <div class="col border">
                 <fieldset class="form-group form-inline">
                     <legend class="col c1 col-form-label pt-0">Realização</legend>
