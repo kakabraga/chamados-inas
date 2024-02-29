@@ -31,7 +31,7 @@ foreach ($lista as $obj) {
         $editar = true;
     }
     $clonar = false;
-    if ($usuario_logado->perfil <= 2) {
+    if ($usuario_logado->perfil <= 2 || $usuario_logado->id == $obj->criador) {
         $clonar = true;
     }
 
