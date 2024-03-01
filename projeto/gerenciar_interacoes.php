@@ -43,8 +43,8 @@ and open the template in the editor.
             function interacao() {
                 $('#nova').modal({show: true});  
             }
-            function reabrir(id,usuario,descricao) {
-                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id);
+            function reabrir(id,usuario,descricao,id_usuario) { 
+                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id + '&id_usuario=' + id_usuario);
                 $('#acao_texto').text("Confimação de reabertura do chamado:");
                 $('#acao_usuario').text(usuario);
                 $('#acao_descricao').text(descricao);
@@ -146,7 +146,7 @@ and open the template in the editor.
 
                                             if($chamado->status == 2){
                                                 ?>
-                                                <button class="btn btn-warning btn-sm" type="button" onclick="reabrir('<?=$chamado->id ?>','<?=$usuario->nome  ?>','<?=$chamado->descricao ?>','<?=$chamado->categoria ?>')">
+                                                <button class="btn btn-warning btn-sm" type="button" onclick="reabrir('<?=$chamado->id ?>','<?=$usuario->nome  ?>','<?=$chamado->descricao ?>','<?=$usuario_logado->id ?>')">
                                                       <i class="fa fa-history text-white" aria-hidden="true"></i>  Reabrir chamado
                                                 </button>
                                                 <?php
