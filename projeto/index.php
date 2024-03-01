@@ -61,7 +61,7 @@ and open the template in the editor.
                     foreach ($acessos as $acesso) {
                         if($acesso->id_modulo != 1){
                     ?> 
-                        <div class="col-xl-3 col-md-2 mb-2" style="max-width: 280px; max-height: 100px;">
+                        <div class="col-xl-3 col-md-2 mb-4" style="max-width: 280px; max-height: 100px;">
                             <div class="card border-left-primary h-100 shadow">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -78,7 +78,16 @@ and open the template in the editor.
                         <?php
                     }
                 }
-                    ?> 
+?>
+                <div class="col-xl-3 col-md-2 mb-4" style="max-width: 280px; max-height: 100px;">
+                <div class="card border-left-primary h-100 shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                        <?php include './get_aniversariantes.php'; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
                     <!-- End of Links sistemas -->
                 </div>
                 <!-- End of Main Content -->                
