@@ -10,8 +10,12 @@
     foreach ($lista as $obj) {
         
         echo '<li class="list-group-item d-flex justify-content-between align-items-center">
-            <span style="font-size: 10px;">'.$obj->nome.' ('.$manterSetor->getSetorPorId($obj->setor)->sigla.
-            ') <span class="badge badge-primary badge-pill">'.$obj->dia.'/'.$obj->mes.'</span>
+            <span style="font-size: 11px;">'.$obj->nome
+            .' </span><span class="badge badge-warning badge-pill">'
+            .$manterSetor->getSetorPorId($obj->setor)->sigla
+            .'</span><span class="badge badge-primary badge-pill">'
+            .$obj->dia.'/'.$obj->mes
+            .'</span>
         </li>';         
     }
     echo "</ul>";
