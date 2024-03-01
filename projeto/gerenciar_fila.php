@@ -120,7 +120,12 @@ foreach ($listaS as $obj) {
                     <?php include './top_bar.php'; ?>
 
                     <div class="container-fluid">
-                        <?php include './form_fila.php'; ?>
+
+                        <?php
+                        if ($usuario_logado->perfil<=2 || $usuario_logado->perfil==9) {
+                            include './form_fila.php';
+                        }
+                        ?>
                         <!-- Project Card Example -->
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
