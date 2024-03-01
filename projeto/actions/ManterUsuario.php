@@ -82,7 +82,7 @@ class ManterUsuario extends Model {
         return $dados;
     }
     function salvar(Usuario $dados) {
-        $sql = "insert into usuario (nome, login, matricula, email, u.nascimento, u.whatsapp, u.linkedin, ativo, id_equipe, id_setor, id_perfil) values ('" . $dados->nome . "','" . $dados->login . "','" . $dados->matricula . "','" . $dados->email . "','" . $dados->nascimento . "','" . $dados->whatsapp . "','" . $dados->linkedin . "','" . $dados->ativo . "','" . $dados->equipe . "','" . $dados->setor . "','" . $dados->perfil . "')";
+        $sql = "insert into usuario (nome, login, matricula, email, nascimento, whatsapp, linkedin, ativo, id_equipe, id_setor, id_perfil) values ('" . $dados->nome . "','" . $dados->login . "','" . $dados->matricula . "','" . $dados->email . "','" . $dados->nascimento . "','" . $dados->whatsapp . "','" . $dados->linkedin . "','" . $dados->ativo . "','" . $dados->equipe . "','" . $dados->setor . "','" . $dados->perfil . "')";
 //        echo $sql . "<BR/>";
 //        exit;
         if ($dados->id > 0) {
@@ -277,5 +277,24 @@ class ManterUsuario extends Model {
         $sql = "DELETE FROM acesso WHERE id_usuario=" . $id_usuario . " AND id_modulo=" . $id_modulo ;
         $resultado = $this->db->Execute($sql);
         return $resultado;
+    }
+    function listarAniversariantes($mes = "") {
+        if ($mes == "") {
+            $mes = "" . date("m");
+        }
+        $sql = "SELECT id, nome, DATE_FORMAT(FROM_UNIXTIME(nascimento), '%d') as dia,DATE_FORMAT(FROM_UNIXTIME(nascimento), '%m') as mes FROM usuario WHERE DATE_FORMAT(FROM_UNIXTIME(nascimento), '%m') = " . $mes;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new stdClass();
+
+            $dados->id = $registro["id"];
+            $dados->nome = $registro["nome"];
+            $dados->dia = $registro["dia"];
+            $dados->mes = $registro["mes"];
+
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
     }
 }
