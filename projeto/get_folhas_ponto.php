@@ -12,10 +12,12 @@
                 'Novembro',
                 'Dezembro');
         
-        for($i = 0; $i <= count($meses);$i++) {
+        for($i = 0; $i < count($meses);$i++) {
             $txt_mes = "0" . $i;
             $txt_matricula = "0" . strtoupper(str_replace("-", "", $usuario_logado->matricula));
             $arquivo = "2024/".$txt_mes."/".$txt_matricula.".pdf";
+            echo "Arquivo: " . $arquivo;
+            echo "<hr/> " . is_file($arquivo);
             if($i >= 10){
                 $txt_mes = "" . $i;
             }
