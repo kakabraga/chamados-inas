@@ -165,7 +165,7 @@ and open the template in the editor.
                     if ($usuario->id === $usuario_logado->id) {
                     ?>
                     <div class="row" style="justify-content: center;">
-                    <div class="card mb-4 border-primary" style="width:100%;">
+                    <div class="ml-3 mr-3 card shadow mb-4 border-primary" style="width:100%;">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
                                     <i class="fas fa-users fa-2x text-white"></i> 
@@ -218,7 +218,7 @@ and open the template in the editor.
             }
             ?>
             <!-- Project Card Example -->
-            <div class="ml-3 mr-3 card shadow mb-4 border-primary" style="width: 100%">
+            <div class="ml-3 mr-3 card shadow mb-4 " style="width: 100%">
                 <div class="row card-header py-2 card-body bg-gradient-primary align-middle ml-0" style="width:100%">               
                     <span class="h5 m-0 font-weight text-white"></span>
                     <div class="col-sm ml-0" style="max-width:50px;">
