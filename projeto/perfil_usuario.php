@@ -165,6 +165,34 @@ and open the template in the editor.
                     if ($usuario->id === $usuario_logado->id) {
                     ?>
                     <div class="row">
+                    <div class="card mb-4 border-primary" style="max-width:800px">
+                            <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
+                                <div class="col-sm ml-0" style="max-width:50px;">
+                                    <i class="fas fa-users fa-2x text-white"></i> 
+                                </div>
+                                <div class="col mb-0">
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Acessos concedidos</span>
+                                </div>
+                            </div>                            
+
+                            <div class="card-body">
+                        <table id="folha_ponto" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ANO</th>
+                                    <th scope="col">MÊS</th>
+                                    <th scope="col">DOWNLOAD</th> 
+                                </tr>
+                            </thead>
+                            <tbody id="fila">
+                            <?php include './get_folhas_ponto.php'; ?>
+                            </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="row">
         <?php
 
         include_once('actions/ManterTarefa.php');
