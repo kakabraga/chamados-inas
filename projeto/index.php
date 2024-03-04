@@ -80,8 +80,7 @@ and open the template in the editor.
                 }
 ?>
                 <div class="col-xl-3 col-md-2 mb-4" style="max-width: 480px;">
-                    <img src="img/aniversario.svg" width="30" />
-                    <span><b>Aniversariantes do mês:</b></span> 
+                    <span class="text-right"><img src="img/aniversario.svg" width="30" /><b>Aniversariantes do mês:</b></span> 
                     <div class="row no-gutters align-items-center">
                         <?php include './get_aniversariantes.php'; ?>
                     </div>
