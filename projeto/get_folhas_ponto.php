@@ -25,7 +25,7 @@
             echo "  <td>2024</td>";
             echo "  <td>".$meses[$i]."</td>";
             if(is_file($arquivo)){
-                echo "  <td align='center'><a class='btn btn-sucess btn-sm' href='./2024/".$txt_mes."/".$txt_matricula.".pdf'><i class='fa fa-file-pdf-o'></i></a></td>";
+                echo "  <td align='center'><a class='btn btn-btn-info btn-sm' href='./2024/".$txt_mes."/".$txt_matricula.".pdf'><i class='fa fa-file-pdf text-white'></i></a></td>";
             } else {
                 echo "  <td align='center'> - </td>";                
             }
