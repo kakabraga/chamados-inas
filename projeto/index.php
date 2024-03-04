@@ -62,17 +62,18 @@ and open the template in the editor.
                         if($acesso->id_modulo != 1){
                     ?> 
                         <div class="col-xl-3 col-md-2 mb-4" style="max-width: 280px; max-height: 100px;">
+                            <a href="<?=$acesso->link ?>">
                             <div class="card border-left-primary h-100 shadow">
                                 <div class="card-body">
-                                    <a href="<?=$acesso->link ?>">
+                                    
                                     <div class="row no-gutters align-items-center">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mb-0 w-100">
                                             <img src="img/<?=$acesso->icone ?>" width="70"><?=$acesso->modulo ?>
                                         </div>                                        
                                     </div>
-                                    </a>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <?php
                     }
