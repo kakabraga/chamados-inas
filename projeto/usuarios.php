@@ -137,11 +137,12 @@ foreach ($listaP as $obj) {
             $('#nome_excluir').text(nome);
             $('#confirm').modal({show: true});
         }
-        function alterar(id, login, nome, matricula, email,nascimento,whatsapp,linkedin, ativo, id_equipe, id_setor, id_perfil) {
+        function alterar(id, login, nome, matricula,cargo, email,nascimento,whatsapp,linkedin, ativo, id_equipe, id_setor, id_perfil) {
             $('#id').val(id);
             $('#login').val(login);
             $('#nome').val(nome);
             $('#matricula').val(matricula);
+            $('#cargo').val(cargo);
             $('#email').val(email);
             $('#nascimento').val(nascimento);
             $('#whatsapp').val(whatsapp);
