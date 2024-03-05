@@ -109,6 +109,7 @@ and open the template in the editor.
                             <strong><h3 class="font-weight-light"><?=$usuario->nome ?></h3></strong>
                             <p> <?=$usuario->matricula ?><br/>
                                 <?=$manterSetor->getSetorPorId($usuario->setor)->sigla ?><br/>
+                                <?=$usuario->cargo ?><br/>
                                 <?php
                                 $txt_whatsapp = str_replace( '(', '', $usuario->whatsapp);
                                 $txt_whatsapp = str_replace( ')', '', $txt_whatsapp);
@@ -165,13 +166,13 @@ and open the template in the editor.
                     if ($usuario->id === $usuario_logado->id) {
                     ?>
                     <div class="row" style="justify-content: center;">
-                    <div class="ml-3 mr-3 card shadow mb-4 border-primary" style="width:100%;">
+                    <div class="ml-3 mr-3 card shadow mb-4" style="width:100%;">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fas fa-users fa-2x text-white"></i> 
+                                    <i class="fa fa-file-pdf fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Acessos concedidos</span>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Folhas de ponto</span>
                                 </div>
                             </div>                            
 
@@ -181,7 +182,7 @@ and open the template in the editor.
                                 <tr>
                                     <th scope="col">ANO</th>
                                     <th scope="col">MÊS</th>
-                                    <th scope="col">DOWNLOAD</th> 
+                                    <th scope="col" class="text-center">DOWNLOAD</th> 
                                 </tr>
                             </thead>
                             <tbody id="fila">

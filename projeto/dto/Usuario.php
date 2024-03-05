@@ -4,6 +4,7 @@
       public $nome;
       public $login;
       public $matricula;
+      public $cargo;
       public $email;
       public $nascimento;
       public $whatsapp;
