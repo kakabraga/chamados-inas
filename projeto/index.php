@@ -1,4 +1,6 @@
 <?php
+
+date_default_timezone_set('America/Sao_Paulo');
 //Inicio
 $mod = 1;
 require_once('./verifica_login.php');
@@ -62,7 +64,7 @@ and open the template in the editor.
                         if($acesso->id_modulo != 1){
                     ?> 
                         <div class="col-xl-3 col-md-2 mb-4" style="max-width: 280px; max-height: 100px;">
-                            <a href="<?=$acesso->link ?>">
+                            <a class="text-decoration-none" href="<?=$acesso->link ?>">
                             <div class="card border-left-primary h-100 shadow">
                                 <div class="card-body">
                                     
