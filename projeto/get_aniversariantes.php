@@ -17,8 +17,8 @@
         }
         echo '<li class="list-group-item d-flex justify-content-between align-items-center" '.$style_day.'>'
             . $img_day 
-            .'<span style="font-size: 11px;"><a href="perfil_usuario.php?id='.$obj->id.'">'.$obj->nome
-            .'</a> </span><span class="badge badge-warning badge-pill">'
+            .'<span style="font-size: 11px;"><a href="perfil_usuario.php?id='.$obj->id.'"><b>'.$obj->nome
+            .'</b></a> </span><span class="badge badge-warning badge-pill">'
             .$manterSetor->getSetorPorId($obj->setor)->sigla
             .'</span><span class="badge badge-primary badge-pill">'
             .$obj->dia.'/'.$obj->mes
