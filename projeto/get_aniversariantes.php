@@ -12,7 +12,7 @@
         $style_day = "";
         $dia = date('d');
         if ($obj->dia == $dia) {
-            $img_day   = '<img src="img/aniversario_dia.svg" width="20" />';
+            $img_day   = '<img class="pr-1" src="img/aniversario_dia.svg" width="30" title="Aniversariante do dia!" />';
             $style_day = 'style="background-color: #E6E6FA"'; 
         }
         echo '<li class="list-group-item d-flex justify-content-between align-items-center" '.$style_day.'>'
