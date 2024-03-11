@@ -2,6 +2,8 @@
 
 require_once('./actions/ManterChamado.php');
 require_once('./actions/ManterInteracao.php');
+require_once('./actions/ManterNotificacao.php');
+require_once('./dto/Notificacao.php');
 require_once('./dto/Chamado.php');
 require_once('./dto/Interacao.php');
 
@@ -32,7 +34,7 @@ if($id_usuario != $c->usuario){
 }
 $n->texto   = "Chamado foi reaberto!";
 $n->usuario = $c->usuario;
-$n->link = 'gerenciar_interacao.php?id=' . $id;
+$n->link = 'gerenciar_interacoes.php?id=' . $id;
 $n->tipo = 'interacao';
 $db_notificacao->salvar($n);
 

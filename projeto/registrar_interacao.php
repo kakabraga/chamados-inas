@@ -2,6 +2,8 @@
 
 require_once('./actions/ManterInteracao.php');
 require_once('./actions/ManterChamado.php');
+require_once('./actions/ManterNotificacao.php');
+require_once('./dto/Notificacao.php');
 require_once('./dto/Interacao.php');
 
 $db_interacao = new ManterInteracao();
@@ -21,7 +23,7 @@ $i->chamado = $id_chamado;
 
 $db_interacao->salvar($i);
 // Registrando notificação
-$c = $db_chamado->getChamadoPorId($id);
+$c = $db_chamado->getChamadoPorId($id_chamado);
 $db_notificacao = new ManterNotificacao();
 $n = new Notificacao();
 
@@ -39,9 +41,10 @@ if($finalizar > 0){
     $n->usuario = $c->usuario;
     $n->texto   = "Seu chamado foi concluído!";
     $n->usuario = $c->usuario;
-    $n->link = 'gerenciar_interacao.php?id=' . $id_chamado;
+    $n->link = 'gerenciar_interacoes.php?id=' . $id_chamado;
     $n->tipo = 'interacao';
     $db_notificacao->salvar($n);
+    $notificado = true;
 }
 if (!$notificado) {
     // Registrando notificação
@@ -51,7 +54,7 @@ if (!$notificado) {
         $n->usuario = $id_usuario;
     }
     $n->texto   = "Nova interação no chamado!";
-    $n->link = 'gerenciar_interacao.php?id=' . $id_chamado;
+    $n->link = 'gerenciar_interacoes.php?id=' . $id_chamado;
     $n->tipo = 'interacao';
     $db_notificacao->salvar($n);
 }

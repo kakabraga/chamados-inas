@@ -33,7 +33,7 @@ $db_notificacao = new ManterNotificacao();
 $n = new Notificacao();
 $n->texto   = "Atendimento do chamado foi iniciado!";
 $n->usuario = $c->usuario;
-$n->link = 'gerenciar_interacao.php?id=' . $id;
+$n->link = 'gerenciar_interacoes.php?id=' . $id;
 $n->tipo = 'interacao';
 $db_notificacao->salvar($n);
 
