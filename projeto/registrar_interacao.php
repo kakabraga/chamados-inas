@@ -48,10 +48,11 @@ if($finalizar > 0){
 }
 if (!$notificado) {
     // Registrando notificação
-    if($id_usuario != $c->usuario){
-        $n->usuario = $c->usuario;
+    $n->usuario = $id_usuario;
+    if($id_usuario == $c->usuario){
+        $n->usuario = $c->atendente;
     } else {
-        $n->usuario = $id_usuario;
+        
     }
     $n->texto   = "Nova interação no chamado!";
     $n->link = 'gerenciar_interacoes.php?id=' . $id_chamado;
