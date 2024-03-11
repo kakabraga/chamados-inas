@@ -27,11 +27,12 @@ $db_interacao->salvar($i);
 $c = $db_chamado->getChamadoPorId($id);
 $db_notificacao = new ManterNotificacao();
 $n = new Notificacao();
-if($id_usuario != $c->usuario){
-    $n->usuario = $c->usuario;
-} else {
-    $n->usuario = $id_usuario;
+$n->usuario = $c->usuario;
+//echo "ID_USER: " . $id_usuario . " # " . $c->usuario;
+if($id_usuario == $c->usuario){
+    $n->usuario = $c->atendente;
 }
+
 $n->texto   = "Chamado foi reaberto!";
 $n->usuario = $c->usuario;
 $n->link = 'gerenciar_interacoes.php?id=' . $id;
