@@ -9,7 +9,7 @@
 session_start();
 date_default_timezone_set('America/Sao_Paulo'); 
 
-include_once(require __DIR__ .'/actions/ManterUsuario.php');
+include_once('./actions/ManterUsuario.php');
 require_once('./dto/Usuario.php');
 
 $usuario_logado = new Usuario;

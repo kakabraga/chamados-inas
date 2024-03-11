@@ -37,6 +37,5 @@ $n->link = 'gerenciar_interacao.php?id=' . $id;
 $n->tipo = 'interacao';
 $db_notificacao->salvar($n);
 
-
 header('Location: chamados.php');
 
