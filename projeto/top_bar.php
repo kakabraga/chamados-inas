@@ -41,6 +41,9 @@ $mSetor = new ManterSetor();
                                 ?>
                                 <span class="badge badge-danger badge-counter"><?=$total ?></span>
                             </a>
+                            <?php
+                            if($total_notificacoes > 0){
+                                ?>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header bg-danger border-0">
@@ -48,6 +51,9 @@ $mSetor = new ManterSetor();
                                 </h6>
                                 <?php include './get_notificacao.php'; ?>
                             </div>
+                            <?php
+                            }
+                            ?>
                         </li>                                                                   
                             <div class="topbar-divider d-none d-sm-block"></div>
 
