@@ -17,7 +17,7 @@
         }
         echo '<li class="list-group-item d-flex justify-content-between align-items-center" '.$style_day.'>'
             . $img_day 
-            .'<span style="font-size: 11px;"><a href="perfil_usuario.php?id='.$obj->id.'"><b>'.$obj->nome
+            .'<span style="font-size: 11px;"><a href="perfil_usuario.php?id='.$obj->id.'"><b>'.strtoupper($obj->nome)
             .'</b></a> </span><span class="badge badge-warning badge-pill">'
             .$manterSetor->getSetorPorId($obj->setor)->sigla
             .'</span><span class="badge badge-primary badge-pill">'

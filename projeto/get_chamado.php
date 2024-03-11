@@ -49,7 +49,7 @@ foreach ($lista as $obj) {
     echo "  <td>" . $txt_setor . "</td>";
     echo "  <td>" . $txt_usuario . "</td>";
     echo "  <td>" . $txt_categoria . "</td>";
-    echo "  <td>" . date('d/m/Y h:i', strtotime($obj->data_abertura)) . "</td>";
+    echo "  <td>" . date('d/m/Y H:i', strtotime($obj->data_abertura)) . "</td>";
     echo "  <td align='center'>" . $txt_status . "</td>";
 
     $link_atender = "";

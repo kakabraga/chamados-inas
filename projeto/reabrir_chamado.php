@@ -21,5 +21,21 @@ $i->usuario = $id_usuario;
 $i->chamado = $id;
 $db_interacao->salvar($i);
 
+// Registrando notificação
+$c = $db_chamado->getChamadoPorId($id);
+$db_notificacao = new ManterNotificacao();
+$n = new Notificacao();
+if($id_usuario != $c->usuario){
+    $n->usuario = $c->usuario;
+} else {
+    $n->usuario = $id_usuario;
+}
+$n->texto   = "Chamado foi reaberto!";
+$n->usuario = $c->usuario;
+$n->link = 'gerenciar_interacao.php?id=' . $id;
+$n->tipo = 'interacao';
+$db_notificacao->salvar($n);
+
+
 header('Location: chamados.php');
 

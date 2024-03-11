@@ -28,24 +28,25 @@ $mSetor = new ManterSetor();
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
+                                <?php
+                                require_once('./actions/ManterNotificacao.php');
+                                require_once('./dto/Notificacao.php');
+                                    
+                                $db_notificacao = new ManterNotificacao();
+                                $total_notificacoes = $db_notificacao->getTotalNotificacaoUsuario($usuario_logado->id);
+                                $total = "";
+                                if($total_notificacoes > 0){
+                                    $total = $total_notificacoes;
+                                }
+                                ?>
+                                <span class="badge badge-danger badge-counter"><?=$total ?></span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
+                                <h6 class="dropdown-header bg-danger border-0">
                                     Notificações
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">06/03/2024 11:06</div>
-                                        É só um teste, mas logo estará funcionando! ;-)
-                                    </div>
-                                </a>
+                                <?php include './get_notificacao.php'; ?>
                             </div>
                         </li>                                                                   
                             <div class="topbar-divider d-none d-sm-block"></div>

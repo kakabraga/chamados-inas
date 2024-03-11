@@ -21,5 +21,17 @@ $i->usuario = $id_usuario;
 $i->chamado = $id;
 $db_interacao->salvar($i);
 
+
+// Registrando notificação
+$c = $db_chamado->getChamadoPorId($id);
+if($id_usuario != $c->usuario){
+    $db_notificacao = new ManterNotificacao();
+    $n = new Notificacao();
+    $n->texto   = "Seu chamado foi cancelado!";
+    $n->usuario = $c->usuario;
+    $n->link = 'gerenciar_interacao.php?id=' . $id;
+    $n->tipo = 'interacao';
+    $db_notificacao->salvar($n);
+}
 header('Location: chamados.php');
 
