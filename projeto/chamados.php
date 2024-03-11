@@ -196,7 +196,7 @@ and open the template in the editor.
                                             <th scope="col">Categoria</th>
                                             <th scope="col">Aberto em</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col" style="width:30px;">Opções</th>
+                                            <th scope="col" style="width:100px;">Opções</th>
                                         </tr>
                                     </thead>
                                     <tbody>

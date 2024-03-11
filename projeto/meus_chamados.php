@@ -62,15 +62,15 @@ and open the template in the editor.
                 $('#chamados').DataTable();
                 carregaCategorias(0);
             });
-            function cancelar(id,usuario,descricao) {
-                $('#acao').attr('href', 'cancelar_chamado.php?id=' + id);
+            function cancelar(id,usuario,descricao,usuario) {
+                $('#acao').attr('href', 'cancelar_chamado.php?id=' + id + "&id_usuario="+usuario);
                 $('#acao_texto').text("Confimação de cancelamento do chamado:");
                 $('#acao_usuario').text(usuario);
                 $('#acao_descricao').text(descricao);
                 $('#confirm').modal({show: true});              
             }
-            function reabrir(id,usuario,descricao) {
-                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id);
+            function reabrir(id,usuario,descricao,usuario) {
+                $('#acao').attr('href', 'reabrir_chamado.php?id=' + id + "&id_usuario="+usuario); 
                 $('#acao_texto').text("Confimação de reabertura do chamado:");
                 $('#acao_usuario').text(usuario);
                 $('#acao_descricao').text(descricao);
