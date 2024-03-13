@@ -57,7 +57,7 @@ and open the template in the editor.
             include_once('actions/ManterUsuario.php');
                 $manterUsuario = new ManterUsuario();
             
-            if ($usuario_logado->perfil <= 2) {
+            if ($usuario_logado->perfil <= 2 || $usuario_logado->perfil == 9) {
                 $listaCategorias = $mCategoria->listar();
                 foreach ($listaCategorias as $obj) {
                     ?>item = {id: "<?= $obj->id ?>", nome: "<?= $obj->nome ?>"};
@@ -71,6 +71,8 @@ and open the template in the editor.
                     <?php
                 }
                 
+            } else {
+                header('Location: meus_chamados.php');
             }
 
 
@@ -89,7 +91,7 @@ and open the template in the editor.
                 $('#acao_descricao').text(descricao);
                 $('#confirm').modal({show: true});              
             }
-            function reabrir(id,usuario,descricao,id_usuario_logado) {
+            function reabrir(id,usuario,descricao,categoria,id_usuario_logado) {
                 $('#acao').attr('href', 'reabrir_chamado.php?id=' + id + '&id_usuario=' + id_usuario_logado);
                 $('#acao_texto').text("Confimação de reabertura do chamado:");
                 $('#acao_usuario').text(usuario);
