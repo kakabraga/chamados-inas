@@ -102,8 +102,8 @@ and open the template in the editor.
                                     <tbody>
         <?php
 
-        $filtro = " WHERE nome LIKE '%".$busca."%' OR matricula LIKE '%".$busca."%' ";
-        $lista = $manterUsuario->listar($filtro);
+        $filtro = " AND (nome LIKE '%".$busca."%' OR matricula LIKE '%".$busca."%' OR sigla LIKE '%".$busca."%') ";
+        $lista = $manterUsuario->buscar($filtro);
         foreach ($lista as $obj) {
             $dir = './ft/';
             $imagem = '<i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>';

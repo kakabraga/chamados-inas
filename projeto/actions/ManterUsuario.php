@@ -346,4 +346,23 @@ class ManterUsuario extends Model {
         }
         return $array_dados;
     }
+    function buscar($filtro = "") {
+        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.ativo,u.id_setor, s.sigla FROM usuario as u, setor as s WHERE u.id_setor=s.id ".$filtro." order by u.nome";
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Usuario();
+
+            $dados->id = $registro["id"];
+            $dados->nome = $registro["nome"];
+            $dados->matricula = $registro["matricula"];
+            $dados->cargo = $registro["cargo"];
+            $dados->email = $registro["email"];
+            $dados->ativo = $registro["ativo"];
+            $dados->setor = $registro["id_setor"];
+            $dados->sigla = $registro["sigla"];
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
 }
