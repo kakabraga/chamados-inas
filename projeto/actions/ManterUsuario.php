@@ -5,6 +5,7 @@ require_once('Model.php');
 require_once('dto/Usuario.php');
 require_once('dto/Modulo.php');
 require_once('dto/Acesso.php');
+require_once('dto/Equipe.php');
 
 class ManterUsuario extends Model {
 
@@ -222,6 +223,46 @@ class ManterUsuario extends Model {
             $dados->setor = $registro["id_setor"];
             $dados->perfil = $registro["id_perfil"];
             $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
+    function getEquipesUsuarioCriador($id_usuario) {
+        $sql = "select e.id,e.equipe,e.descricao, e.criador FROM equipe as e where e.criador=".$id_usuario." order by e.id";
+        $resultado = $this->db->Execute($sql);
+        //print_r($resultado);
+        //echo $sql;
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Equipe();
+            $dados->excluir = true;
+            if ($registro["dep"] > 0) {
+                $dados->excluir = false;
+            }
+            $dados->id        = $registro["id"];
+            $dados->equipe    = $registro["equipe"];
+            $dados->descricao = $registro["descricao"];
+            $dados->criador   = $registro["criador"];
+            $array_dados[]    = $dados;
+        }
+        return $array_dados;
+    }
+    function getEquipesUsuarioParticipante($id_usuario) {
+        $sql = "select e.id,e.equipe,e.descricao, e.criador FROM equipe as e, usuario_equpe as eu where eu.id_equipe=e.id AND eu.id_usuario=".$id_usuario." order by e.equipe";
+        $resultado = $this->db->Execute($sql);
+        //print_r($resultado);
+        //echo $sql;
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Equipe();
+            $dados->excluir = true;
+            if ($registro["dep"] > 0) {
+                $dados->excluir = false;
+            }
+            $dados->id        = $registro["id"];
+            $dados->equipe    = $registro["equipe"];
+            $dados->descricao = $registro["descricao"];
+            $dados->criador   = $registro["criador"];
+            $array_dados[]    = $dados;
         }
         return $array_dados;
     }

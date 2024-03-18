@@ -11,7 +11,7 @@ $descricao = isset($_POST['descricao']) ? $_POST['descricao'] : '';
 $red = isset($_POST['red']) ? $_POST['red'] : '';
 
 $c->usuario = $id_usuario;
-$c->descricao = $descricao;
+$c->descricao = addslashes(preg_replace('/\s/',' ',$descricao));
 
 $db_chamado->salvar($c);
 if($red != ''){
