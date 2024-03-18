@@ -11,7 +11,7 @@
             echo "  <td>".$obj->equipe."</td>";
             echo "  <td>".$obj->descricao."</td>";
             if($obj->excluir){
-                echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(".$obj->id.",\"".$obj->equipe."\",\"".$obj->descricao."\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$obj->id.",\"".$obj->equipe."\")'><i class='far fa-trash-alt'></i></button></td>";
+                echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(".$obj->id.",\"".$obj->equipe."\",\"".$obj->descricao."\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-sm' type='button' onclick='excluir(".$obj->id.",\"".$obj->equipe."\")'><i class='far fa-trash-alt'></i></button><a href='gerenciar_acessos.php?id=".$obj->id."' title='Gerenciar acessos' class='btn btn-warning btn-sm' type='button'><i class='fa fa-users'></i></a></td>";
             } else {
                 echo "  <td align='center'><button class='btn btn-primary btn-sm' type='button' onclick='alterar(".$obj->id.",\"".$obj->equipe."\",\"".$obj->descricao."\")'><i class='fas fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-secondary btn-sm' type='button' title='Possuí dependências!'><i class='far fa-trash-alt' alt='Possuí dependências!'></i></button></td>";                
             }
