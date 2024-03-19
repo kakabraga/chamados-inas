@@ -98,12 +98,12 @@ $manterUsuario = new ManterUsuario();
 
 $listaEquipe = $manterEquipe->listar();
 if ($usuario_logado->perfil >= 2) {
-    $filtroE = ' WHERE id='.$usuario_logado->equipe;
+    $filtroE = ' WHERE criador='.$usuario_logado->id;
     $listaEquipe = $manterEquipe->listar($filtroE);
 }
 $listaUsuario = $manterUsuario->listar();
 if ($usuario_logado->perfil >= 2) {
-    $listaUsuario = $manterUsuario->getUsuariosPorEquipe($usuario_logado->equipe);
+    $listaUsuario = $manterEquipe->getParticimantesPorId($usuario_logado->equipe);
 }
 
 
