@@ -102,7 +102,9 @@ if ($usuario_logado->perfil >= 2) {
     $listaEquipe = $manterEquipe->listar($filtroE);
 }
 $listaUsuario = $manterUsuario->listar();
-if ($usuario_logado->perfil >= 2) {
+if ($usuario_logado->perfil > 2) {
+    $listaUsuario = $manterUsuario->getUsuariosPorEquipe($usuario_logado->equipe);
+} else {
     $listaUsuario = $manterEquipe->getParticimantesPorId($usuario_logado->equipe);
 }
 
