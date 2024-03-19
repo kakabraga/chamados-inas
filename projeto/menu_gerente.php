@@ -12,7 +12,6 @@
     <?php
     if ($usuario_logado->perfil <= 2) {
         ?>
-
         <!-- Heading -->
         <div class="sidebar-heading">
         Gestão de Tarefas
@@ -20,13 +19,7 @@
         <?php
         if ($usuario_logado->perfil <= 1) {
             ?>        
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="equipes.php">
-                <i class="fa fa-users"></i>
-                <span>Equipes</span>
-            </a>
-        </li>
+
         <li class="nav-item">
             <a class="nav-link collapsed" href="tarefas.php">
                 <i class="fa fa-tasks"></i>
@@ -42,12 +35,23 @@
         </li> 
             <?php
         }
-        ?>        
+        ?> 
         <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="equipes.php">
+                <i class="fa fa-users"></i>
+                <span>Equipes</span>
+            </a>
+        </li>       
+
+        <?php
+    } else if ($usuario_logado->perfil > 2) {
+    ?>
+    <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="tarefas.php?filtro=equipe">
             <i class="fa fa-tasks"></i>
-            <span>Tarefas da Equipe</span>
+            <span>Tarefas por Equipe</span>
         </a>
     </li>
     <li class="nav-item">
@@ -56,10 +60,9 @@
             <span>Minhas Tarefas</span>
         </a>
     </li>
-        <?php
+    <?php
     }
     ?>
-
     <!-- Divider -->
 <hr class="sidebar-divider">
 
