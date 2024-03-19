@@ -10,6 +10,7 @@
     <div class="card-body">
         <form id="form_cadastro" action="save_equipe.php" method="post">
             <input type="hidden" id="id" name="id"/>
+            <input type="hidden" id="criador" name="criador" value="<?=$usuario_logado->id ?>"/>
             <div class="form-group row">
                 <label for="equipe" class="col-sm-2 col-form-label">Equipe:</label>
                 <div class="col-sm-10">

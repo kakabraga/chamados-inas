@@ -31,6 +31,7 @@ class ManterEquipe extends Model {
         }
         return $array_dados;
     }
+
     function getEquipePorId($id) {
         $sql = "select e.id,e.equipe,e.descricao,e.criador FROM equipe as e WHERE id=$id";
         //echo $sql;
@@ -45,8 +46,6 @@ class ManterEquipe extends Model {
         return $dados;
     }
     function salvar(Equipe $dados) {
-        $dados->equipe = $dados->equipe;
-        $dados->descricao = $dados->descricao;
         $sql = "insert into equipe (equipe,descricao,criador) values ('" . $dados->equipe . "','" . $dados->descricao . "','" . $dados->criador . "')";
         if ($dados->id > 0) {
             $sql = "update equipe set equipe='" . $dados->equipe . "',descricao='" . $dados->descricao . "',criador='" . $dados->criador . "' where id=$dados->id";
