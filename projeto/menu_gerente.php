@@ -45,7 +45,7 @@
         </li>       
 
         <?php
-    } else if ($usuario_logado->perfil > 2) {
+    } 
     ?>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
@@ -60,9 +60,6 @@
             <span>Minhas Tarefas</span>
         </a>
     </li>
-    <?php
-    }
-    ?>
     <!-- Divider -->
 <hr class="sidebar-divider">
 
