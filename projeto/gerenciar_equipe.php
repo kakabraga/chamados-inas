@@ -1,6 +1,6 @@
 <?php
 //Administração
-$mod = 2;
+$mod = 3;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -90,7 +90,7 @@ and open the template in the editor.
                                             <div class="h5 mb-0 text-white font-weight-bold">Gerenciamento de equipe</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fa fa-lock fa-3x text-white"></i>
+                                            <i class="fa fa fa-users fa-3x text-white"></i>
                                         </div>
                                     </div>
                                 </div>
