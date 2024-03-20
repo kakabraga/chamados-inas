@@ -146,14 +146,8 @@ foreach ($listaUsuario as $obj) {
             $('#equipe').html(html);
         }
 
-        function atualizaUsuarios(equipe) {
-            $('#responsavel').load('get_responsavel.php?id_equipe='+equipe );
-            /*var responsavel = $('#responsavel').val();
-            if (responsavel > 0) {
-                carregaUsuarios(responsavel, equipe);
-            } else {
-                carregaUsuarios(0, equipe);
-            }*/
+        function atualizaUsuarios(equipe,responsavel) {
+            $('#responsavel').load('get_responsavel.php?id_equipe='+equipe+'&id_usuario='+responsavel );
         }
 
         function carregaUsuarios(id_atual, equipe) {
@@ -216,7 +210,6 @@ foreach ($listaUsuario as $obj) {
                 ]
             });
             carregaEquipes(0);
-            carregaUsuarios(0, 0);
             carregaCategorias(0);
             carregaTipos(0);
             $("#equipes").show();
@@ -235,7 +228,7 @@ foreach ($listaUsuario as $obj) {
             $('#termino').val(fim);
 
             carregaEquipes(equipe);
-            carregaUsuarios(responsavel, equipe);
+            atualizaUsuarios(equipe,responsavel);
             carregaCategorias(categoria);
             carregaTipos(tipo);
             verificaTipo(tipo);
@@ -253,7 +246,7 @@ foreach ($listaUsuario as $obj) {
             $('#termino').val(fim);
 
             carregaEquipes(equipe);
-            carregaUsuarios(responsavel, equipe);
+            atualizaUsuarios(equipe, responsavel);
             carregaCategorias(categoria);
             carregaTipos(tipo);
             verificaTipo(tipo);
@@ -266,12 +259,12 @@ foreach ($listaUsuario as $obj) {
             $('#btn_cadastrar').show();
 
             carregaEquipes(0);
-            carregaUsuarios(0, 0);
+            //carregaUsuarios(0, 0);
             carregaCategorias(0);
 
             $('#form_cadastro').reset();
         }
-        function verificaTipo(tipo) {
+        function verificaCategoria(tipo) {
             if (tipo == "Pessoal") {
                 $("#equipes").hide();
             } else {
