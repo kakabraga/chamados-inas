@@ -147,12 +147,13 @@ foreach ($listaUsuario as $obj) {
         }
 
         function atualizaUsuarios(equipe) {
-            var responsavel = $('#responsavel').val();
+            $('#responsavel').load('get_responsavel.php?id_equipe='+equipe );
+            /*var responsavel = $('#responsavel').val();
             if (responsavel > 0) {
                 carregaUsuarios(responsavel, equipe);
             } else {
                 carregaUsuarios(0, equipe);
-            }
+            }*/
         }
 
         function carregaUsuarios(id_atual, equipe) {
@@ -214,7 +215,6 @@ foreach ($listaUsuario as $obj) {
                     'excelHtml5'
                 ]
             });
-
             carregaEquipes(0);
             carregaUsuarios(0, 0);
             carregaCategorias(0);
