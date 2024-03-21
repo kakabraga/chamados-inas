@@ -81,9 +81,19 @@ $titulo = 'Tarefas';
 switch ($pesquisa) {
     case 'equipe':
         $equipesUsuario  = $manterUsuario->getEquipesUsuarioParticipante($usuario_logado->id);
+        $equipesCriador  = $manterUsuario->getEquipesUsuarioCriador($usuario_logado->id);
         $filtro_equipes = "";
         $txt_equipes = "";
         foreach ($equipesUsuario as $eq) {
+            if ($txt_equipes === "") {
+                $filtro_equipes .=  $eq->id;
+                $txt_equipes .= $eq->equipe;
+            } else {
+                $filtro_equipes .= ", ". $eq->id;
+                $txt_equipes .= ", ". $eq->equipe;
+            }
+        }
+        foreach ($equipesCriador as $eq) {
             if ($txt_equipes === "") {
                 $filtro_equipes .=  $eq->id;
                 $txt_equipes .= $eq->equipe;
