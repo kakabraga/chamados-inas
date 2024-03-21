@@ -249,7 +249,7 @@ foreach ($listaUsuario as $obj) {
             atualizaUsuarios(equipe, responsavel);
             carregaCategorias(categoria);
             carregaTipos(tipo);
-            verificaTipo(tipo);
+            verificaCategoria(tipo);
 
             $('#form_tarefa').collapse("show");
             $('#btn_cadastrar').hide();

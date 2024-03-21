@@ -140,12 +140,13 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getNaoEditoresPorTarefa($id_tarefa) {
-        $sql = "SELECT u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, 
-                u.linkedin,u.ativo,u.id_equipe,u.id_setor,u.id_perfil 
-                FROM usuario as u 
-                WHERE u.id NOT IN(SELECT id_usuario FROM editor WHERE id_tarefa=".$id_tarefa.") 
-                AND u.id_equipe = (SELECT id_equipe FROM tarefa WHERE id=".$id_tarefa.") 
-                ORDER BY u.nome";
+        $sql = "SELECT DISTINCT u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, 
+        u.linkedin,u.ativo,u.id_equipe,u.id_setor,u.id_perfil 
+                FROM usuario as u, equipe_usuario equ, tarefa as tt
+                WHERE tt.id=".$id_tarefa." AND u.id=equ.id_usuario AND equ.id_equipe=tt.id_equipe 
+                AND u.id NOT IN(SELECT e.id_usuario FROM editor as e, equipe_usuario as eu, tarefa as t WHERE eu.id_usuario=e.id_usuario AND e.id_tarefa=".$id_tarefa." AND t.id=".$id_tarefa."
+                 AND eu.id_equipe = t.id_equipe)
+                ORDER BY u.nome;";
         ;
         //echo $sql;
         $resultado = $this->db->Execute($sql);
@@ -171,7 +172,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getUsuariosEquipePorTarefa($id_tarefa) {
-        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u, tarefa as t WHERE t.id=$id_tarefa AND u.id_equipe=t.id_equipe order by u.nome";
+        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.ativo,u.id_equipe,u.id_setor,u.id_perfil FROM usuario as u, equipe_usuario eu, tarefa as t WHERE t.id=$id_tarefa AND eu.id_equipe=t.id_equipe AND u.id=eu.id_usuario order by u.nome";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -247,7 +248,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getEquipesUsuarioParticipante($id_usuario) {
-        $sql = "select e.id,e.equipe,e.descricao, e.criador FROM equipe as e, usuario_equpe as eu where eu.id_equipe=e.id AND eu.id_usuario=".$id_usuario." order by e.equipe";
+        $sql = "select e.id,e.equipe,e.descricao, e.criador FROM equipe as e, usuario_equipe as eu where eu.id_equipe=e.id AND eu.id_usuario=".$id_usuario." order by e.equipe";
         $resultado = $this->db->Execute($sql);
         //print_r($resultado);
         //echo $sql;
