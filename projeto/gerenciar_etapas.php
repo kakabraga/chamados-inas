@@ -267,32 +267,28 @@ and open the template in the editor.
                                         <div class="c2 ml-5">
                                             <div class="text-xs font-weight-bold  text-uppercase mb-1"><small class="text-muted">Responsável</small></div>
                                             <div class="mb-0"><small class="text-muted"><?= ($tarefa->responsavel > 0 ? $manterUsuario->getUsuarioPorId($tarefa->responsavel)->nome : '') ?></small></div>
-                                        </div>  
+                                        </div> 
+                                        <?php
+                                        if ($tarefa->equipe > 0) {
+                                        ?> 
                                         <div class="c2 ml-5">
                                             <div class="text-xs font-weight-bold  text-uppercase mb-1"><small class="text-muted">Editores<div class="editar text-right">
                                                 <form action="save_editores_tarefa.php" method="get">
                                                     <div>
-                                                <?php
-                                                if ($tarefa->equipe > 0) {
-                                                ?>
+                                                
                                                     <input type="hidden" name="tarefa" value="<?= $tarefa->id ?>"/><input type="hidden" name="op" value="add"/>
                                                         <select class="align-middle" id="editores_incluir" name="id" required>
                                                             <option value="">Selecione</option>    
                                                         </select><input class="align-middle" type="submit" value="+"/>
-                                                <?php
-                                                } else {
-                                                ?>
-                                                <?= ($tarefa->responsavel > 0 ? $manterUsuario->getUsuarioPorId($tarefa->responsavel)->nome : '') ?>
-                                                <?php 
-                                                }
-                                                ?>
                                                     </div>
                                                 </form>
                                             </div></small>
-                                            
                                         </div>
-                                            <div class="mb-0"><small id="txt_editores" class="text-muted"><?= $txt_editores ?></small></div>
-                                        </div>                   
+                                          <div class="mb-0"><small id="txt_editores" class="text-muted"><?= $txt_editores ?></small></div>
+                                        </div>
+                                        <?php
+                                        }
+                                        ?>                   
                                         <div class="c3 ml-5">
                                             <div class="text-xs font-weight-bold text-uppercase mb-1"><small class="text-muted">Tipo</small></div>
                                             <div class="mb-0"><small class="text-muted"><?= $tarefa->tipo ?></small></div>
