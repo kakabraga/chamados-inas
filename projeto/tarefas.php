@@ -65,7 +65,10 @@ and open the template in the editor.
             
 <?php
 include_once('actions/ManterEquipe.php');
-$mEquipe = new ManterEquipe();
+include_once('actions/ManterUsuario.php');
+
+$manterEquipe = new ManterEquipe();
+$manterUsuario = new ManterUsuario();
 
 $pesquisa = '';
 if ($usuario_logado->perfil <= 1) {
@@ -77,7 +80,7 @@ $filtro = '';
 $titulo = 'Tarefas';
 switch ($pesquisa) {
     case 'equipe':
-        $equipesUsuario  = $mEquipe->getEquipesUsuarioParticipante($usuario_logado->id);
+        $equipesUsuario  = $manterUsuario->getEquipesUsuarioParticipante($usuario_logado->id);
         $filtro_equipes = "0";
         $txt_equipes = "";
         foreach ($equipesUsuario as $eq) {
@@ -97,11 +100,7 @@ switch ($pesquisa) {
         break;
 }
 
-include_once('actions/ManterEquipe.php');
-include_once('actions/ManterUsuario.php');
 
-$manterEquipe = new ManterEquipe();
-$manterUsuario = new ManterUsuario();
 
 $listaEquipe = $manterEquipe->listar();
 if ($usuario_logado->perfil >= 2) {
