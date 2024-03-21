@@ -147,7 +147,11 @@ foreach ($listaUsuario as $obj) {
         }
 
         function atualizaUsuarios(equipe,responsavel) {
-            $('#responsavel').load('get_responsavel.php?id_equipe='+equipe+'&id_usuario='+responsavel );
+            if(equipe != 0){
+               $('#responsavel').load('get_responsavel.php?id_equipe='+equipe+'&id_usuario='+responsavel);
+            } else {
+                $('#responsavel').load('<option value=""> Selecione </option>');
+            }
         }
 
         function carregaUsuarios(id_atual, equipe) {
@@ -211,6 +215,7 @@ foreach ($listaUsuario as $obj) {
             });
             carregaEquipes(0);
             carregaCategorias("0");
+            atualizaUsuarios(0,0);
             carregaTipos(0);
             $("#equipes").show();
         });
@@ -259,7 +264,7 @@ foreach ($listaUsuario as $obj) {
             $('#btn_cadastrar').show();
 
             carregaEquipes(0);
-            //carregaUsuarios(0, 0);
+            atualizaUsuarios(0,0);
             carregaCategorias("0");
 
             $('#form_cadastro').reset();
@@ -267,6 +272,7 @@ foreach ($listaUsuario as $obj) {
         function verificaCategoria(tipo) {
             if (tipo == "Pessoal") {
                 $("#equipes").hide();
+                $('#responsavel').load('<option value="<?=usuario_logado->id ?>"> <?=usuario_logado->nome ?> </option>');
             } else {
                 $("#equipes").show();
             }
