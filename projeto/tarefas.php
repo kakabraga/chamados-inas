@@ -77,8 +77,15 @@ $filtro = '';
 $titulo = 'Tarefas';
 switch ($pesquisa) {
     case 'equipe':
-        $filtro = ' WHERE t.id_equipe=' . $usuario_logado->equipe;
-        $titulo = 'Tarefas da equipe (' . $mEquipe->getEquipePorId($usuario_logado->equipe)->equipe . ')';
+        $equipesUsuario  = $mEquipe->getEquipesUsuarioParticipante($usuario_logado->id);
+        $filtro_equipes = "0";
+        $txt_equipes = "";
+        foreach ($equipesUsuario as $eq) {
+            $filtro_equipes .= ", ". $eq->id;
+            $txt_equipes .= " ". $eq->equipe;
+        }
+        $filtro = ' WHERE t.id_equipe IN (' . $filtro_equipes . ') ';
+        $titulo = 'Tarefas da equipe (' . $txt_equipes . ')';
         break;
     case 'responsavel':
         $filtro = ' WHERE t.id_responsavel=' . $usuario_logado->id;
@@ -147,11 +154,7 @@ foreach ($listaUsuario as $obj) {
         }
 
         function atualizaUsuarios(equipe,responsavel) {
-            if(equipe != 0){
-               $('#responsavel').load('get_responsavel.php?id_equipe='+equipe+'&id_usuario='+responsavel);
-            } else {
-                $('#responsavel').load('<option value=""> Selecione </option>');
-            }
+            $('#responsavel').load('get_responsavel.php?id_equipe='+equipe+'&id_usuario='+responsavel);
         }
 
         function carregaUsuarios(id_atual, equipe) {
@@ -267,12 +270,12 @@ foreach ($listaUsuario as $obj) {
             atualizaUsuarios(0,0);
             carregaCategorias("0");
 
-            $('#form_cadastro').reset();
+            $('#form_cadastro')[0].reset();
         }
         function verificaCategoria(tipo) {
             if (tipo == "Pessoal") {
                 $("#equipes").hide();
-                $('#responsavel').load('<option value="<?=usuario_logado->id ?>"> <?=usuario_logado->nome ?> </option>');
+                $('#responsavel').html('<option value="<?=$usuario_logado->id ?>"> <?=$usuario_logado->nome ?> </option>');
             } else {
                 $("#equipes").show();
             }
