@@ -169,13 +169,13 @@ foreach ($listaUsuario as $obj) {
             $('#responsavel').html(html);
         }
 
-        function carregaCategorias(id_atual) {
+        function carregaCategorias(atual) {
             var html = '<option value="">Selecione </option>';
             for (var i = 0; i < categorias.length; i++) {
                 var option = categorias[i];
                 var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
+                if (atual != "0") {
+                    if (option.id == atual) {
                         selected = "selected";
                     } else {
                         selected = "";
@@ -210,7 +210,7 @@ foreach ($listaUsuario as $obj) {
                 ]
             });
             carregaEquipes(0);
-            carregaCategorias(0);
+            carregaCategorias("0");
             carregaTipos(0);
             $("#equipes").show();
         });
@@ -231,7 +231,7 @@ foreach ($listaUsuario as $obj) {
             atualizaUsuarios(equipe,responsavel);
             carregaCategorias(categoria);
             carregaTipos(tipo);
-            verificaTipo(tipo);
+            verificaCategoria(tipo);
             $('#form_tarefa').collapse("show");
             $('#btn_cadastrar').hide();
         }
@@ -260,7 +260,7 @@ foreach ($listaUsuario as $obj) {
 
             carregaEquipes(0);
             //carregaUsuarios(0, 0);
-            carregaCategorias(0);
+            carregaCategorias("0");
 
             $('#form_cadastro').reset();
         }
