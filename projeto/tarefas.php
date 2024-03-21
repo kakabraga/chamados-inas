@@ -84,8 +84,13 @@ switch ($pesquisa) {
         $filtro_equipes = "0";
         $txt_equipes = "";
         foreach ($equipesUsuario as $eq) {
-            $filtro_equipes .= ", ". $eq->id;
-            $txt_equipes .= " ". $eq->equipe;
+            if ($txt_equipes === "") {
+                $filtro_equipes = ", ". $eq->id;
+                $txt_equipes = $eq->equipe;
+            } else {
+                $filtro_equipes .= ", ". $eq->id;
+                $txt_equipes .= ", ". $eq->equipe;
+            }
         }
         $filtro = ' WHERE t.id_equipe IN (' . $filtro_equipes . ') ';
         $titulo = 'Tarefas da equipe (' . $txt_equipes . ')';
