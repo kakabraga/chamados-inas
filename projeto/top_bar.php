@@ -39,21 +39,11 @@ $mSetor = new ManterSetor();
                                     $total = $total_notificacoes;
                                 }
                                 ?>
-                                <span class="badge badge-danger badge-counter"><?=$total ?></span>
+                                <span class="badge badge-danger badge-counter" id="total_not"><?=$total ?></span>
                             </a>
-                            <?php
-                            if($total_notificacoes > 0){
-                                ?>
+
                             <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header bg-danger border-0">
-                                    Notificações
-                                </h6>
-                                <?php include './get_notificacao.php'; ?>
-                            </div>
-                            <?php
-                            }
-                            ?>
+                                <span id="notifica"><?php include './get_notificacao.php';  ?></spam>
                         </li>                                                                   
                             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -103,3 +93,34 @@ $mSetor = new ManterSetor();
                         
                     </nav>
                     <!-- End of Topbar -->
+                    <script type="text/javascript" class="init">
+                        var total = 0;
+                        function atualizaNotificacoes() {
+                            $.get( "get_notificacao.php?id=<?=$usuario_logado->id ?>")
+                            .done(function(data) {
+                                //var resp = JSON.parse(data);
+                                //console.log(resp);
+                                $("#notifica").html(data);
+                            });
+
+                        }
+                        function verificaNotificacoes() {
+                            $.get( "get_total_notificacao.php?id=<?=$usuario_logado->id ?>")
+                            .done(function(data) {
+                                //var resp = JSON.parse(data);
+                                //console.log(resp);
+                                if(data != total){
+                                    total = data;
+                                    atualizaNotificacoes();
+                                    if(total != 0){
+                                        $("#total_not").html(total);
+                                    } else {
+                                        $("#total_not").html("");
+                                    }
+                                    
+                                }
+                            });
+
+                        }
+                        setInterval(verificaNotificacoes, 5000); 
+                    </script>

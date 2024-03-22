@@ -4,26 +4,37 @@ require_once('./dto/Notificacao.php');
 	
 $db_notificacao = new ManterNotificacao();
 $n = new Notificacao();
-	
-$lista = $db_notificacao->listarPorUsuario($usuario_logado->id);
+$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
 
-foreach ($lista as $obj) {
-    $icon = " fas fa-exclamation-triangle ";
-    if ($obj->tipo == "interacao") {
-        $icon = " fa fa-envelope ";
+$lista = $db_notificacao->listarPorUsuario($id);
+if(count($lista) > 0){
+?>
+    <div  class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+        <h6 class="dropdown-header bg-danger border-0">
+            Notificações
+        </h6>
+    <?php
+    foreach ($lista as $obj) {
+        $icon = " fas fa-exclamation-triangle ";
+        if ($obj->tipo == "interacao") {
+            $icon = " fa fa-envelope ";
+        }
+        ?>
+        <a class="dropdown-item d-flex align-items-center" href="ler_notificacao.php?id=<?=$obj->id ?>">
+        <div class="mr-3">
+            <div class="icon-circle bg-warning">
+                <i class="<?=$icon ?> text-white"></i>
+            </div>
+        </div>
+        <div>
+            <div class="small text-gray-500"><?= date('d/m/Y h:m', strtotime($obj->data)) ?></div>
+            <?=$obj->texto ?>
+        </div>
+    </a>
+    <?php
     }
     ?>
-    <a class="dropdown-item d-flex align-items-center" href="ler_notificacao.php?id=<?=$obj->id ?>">
-    <div class="mr-3">
-        <div class="icon-circle bg-warning">
-            <i class="<?=$icon ?> text-white"></i>
-        </div>
     </div>
-    <div>
-        <div class="small text-gray-500"><?= date('d/m/Y h:m', strtotime($obj->data)) ?></div>
-        <?=$obj->texto ?>
-    </div>
-</a>
 <?php
 }
 
