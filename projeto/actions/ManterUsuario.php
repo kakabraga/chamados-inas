@@ -236,9 +236,6 @@ class ManterUsuario extends Model {
         while ($registro = $resultado->fetchRow()) {
             $dados = new Equipe();
             $dados->excluir = true;
-            if ($registro["dep"] > 0) {
-                $dados->excluir = false;
-            }
             $dados->id        = $registro["id"];
             $dados->equipe    = $registro["equipe"];
             $dados->descricao = $registro["descricao"];
@@ -248,7 +245,7 @@ class ManterUsuario extends Model {
         return $array_dados;
     }
     function getEquipesUsuarioParticipante($id_usuario) {
-        $sql = "select e.id,e.equipe,e.descricao, e.criador FROM equipe as e, usuario_equipe as eu where eu.id_equipe=e.id AND eu.id_usuario=".$id_usuario." order by e.equipe";
+        $sql = "select e.id,e.equipe,e.descricao, e.criador FROM equipe as e, equipe_usuario as eu where eu.id_equipe=e.id AND eu.id_usuario=".$id_usuario." order by e.equipe";
         $resultado = $this->db->Execute($sql);
         //print_r($resultado);
         //echo $sql;
@@ -256,9 +253,6 @@ class ManterUsuario extends Model {
         while ($registro = $resultado->fetchRow()) {
             $dados = new Equipe();
             $dados->excluir = true;
-            if ($registro["dep"] > 0) {
-                $dados->excluir = false;
-            }
             $dados->id        = $registro["id"];
             $dados->equipe    = $registro["equipe"];
             $dados->descricao = $registro["descricao"];

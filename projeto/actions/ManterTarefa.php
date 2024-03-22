@@ -160,8 +160,8 @@ GROUP BY total, concluido";
     function getPainelTarefa(Usuario $user) {
         //Busca id de equipes participantes e criador
         $manterUsuario = new ManterUsuario();
-        $equipesUsuario  = $manterUsuario->getEquipesUsuarioParticipante($usuario_logado->id);
-        $equipesCriador  = $manterUsuario->getEquipesUsuarioCriador($usuario_logado->id);
+        $equipesUsuario  = $manterUsuario->getEquipesUsuarioParticipante($user->id);
+        $equipesCriador  = $manterUsuario->getEquipesUsuarioCriador($user->id);
         $filtro_equipes = "";
         foreach ($equipesUsuario as $eq) {
             if ($filtro_equipes === "") {
