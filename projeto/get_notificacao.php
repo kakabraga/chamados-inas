@@ -9,7 +9,7 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
 $lista = $db_notificacao->listarPorUsuario($id);
 if(count($lista) > 0){
 ?>
-    <div  class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+    
         <h6 class="dropdown-header bg-danger border-0">
             Notificações
         </h6>
@@ -34,7 +34,6 @@ if(count($lista) > 0){
     <?php
     }
     ?>
-    </div>
 <?php
 }
 
