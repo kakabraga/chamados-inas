@@ -208,11 +208,32 @@ GROUP BY total,total_equipe,total_criador,total_responsavel";
         $rs_concluidas = $this->db->Execute($sql_concluidas);
         $count_concluidas = $rs_concluidas->rowCount() != NULL ? $rs_concluidas->rowCount() : 0;
 
+
+        //Busca id de equipes participantes e criador
+        $manterUsuario = new ManterUsuario();
+        $equipesUsuario  = $manterUsuario->getEquipesUsuarioParticipante($user->id);
+        $equipesCriador  = $manterUsuario->getEquipesUsuarioCriador($user->id);
+        $filtro_equipes = "";
+        foreach ($equipesUsuario as $eq) {
+            if ($filtro_equipes === "") {
+                $filtro_equipes .=  $eq->id;
+            } else {
+                $filtro_equipes .= ", ". $eq->id;
+            }
+        }
+        foreach ($equipesCriador as $eq) {
+            if ($filtro_equipes === "") {
+                $filtro_equipes .=  $eq->id;
+            } else {
+                $filtro_equipes .= ", ". $eq->id;
+            }
+        }
+
         $sql_concluidas_equipe = "SELECT t.id as concluidas,
         (SELECT count(*) FROM acao as a, etapa as e WHERE a.id_etapa=e.id AND e.id_tarefa=t.id) as total,
         (SELECT count(*) FROM acao as a, etapa as e WHERE a.id_etapa=e.id AND e.id_tarefa=t.id AND a.data_check > 0) as concluido
         FROM tarefa as t
-        WHERE t.id_equipe=" . $user->equipe . "
+        WHERE t.id_equipe IN (" . filtro_equipes . ") 
         GROUP BY concluidas
         HAVING total > 0 AND total = concluido";
 
