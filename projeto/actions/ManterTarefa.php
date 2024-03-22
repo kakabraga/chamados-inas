@@ -4,6 +4,7 @@ date_default_timezone_set('America/Sao_Paulo');
 require_once('Model.php');
 
 require_once('ManterEtapa.php');
+require_once('ManterUsuario.php');
 
 require_once('dto/Tarefa.php');
 require_once('dto/Usuario.php');
@@ -85,10 +86,6 @@ class ManterTarefa extends Model {
     }
 
     function salvar(Tarefa $dados) {
-        $dados->nome = $dados->nome;
-        $dados->descricao = $dados->descricao;
-        $dados->categoria = $dados->categoria;
-        $dados->tipo = $dados->tipo;
         $sql = "insert into tarefa (nome,descricao,categoria,inicio,fim,tipo,id_criador,id_responsavel,id_equipe) values ('" . $dados->nome . "','" . $dados->descricao . "','" . $dados->categoria . "','" . $dados->inicio . "','" . $dados->fim . "','" . $dados->tipo . "'," . $dados->criador . "," . $dados->responsavel . "," . $dados->equipe . ")";
         //echo $sql . "<BR/>";
         if ($dados->id > 0) {
@@ -102,10 +99,6 @@ class ManterTarefa extends Model {
     }
 
     function duplicar(Tarefa $dados) {
-        $dados->nome = $dados->nome;
-        $dados->descricao = $dados->descricao;
-        $dados->categoria = $dados->categoria;
-        $dados->tipo = $dados->tipo;
         $sql = "insert into tarefa (nome,descricao,categoria,inicio,fim,tipo,id_criador,id_responsavel,id_equipe) values ('" . $dados->nome . "','" . $dados->descricao . "','" . $dados->categoria . "','" . $dados->inicio . "','" . $dados->fim . "','" . $dados->tipo . "'," . $dados->criador . "," . $dados->responsavel . "," . $dados->equipe . ")";
         //echo $sql . "<BR/>";
         $id_duplicar = $dados->id;
@@ -165,9 +158,29 @@ GROUP BY total, concluido";
     }
 
     function getPainelTarefa(Usuario $user) {
+        //Busca id de equipes participantes e criador
+        $manterUsuario = new ManterUsuario();
+        $equipesUsuario  = $manterUsuario->getEquipesUsuarioParticipante($usuario_logado->id);
+        $equipesCriador  = $manterUsuario->getEquipesUsuarioCriador($usuario_logado->id);
+        $filtro_equipes = "";
+        foreach ($equipesUsuario as $eq) {
+            if ($filtro_equipes === "") {
+                $filtro_equipes .=  $eq->id;
+            } else {
+                $filtro_equipes .= ", ". $eq->id;
+            }
+        }
+        foreach ($equipesCriador as $eq) {
+            if ($filtro_equipes === "") {
+                $filtro_equipes .=  $eq->id;
+            } else {
+                $filtro_equipes .= ", ". $eq->id;
+            }
+        }
+
         $sql = "SELECT
 (SELECT count(*) FROM tarefa) as total,
-(SELECT count(*) FROM tarefa as t WHERE t.id_equipe=" . $user->equipe . ") as total_equipe,
+(SELECT count(*) FROM tarefa as t WHERE t.id_equipe IN (' . $filtro_equipes . ') as total_equipe,
 (SELECT count(*) FROM tarefa as t WHERE t.id_criador=" . $user->id . ") as total_criador,
 (SELECT count(*) FROM tarefa as t WHERE t.id_responsavel=" . $user->id . ") as total_responsavel
 FROM tarefa 
