@@ -301,6 +301,23 @@ class ManterUsuario extends Model {
         }
         return $array_dados;
     }
+    function getAtendentesChamado() {
+        $sql = "SELECT a.id_modulo, a.id_usuario, a.id_perfil 
+        FROM acesso as a 
+        WHERE a.id_perfil = 9
+        AND a.id_modulo = 4";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Acesso();
+            $dados->id_modulo = $registro["id_modulo"];
+            $dados->id_usuario = $registro["id_usuario"];
+            $dados->id_perfil = $registro["id_perfil"];
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
     function salvarEditor($id,$tarefa,$op="add"){
         $sql = "insert into editor (id_usuario, id_tarefa) values ('" . $id . "','" . $tarefa . "')";
         //echo $sql . "<BR/>";
