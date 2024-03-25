@@ -142,7 +142,7 @@ and open the template in the editor.
                                 <div class="row">
                                         <div class="c1 ml-4" style="width: 80%">
                                     <?php
-                                        if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2){
+                                        if($usuario_logado->id==$chamado->usuario || $usuario_logado->perfil<=2 || $usuario_logado->perfil==9){
 
                                             if($chamado->status == 2){
                                                 ?>
@@ -208,7 +208,7 @@ and open the template in the editor.
                 </div>
                 <div class="modal-footer">
                 <?php
-                    if($usuario_logado->id!=$chamado->usuario && $usuario_logado->perfil<=2){
+                    if($usuario_logado->id!=$chamado->usuario && ($usuario_logado->perfil<=2 || $usuario_logado->perfil==9)){
                     ?>
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" value="1" name="finalizar" id="finalizar">

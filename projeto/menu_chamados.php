@@ -10,7 +10,7 @@
 <!-- Divider -->
 <hr class="sidebar-divider">
     <?php
-    if ($usuario_logado->perfil <= 2) {
+    if ($usuario_logado->perfil <= 2 || $usuario_logado->perfil == 9) {
         ?>
 
         <!-- Heading -->
