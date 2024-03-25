@@ -13,7 +13,7 @@
                 <label for="usuario" class="col-sm-2 col-form-label">Usuário:</label>
                 <div class="col-sm-10">
                     <?php
-                    if ($usuario_logado->perfil <= 2) {
+                    if ($usuario_logado->perfil <= 2 || $usuario_logado->perfil == 9) {
                     ?>
                         <select id="usuario" name="usuario" class="form-control form-control-sm" required>
                             <option value="">Selecione</option>    
