@@ -27,7 +27,7 @@ $n->link = 'chamados.php?s=0';
 $n->tipo = 'chamado';
 
 $listaAtendentes = $db_usuario->getAtendentesChamado();
-foreach ($lista as $obj) {
+foreach ($listaAtendentes as $obj) {
     $n->usuario = $obj->id_usuario;
     $db_notificacao->salvar($n);
 }
