@@ -54,7 +54,7 @@
     ?>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="'meus_chamados.php">
+            <a class="nav-link collapsed" href="meus_chamados.php">
                 <i class="fa fa-users"></i>
                 <span>Meus Chamados</span>
             </a>
