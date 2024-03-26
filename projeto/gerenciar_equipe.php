@@ -41,7 +41,7 @@ and open the template in the editor.
             $(document).ready(function () {
             });
             function excluir(id_usuario, nome, id_equipe) {
-                $('#delete').attr('href', 'save_participante_equipe.php?op=2&id_usuario=' + id_usuario +"&id_equipe"+id_equipe);
+                $('#delete').attr('href', 'save_participante_equipe.php?op=2&id_usuario=' + id_usuario +"&id_equipe="+id_equipe);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
@@ -111,7 +111,7 @@ and open the template in the editor.
                                     </div>
                                     <br/>
                                     <?php
-                                        if($usuario_logado->perfil<=2 || $usuario_logado->id == $equipe->criador){
+                                        if($usuario_logado->perfil < 2 || $usuario_logado->id == $equipe->criador){
                                      ?>
                                     <p class=" ml-2 card-text">
                                     <span class="mt-3 ml-2 h6 card-title">Novo membro</span>
