@@ -177,20 +177,28 @@ GROUP BY total, concluido";
                 $filtro_equipes .= ", ". $eq->id;
             }
         }
+	$sql_equipe = "";
+        $group= "";
+	if ($filtro_equipes != "") {
+	  $group= "total_equipe,";
+	  $sql_equipe = "(SELECT count(*) FROM tarefa as t WHERE t.id_equipe IN (" . $filtro_equipes . ")) as total_equipe,";
+	}
 
         $sql = "SELECT
-(SELECT count(*) FROM tarefa) as total,
-(SELECT count(*) FROM tarefa as t WHERE t.id_equipe IN (' . $filtro_equipes . ') as total_equipe,
+(SELECT count(*) FROM tarefa) as total," . $sql_equipe . "
 (SELECT count(*) FROM tarefa as t WHERE t.id_criador=" . $user->id . ") as total_criador,
 (SELECT count(*) FROM tarefa as t WHERE t.id_responsavel=" . $user->id . ") as total_responsavel
 FROM tarefa 
-GROUP BY total,total_equipe,total_criador,total_responsavel";
-        //echo $sql;
+GROUP BY total," . $group . "total_criador,total_responsavel";
+        ///echo $sql;
         $dados = new stdClass();
         $resultado = $this->db->Execute($sql);
         if ($registro = $resultado->fetchRow()) {
             $dados->total = $registro["total"];
-            $dados->total_equipe = $registro["total_equipe"];
+	    $dados->total_equipe = 0;
+	    if ($filtro_equipes != "") {
+               $dados->total_equipe = $registro["total_equipe"];
+            }
             $dados->total_criador = $registro["total_criador"];
             $dados->total_responsavel = $registro["total_responsavel"];
         }
@@ -228,17 +236,19 @@ GROUP BY total,total_equipe,total_criador,total_responsavel";
                 $filtro_equipes .= ", ". $eq->id;
             }
         }
-
-        $sql_concluidas_equipe = "SELECT t.id as concluidas,
-        (SELECT count(*) FROM acao as a, etapa as e WHERE a.id_etapa=e.id AND e.id_tarefa=t.id) as total,
-        (SELECT count(*) FROM acao as a, etapa as e WHERE a.id_etapa=e.id AND e.id_tarefa=t.id AND a.data_check > 0) as concluido
-        FROM tarefa as t
-        WHERE t.id_equipe IN (" . filtro_equipes . ") 
-        GROUP BY concluidas
-        HAVING total > 0 AND total = concluido";
-
-        $rs_concluidas_equipe = $this->db->Execute($sql_concluidas_equipe);
-        $count_concluidas_equipe = $rs_concluidas_equipe->rowCount() != NULL ? $rs_concluidas_equipe->rowCount() : 0;
+	$count_concluidas_equipe = 0;
+	if ($filtro_equipes != "") {
+           $sql_concluidas_equipe = "SELECT t.id as concluidas,
+           (SELECT count(*) FROM acao as a, etapa as e WHERE a.id_etapa=e.id AND e.id_tarefa=t.id) as total,
+           (SELECT count(*) FROM acao as a, etapa as e WHERE a.id_etapa=e.id AND e.id_tarefa=t.id AND a.data_check > 0) as concluido
+           FROM tarefa as t
+           WHERE t.id_equipe IN (" . $filtro_equipes . ") 
+           GROUP BY concluidas
+           HAVING total > 0 AND total = concluido";
+           //echo $sql_concluidas_equipe;
+           $rs_concluidas_equipe = $this->db->Execute($sql_concluidas_equipe);
+           $count_concluidas_equipe = $rs_concluidas_equipe->rowCount() != NULL ? $rs_concluidas_equipe->rowCount() : 0;
+        }
 
         $sql_concluidas_criador = "SELECT t.id as concluidas,
         (SELECT count(*) FROM acao as a, etapa as e WHERE a.id_etapa=e.id AND e.id_tarefa=t.id) as total,
