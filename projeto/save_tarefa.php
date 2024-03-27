@@ -4,6 +4,9 @@ date_default_timezone_set('America/Sao_Paulo');
 
 require_once('./actions/ManterTarefa.php');
 require_once('./dto/Tarefa.php');
+require_once('./actions/ManterNotificacao.php');
+require_once('./actions/ManterUsuario.php');
+require_once('./dto/Notificacao.php');
 
 $db_tarefa  = new ManterTarefa();
 $tarefa     = new Tarefa();
@@ -37,10 +40,24 @@ $tarefa->equipe              = $equipe;
 
 //print_r($tarefa);
 //
-//echo 'DUPLICAR: ' . $duplicar;
+//echo 'DUPLICAR: ' . $duplicar; 
 //$date = new DateTime();
 //$date->setTimestamp($tarefa->inicio_insc);
 //echo 'inicio_insc:'. $date->format('U = Y-m-d H:i:s') . "\n";
+
+// Registrando notificação
+$db_notificacao = new ManterNotificacao();
+$db_usuario = new ManterUsuario();
+$n = new Notificacao();
+$n->texto   = "Uma nova tarefa foi criada para sua equipe!";
+$n->link = 'tarefas.php?filtro=equipe';
+$n->tipo = 'tarefa';
+
+$listaParticipantes = $db_usuario->getUsuariosPorEquipe($equipe);
+foreach ($listaParticipantes as $obj) {
+    $n->usuario = $obj->id_usuario;
+    $db_notificacao->salvar($n);
+}
 
 if ($duplicar == 1) {
     $db_tarefa->duplicar($tarefa);
