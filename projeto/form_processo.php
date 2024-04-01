@@ -12,12 +12,16 @@
             <input type="hidden" id="id" name="id"/>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control form-control-sm" id="inputEmail4" placeholder="Email">
+                <label for="numero">Número</label>
+                <input type="text" class="form-control form-control-sm" id="numero" placeholder="00000">
                 </div>
                 <div class="form-group col-md-6">
-                <label for="inputPassword4">Senha</label>
-                <input type="password" class="form-control form-control-sm" id="inputPassword4" placeholder="Senha">
+                <label for="sei">SEI</label>
+                <input type="text" class="form-control form-control-sm" id="sei" placeholder="0000">
+                </div>
+                <div class="form-group col-md-6">
+                <label for="autuacao">Autuação</label>
+                <input type="date" class="form-control form-control-sm" id="autuacao">
                 </div>
             </div>
             <div class="form-group">
