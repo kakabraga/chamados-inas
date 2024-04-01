@@ -1,9 +1,9 @@
 <?php
-	include_once('actions/ManterSituacao.php'); 
+	include_once('actions/ManterSituacaoProcessual.php'); 
 	
-	$manterSituacao = new ManterSituacao();
+	$manterSituacaoProcessual = new ManterSituacaoProcessual();
 	
-	$lista = $manterSituacao->listar();
+	$lista = $manterSituacaoProcessual->listar();
         
         foreach ($lista as $obj) {
             echo "<tr>";

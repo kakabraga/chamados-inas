@@ -1,10 +1,10 @@
 <?php
 
-require_once('./actions/ManterSituacao.php');
-require_once('./dto/Situacao.php');
+require_once('./actions/ManterSituacaoProcessual.php');
+require_once('./dto/SituacaoProcessual.php');
 
-$db_situacao = new ManterSituacao();
-$situacao= new Situacao();
+$db_situacao = new ManterSituacaoProcessual();
+$situacao= new SituacaoProcessual();
 
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
 
