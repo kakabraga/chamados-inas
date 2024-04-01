@@ -17,7 +17,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Assuntos - INAS</title>
+        <title>Situações Processuais - INAS</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -41,17 +41,17 @@ and open the template in the editor.
          
 
             $(document).ready(function () {
-                $('#assuntos').DataTable();
+                $('#situacoes').DataTable();
             });
-            function excluir(id, assunto) {
-                $('#delete').attr('href', 'del_assunto.php?id=' + id);
-                $('#excluir').text(assunto);
+            function excluir(id, situacao) {
+                $('#delete').attr('href', 'del_situacao.php?id=' + id);
+                $('#excluir').text(situacao);
                 $('#confirm').modal({show: true});              
             }
-            function alterar(id, assunto) {
+            function alterar(id, situacao) {
                 $('#id').val(id);
-                $('#assunto').val(assunto);
-                $('#form_assunto').collapse("show");
+                $('#situacao').val(situacao);
+                $('#form_situacao').collapse("show");
                 $('#btn_cadastrar').hide();
             }
 
@@ -80,7 +80,7 @@ and open the template in the editor.
                     <?php include './top_bar.php'; ?>
 
                     <div class="container-fluid">
-                        <?php include './form_assunto.php'; ?>
+                        <?php include './form_situacao.php'; ?>
                         <!-- Project Card Example -->
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
@@ -88,26 +88,26 @@ and open the template in the editor.
                                     <i class="fa fa-rss fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Assuntos</span>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Situações Processuais</span>
                                 </div>
                                 <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_assunto" aria-expanded="false" aria-controls="form_assunto">
+                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_situacao" aria-expanded="false" aria-controls="form_situacao">
                                         <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>                            
 
                             <div class="card-body">
-                                <table id="assuntos" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="situacoes" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Assunto</th>
+                                            <th scope="col">Situação</th>
                                             <th scope="col" style="width:30px;">Opções</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php include './get_assunto.php'; ?>
+                                        <?php include './get_situacao.php'; ?>
                                     </tbody>
                                 </table>
                             </div>
