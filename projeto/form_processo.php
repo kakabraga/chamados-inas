@@ -15,11 +15,11 @@
                 <label for="numero">Número</label>
                 <input type="text" class="form-control form-control-sm" id="numero" placeholder="00000">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                 <label for="sei">SEI</label>
                 <input type="text" class="form-control form-control-sm" id="sei" placeholder="0000">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-2">
                 <label for="autuacao">Autuação</label>
                 <input type="date" class="form-control form-control-sm" id="autuacao">
                 </div>
