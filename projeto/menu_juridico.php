@@ -23,28 +23,28 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="assuntos.php">
-                    <i class="fa fa-cogs"></i>
+                    <i class="fa fa-rss"></i>
                     <span>Gerenciar Assuntos</span>
                 </a>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="tipos_liminar.php">
-                    <i class="fa fa-cogs"></i>
+                    <i class="fa fa-gavel"></i>
                     <span>Gerenciar Tipos de liminares</span>
                 </a>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="situacoes_processuais.php">
-                    <i class="fa fa-laptop"></i>
+                    <i class="fa fa-hourglass-start"></i>
                     <span>Gerenciar Situações Processuais</span>
                 </a>
             </li>
               <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="processos.php">
-                    <i class="fa fa-laptop"></i>
+                    <i class="fa fa-balance-scale"></i>
                     <span>Gerenciar Processos</span>
                 </a>
             </li>
