@@ -11,9 +11,9 @@
         <form id="form_cadastro" action="save_assunto.php" method="post">
             <input type="hidden" id="id" name="id"/>
             <div class="form-group row">
-                <label for="assunto" class="col-sm-2 col-form-label">Tipo:</label>
+                <label for="assunto" class="col-sm-2 col-form-label">Assunto:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="assunto" class="form-control form-control-sm" id="assunto" placeholder="Tipo" required>
+                    <input type="text" name="assunto" class="form-control form-control-sm" id="assunto" placeholder="Assunto" required>
                 </div>
             </div>
 
