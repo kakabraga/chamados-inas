@@ -91,9 +91,9 @@
                 </div>            
             </div>  
             <div class="form-row">
-                <div class="form-group">
+                <div class="form-row w-100">
                 <label for="id_liminar ">Observações </label>
-                <textarea class="form-control" id="id_liminar" rows="4"></textarea>
+                <textarea class="form-control form-control-sm" id="id_liminar" rows="5"></textarea><br/>
                 </div>           
             </div>           
             <div class="form-group row float-right">
