@@ -24,17 +24,17 @@
                 <input type="date" class="form-control form-control-sm" id="autuacao">
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-group col-md-4">
+            <div class="form-row">
+                <div class="form-group col-md-2">
                 <label for="cpf">CPF</label>
                 <input type="text" class="form-control form-control-sm" id="cpf" placeholder="000000000-00">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-10">
                 <label for="benaficiario">Beneficiário</label>
                 <input type="text" class="form-control form-control-sm" id="benaficiario" placeholder="nome">
                 </div>           
             </div>
-            <div class="form-group">
+            <div class="form-row">
                 <div class="form-group col-md-4">
                 <label for="assunto">Assunto</label>
                 <input type="text" class="form-control form-control-sm" id="assunto" placeholder="Assunto">
@@ -44,7 +44,7 @@
                 <input type="text" class="form-control form-control-sm" id="senha" placeholder="senha">
                 </div>            
             </div>
-            <div class="form-group">
+            <div class="form-row">
                 <div class="form-group col-md-2">
                 <label for="valor_guia">Valor da Guia</label>
                 <input type="text" class="form-control form-control-sm" id="valor_guia" placeholder="000,00">
@@ -62,7 +62,7 @@
                 <input type="text" class="form-control form-control-sm" id="reembolso" placeholder="000,00">
                 </div>            
             </div>
-            <div class="form-group">
+            <div class="form-row">
                 <div class="form-group col-md-2">
                 <label for="custas">Custas</label>
                 <input type="text" class="form-control form-control-sm" id="custas" placeholder="000,00">
@@ -80,6 +80,22 @@
                 <input type="text" class="form-control form-control-sm" id="danos_morais" placeholder="000,00">
                 </div>            
             </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                <label for="id_liminar ">liminar </label>
+                <input type="text" class="form-control form-control-sm" id="id_liminar " placeholder="liminar">
+                </div>
+                <div class="form-group col-md-6">
+                <label for="id_situacao_processual ">Situação Processual </label>
+                <input type="text" class="form-control form-control-sm" id="id_situacao_processual " placeholder="situação">
+                </div>            
+            </div>  
+            <div class="form-row">
+                <div class="form-group">
+                <label for="id_liminar ">Observações </label>
+                <textarea size="5"> </textarea>
+                </div>           
+            </div>           
             <div class="form-group row float-right">
                 <button type="reset" data-toggle="collapse" data-target="#form_processo" class="btn btn-danger btn-sm"><i class="fa fa-minus-square"></i> Cancelar</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
