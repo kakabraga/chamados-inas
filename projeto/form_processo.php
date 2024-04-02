@@ -93,7 +93,7 @@
             <div class="form-row">
                 <div class="form-group">
                 <label for="id_liminar ">Observações </label>
-                <textarea size="5"> </textarea>
+                <textarea class="form-control" id="id_liminar" rows="4"></textarea>
                 </div>           
             </div>           
             <div class="form-group row float-right">
