@@ -11,7 +11,7 @@
         <form id="form_cadastro" action="save_processo.php" method="post">
             <input type="hidden" id="id" name="id"/>
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-5">
                 <label for="numero">Número</label>
                 <input type="text" class="form-control form-control-sm" id="numero" placeholder="00000">
                 </div>
@@ -19,7 +19,7 @@
                 <label for="sei">SEI</label>
                 <input type="text" class="form-control form-control-sm" id="sei" placeholder="0000">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                 <label for="autuacao">Autuação</label>
                 <input type="date" class="form-control form-control-sm" id="autuacao">
                 </div>
@@ -35,11 +35,11 @@
                 </div>           
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-7">
                 <label for="assunto">Assunto</label>
                 <input type="text" class="form-control form-control-sm" id="assunto" placeholder="Assunto">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                 <label for="senha">Senha</label>
                 <input type="text" class="form-control form-control-sm" id="senha" placeholder="senha">
                 </div>            
@@ -85,7 +85,7 @@
                 <label for="id_liminar ">liminar </label>
                 <input type="text" class="form-control form-control-sm" id="id_liminar " placeholder="liminar">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                 <label for="id_situacao_processual ">Situação Processual </label>
                 <input type="text" class="form-control form-control-sm" id="id_situacao_processual " placeholder="situação">
                 </div>            
