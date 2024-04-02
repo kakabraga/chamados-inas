@@ -42,56 +42,22 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
 
-            var equipes = [];
             var setores = [];
-            var perfis = [];
 <?php
-include_once('./actions/ManterEquipe.php');
 include_once('./actions/ManterSetor.php');
-include_once('./actions/ManterPerfil.php');
 
-$manterEquipe = new ManterEquipe();
 $manterSetor = new ManterSetor();
-$manterPerfil = new ManterPerfil();
-
-$listaE = $manterEquipe->listar();
 $listaS = $manterSetor->listar();
-$listaP = $manterPerfil->listar();
 
-foreach ($listaE as $obj) {
-    ?>item = {id: "<?= $obj->id ?>", equipe: "<?= $obj->equipe ?>"};
-                equipes.push(item);
-    <?php
-}
+
 foreach ($listaS as $obj) {
     ?>item = {id: "<?= $obj->id ?>", setor: "<?= $obj->sigla ?>"};
                 setores.push(item);
     <?php
 }
-foreach ($listaP as $obj) {
-    if ($obj->id >= $usuario_logado->perfil) {
-        ?>item = {id: "<?= $obj->id ?>", perfil: "<?= $obj->perfil ?>"};
-                perfis.push(item);
-        <?php
-    }
-}
+
 ?>
-        function carregaEquipes(id_atual) {
-            var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < equipes.length; i++) {
-                var option = equipes[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.equipe + '</option>';
-            }
-            $('#equipe').html(html);
-        }
+
         function carregaSetores(id_atual) {
             var html = '<option value="">Selecione </option>';
             for (var i = 0; i < setores.length; i++) {
@@ -108,36 +74,19 @@ foreach ($listaP as $obj) {
             }
             $('#setor').html(html);
         }
-        function carregaPerfis(id_atual) {
-            var html = '<option value="">Selecione </option>';
-            for (var i = 0; i < perfis.length; i++) {
-                var option = perfis[i];
-                var selected = "";
-                if (id_atual > 0) {
-                    if (option.id == id_atual) {
-                        selected = "selected";
-                    } else {
-                        selected = "";
-                    }
-                }
-                html += '<option value="' + option.id + '" ' + selected + '>' + option.perfil + '</option>';
-            }
-            $('#perfil').html(html);
-        }
-
         $(document).ready(function () {
-            $('#usuarios').DataTable();
+            $('#usuarios').DataTable({
+                order: [2, 'asc']
+            });
             $('#id').val(0);
-            carregaEquipes(0);
             carregaSetores(0);
-            carregaPerfis(0);
         });
         function excluir(id, nome) {
             $('#delete').attr('href', 'del_usuario.php?id=' + id);
             $('#nome_excluir').text(nome);
             $('#confirm').modal({show: true});
         }
-        function alterar(id, login, nome, matricula,cargo, email,nascimento,whatsapp,linkedin, ativo, id_equipe, id_setor, id_perfil) {
+        function alterar(id, login, nome, matricula,cargo, email,nascimento,whatsapp,linkedin, ativo, id_setor, id_perfil) {
             $('#id').val(id);
             $('#login').val(login);
             $('#nome').val(nome);
@@ -153,9 +102,8 @@ foreach ($listaP as $obj) {
             } else {
                 $('#ativo').prop('checked', false);
             }
-            carregaEquipes(id_equipe);
+
             carregaSetores(id_setor);
-            carregaPerfis(id_perfil);
             $('#form_usuario').collapse("show");
             $('#btn_cadastrar').hide();
         }
@@ -183,7 +131,7 @@ foreach ($listaP as $obj) {
                     <div class="container-fluid">
                         <?php include './form_usuario.php'; ?>
                         <!-- Project Card Example -->
-                        <div class="card mb-4 border-primary" style="max-width:900px">
+                        <div class="card mb-4 border-primary" style="max-width:1000px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
                                     <i class="fas fa-user fa-2x text-white"></i> 
@@ -204,7 +152,6 @@ foreach ($listaP as $obj) {
                                             <th scope="col" style="width:5%;">ID</th>
                                             <th scope="col" style="width:20%;">MATRÍCULA</th>
                                             <th scope="col" style="width:35%;">Nome</th>
-                                            <th scope="col">Equipe</th>
                                             <th scope="col">Setor</th>
                                             <th scope="col">Ativo</th>
                                             <th scope="col" class="align-middle nowrap" style="width:15%;">Opções</th>

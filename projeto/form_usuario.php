@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="cargo" class="col-sm-2 col-form-label">Gargo:</label>
+                <label for="cargo" class="col-sm-2 col-form-label">Cargo:</label>
                 <div class="col-sm-10">
                     <input type="text" name="cargo" class="form-control form-control-sm" id="cargo" placeholder="matricula" required>
                 </div>
@@ -59,25 +59,9 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="equipe" class="col-sm-2 col-form-label">Equipe:</label>
-                <div class="col-sm-10">
-                    <select id="equipe" name="equipe" class="form-control form-control-sm" required>
-                        <option value="">Selecione</option>    
-                    </select>
-                </div>
-            </div> 
-            <div class="form-group row">
                 <label for="setor" class="col-sm-2 col-form-label">Setor:</label>
                 <div class="col-sm-10">
                     <select id="setor" name="setor" class="form-control form-control-sm" required>
-                        <option value="">Selecione</option>    
-                    </select>
-                </div>
-            </div> 
-            <div class="form-group row">
-                <label for="perfil" class="col-sm-2 col-form-label">Perfil:*</label>
-                <div class="col-sm-10">
-                    <select id="perfil" name="perfil" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
                 </div>

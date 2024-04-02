@@ -9,13 +9,13 @@
       public $nascimento;
       public $whatsapp;
       public $linkedin;
-      public $equipe;
       public $setor;
-      public $perfil;
       public $ativo;
       public $acessos = array();
+      public $equipes = array();
 
       //variaveis de manipulação
+      public $perfil;
       public $excluir;
       public $senha;
       public $status = true;

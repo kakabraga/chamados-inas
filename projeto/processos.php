@@ -38,7 +38,41 @@ and open the template in the editor.
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" class="init">
-         
+                     var assuntos = [];
+                     var tipos_liminar = [];
+                     var situacoes = [];
+<?php
+include_once('./actions/ManterAssunto.php');
+include_once('./actions/ManterLiminar.php');
+include_once('./actions/ManterSituacaoProcessoal.php');
+
+$manterAssunto = new ManterAssunto();
+$listaA = $manterAssunto->listar();
+
+$manterLiminar = new ManterLiminar();
+$listaL = $manterLiminar->listar();
+
+$manterSituacaoProcessoal = new ManterSituacaoProcessoal();
+$listaS = $manterSituacaoProcessoal->listar();
+
+
+foreach ($listaA as $obj) {
+    ?>item = {id: "<?= $obj->id ?>", assunto: "<?= $obj->assunto ?>"};
+                assuntos.push(item);
+    <?php
+}
+foreach ($listaL as $obj) {
+    ?>item = {id: "<?= $obj->id ?>", tipo: "<?= $obj->tipo ?>"};
+                tipos_liminar.push(item);
+    <?php
+}
+foreach ($listaS as $obj) {
+    ?>item = {id: "<?= $obj->id ?>", situacao: "<?= $obj->situacao ?>"};
+                situacoes.push(item);
+    <?php
+}
+
+?>
 
             $(document).ready(function () {
                 $('#numeros').DataTable();
@@ -58,8 +92,54 @@ and open the template in the editor.
             function selectByText(select, text) {
                 $(select).find('option:contains("' + text + '")').prop('selected', true);
             }
-
-
+            function carregaAssuntos(id_atual) {
+                var html = '<option value="">Selecione </option>';
+                for (var i = 0; i < assuntos.length; i++) {
+                    var option = assuntos[i];
+                    var selected = "";
+                    if (id_atual > 0) {
+                        if (option.id == id_atual) {
+                            selected = "selected";
+                        } else {
+                            selected = "";
+                        }
+                    }
+                    html += '<option value="' + option.id + '" ' + selected + '>' + option.assunto + '</option>';
+                }
+                $('#id_assunto').html(html);
+            }
+            function carregaTiposLiminar(id_atual) {
+                var html = '<option value="">Selecione </option>';
+                for (var i = 0; i < tipos_liminar.length; i++) {
+                    var option = tipos_liminar[i];
+                    var selected = "";
+                    if (id_atual > 0) {
+                        if (option.id == id_atual) {
+                            selected = "selected";
+                        } else {
+                            selected = "";
+                        }
+                    }
+                    html += '<option value="' + option.id + '" ' + selected + '>' + option.tipo + '</option>';
+                }
+                $('#id_tipo_liminar').html(html);
+            }
+            function carregaSituacoes(id_atual) {
+                var html = '<option value="">Selecione </option>';
+                for (var i = 0; i < situacoes.length; i++) {
+                    var option = situacoes[i];
+                    var selected = "";
+                    if (id_atual > 0) {
+                        if (option.id == id_atual) {
+                            selected = "selected";
+                        } else {
+                            selected = "";
+                        }
+                    }
+                    html += '<option value="' + option.id + '" ' + selected + '>' + option.situacao + '</option>';
+                }
+                $('#id_situacao').html(html);
+            }
         </script>
         <style>
             body{
@@ -85,7 +165,7 @@ and open the template in the editor.
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fa fa-rss fa-2x text-white"></i> 
+                                    <i class="fa balance-scale fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Processos</span>

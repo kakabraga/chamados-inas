@@ -16,9 +16,7 @@ $usuario->email         = $_POST['email'];
 $usuario->nascimento    = isset($_POST['nascimento']) ? strtotime($_POST['nascimento']) : '';
 $usuario->whatsapp      = $_POST['whatsapp'];
 $usuario->linkedin      = $_POST['linkedin'];
-$usuario->equipe        = $_POST['equipe'];
 $usuario->setor         = $_POST['setor'];
-$usuario->perfil        = $_POST['perfil'];
 $usuario->ativo         = isset($_POST['ativo']) ? $_POST['ativo'] : 1;
 
 
