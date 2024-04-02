@@ -90,7 +90,7 @@
                 <input type="text" class="form-control form-control-sm" id="id_situacao_processual " placeholder="situação">
                 </div>            
             </div>  
-            <div class="form-row">
+            <div class="form-row mb-2">
                 <div class="form-row w-100">
                 <label for="id_liminar ">Observações </label>
                 <textarea class="form-control form-control-sm" id="id_liminar" rows="5"></textarea><br/>
@@ -99,7 +99,7 @@
             <div class="form-group row float-right">
                 <button type="reset" data-toggle="collapse" data-target="#form_processo" class="btn btn-danger btn-sm"><i class="fa fa-minus-square"></i> Cancelar</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
+                <button type="submit" class="btn btn-primary btn-sm mr-1"><i class="fas fa-save"></i> Salvar</button>
                 &nbsp;&nbsp;&nbsp;
             </div>
         </form>                  
