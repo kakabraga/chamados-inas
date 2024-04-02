@@ -37,7 +37,9 @@
             <div class="form-row">
                 <div class="form-group col-md-7">
                 <label for="assunto">Assunto</label>
-                <input type="text" class="form-control form-control-sm" id="assunto" placeholder="Assunto">
+                    <select id="assunto" name="assunto" class="form-control form-control-sm" required>
+                        <option value="">Selecione</option>    
+                    </select>
                 </div>
                 <div class="form-group col-md-5">
                 <label for="senha">Senha</label>
@@ -82,12 +84,16 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                <label for="id_liminar ">liminar </label>
-                <input type="text" class="form-control form-control-sm" id="id_liminar " placeholder="liminar">
+                    <label for="liminar">liminar </label>
+                    <select id="liminar" name="liminar" class="form-control form-control-sm" required>
+                        <option value="">Selecione</option>    
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
-                <label for="id_situacao_processual ">Situação Processual </label>
-                <input type="text" class="form-control form-control-sm" id="id_situacao_processual " placeholder="situação">
+                <label for="situacao">Situação Processual </label>
+                    <select id="situacao" name="situacao" class="form-control form-control-sm" required>
+                        <option value="">Selecione</option>    
+                    </select>
                 </div>            
             </div>  
             <div class="form-row mb-2">

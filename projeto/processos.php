@@ -44,7 +44,7 @@ and open the template in the editor.
 <?php
 include_once('./actions/ManterAssunto.php');
 include_once('./actions/ManterLiminar.php');
-include_once('./actions/ManterSituacaoProcessoal.php');
+include_once('./actions/ManterSituacaoProcessual.php');
 
 $manterAssunto = new ManterAssunto();
 $listaA = $manterAssunto->listar();
@@ -52,8 +52,8 @@ $listaA = $manterAssunto->listar();
 $manterLiminar = new ManterLiminar();
 $listaL = $manterLiminar->listar();
 
-$manterSituacaoProcessoal = new ManterSituacaoProcessoal();
-$listaS = $manterSituacaoProcessoal->listar();
+$manterSituacaoProcessual = new ManterSituacaoProcessual();
+$listaS = $manterSituacaoProcessual->listar();
 
 
 foreach ($listaA as $obj) {
@@ -76,6 +76,9 @@ foreach ($listaS as $obj) {
 
             $(document).ready(function () {
                 $('#numeros').DataTable();
+                carregaAssuntos(0);
+                carregaTiposLiminar(0);
+                carregaSituacoes(0) ;
             });
             function excluir(id, numero) {
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
@@ -86,6 +89,9 @@ foreach ($listaS as $obj) {
                 $('#id').val(id);
                 $('#numero').val(numero);
                 $('#form_processo').collapse("show");
+                carregaAssuntos(0);
+                carregaTiposLiminar(0);
+                carregaSituacoes(0) ;
                 $('#btn_cadastrar').hide();
             }
 
@@ -106,7 +112,7 @@ foreach ($listaS as $obj) {
                     }
                     html += '<option value="' + option.id + '" ' + selected + '>' + option.assunto + '</option>';
                 }
-                $('#id_assunto').html(html);
+                $('#assunto').html(html);
             }
             function carregaTiposLiminar(id_atual) {
                 var html = '<option value="">Selecione </option>';
@@ -122,7 +128,7 @@ foreach ($listaS as $obj) {
                     }
                     html += '<option value="' + option.id + '" ' + selected + '>' + option.tipo + '</option>';
                 }
-                $('#id_tipo_liminar').html(html);
+                $('#tipo_liminar').html(html);
             }
             function carregaSituacoes(id_atual) {
                 var html = '<option value="">Selecione </option>';
@@ -138,7 +144,7 @@ foreach ($listaS as $obj) {
                     }
                     html += '<option value="' + option.id + '" ' + selected + '>' + option.situacao + '</option>';
                 }
-                $('#id_situacao').html(html);
+                $('#situacao').html(html);
             }
         </script>
         <style>
