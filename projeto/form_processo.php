@@ -38,7 +38,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-2">
-                <label for="guia">GUIA</label>
+                <label for="guia">Guia/Autorização</label>
                 <input type="text" class="form-control form-control-sm" name="guia" id="guia" placeholder="00000000000">
                 </div>
                 <div class="form-group col-md-2">
@@ -58,7 +58,7 @@
                     </select>
                 </div>
                 <div class="form-group col-md-5">
-                <label for="senha">Instância</label>
+                <label for="senha">Instância <span class="text-danger font-weight-bold">*</span></label>
                     <select id="instancia" name="instancia" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
