@@ -12,7 +12,7 @@
             <input type="hidden" id="id" name="id"/>
             <div class="form-row">
                 <div class="form-group col-md-5">
-                <label for="numero">Número</label>
+                <label for="numero">Número <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" name="numero" id="numero" placeholder="00000">
                 </div>
                 <div class="form-group col-md-4">
@@ -20,7 +20,7 @@
                 <input type="text" class="form-control form-control-sm" name="sei" id="sei" placeholder="0000">
                 </div>
                 <div class="form-group col-md-3">
-                <label for="autuacao">Autuação</label>
+                <label for="autuacao">Autuação <span class="text-danger">*</span></label>
                 <input type="date" class="form-control form-control-sm" name="autuacao" id="autuacao">
                 </div>
             </div>
@@ -42,17 +42,17 @@
                 <input type="text" class="form-control form-control-sm" name="guia" id="guia" placeholder="00000000000">
                 </div>
                 <div class="form-group col-md-2">
-                <label for="cpf">CPF</label>
+                <label for="cpf">CPF <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="000000000-00">
                 </div>
                 <div class="form-group col-md-8">
-                <label for="beneficiario">Beneficiário</label>
+                <label for="beneficiario">Beneficiário <span class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-sm" name="beneficiario" id="beneficiario" placeholder="nome">
                 </div>           
             </div>
             <div class="form-row">
                 <div class="form-group col-md-7">
-                <label for="assunto">Assunto</label>
+                <label for="assunto">Assunto <span class="text-danger">*</span></label>
                     <select id="assunto" name="assunto" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
@@ -99,8 +99,8 @@
                 </div>            
             </div>
             <div class="form-row">
-                <div class="form-group col-md-5">
-                    <label for="liminar">liminar </label>
+                <div class="form-group col-md-4">
+                    <label for="liminar">liminar</label>
                     <select id="liminar" name="liminar" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
@@ -109,8 +109,8 @@
                 <label for="data_cumprimento_liminar">Cumprimento Liminar</label>
                 <input type="date" class="form-control form-control-sm" name="data_cumprimento_liminar" id="data_cumprimento_liminar">
                 </div>
-                <div class="form-group col-md-6">
-                <label for="situacao">Situação Processual </label>
+                <div class="form-group col-md-5">
+                <label for="situacao">Situação Processual <span class="text-danger">*</span></label>
                     <select id="situacao" name="situacao" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
