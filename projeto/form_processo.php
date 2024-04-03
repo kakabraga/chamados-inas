@@ -58,8 +58,10 @@
                     </select>
                 </div>
                 <div class="form-group col-md-5">
-                <label for="senha">Senha</label>
-                <input type="text" class="form-control form-control-sm" name="senha" id="senha" placeholder="senha">
+                <label for="senha">Instância</label>
+                    <select id="instancia" name="instancia" class="form-control form-control-sm" required>
+                        <option value="">Selecione</option>    
+                    </select>
                 </div>            
             </div>
             <div class="form-row">
