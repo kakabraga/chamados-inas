@@ -41,10 +41,14 @@ and open the template in the editor.
                      var assuntos = [];
                      var tipos_liminar = [];
                      var situacoes = [];
+                     var instancias = [];
+                     var classes_judiciais = [];
 <?php
 include_once('./actions/ManterAssunto.php');
 include_once('./actions/ManterLiminar.php');
 include_once('./actions/ManterSituacaoProcessual.php');
+include_once('./actions/ManterInstancia.php');
+include_once('./actions/ManterClasseJudicial.php');
 
 $manterAssunto = new ManterAssunto();
 $listaA = $manterAssunto->listar();
@@ -54,6 +58,12 @@ $listaL = $manterLiminar->listar();
 
 $manterSituacaoProcessual = new ManterSituacaoProcessual();
 $listaS = $manterSituacaoProcessual->listar();
+
+$manterInstancia = new ManterInstancia();
+$listaI = $manterInstancia->listar();
+
+$manterClasseJudicial = new ManterClasseJudicial();
+$listaCJ = $manterClasseJudicial->listar();
 
 
 foreach ($listaA as $obj) {
@@ -71,6 +81,16 @@ foreach ($listaS as $obj) {
                 situacoes.push(item);
     <?php
 }
+foreach ($listaI as $obj) {
+    ?>item = {id: "<?= $obj->id ?>", instancia: "<?= $obj->instancia ?>"};
+                instancias.push(item);
+    <?php
+}
+foreach ($listaCJ as $obj) {
+    ?>item = {id: "<?= $obj->id ?>", classe: "<?= $obj->classe ?>"};
+                classes_judiciais.push(item);
+    <?php
+}
 
 ?>
 
@@ -79,6 +99,8 @@ foreach ($listaS as $obj) {
                 carregaAssuntos(0);
                 carregaTiposLiminar(0);
                 carregaSituacoes(0) ;
+                carregaInstancias(0);
+                carregaClassesJudiciais(0);
             });
             function excluir(id, numero) {
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
@@ -92,6 +114,8 @@ foreach ($listaS as $obj) {
                 carregaAssuntos(0);
                 carregaTiposLiminar(0);
                 carregaSituacoes(0) ;
+                carregaInstancias(0);
+                carregaClassesJudiciais(0);
                 $('#btn_cadastrar').hide();
             }
 
@@ -128,7 +152,7 @@ foreach ($listaS as $obj) {
                     }
                     html += '<option value="' + option.id + '" ' + selected + '>' + option.tipo + '</option>';
                 }
-                $('#tipo_liminar').html(html);
+                $('#liminar').html(html);
             }
             function carregaSituacoes(id_atual) {
                 var html = '<option value="">Selecione </option>';
@@ -146,6 +170,38 @@ foreach ($listaS as $obj) {
                 }
                 $('#situacao').html(html);
             }
+            function carregaInstancias(id_atual) {
+                var html = '<option value="">Selecione </option>';
+                for (var i = 0; i < instancias.length; i++) {
+                    var option = instancias[i];
+                    var selected = "";
+                    if (id_atual > 0) {
+                        if (option.id == id_atual) {
+                            selected = "selected";
+                        } else {
+                            selected = "";
+                        }
+                    }
+                    html += '<option value="' + option.id + '" ' + selected + '>' + option.instancia + '</option>';
+                }
+                $('#instancia').html(html);
+            }
+            function carregaClassesJudiciais(id_atual) {
+                var html = '<option value="">Selecione </option>';
+                for (var i = 0; i < classes_judiciais.length; i++) {
+                    var option = classes_judiciais[i];
+                    var selected = "";
+                    if (id_atual > 0) {
+                        if (option.id == id_atual) {
+                            selected = "selected";
+                        } else {
+                            selected = "";
+                        }
+                    }
+                    html += '<option value="' + option.id + '" ' + selected + '>' + option.classe + '</option>';
+                }
+                $('#classe_judicial').html(html);
+            }        
         </script>
         <style>
             body{
@@ -171,7 +227,7 @@ foreach ($listaS as $obj) {
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fa balance-scale fa-2x text-white"></i> 
+                                    <i class="fa fa-balance-scale fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Processos</span>
