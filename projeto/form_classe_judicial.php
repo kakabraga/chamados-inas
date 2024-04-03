@@ -11,9 +11,9 @@
         <form id="form_cadastro" action="save_classe_judicial.php" method="post">
             <input type="hidden" id="id" name="id"/>
             <div class="form-group row">
-                <label for="classe_judicial" class="col-sm-2 col-form-label">Classe Judicial:</label>
+                <label for="classe" class="col-sm-2 col-form-label">Classe Judicial:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="classe_judicial" class="form-control form-control-sm" id="classe_judicial" placeholder="Classe Judicial" required>
+                    <input type="text" name="classe" class="form-control form-control-sm" id="classe" placeholder="Classe Judicial" required>
                 </div>
             </div>
 

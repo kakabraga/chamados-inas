@@ -50,7 +50,7 @@ and open the template in the editor.
             }
             function alterar(id, classe_judicial) {
                 $('#id').val(id);
-                $('#classe_judicial').val(classe_judicial);
+                $('#classe').val(classe_judicial);
                 $('#form_classe_judicial').collapse("show");
                 $('#btn_cadastrar').hide();
             }
