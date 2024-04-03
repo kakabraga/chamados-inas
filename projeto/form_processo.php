@@ -25,11 +25,27 @@
                 </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-md-7">
+                <label for="classe_judicial">Classe Judicial</label>
+                    <select id="classe_judicial" name="classe_judicial" class="form-control form-control-sm" required>
+                        <option value="">Selecione</option>    
+                    </select>
+                </div>
+                <div class="form-group col-md-5">
+                <label for="processo_vinculado">Processo Vinculado</label>
+                <input type="text" class="form-control form-control-sm" name="processo_vinculado" id="processo_vinculado" placeholder="00000">
+                </div>            
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                <label for="guia">GUIA</label>
+                <input type="text" class="form-control form-control-sm" name="guia" id="guia" placeholder="00000000000">
+                </div>
                 <div class="form-group col-md-2">
                 <label for="cpf">CPF</label>
                 <input type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="000000000-00">
                 </div>
-                <div class="form-group col-md-10">
+                <div class="form-group col-md-8">
                 <label for="beneficiario">Beneficiário</label>
                 <input type="text" class="form-control form-control-sm" name="beneficiario" id="beneficiario" placeholder="nome">
                 </div>           
@@ -83,13 +99,17 @@
                 </div>            
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-5">
                     <label for="liminar">liminar </label>
                     <select id="liminar" name="liminar" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
+                <label for="data_cumprimento_liminar">Cumprimento Liminar</label>
+                <input type="date" class="form-control form-control-sm" name="data_cumprimento_liminar" id="data_cumprimento_liminar">
+                </div>
+                <div class="form-group col-md-6">
                 <label for="situacao">Situação Processual </label>
                     <select id="situacao" name="situacao" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
