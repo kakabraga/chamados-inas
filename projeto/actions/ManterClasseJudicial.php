@@ -10,7 +10,7 @@ class ManterClasseJudicial extends Model {
     }
 
     function listar() {
-        $sql = "select cj.id,cj.classe_judicial, (select count(*) from processo as p where p.id_classe_judicial=cj.id) as dep FROM classe_judicial as cj order by cj.classe_judicial";
+        $sql = "select cj.id,cj.classe, (select count(*) from processo as p where p.id_classe_judicial=cj.id) as dep FROM classe_judicial as cj order by cj.classe";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -21,26 +21,26 @@ class ManterClasseJudicial extends Model {
                 $dados->excluir = false;
             }
             $dados->id          = $registro["id"];
-            $dados->classe_judicial       = $registro["classe_judicial"];
+            $dados->classe       = $registro["classe"];
             $array_dados[]      = $dados;
         }
         return $array_dados;
     }
     function getClasseJudicialPorId($id) {
-        $sql = "select cj.id,cj.classe_judicial FROM classe_judicial as cj WHERE id=$id";
+        $sql = "select cj.id,cj.classe FROM classe_judicial as cj WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new ClasseJudicial();
         while ($registro = $resultado->fetchRow()) {
             $dados->id          = $registro["id"];
-            $dados->classe_judicial       = $registro["classe_judicial"];
+            $dados->classe       = $registro["classe"];
         }
         return $dados;
     }
     function salvar(ClasseJudicial $dados) {
-        $sql = "insert into classe_judicial (classe_judicial) values ('" . $dados->classe_judicial . "')";
+        $sql = "insert into classe_judicial (classe) values ('" . $dados->classe . "')";
         if ($dados->id > 0) {
-            $sql = "update classe_judicial set classe_judicial='" . $dados->classe_judicial . "' where id=$dados->id";
+            $sql = "update classe_judicial set classe='" . $dados->classe . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         } else {
             $resultado = $this->db->Execute($sql);
