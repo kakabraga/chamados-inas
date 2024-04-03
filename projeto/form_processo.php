@@ -13,25 +13,25 @@
             <div class="form-row">
                 <div class="form-group col-md-5">
                 <label for="numero">Número</label>
-                <input type="text" class="form-control form-control-sm" id="numero" placeholder="00000">
+                <input type="text" class="form-control form-control-sm" name="numero" id="numero" placeholder="00000">
                 </div>
                 <div class="form-group col-md-4">
                 <label for="sei">SEI</label>
-                <input type="text" class="form-control form-control-sm" id="sei" placeholder="0000">
+                <input type="text" class="form-control form-control-sm" name="sei" id="sei" placeholder="0000">
                 </div>
                 <div class="form-group col-md-3">
                 <label for="autuacao">Autuação</label>
-                <input type="date" class="form-control form-control-sm" id="autuacao">
+                <input type="date" class="form-control form-control-sm" name="autuacao" id="autuacao">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-2">
                 <label for="cpf">CPF</label>
-                <input type="text" class="form-control form-control-sm" id="cpf" placeholder="000000000-00">
+                <input type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="000000000-00">
                 </div>
                 <div class="form-group col-md-10">
-                <label for="benaficiario">Beneficiário</label>
-                <input type="text" class="form-control form-control-sm" id="benaficiario" placeholder="nome">
+                <label for="beneficiario">Beneficiário</label>
+                <input type="text" class="form-control form-control-sm" name="beneficiario" id="beneficiario" placeholder="nome">
                 </div>           
             </div>
             <div class="form-row">
@@ -43,43 +43,43 @@
                 </div>
                 <div class="form-group col-md-5">
                 <label for="senha">Senha</label>
-                <input type="text" class="form-control form-control-sm" id="senha" placeholder="senha">
+                <input type="text" class="form-control form-control-sm" name="senha" id="senha" placeholder="senha">
                 </div>            
             </div>
             <div class="form-row">
                 <div class="form-group col-md-2">
                 <label for="valor_guia">Valor da Guia</label>
-                <input type="text" class="form-control form-control-sm" id="valor_guia" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="valor_guia" id="valor_guia" placeholder="000,00">
                 </div>
                 <div class="form-group col-md-2">
                 <label for="valor_causa">Valor da Causa</label>
-                <input type="text" class="form-control form-control-sm" id="valor_causa" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="valor_causa" id="valor_causa" placeholder="000,00">
                 </div> 
                 <div class="form-group col-md-2">
                 <label for="deposito_judicial">Depósito Judicial</label>
-                <input type="text" class="form-control form-control-sm" id="deposito_judicial" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="deposito_judicial" id="deposito_judicial" placeholder="000,00">
                 </div>
                 <div class="form-group col-md-2">
                 <label for="reembolso">Reembolso</label>
-                <input type="text" class="form-control form-control-sm" id="reembolso" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="reembolso" id="reembolso" placeholder="000,00">
                 </div>            
             </div>
             <div class="form-row">
                 <div class="form-group col-md-2">
                 <label for="custas">Custas</label>
-                <input type="text" class="form-control form-control-sm" id="custas" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="custas" id="custas" placeholder="000,00">
                 </div>
                 <div class="form-group col-md-2">
                 <label for="honorarios">Honorários</label>
-                <input type="text" class="form-control form-control-sm" id="honorarios" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="honorarios" id="honorarios" placeholder="000,00">
                 </div> 
                 <div class="form-group col-md-2">
                 <label for="multa">Multa</label>
-                <input type="text" class="form-control form-control-sm" id="multa" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="multa" id="multa" placeholder="000,00">
                 </div>
                 <div class="form-group col-md-2">
                 <label for="danos_morais">Danos Morais</label>
-                <input type="text" class="form-control form-control-sm" id="danos_morais" placeholder="000,00">
+                <input type="text" class="form-control form-control-sm" name="danos_morais" id="danos_morais" placeholder="000,00">
                 </div>            
             </div>
             <div class="form-row">
@@ -98,8 +98,8 @@
             </div>  
             <div class="form-row mb-2">
                 <div class="form-row w-100">
-                <label for="id_liminar ">Observações </label>
-                <textarea class="form-control form-control-sm" id="id_liminar" rows="5"></textarea><br/>
+                <label for="observacoes ">Observações </label>
+                <textarea class="form-control form-control-sm" name="observacoes" id="observacoes" rows="5"></textarea><br/>
                 </div>           
             </div>           
             <div class="form-group row float-right">
