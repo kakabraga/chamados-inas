@@ -48,6 +48,13 @@
                     <span>Situações Processuais</span>
                 </a>
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="classes_judiciais.php">
+                    <i class="fa fa-university"></i>
+                    <span>Classes Judiciais</span>
+                </a>
+            </li>
               <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="processos.php">

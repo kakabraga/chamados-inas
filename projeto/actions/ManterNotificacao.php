@@ -2,8 +2,6 @@
 
 date_default_timezone_set('America/Sao_Paulo');
 require_once('Model.php');
-require_once('ManterEtapn.php');
-require_once('ManterTarefn.php');
 
 require_once('dto/Notificacao.php');
 
@@ -40,7 +38,7 @@ class ManterNotificacao extends Model {
     
     function listarPorUsuario($id_usuario, $lida = 2) {
 
-        $sql = "select n.id,n.texto,n.link,n.tipo,n.data,n.lida,n.id_usuario FROM notificacao as n WHERE id_usuario= ".$id_usuario." order by n.data";
+        $sql = "select n.id,n.texto,n.link,n.tipo,n.data,n.lida,n.id_usuario FROM notificacao as n WHERE id_usuario= ".$id_usuario." AND lida=0 order by n.data";
         if ($lida < 2) {
             $sql = "select n.id,n.texto,n.link,n.tipo,n.data,n.lida,n.id_usuario FROM notificacao as n WHERE id_usuario= ".$id_usuario." AND lida=" . $lida . " order by n.data";
         }
@@ -93,14 +91,7 @@ class ManterNotificacao extends Model {
 
         $sql = "insert into notificacao (texto, link, tipo,id_usuario, lida, data) values ('" . $dados->texto . "','" . $dados->link . "','" . $dados->tipo . "','" . $dados->usuario . "',0,now())";
         //echo $sql . "<BR/>";
-        if ($dados->id > 0) {
-            $sql = "update notificacao set texto='" . $dados->texto . "',link='" . $dados->link . "',tipo='" . $dados->tipo . "',id_usuario='" . $dados->usuario . "',lida='" . $dados->lida . "' where id=$dados->id";
-            $resultado = $this->db->Execute($sql);
-        } else {
-            $resultado = $this->db->Execute($sql);
-            $dados->id = $this->db->insert_Id();
-        }
-        //echo $sql . "<BR/>";
+        $resultado = $this->db->Execute($sql);
         return $resultado;
     }
 
