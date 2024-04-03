@@ -65,37 +65,37 @@
                 </div>            
             </div>
             <div class="form-row">
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="valor_guia">Valor da Guia</label>
                 <input type="text" class="form-control form-control-sm" name="valor_guia" id="valor_guia" placeholder="000,00">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="valor_causa">Valor da Causa</label>
                 <input type="text" class="form-control form-control-sm" name="valor_causa" id="valor_causa" placeholder="000,00">
                 </div> 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="deposito_judicial">Depósito Judicial</label>
                 <input type="text" class="form-control form-control-sm" name="deposito_judicial" id="deposito_judicial" placeholder="000,00">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="reembolso">Reembolso</label>
                 <input type="text" class="form-control form-control-sm" name="reembolso" id="reembolso" placeholder="000,00">
                 </div>            
             </div>
             <div class="form-row">
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="custas">Custas</label>
                 <input type="text" class="form-control form-control-sm" name="custas" id="custas" placeholder="000,00">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="honorarios">Honorários</label>
                 <input type="text" class="form-control form-control-sm" name="honorarios" id="honorarios" placeholder="000,00">
                 </div> 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="multa">Multa</label>
                 <input type="text" class="form-control form-control-sm" name="multa" id="multa" placeholder="000,00">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2.5">
                 <label for="danos_morais">Danos Morais</label>
                 <input type="text" class="form-control form-control-sm" name="danos_morais" id="danos_morais" placeholder="000,00">
                 </div>            
