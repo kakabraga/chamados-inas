@@ -8,7 +8,7 @@
     </div>                  
     <!-- Card Content - Collapse -->
     <div class="card-body">
-        <form id="form_cadastro" action="save_processo.php" method="post">
+        <form id="form_cadastro" action="save_processo.php" method="post" onsubmit="retun validarCPF()">
             <input type="hidden" id="id" name="id"/>
             <div class="form-row">
                 <div class="form-group col-md-5">

@@ -232,8 +232,13 @@ foreach ($listaCJ as $obj) {
                 currency
             }).format(valor)
             }    
-            function validarCPF(cpf) {
-                alert(validarCPFX(cpf));
+            function validarCPF() {
+                var cpf = $('#cpf').val();
+                if(!validarCPFX(cpf)){
+                    alert("Número de CPF inválido!");
+                    return false;
+                }
+                return true;
             }
             function validarCPFX(cpf) {	
                 cpf = cpf.replace(/\D+/g, '');	
