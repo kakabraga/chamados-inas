@@ -27,9 +27,11 @@
                 </div>                
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
-                <label for="sei">SEI</label>
-                <input type="text" class="form-control form-control-sm" name="sei" id="sei" placeholder="0000">
+                <div class="form-group col-md-3">
+                <label for="sei_t">SEI</label>
+                <input type="text" class="form-control form-control-sm" name="sei_t" id="sei_t" placeholder="0000">
+                <button class="btn btn-warning btn-sm" onclick="addSei()">+</button>
+                <input type="text" id="sei" name="sei" value=""/>
                 </div>
             </div>
             <div class="form-row">
@@ -59,7 +61,7 @@
                 </div>           
             </div>
             <div class="form-row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-12">
                 <label for="assunto">Assunto <span class="text-danger font-weight-bold">*</span></label>
                     <select id="assunto" name="assunto" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
@@ -123,7 +125,7 @@
             <div class="form-row mb-2">
                 <div class="form-row w-100">
                 <label for="observacoes ">Observações </label>
-                <textarea class="form-control form-control-sm" name="observacoes" id="observacoes" rows="5"></textarea><br/>
+                <textarea class="form-control form-control-sm" name="observacoes" id="observacoes" rows="3"></textarea><br/>
                 </div>           
             </div>           
             <div class="form-group row float-right">

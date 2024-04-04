@@ -102,6 +102,13 @@ foreach ($listaCJ as $obj) {
                 carregaInstancias(0);
                 carregaClassesJudiciais(0);
             });
+            function addSei() {
+                var sei_t = $('#sei_t').val();
+                var sei = $('#sei').val();
+                if($(sei_t !="")){
+                    sei += sei_t + ";";
+                }              
+            }
             function excluir(id, numero) {
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
                 $('#excluir').text(numero);
