@@ -36,8 +36,7 @@
                 </div> 
                 <div class="form-group col-md-9">
                 <label for="sei_t">Adicionados</label>
-                    <a class="btn btn-warning btn-sm" onclick="addSei()" href="#">+</a>
-                    <input type="text" id="sei" name="sei" value=""/>
+                    <input class="form-control form-control-sm" type="text" id="sei" name="sei" value="" readonly/>
                 </div>
             </div>
             <div class="form-row">
