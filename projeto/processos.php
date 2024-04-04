@@ -111,7 +111,7 @@ foreach ($listaCJ as $obj) {
                 //alert(sei);
                 if($(sei_t !="")){
                     sei += sei_t + ";";
-                    $('#txt_sei').val(sei);
+                    $('#txt_sei').html(sei);
                     $('#sei').val(sei);
                     $('#sei_t').val("");
                 }
