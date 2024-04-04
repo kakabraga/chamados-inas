@@ -236,12 +236,12 @@ foreach ($listaCJ as $obj) {
                 alert(validarCPFX(cpf));
             }
             function validarCPFX(cpf) {	
-                cpf = cpf.replace('.','');
-                cpf = cpf.replace('-','');		
+                cpf = cpf.replace(/\D+/g, '');	
                 if(cpf == '') return false;	
                 // Elimina CPFs invalidos conhecidos	
                 if (cpf.length != 11 || 
-                    cpf == "00000000000" || 
+                    cpf == "00000000191" ||
+                    cpf == "00000000000" ||  
                     cpf == "11111111111" || 
                     cpf == "22222222222" || 
                     cpf == "33333333333" || 
