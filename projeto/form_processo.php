@@ -8,7 +8,7 @@
     </div>                  
     <!-- Card Content - Collapse -->
     <div class="card-body">
-        <form id="form_cadastro" action="save_processo.php" method="post" onsubmit="retun validarCPF()">
+        <form id="form_cadastro" action="save_processo.php" method="post" onsubmit="return validarCPF()">
             <input type="hidden" id="id" name="id"/>
             <div class="form-row">
                 <div class="form-group col-md-5">
@@ -30,9 +30,11 @@
                 <div class="form-group col-md-3">
                 <label for="sei_t">SEI</label>
                 <input type="text" class="form-control form-control-sm" name="sei_t" id="sei_t" placeholder="0000">
-                <button class="btn btn-warning btn-sm" onclick="addSei()">+</button>
-                <input type="text" id="sei" name="sei" value=""/>
                 </div>
+                <div class="form-group col-md-9">
+                    <a class="btn btn-warning btn-sm" onclick="addSei()" href="#">+</a>
+                    <input type="text" id="sei" name="sei" value=""/>
+                </div> 
             </div>
             <div class="form-row">
                 <div class="form-group col-md-7">
