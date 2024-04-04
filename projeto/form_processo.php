@@ -36,7 +36,8 @@
                 </div> 
                 <div class="form-group col-md-8">
                 <label for="sei_t">Adicionados</label>
-                    <input class="form-control form-control-sm" type="text" id="sei" name="sei" value="" readonly/>
+                    <span id="txt_sei"> </span>
+                    <input class="form-control form-control-sm" type="hiddem" id="sei" name="sei" value="" readonly/>
                 </div>
             </div>
             <div class="form-row">

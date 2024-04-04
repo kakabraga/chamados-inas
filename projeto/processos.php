@@ -107,14 +107,15 @@ foreach ($listaCJ as $obj) {
             function addSei() {
                 var sei_t = $('#sei_t').val();
                 var sei = $('#sei').val();
-                alert(sei_t);
-                alert(sei);
+                //alert(sei_t);
+                //alert(sei);
                 if($(sei_t !="")){
                     sei += sei_t + ";";
+                    $('#txt_sei').val(sei);
                     $('#sei').val(sei);
                     $('#sei_t').val("");
                 }
-                alert(sei);    
+                //alert(sei);    
             }
             function excluir(id, numero) {
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
