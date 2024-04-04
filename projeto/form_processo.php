@@ -32,6 +32,7 @@
                 <input type="text" class="form-control form-control-sm" name="sei_t" id="sei_t" placeholder="0000">
                 </div>
                 <div class="form-group col-md-9">
+                <label for="sei_t">Adicionados</label>
                     <a class="btn btn-warning btn-sm" onclick="addSei()" href="#">+</a>
                     <input type="text" id="sei" name="sei" value=""/>
                 </div> 
