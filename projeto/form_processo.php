@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group col-md-2">
                 <label for="cpf">CPF <span class="text-danger font-weight-bold">*</span></label>
-                <input type="text" onblur="validarCPF(this.value)" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="000000000-00">
+                <input type="text" onblur="validarCPF(this.value)" onkeypress="$(this).mask('000.000.000-00');" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="000000000-00">
                 </div>
                 <div class="form-group col-md-8">
                 <label for="beneficiario">Beneficiário <span class="text-danger font-weight-bold">*</span></label>
