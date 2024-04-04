@@ -19,6 +19,12 @@
                 <label for="autuacao">Autuação <span class="text-danger font-weight-bold">*</span></label>
                 <input type="date" class="form-control form-control-sm" name="autuacao" id="autuacao">
                 </div>
+                <div class="form-group col-md-4">
+                <label for="senha">Instância <span class="text-danger font-weight-bold">*</span></label>
+                    <select id="instancia" name="instancia" class="form-control form-control-sm" required>
+                        <option value="">Selecione</option>    
+                    </select>
+                </div>                
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
@@ -56,12 +62,6 @@
                 <div class="form-group col-md-7">
                 <label for="assunto">Assunto <span class="text-danger font-weight-bold">*</span></label>
                     <select id="assunto" name="assunto" class="form-control form-control-sm" required>
-                        <option value="">Selecione</option>    
-                    </select>
-                </div>
-                <div class="form-group col-md-5">
-                <label for="senha">Instância <span class="text-danger font-weight-bold">*</span></label>
-                    <select id="instancia" name="instancia" class="form-control form-control-sm" required>
                         <option value="">Selecione</option>    
                     </select>
                 </div>            
