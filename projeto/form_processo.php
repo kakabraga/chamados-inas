@@ -31,11 +31,14 @@
                 <label for="sei_t">SEI</label>
                 <input type="text" class="form-control form-control-sm" name="sei_t" id="sei_t" placeholder="0000">
                 </div>
+                <div class="form-group col-md-1">
+                    <a class="btn btn-warning btn-sm" onclick="addSei()" href="#">+</a>
+                </div> 
                 <div class="form-group col-md-9">
                 <label for="sei_t">Adicionados</label>
                     <a class="btn btn-warning btn-sm" onclick="addSei()" href="#">+</a>
                     <input type="text" id="sei" name="sei" value=""/>
-                </div> 
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-7">
