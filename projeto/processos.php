@@ -128,6 +128,7 @@ foreach ($listaCJ as $obj) {
                 //alert(sei);    
             }
             function delSei(numero) {
+                sei_html = "";
                 sei = $('#sei').val();
                 sei = sei.replace(numero, '');
                 sei_arr = sei. split(";");
