@@ -116,7 +116,16 @@ foreach ($listaCJ as $obj) {
                 //alert(sei);
                 if($(sei_t !="")){
                     sei_html = "";
-                    sei += sei_t + ";";
+                    sei_arr = sei. split(";");
+                    var achou = false;
+                    for (let i = 0; i < sei_arr.length; i++) {
+                        if(sei_arr[i] == sei_t){
+                            achou = true;
+                        }
+                    }
+                    if(!achou) {
+                        sei += sei_t + ";";
+                    }
                     sei_arr = sei. split(";");
                     for (let i = 0; i < sei_arr.length; i++) {
                         if(sei_arr[i] !=""){
