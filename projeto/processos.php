@@ -117,6 +117,13 @@ foreach ($listaCJ as $obj) {
                 }
                 //alert(sei);    
             }
+            function delSei(numero) {
+                var sei = $('#sei').val();
+                sei = sei.replace(numero, '');;
+                $('#txt_sei').html(sei);
+                $('#sei').val(sei);
+                //alert(sei);    
+            }
             function excluir(id, numero) {
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
                 $('#excluir').text(numero);
