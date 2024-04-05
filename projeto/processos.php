@@ -125,6 +125,8 @@ foreach ($listaCJ as $obj) {
                     }
                     if(!achou) {
                         sei += sei_t + ";";
+                    } else {
+                        alert("Processo SEI já adicionado!");
                     }
                     sei_arr = sei. split(";");
                     for (let i = 0; i < sei_arr.length; i++) {
