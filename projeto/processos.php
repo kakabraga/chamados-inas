@@ -103,6 +103,8 @@ foreach ($listaCJ as $obj) {
                 carregaSituacoes(0) ;
                 carregaInstancias(0);
                 carregaClassesJudiciais(0);
+                $('#processo_vinculado').prop("disabled", true);                                                                                                            
+                $('#data_cumprimento_liminar').prop("disabled", true);
             });
             var sei_t = "";
             var sei = "";
@@ -156,16 +158,16 @@ foreach ($listaCJ as $obj) {
             }
             function verificaClasse(classe) {
                 if (classe != "") {
-                    $('#processo_vinculado')..prop("disabled", false);
+                    $('#processo_vinculado').prop("disabled", false);
                 } else {
-                    $('#processo_vinculado')..prop("disabled", true);
+                    $('#processo_vinculado').prop("disabled", true);
                 }
             }
             function verificaLiminar(liminar) {
                 if (liminar != "") {
-                    $('#data_cumprimento_liminar')..prop("disabled", false);
+                    $('#data_cumprimento_liminar').prop("disabled", false);
                 } else {
-                    $('#data_cumprimento_liminar')..prop("disabled", true);
+                    $('#data_cumprimento_liminar').prop("disabled", true);
                 }
             }
             function excluir(id, numero) {

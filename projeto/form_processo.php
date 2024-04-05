@@ -13,11 +13,11 @@
             <div class="form-row">
                 <div class="form-group col-md-5">
                 <label for="numero">Número <span class="text-danger font-weight-bold">*</span></label>
-                <input type="text" class="form-control form-control-sm" name="numero" id="numero" placeholder="00000">
+                <input type="text" class="form-control form-control-sm" name="numero" id="numero" placeholder="00000" required>
                 </div>
                 <div class="form-group col-md-3">
                 <label for="autuacao">Autuação <span class="text-danger font-weight-bold">*</span></label>
-                <input type="date" class="form-control form-control-sm" name="autuacao" id="autuacao">
+                <input type="date" class="form-control form-control-sm" name="autuacao" id="autuacao" required>
                 </div>
                 <div class="form-group col-md-4">
                 <label for="senha">Instância <span class="text-danger font-weight-bold">*</span></label>
@@ -59,11 +59,11 @@
                 </div>
                 <div class="form-group col-md-2">
                 <label for="cpf">CPF <span class="text-danger font-weight-bold">*</span></label>
-                <input type="text" onblur="validarCPF(this.value)" onkeypress="$(this).mask('000.000.000-00');" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="000000000-00">
+                <input type="text" onblur="validarCPF(this.value)" onkeypress="$(this).mask('000.000.000-00');" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="000.000.000-00"  required>
                 </div>
                 <div class="form-group col-md-8">
                 <label for="beneficiario">Beneficiário <span class="text-danger font-weight-bold">*</span></label>
-                <input type="text" class="form-control form-control-sm" name="beneficiario" id="beneficiario" placeholder="nome">
+                <input type="text" class="form-control form-control-sm" name="beneficiario" id="beneficiario" placeholder="nome" required>
                 </div>           
             </div>
             <div class="form-row">
