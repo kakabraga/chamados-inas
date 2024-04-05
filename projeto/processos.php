@@ -107,14 +107,20 @@ foreach ($listaCJ as $obj) {
             var sei_t = "";
             var sei = "";
             var sei_html = "";
+            var sei_arr;
             function addSei() {
                 sei_t = $('#sei_t').val();
                 sei = $('#sei').val();
+                
                 //alert(sei_t);
                 //alert(sei);
                 if($(sei_t !="")){
+                    sei_html = "";
                     sei += sei_t + ";";
-                    sei_html += sei_t + " <a href='#' onclick='delSei(\""+ sei_t +";\")'>X</a> ";
+                    sei_arr = sei. split(";");
+                    for (let i = 0; i < sei_arr.length; i++) {
+                        sei_html += sei_arr[i] + " <a href='#' onclick='delSei(\""+ sei_t +";\")'>X</a> ";
+                    }
                     $('#txt_sei').html(sei_html);
                     $('#sei').val(sei);
                     $('#sei_t').val("");
@@ -122,9 +128,12 @@ foreach ($listaCJ as $obj) {
                 //alert(sei);    
             }
             function delSei(numero) {
-                var sei = $('#sei').val();
+                sei = $('#sei').val();
                 sei = sei.replace(numero, '');
-                sei_html = sei_html.replace(numero + " <a href='#' onclick='delSei(\""+ numero +";\")'>X</a> ", '');
+                sei_arr = sei. split(";");
+                for (let i = 0; i < sei_arr.length; i++) {
+                    sei_html += sei_arr[i] + " <a href='#' onclick='delSei(\""+ sei_t +";\")'>X</a> ";
+                }
                 $('#txt_sei').html(sei_html);
                 $('#sei').val(sei);
                 //alert(sei);    
