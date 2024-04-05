@@ -154,6 +154,20 @@ foreach ($listaCJ as $obj) {
                 $('#sei').val(sei);
                 //alert(sei);    
             }
+            function verificaClasse(classe) {
+                if (classe != "") {
+                    $('#processo_vinculado')..prop("disabled", false);
+                } else {
+                    $('#processo_vinculado')..prop("disabled", true);
+                }
+            }
+            function verificaLiminar(liminar) {
+                if (liminar != "") {
+                    $('#data_cumprimento_liminar')..prop("disabled", false);
+                } else {
+                    $('#data_cumprimento_liminar')..prop("disabled", true);
+                }
+            }
             function excluir(id, numero) {
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
                 $('#excluir').text(numero);

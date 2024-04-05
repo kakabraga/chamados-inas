@@ -43,7 +43,7 @@
             <div class="form-row">
                 <div class="form-group col-md-7">
                 <label for="classe_judicial">Classe Judicial</label>
-                    <select id="classe_judicial" name="classe_judicial" class="form-control form-control-sm" required>
+                    <select id="classe_judicial" name="classe_judicial" class="form-control form-control-sm" onChange="verificaClasse(this.options[this.selectedIndex].value)" >
                         <option value="">Selecione</option>    
                     </select>
                 </div>
@@ -113,7 +113,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="liminar">liminar</label>
-                    <select id="liminar" name="liminar" class="form-control form-control-sm" required>
+                    <select id="liminar" name="liminar" class="form-control form-control-sm" onChange="verificaLiminar(this.options[this.selectedIndex].value)">
                         <option value="">Selecione</option>    
                     </select>
                 </div>
