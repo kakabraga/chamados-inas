@@ -104,14 +104,18 @@ foreach ($listaCJ as $obj) {
                 carregaInstancias(0);
                 carregaClassesJudiciais(0);
             });
+            var sei_t = "";
+            var sei = "";
+            var sei_html = "";
             function addSei() {
-                var sei_t = $('#sei_t').val();
-                var sei = $('#sei').val();
+                sei_t = $('#sei_t').val();
+                sei = $('#sei').val();
                 //alert(sei_t);
                 //alert(sei);
                 if($(sei_t !="")){
                     sei += sei_t + ";";
-                    $('#txt_sei').html(sei);
+                    sei_html += sei_t + " <a href='#' onclick='delSei(\""+ sei_t +";\")'>X</a> ";
+                    $('#txt_sei').html(sei_html);
                     $('#sei').val(sei);
                     $('#sei_t').val("");
                 }
@@ -119,8 +123,9 @@ foreach ($listaCJ as $obj) {
             }
             function delSei(numero) {
                 var sei = $('#sei').val();
-                sei = sei.replace(numero, '');;
-                $('#txt_sei').html(sei);
+                sei = sei.replace(numero, '');
+                sei_html = sei_html.replace(numero + " <a href='#' onclick='delSei(\""+ numero +";\")'>X</a> ", '');
+                $('#txt_sei').html(sei_html);
                 $('#sei').val(sei);
                 //alert(sei);    
             }
