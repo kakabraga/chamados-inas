@@ -91,6 +91,7 @@ class ManterProcesso extends Model {
         }
         if($dados->liminar==""){
             $dados->liminar = 0;
+            $dados->data_cumprimento_liminar = 0;
         }
         $sql = "insert into processo (numero, sei, autuacao, cpf, beneficiario, guia, senha, valor_guia, valor_causa, deposito_judicial, reembolso,
         custas, honorarios, multa, danos_morais, observacao, id_assunto, id_classe_judicial, id_situacao_processual, id_liminar, 
