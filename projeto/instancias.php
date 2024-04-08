@@ -1,6 +1,6 @@
 <?php
-//Atendimento
-$mod = 5;
+//Juridico
+$mod = 6;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>

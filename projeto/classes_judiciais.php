@@ -1,6 +1,6 @@
 <?php
-//Atendimento
-$mod = 5;
+//Juridico
+$mod = 6;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -85,7 +85,7 @@ and open the template in the editor.
                         <div class="card mb-4 border-primary" style="max-width:900px">
                             <div class="row ml-0 card-header py-2 bg-gradient-primary" style="width:100%">
                                 <div class="col-sm ml-0" style="max-width:50px;">
-                                    <i class="fa fa-university fa-2x text-white"></i> 
+                                    <i class="fa fa-retweet fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Classes Judicial</span>

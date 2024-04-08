@@ -1,6 +1,6 @@
 <?php
-//Atendimento
-$mod = 5;
+//Juridico
+$mod = 6;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -157,8 +157,9 @@ foreach ($listaCJ as $obj) {
                 //alert(sei);    
             }
             function carregarSei(numero) {
+                sei = numero;
                 sei_html = "";
-                sei_arr = numero. split(";");
+                sei_arr = numero.split(";");
                 for (let i = 0; i < sei_arr.length; i++) {
                     if(sei_arr[i] !=""){
                         sei_html += sei_arr[i] + " <a href='#' onclick='delSei(\""+ sei_arr[i] +";\")'><i class='text-danger far fa-trash-alt'></i></a> ";
@@ -183,12 +184,7 @@ foreach ($listaCJ as $obj) {
                 }
             }
             function novo() {
-                $('#form_cadastro').reset();
-                sei_t = "";
-                sei = "";
-                sei_html = "";
-                $('#txt_sei').html(sei_html);
-                $('#sei').val(sei);
+                carregarSei("");
                 carregaAssuntos(0);
                 carregaTiposLiminar(0);
                 carregaSituacoes(0) ;
