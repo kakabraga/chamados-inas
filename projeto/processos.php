@@ -156,6 +156,18 @@ foreach ($listaCJ as $obj) {
                 $('#sei').val(sei);
                 //alert(sei);    
             }
+            function carregarSei(numero) {
+                sei_html = "";
+                sei_arr = numero. split(";");
+                for (let i = 0; i < sei_arr.length; i++) {
+                    if(sei_arr[i] !=""){
+                        sei_html += sei_arr[i] + " <a href='#' onclick='delSei(\""+ sei_arr[i] +";\")'><i class='text-danger far fa-trash-alt'></i></a> ";
+                    }
+                }
+                $('#txt_sei').html(sei_html);
+                $('#sei').val(sei);
+                //alert(sei);    
+            }
             function verificaClasse(classe) {
                 if (classe != "") {
                     $('#processo_vinculado').prop("disabled", false);
@@ -170,9 +182,10 @@ foreach ($listaCJ as $obj) {
                     $('#data_cumprimento_liminar').prop("disabled", true);
                 }
             }
-            function excluir(id, numero) {
+            function excluir(id, numero,cpf,beneficiario) {
+                var txt_excluir = " Processo número: " . numero . "<br/> CPF: " . cpf . "<br/> Beneficiário: " . beneficiario;
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
-                $('#excluir').text(numero);
+                $('#excluir').text(txt_excluir);
                 $('#confirm').modal({show: true});              
             }
             function alterar(id,numero,sei,autuacao,cpf,beneficiario,guia,valor_guia,valor_causa,deposito_judicial,
@@ -195,13 +208,15 @@ foreach ($listaCJ as $obj) {
                 $('#danos_morais').val(danos_morais);
                 $('#data_cumprimento_liminar').val(data_cumprimento_liminar);
                 $('#processo_vinculado').val(processo_vinculado);
-                $('#form_processo').collapse("show");
+                
+                carregarSei(sei);
                 carregaAssuntos(assunto);
                 carregaTiposLiminar(liminar);
                 carregaSituacoes(situacao_processual) ;
                 carregaInstancias(instancia);
                 carregaClassesJudiciais(classe_judicial);
-                $('#btn_cadastrar').hide();
+
+                $('#form_processo').collapse("show");
             }
 
             function selectByText(select, text) {
