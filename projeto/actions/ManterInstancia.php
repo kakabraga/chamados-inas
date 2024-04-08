@@ -1,7 +1,7 @@
 <?php
 
 require_once('Model.php');
-require_once('dto/Instancii.php');
+require_once('dto/Instancia.php');
 
 class ManterInstancia extends Model {
 

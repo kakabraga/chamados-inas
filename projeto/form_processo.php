@@ -9,6 +9,7 @@
     <!-- Card Content - Collapse -->
     <div class="card-body">
         <form id="form_cadastro" action="save_processo.php" method="post" onsubmit="return validarCPF()">
+            <input type="hidden" id="usuario" name="usuario" value="<?=$usuario_logado->id ?>"/>
             <input type="hidden" id="id" name="id"/>
             <div class="form-row">
                 <div class="form-group col-md-5">
