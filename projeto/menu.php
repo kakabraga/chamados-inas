@@ -34,6 +34,9 @@ foreach ($acessos as $acesso) {
                 break;
             case 5:
                 $icon_css = "fa fa-tasks";
+                break;
+            case 6:
+                $icon_css = "fa fa-balance-scale";
                 break;                                  
         }
 ?> 
