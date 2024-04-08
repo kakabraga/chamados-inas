@@ -87,10 +87,10 @@ class ManterProcesso extends Model {
     }
     function salvar(Processo $dados) {
         if($dados->classe_judicial==""){
-            $dados->classe_judicial = 0;
+            $dados->classe_judicial = null;;
         }
         if($dados->liminar==""){
-            $dados->liminar = 0;
+            $dados->liminar = null;
             $dados->data_cumprimento_liminar = 0;
         }
         $sql = "insert into processo (numero, sei, autuacao, cpf, beneficiario, guia, senha, valor_guia, valor_causa, deposito_judicial, reembolso,
@@ -99,14 +99,14 @@ class ManterProcesso extends Model {
         values ('" . $dados->numero . "','" . $dados->sei . "','" . $dados->autuacao . "','" . $dados->cpf . "','" . $dados->beneficiario . "',
         '" . $dados->guia . "','" . $dados->senha . "','" . $dados->valor_guia . "','" . $dados->valor_causa . "','" . $dados->deposito_judicial . "','" . $dados->reembolso . "',
         '" . $dados->custas . "','" . $dados->honorarios . "','" . $dados->multa . "','" . $dados->danos_morais . "','" . $dados->observacao . "','" . $dados->assunto . "',
-        '" . $dados->classe_judicial . "','" . $dados->situacao_processual . "','" . $dados->liminar . "','" . $dados->data_cumprimento_liminar . "','" . $dados->instancia . "','" . $dados->usuario . "',now(),'" . $dados->processo_vinculado . "')";
+        " . $dados->classe_judicial . ",'" . $dados->situacao_processual . "'," . $dados->liminar . ",'" . $dados->data_cumprimento_liminar . "','" . $dados->instancia . "','" . $dados->usuario . "',now(),'" . $dados->processo_vinculado . "')";
         if ($dados->id > 0) {
             $sql = "update processo set numero='" . $dados->numero . "', sei='" . $dados->sei . "', autuacao='" . $dados->autuacao . "',
             cpf='" . $dados->cpf . "', beneficiario='" . $dados->beneficiario . "', guia='" . $dados->guia . "', senha='" . $dados->senha . "', valor_guia='" . $dados->valor_guia . "', 
             valor_causa='" . $dados->valor_causa . "', deposito_judicial='" . $dados->deposito_judicial . "', reembolso='" . $dados->reembolso . "', 
             custas='" . $dados->custas . "', honorarios='" . $dados->honorarios . "', multa='" . $dados->multa . "', danos_morais='" . $dados->danos_morais . "', 
-            observacao='" . $dados->observacao . "', id_assunto='" . $dados->assunto . "', id_classe_judicial='" . $dados->classe_judicial . "', id_situacao_processual='" . $dados->situacao_processual . "', 
-            id_liminar='" . $dados->liminar . "', data_cumprimento_liminar='" . $dados->data_cumprimento_liminar . "', id_usuario='" . $dados->usuario . "', atualizacao=now(), processo_vinculado='" . $dados->processo_vinculado . "' where id=$dados->id";
+            observacao='" . $dados->observacao . "', id_assunto='" . $dados->assunto . "', id_classe_judicial=" . $dados->classe_judicial . ", id_situacao_processual='" . $dados->situacao_processual . "', 
+            id_liminar=" . $dados->liminar . ", data_cumprimento_liminar='" . $dados->data_cumprimento_liminar . "', id_usuario='" . $dados->usuario . "', atualizacao=now(), processo_vinculado='" . $dados->processo_vinculado . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         } else {
             $resultado = $this->db->Execute($sql);
