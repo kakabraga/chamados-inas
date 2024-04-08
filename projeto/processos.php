@@ -187,6 +187,8 @@ foreach ($listaCJ as $obj) {
                 sei_t = "";
                 sei = "";
                 sei_html = "";
+                $('#txt_sei').html(sei_html);
+                $('#sei').val(sei);
                 carregaAssuntos(0);
                 carregaTiposLiminar(0);
                 carregaSituacoes(0) ;
