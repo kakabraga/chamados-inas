@@ -185,7 +185,7 @@ foreach ($listaCJ as $obj) {
             function excluir(id, numero, cpf, beneficiario) {
                 var txt_excluir = " Processo número: " + numero + "<br/> CPF: " + cpf + "<br/> Beneficiário: " + beneficiario;
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
-                $('#excluir').text(txt_excluir);
+                $('#excluir').html(txt_excluir);
                 $('#confirm').modal({show: true});              
             }
             function alterar(id,numero,sei,autuacao,cpf,beneficiario,guia,valor_guia,valor_causa,deposito_judicial,
@@ -446,7 +446,7 @@ foreach ($listaCJ as $obj) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Deseja excluir <strong>"<span id="excluir"></span>"</strong>?</p>
+                        <p>Deseja excluir <strong><br/><span id="excluir"></span></strong>?</p>
                     </div>
                     <div class="modal-footer">
                         <a href="#" type="button" class="btn btn-danger" id="delete">Excluir</a>
