@@ -182,6 +182,20 @@ foreach ($listaCJ as $obj) {
                     $('#data_cumprimento_liminar').prop("disabled", true);
                 }
             }
+            function novo() {
+                $('#form_cadastro').reset();
+                sei_t = "";
+                sei = "";
+                sei_html = "";
+                carregaAssuntos(0);
+                carregaTiposLiminar(0);
+                carregaSituacoes(0) ;
+                carregaInstancias(0);
+                carregaClassesJudiciais(0);
+                $('#processo_vinculado').prop("disabled", true);                                                                                                            
+                $('#data_cumprimento_liminar').prop("disabled", true);  
+                            
+            }
             function excluir(id, numero, cpf, beneficiario) {
                 var txt_excluir = " Processo número: " + numero + "<br/> CPF: " + cpf + "<br/> Beneficiário: " + beneficiario;
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
@@ -206,7 +220,9 @@ foreach ($listaCJ as $obj) {
                 $('#honorarios').val(honorarios);
                 $('#multa').val(multa);
                 $('#danos_morais').val(danos_morais);
-                $('#data_cumprimento_liminar').val(data_cumprimento_liminar);
+                if(liminar != "" && liminar != "0"){
+                    $('#data_cumprimento_liminar').val(data_cumprimento_liminar);
+                }
                 $('#processo_vinculado').val(processo_vinculado);
                 
                 carregarSei(sei);
@@ -394,7 +410,7 @@ foreach ($listaCJ as $obj) {
                                     <span style="align:left;" class="h5 m-0 font-weight text-white">Processos</span>
                                 </div>
                                 <div class="col text-right" style="max-width:20%">
-                                    <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_processo" aria-expanded="false" aria-controls="form_processo">
+                                    <button id="btn_cadastrar" onclick="novo()" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_processo" aria-expanded="false" aria-controls="form_processo">
                                         <i class="fa fa-plus-circle text-white" aria-hidden="true"></i>
                                     </button>
                                 </div>
