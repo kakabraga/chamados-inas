@@ -27,7 +27,7 @@ $processo->honorarios               = isset($_POST['honorarios']) ? $_POST['hono
 $processo->danos_morais             = isset($_POST['danos_morais']) ? $_POST['danos_morais'] : 0;
 $processo->liminar                  = isset($_POST['liminar']) ? $_POST['liminar'] : '';
 $processo->data_cumprimento_liminar = isset($_POST['data_cumprimento_liminar']) ? strtotime($_POST['data_cumprimento_liminar']) : '';
-$processo->situacao                 = $_POST['situacao'];
+$processo->situacao_processual      = $_POST['situacao'];
 $processo->observacoes              = addslashes($_POST['observacoes']);
 $processo->usuario                  = $_POST['usuario'];
 
