@@ -175,15 +175,32 @@ foreach ($listaCJ as $obj) {
                 $('#excluir').text(numero);
                 $('#confirm').modal({show: true});              
             }
-            function alterar(id, numero) {
+            function alterar(id,numero,sei,autuacao,cpf,beneficiario,guia,valor_guia,valor_causa,deposito_judicial,
+                            reembolso,custas,honorarios,multa,danos_morais,assunto,situacao_processual,liminar,
+                            data_cumprimento_liminar,instancia,processo_vinculado,classe_judicial) {
                 $('#id').val(id);
                 $('#numero').val(numero);
+                $('#sei').val(sei);
+                $('#autuacao').val(autuacao);
+                $('#cpf').val(cpf);
+                $('#beneficiario').val(beneficiario);
+                $('#guia').val(guia);
+                $('#valor_guia').val(valor_guia);
+                $('#valor_causa').val(valor_causa);
+                $('#deposito_judicial').val(deposito_judicial);
+                $('#reembolso').val(reembolso);
+                $('#custas').val(custas);
+                $('#honorarios').val(honorarios);
+                $('#multa').val(multa);
+                $('#danos_morais').val(danos_morais);
+                $('#data_cumprimento_liminar').val(data_cumprimento_liminar);
+                $('#processo_vinculado').val(processo_vinculado);
                 $('#form_processo').collapse("show");
-                carregaAssuntos(0);
-                carregaTiposLiminar(0);
-                carregaSituacoes(0) ;
-                carregaInstancias(0);
-                carregaClassesJudiciais(0);
+                carregaAssuntos(assunto);
+                carregaTiposLiminar(liminar);
+                carregaSituacoes(situacao_processual) ;
+                carregaInstancias(instancia);
+                carregaClassesJudiciais(classe_judicial);
                 $('#btn_cadastrar').hide();
             }
 
