@@ -182,8 +182,8 @@ foreach ($listaCJ as $obj) {
                     $('#data_cumprimento_liminar').prop("disabled", true);
                 }
             }
-            function excluir(id, numero,cpf,beneficiario) {
-                var txt_excluir = " Processo número: " . numero . "<br/> CPF: " . cpf . "<br/> Beneficiário: " . beneficiario;
+            function excluir(id, numero, cpf, beneficiario) {
+                var txt_excluir = " Processo número: " + numero + "<br/> CPF: " + cpf + "<br/> Beneficiário: " + beneficiario;
                 $('#delete').attr('href', 'del_processo.php?id=' + id);
                 $('#excluir').text(txt_excluir);
                 $('#confirm').modal({show: true});              
@@ -410,7 +410,7 @@ foreach ($listaCJ as $obj) {
                                             <th scope="col">AUTUAÇÃO</th>
                                             <th scope="col">ASSUNTO</th>
                                             <th scope="col">VALOR CAUSA</th>
-                                            <th scope="col" style="width:30px;">Opções</th>
+                                            <th scope="col" class="text-nowrap">Opções</th>
                                         </tr>
                                     </thead>
                                     <tbody>
