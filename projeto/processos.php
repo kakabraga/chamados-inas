@@ -372,8 +372,12 @@ foreach ($listaCJ as $obj) {
                                 <table id="numeros" class="table-sm table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
                                             <th scope="col">Número</th>
+                                            <th scope="col">CPF</th>
+                                            <th scope="col">BENEFICIÁRIO</th>
+                                            <th scope="col">AUTUAÇÃO</th>
+                                            <th scope="col">ASSUNTO</th>
+                                            <th scope="col">VALOR CAUSA</th>
                                             <th scope="col" style="width:30px;">Opções</th>
                                         </tr>
                                     </thead>
