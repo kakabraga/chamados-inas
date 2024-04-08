@@ -89,10 +89,10 @@ class ManterProcesso extends Model {
     }
     function salvar(Processo $dados) {
         if($dados->classe_judicial==""){
-            $dados->classe_judicial = null;;
+            $dados->classe_judicial = "null";
         }
         if($dados->liminar==""){
-            $dados->liminar = null;
+            $dados->liminar = "null";
             $dados->data_cumprimento_liminar = 0;
         }
         $sql = "insert into processo (numero, sei, autuacao, cpf, beneficiario, guia, senha, valor_guia, valor_causa, deposito_judicial, reembolso,

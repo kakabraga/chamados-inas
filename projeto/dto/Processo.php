@@ -25,6 +25,7 @@
       public $instancia;
       public $processo_vinculado;
       public $classe_judicial;
+      public $observacao;
       
 
       //variaveis de manipulação
