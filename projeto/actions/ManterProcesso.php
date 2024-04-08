@@ -41,6 +41,7 @@ class ManterProcesso extends Model {
             $dados->processo_vinculado       = $registro["processo_vinculado"];
             $dados->situacao_processual      = $registro["id_situacao_processual"];
             $dados->liminar                  = $registro["id_liminar"];
+            $dados->instancia                = $registro["id_instancia"];
             $dados->data_cumprimento_liminar = $registro["data_cumprimento_liminar"];
             $dados->usuario                  = $registro["id_usuario"];
             $dados->atualizacao              = $registro["atualizacao"];
@@ -79,6 +80,7 @@ class ManterProcesso extends Model {
             $dados->processo_vinculado       = $registro["processo_vinculado"];
             $dados->situacao_processual      = $registro["id_situacao_processual"];
             $dados->liminar                  = $registro["id_liminar"];
+            $dados->instancia                = $registro["id_instancia"];
             $dados->data_cumprimento_liminar = $registro["data_cumprimento_liminar"];
             $dados->usuario                  = $registro["id_usuario"];
             $dados->atualizacao              = $registro["atualizacao"];
