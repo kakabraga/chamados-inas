@@ -13,11 +13,11 @@
             <input type="hidden" id="usuario" name="usuario" value="<?=$usuario_logado->id ?>"/>
             <div class="form-row">
                 <div class="col-md-5">
-                    <label for="visitante" class="col-sm-2 col-form-label">Visitante:</label>
+                    <label for="visitante" class="col-form-label">Visitante:</label>
                     <input type="text" name="visitante" class="form-control form-control-sm" id="visitante" placeholder="Visitante" required>
                 </div>
                 <div class="col-md-5">
-                    <label for="empresa" class="col-sm-2 col-form-label">Órgão/Empresa:</label>
+                    <label for="empresa" class="col-form-label">Órgão/Empresa:</label>
                     <input type="text" name="empresa" class="form-control form-control-sm" id="empresa" placeholder="Órgão/Empresa" required>
                 </div>
             </div>
@@ -33,16 +33,17 @@
             </div>
             <div class="form-row">
                 <div class="col-md-5">
-                    <label for="recebido_por" class="col-sm-2 col-form-label">Recebido por:</label>
+                    <label for="recebido_por" class="col-form-label">Recebido por:</label>
                     <input type="text" name="recebido_por" class="form-control form-control-sm" id="recebido_por" placeholder="Recebido por" required>
                 </div>
                 <div class="col-md-5">
-                    <label for="assunto" class="col-sm-2 col-form-label">Assunto:</label>
+                    <label for="assunto" class="col-form-label">Assunto:</label>
                     <input type="text" name="assunto" class="form-control form-control-sm" id="assunto" placeholder="Assunto" required>
                 </div>
             </div>
             <div class="form-row float-right mt-2">
-                <button type="reset" data-toggle="collapse" data-target="#form_recepcao" class="btn btn-danger btn-sm"><i class="fa fa-minus-square"></i> C>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" data-toggle="collapse" data-target="#form_recepcao" class="btn btn-danger btn-sm"><i class="fa fa-minus-square"></i> Cancelar</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Salvar</button>
                 &nbsp;&nbsp;&nbsp;
             </div>
