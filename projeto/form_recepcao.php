@@ -11,16 +11,20 @@
         <form id="form_cadastro" action="save_recepcao.php" method="post">
             <input type="hidden" id="id" name="id"/>
             <input type="hidden" id="usuario" name="usuario" value="<?=$usuario_logado->id ?>"/>
-            <div class="form-group row">
-                <label for="visitante" class="col-sm-2 col-form-label">Visitante:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="visitante" class="form-control form-control-sm" id="visitante" placeholder="Visitante" required>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="visitante" class="col-sm-2 col-form-label">Visitante:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="visitante" class="form-control form-control-sm" id="visitante" placeholder="Visitante" required>
+                    </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="empresa" class="col-sm-2 col-form-label">Órgão/Empresa:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="empresa" class="form-control form-control-sm" id="empresa" placeholder="Órgão/Empresa" required>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="empresa" class="col-sm-2 col-form-label">Órgão/Empresa:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="empresa" class="form-control form-control-sm" id="empresa" placeholder="Órgão/Empresa" required>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
@@ -38,16 +42,20 @@
                 </div>
             </div>
             </div>
-            <div class="form-group row">
-                <label for="recebido_por" class="col-sm-2 col-form-label">Recebido por:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="recebido_por" class="form-control form-control-sm" id="recebido_por" placeholder="Recebido por" required>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="recebido_por" class="col-sm-2 col-form-label">Recebido por:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="recebido_por" class="form-control form-control-sm" id="recebido_por" placeholder="Recebido por" required>
+                    </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="assunto" class="col-sm-2 col-form-label">Assunto:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="assunto" class="form-control form-control-sm" id="assunto" placeholder="Assunto" required>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="assunto" class="col-sm-2 col-form-label">Assunto:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="assunto" class="form-control form-control-sm" id="assunto" placeholder="Assunto" required>
+                    </div>
                 </div>
             </div>
             <div class="form-group row float-right">
