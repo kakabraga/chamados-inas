@@ -30,6 +30,27 @@ class ManterRecepcao extends Model {
         }
         return $array_dados;
     }
+    function listarRelatorio($filtro = "") {
+        $sql = "select r.id, r.visitante, r.empresa, r.horario, r.setor, r.recebido_por, r.assunto, r.id_usuario, r.cadastro, u.nome FROM recepcao as r, usuario as u WHERE u.id=r.id_usuario $filtro order by r.cadastro";
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Recepcao();
+            $dados->excluir         = true;
+            $dados->id              = $registro["id"];
+            $dados->visitante       = $registro["visitante"];
+            $dados->empresa         = $registro["empresa"];
+            $dados->horario         = $registro["horario"];
+            $dados->setor           = $registro["setor"];
+            $dados->recebido_por    = $registro["recebido_por"];
+            $dados->assunto         = $registro["assunto"];
+            $dados->usuario         = $registro["nome"];
+            $dados->cadastro        = $registro["cadastro"];
+            $array_dados[]          = $dados;
+        }
+        return $array_dados;
+    }
     function getRecepcaoPorId($id) {
         $sql = "select r.id, r.visitante, r.empresa, r.horario, r.setor, r.recebido_por, r.assunto, r.id_usuario, r.cadastro FROM recepcao as r WHERE id=$id";
         //echo $sql;

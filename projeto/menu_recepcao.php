@@ -20,7 +20,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="recepcoes.php">
-                    <i class="fa fa-laptop"></i>
+                    <i class="fa fa-address-card"></i>
                     <span>Gerenciar Visitas</span>
                 </a>
             </li>
