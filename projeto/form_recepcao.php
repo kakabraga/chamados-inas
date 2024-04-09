@@ -14,29 +14,29 @@
             <div class="form-group row">
                 <label for="visitante" class="col-sm-2 col-form-label">Visitante:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="visitante" class="form-control form-control-sm" id="visitante" placeholder="Assunto" required>
+                    <input type="text" name="visitante" class="form-control form-control-sm" id="visitante" placeholder="Visitante" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="empresa" class="col-sm-2 col-form-label">Órgão/Empresa:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="empresa" class="form-control form-control-sm" id="empresa" placeholder="Assunto" required>
+                    <input type="text" name="empresa" class="form-control form-control-sm" id="empresa" placeholder="Órgão/Empresa" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="setor" class="col-sm-2 col-form-label">Setor:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="setor" class="form-control form-control-sm" id="setor" placeholder="Assunto" required>
+                    <input type="text" name="setor" class="form-control form-control-sm" id="setor" placeholder="Setor" required>
                 </div>
                 <label for="horario" class="col-sm-2 col-form-label">Horário:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="horario" onkeypress="$(this).mask('00:00');" class="form-control form-control-sm" id="horario" placeholder="Assunto" required>
+                    <input type="text" name="horario" onkeypress="$(this).mask('00:00');" class="form-control form-control-sm" id="horario" placeholder="00:00" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="recebido_por" class="col-sm-2 col-form-label">Recebido por:</label>
                 <div class="col-sm-10">
-                    <input type="text" name="recebido_por" class="form-control form-control-sm" id="recebido_por" placeholder="Assunto" required>
+                    <input type="text" name="recebido_por" class="form-control form-control-sm" id="recebido_por" placeholder="Recebido por" required>
                 </div>
             </div>
             <div class="form-group row">
