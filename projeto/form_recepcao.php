@@ -23,15 +23,20 @@
                     <input type="text" name="empresa" class="form-control form-control-sm" id="empresa" placeholder="Órgão/Empresa" required>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="setor" class="col-sm-2 col-form-label">Setor:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="setor" class="form-control form-control-sm" id="setor" placeholder="Setor" required>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="setor" class="col-sm-2 col-form-label">Setor:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="setor" class="form-control form-control-sm" id="setor" placeholder="Setor" required>
+                    </div>
                 </div>
-                <label for="horario" class="col-sm-2 col-form-label">Horário:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="horario" onkeypress="$(this).mask('00:00');" class="form-control form-control-sm" id="horario" placeholder="00:00" required>
+                <div class="form-group col-md-4">
+                    <label for="horario" class="col-sm-2 col-form-label">Horário:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="horario" onkeypress="$(this).mask('00:00');" class="form-control form-control-sm" id="horario" placeholder="00:00" required>
+                    </div>
                 </div>
+            </div>
             </div>
             <div class="form-group row">
                 <label for="recebido_por" class="col-sm-2 col-form-label">Recebido por:</label>
