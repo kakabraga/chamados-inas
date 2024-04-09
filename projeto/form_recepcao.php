@@ -10,7 +10,7 @@
     <div class="card-body">
         <form id="form_cadastro" action="save_recepcao.php" method="post">
             <input type="hidden" id="id" name="id"/>
-            <input type="hidden" id="usuario" name="<?=$usuario_logado->id ?>"/>
+            <input type="hidden" id="usuario" name="usuario" value="<?=$usuario_logado->id ?>"/>
             <div class="form-group row">
                 <label for="visitante" class="col-sm-2 col-form-label">Visitante:</label>
                 <div class="col-sm-10">
