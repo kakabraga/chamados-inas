@@ -55,7 +55,7 @@ $n->tipo = 'tarefa';
 
 $listaParticipantes = $db_usuario->getUsuariosPorEquipe($equipe);
 foreach ($listaParticipantes as $obj) {
-    $n->usuario = $obj->id_usuario;
+    $n->usuario = $obj->id;
     $db_notificacao->salvar($n);
 }
 
