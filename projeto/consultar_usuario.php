@@ -102,7 +102,7 @@ and open the template in the editor.
                                     <tbody>
         <?php
 
-        $filtro = " AND (nome LIKE '%".$busca."%' OR matricula LIKE '%".$busca."%' OR sigla LIKE '%".$busca."%') ";
+        $filtro = " AND ativo=1 AND (nome LIKE '%".$busca."%' OR matricula LIKE '%".$busca."%' OR sigla LIKE '%".$busca."%') ";
         $lista = $manterUsuario->buscar($filtro);
         foreach ($lista as $obj) {
             $dir = './ft/';
