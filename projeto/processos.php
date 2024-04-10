@@ -226,6 +226,7 @@ foreach ($listaCJ as $obj) {
                 carregarSei(sei);
                 carregaAssuntos(assunto);
                 carregaTiposLiminar(liminar);
+                verificaLiminar(liminar);
                 carregaSituacoes(situacao_processual) ;
                 carregaInstancias(instancia);
                 carregaClassesJudiciais(classe_judicial);
@@ -260,6 +261,7 @@ foreach ($listaCJ as $obj) {
                     if (id_atual > 0) {
                         if (option.id == id_atual) {
                             selected = "selected";
+
                         } else {
                             selected = "";
                         }
