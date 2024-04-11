@@ -3,12 +3,14 @@
   <head>
     <meta charset='utf-8' />
     <script src='js/index.global.min.js'></script>
+    <script src='js/core/locales-all.global.min.js'></script>
     <script>
 
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          initialView: 'dayGridMonth',
+          locale: 'pt-br'
         });
         calendar.render();
       });
