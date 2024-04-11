@@ -43,7 +43,9 @@ and open the template in the editor.
          
 
             $(document).ready(function () {
-                $('#recepcoes').DataTable();
+                $('#recepcoes').DataTable( {
+                    order: [[1, 'desc']]
+                });
             });
             function excluir(id, visitante) {
                 $('#delete').attr('href', 'del_recepcao.php?id=' + id);
@@ -91,7 +93,7 @@ and open the template in the editor.
                                     <i class="fa fa-address-card fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Recepcaos</span>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Visitas</span>
                                 </div>
                                 <div class="col text-right" style="max-width:20%">
                                     <button id="btn_cadastrar" class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#form_recepcao" aria-expanded="false" aria-controls="form_recepcao">
@@ -108,6 +110,7 @@ and open the template in the editor.
                                             <th scope="col">VISITANTE</th>
                                             <th scope="col">EMPRESA</th>
                                             <th scope="col">SETOR</th>
+                                            <th scope="col">DATA</th>
                                             <th scope="col">HORÁRIO</th>
                                             <th scope="col" style="width:30px;">Opções</th>
                                         </tr>
