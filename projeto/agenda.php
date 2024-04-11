@@ -2,6 +2,8 @@
 <html lang='pt-br'>
   <head>
     <meta charset='utf-8' />
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet'>
+    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <script src='js/index.global.min.js'></script>
     <script src='js/core/locales-all.global.min.js'></script>
     <script>
@@ -15,10 +17,11 @@
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       locale: 'pt-br',
+      themeSystem: 'bootstrap',
       initialDate: '2023-01-12',
       navLinks: true, // can click day/week names to navigate views
-      selectable: true,
-      selectMirror: true,
+      selectable: false,
+      selectMirror: false,
       select: function(arg) {
         var title = prompt('Event Title:');
         if (title) {
@@ -38,62 +41,7 @@
       },
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2023-01-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2023-01-07',
-          end: '2023-01-10'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2023-01-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2023-01-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2023-01-11',
-          end: '2023-01-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-01-12T10:30:00',
-          end: '2023-01-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2023-01-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-01-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2023-01-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2023-01-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2023-01-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2023-01-28'
-        }
-      ]
+      events: 'get_reserva.php'
     });
 
     calendar.render();
