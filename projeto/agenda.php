@@ -19,7 +19,7 @@
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       locale: 'pt-br',
-      initialDate: '2023-01-12',
+      //initialDate: '2023-01-12',
       navLinks: true, // can click day/week names to navigate views
       selectable: false,
       selectMirror: false,
