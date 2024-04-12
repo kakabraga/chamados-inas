@@ -37,8 +37,7 @@
         calendar.unselect()
       },
       eventClick: function(info) {
-        const visualizar = new bootstrap.Modal(document.getElementById("visualizar"));
-        visualizar.show();
+        $('#atender').modal({show: true}); 
       },
       editable: false,
       dayMaxEvents: true, // allow "more" link when too many events
@@ -67,25 +66,41 @@
   </head>
   <body>
     <div id='calendar'></div>
-    <!-- Visualizar modal -->
-    <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="visualizarLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="visualizaLabel">Título do modal</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary">Salvar mudanças</button>
-          </div>
+        <!-- Modal reserva -->
+        <div class="modal fade" id="reserva" tabindex="-1" role="dialog" aria-labelledby="TituloAtendimento" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <form id="form_reserva" action="save_reserva.php" method="post">
+                <input type="hidden" name="id" id="atender_id"/>
+                <input type="hidden" name="atendente" value="<?=$usuario_logado->id ?>"/>
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloAtendimento">Reserva</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <span id="atender_usuario"></span><br/>
+                        <strong>"<span id="atender_descricao"></span>"</strong>
+                    </p>
+                    <div class="form-group row">
+                        <label for="categoria" class="col-sm-2 col-form-label">Categoria:</label>
+                        <div class="col-sm-10">
+                            <select id="categoria" name="categoria" class="form-control form-control-sm" required>
+                                <option value="">Selecione</option>    
+                            </select>
+                        </div>
+                        </div> 
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btn_atender">Atender</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
+                </div>
+                </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </div>
+
   </body>
 </html>
