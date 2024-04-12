@@ -4,7 +4,7 @@
     <meta charset='utf-8' />
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
-    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
     <script src='js/index.global.min.js'></script>
     <script src='js/core/locales-all.global.min.js'></script>
     <script src='js/core/bootstrap5/index.global.min.js'></script>
@@ -38,7 +38,8 @@
         calendar.unselect()
       },
       eventClick: function(info) {
-        $('#atender').modal({show: true}); 
+        const reserva = new bootstrap.Modal(document.getElementById("reserva"));
+        reserva.show();
       },
       editable: false,
       dayMaxEvents: true, // allow "more" link when too many events
@@ -72,7 +73,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
             <form id="form_reserva" action="save_reserva.php" method="post">
                 <input type="hidden" name="id" id="atender_id"/>
-                <input type="hidden" name="atendente" value="<?=$usuario_logado->id ?>"/>
+                <input type="hidden" name="atendente" value=""/>
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="TituloAtendimento">Reserva</h5>
