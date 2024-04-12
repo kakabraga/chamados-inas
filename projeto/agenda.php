@@ -7,6 +7,7 @@
     <script src='js/index.global.min.js'></script>
     <script src='js/core/locales-all.global.min.js'></script>
     <script src='js/core/bootstrap5/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -35,14 +36,14 @@
         }
         calendar.unselect()
       },
-      eventClick: function(arg) {
-        if (confirm('Are you sure you want to delete this event?')) {
-          arg.event.remove()
-        }
+      eventClick: function(info) {
+        const visualizar = new bootstrap.Modal(document.getElementById("visualizar"));
+        visualizar.show();
       },
       editable: false,
       dayMaxEvents: true, // allow "more" link when too many events
       events: 'get_reserva.php'
+
     });
 
     calendar.render();
@@ -66,5 +67,25 @@
   </head>
   <body>
     <div id='calendar'></div>
+    <!-- Visualizar modal -->
+    <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="visualizarLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="visualizaLabel">Título do modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Salvar mudanças</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
