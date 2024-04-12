@@ -18,6 +18,17 @@
             SISTEMAS
         </div>
         <?php
+        if ($usuario_logado->perfil <= 2) {
+            ?>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="perguntas.php">
+                    <i class="fa fa-cogs"></i>
+                    <span>Gerenciar Perguntas</span>
+                </a>
+            </li>
+        <?php
+        }
         if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 8) {
             ?>
             <!-- Nav Item - Pages Collapse Menu -->
