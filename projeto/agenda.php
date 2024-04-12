@@ -40,7 +40,7 @@
           arg.event.remove()
         }
       },
-      editable: true,
+      editable: false,
       dayMaxEvents: true, // allow "more" link when too many events
       events: 'get_reserva.php'
     });
