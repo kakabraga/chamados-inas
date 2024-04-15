@@ -32,11 +32,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
         <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
         <script src='js/index.global.min.js'></script>
         <script src='js/core/locales-all.global.min.js'></script>
         <script src='js/core/bootstrap5/index.global.min.js'></script>
@@ -131,7 +127,7 @@ and open the template in the editor.
                     <?php include './top_bar.php'; ?>
 
                     <div class="container-fluid">
-                    <div id='calendar'></div>
+                        <div id='calendar'></div>
                     </div>
                     <!-- End of Main Content -->
                 </div> 
