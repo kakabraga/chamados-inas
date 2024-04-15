@@ -42,6 +42,7 @@ and open the template in the editor.
         <script type="text/javascript" class="init">
          
 
+
             function excluir(id, visitante) {
                 $('#delete').attr('href', 'del_recepcao.php?id=' + id);
                 $('#excluir').text(visitante);
@@ -62,17 +63,9 @@ and open the template in the editor.
 
         </script>
         <style>
-     body {
-        margin: 40px 10px;
-        padding: 0;
-        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-        font-size: 14px;
-        }
-
-        #calendar {
-        max-width: 1100px;
-        margin: 0 auto;
-        }
+            body{
+                font-size: small;
+            }
         </style>
     </head>
 
