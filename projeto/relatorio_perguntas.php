@@ -114,6 +114,7 @@ and open the template in the editor.
         $perguntas = $mPergunta->listar(" WHERE status=1");
         $count = 0;
         foreach ($perguntas as $obj) {
+            $ediv = false;
             $nota1 = $mNota->listarRelatorio(" WHERE n.id_pergunta=" . $obj->id . $where . " AND n.nota = 1");
             $nota2 = $mNota->listarRelatorio(" WHERE n.id_pergunta=" . $obj->id . $where . " AND n.nota = 2");
             $nota3 = $mNota->listarRelatorio(" WHERE n.id_pergunta=" . $obj->id . $where . " AND n.nota = 3");
@@ -129,7 +130,9 @@ and open the template in the editor.
 
             if($count%2 == 0){
                 echo "<div class='row'>";
+                $ediv = true;
             }
+            $count++;
         ?>
 
         <!-- Project Card Example -->
@@ -174,9 +177,10 @@ and open the template in the editor.
             <!-- Content Row -->
 
             <?php
-            if($count%2 == 0){
+            if($ediv){
                 echo "</div>";
             }
+            
         }
             /*
             if (count($perguntas) > 0) {
