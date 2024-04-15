@@ -83,6 +83,10 @@ and open the template in the editor.
     <body id="page-top">
     <!-- Begin Page Content -->
     <div id="containerPergunta" class="container-fluid align-items-center" style="width:95%">
+    <div class="row text-center">
+     <h3>RELATÓRIO DAS AVALIAÇÃOES</h3>
+    </div>
+    <div class="row">
         <?php
         include_once('actions/ManterPergunta.php');
         include_once('actions/ManterNota.php');
@@ -128,18 +132,13 @@ and open the template in the editor.
             $pnota4 = round(($nota4*100)/$total , 2);
             $pnota5 = round(($nota5*100)/$total , 2);
 
-            if($count%2 == 0){
-                echo "<div class='row'>";
-                $ediv = true;
-            }
-            $count++;
         ?>
 
         <!-- Project Card Example -->
         <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary"><?=$obj->descricao ?></h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?=$obj->descricao . "(" . $total .")" ?></h6>
                 </div>
                 <div class="card-body">
                     <h4 class="small font-weight-bold">MUITO RUIM<span
@@ -174,13 +173,10 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+        </div>
             <!-- Content Row -->
 
             <?php
-            if($ediv){
-                echo "</div>";
-            }
-            
         }
             /*
             if (count($perguntas) > 0) {
@@ -221,6 +217,7 @@ and open the template in the editor.
             }
             */
             ?>
+            </div>
         </div>
     </div>
 </div>

@@ -33,7 +33,9 @@
                     <i class="fa fa-laptop"></i>
                     <span>Relatório das avaliações</span>
                 </a>
-            </li>            
+            </li>
+            <!-- Divider -->
+             <hr class="sidebar-divider">            
         <?php
         }
         if ($usuario_logado->perfil <= 2 || $usuario_logado->perfil == 8) {
