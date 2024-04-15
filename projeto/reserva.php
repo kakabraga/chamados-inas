@@ -42,11 +42,6 @@ and open the template in the editor.
         <script type="text/javascript" class="init">
          
 
-            $(document).ready(function () {
-                $('#recepcoes').DataTable( {
-                    order: [[0, 'desc']]
-                });
-            });
             function excluir(id, visitante) {
                 $('#delete').attr('href', 'del_recepcao.php?id=' + id);
                 $('#excluir').text(visitante);
@@ -67,9 +62,17 @@ and open the template in the editor.
 
         </script>
         <style>
-            body{
-                font-size: small;
-            }
+     body {
+        margin: 40px 10px;
+        padding: 0;
+        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 14px;
+        }
+
+        #calendar {
+        max-width: 1100px;
+        margin: 0 auto;
+        }
         </style>
     </head>
 
@@ -85,7 +88,7 @@ and open the template in the editor.
                     <?php include './top_bar.php'; ?>
 
                     <div class="container-fluid">
-                        xxxxx
+                        <div id='calendar'></div>
                     </div>
                     <!-- End of Main Content -->
                 </div> 
