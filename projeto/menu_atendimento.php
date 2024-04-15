@@ -29,7 +29,7 @@
             </li>
         <?php
         }
-        if ($usuario_logado->perfil == 1 || $usuario_logado->perfil == 8) {
+        if ($usuario_logado->perfil <= 2 || $usuario_logado->perfil == 8) {
             ?>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -64,7 +64,7 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <?php
-    if ($usuario_logado->perfil <= 1 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
+    if ($usuario_logado->perfil <= 2 || $usuario_logado->perfil == 8 || $usuario_logado->perfil == 9) {
         ?>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">

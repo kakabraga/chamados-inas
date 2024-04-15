@@ -10,8 +10,8 @@ class ManterPergunta extends Model {
         parent::__construct();
     }
 
-    function listar() {
-        $sql = "select p.id,p.descricao, status, (select count(*) from nota as n where n.id_pergunta=p.id) as dep FROM pergunta as p order by p.id";
+    function listar($filtro = "") {
+        $sql = "select p.id,p.descricao, status, (select count(*) from nota as n where n.id_pergunta=p.id) as dep FROM pergunta as p $filtro order by p.id";
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {

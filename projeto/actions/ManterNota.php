@@ -11,7 +11,7 @@ class ManterNota extends Model {
     }
 
     function listar($filtro) {
-        $sql = "select n.id,n.nota,n.hora_registro FROM nota as n $filtro order by n.id";
+        $sql = "select n.id,n.nota,n.hora_registro, n.id_pergunta FROM nota as n $filtro order by n.id";
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
@@ -23,14 +23,22 @@ class ManterNota extends Model {
         }
         return $array_dados;
     }
+    function listarRelatorio($filtro) {
+        $sql = "select count(*) as total FROM nota as n " . $filtro;
+        $resultado = $this->db->Execute($sql);
+        if ($registro = $resultado->fetchRow()) {
+            return $registro["total"];
+        }
+        return 0;
+    }
     function getNotaPorId($id) {
-        $sql = "select n.id,n.nota,n.hora_registro FROM nota as n WHERE id=$id";
+        $sql = "select n.id,n.nota,n.hora_registro, n.id_pergunta FROM nota as n WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Nota();
         while ($registro = $resultado->fetchRow()) {
-            $dados->id          = $registro["id"];
-            $dados->nota = $registro["nota"];
+            $dados->id            = $registro["id"];
+            $dados->nota          = $registro["nota"];
             $dados->hora_registro = $registro["hora_registro"];
         }
         return $dados;
