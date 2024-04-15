@@ -112,7 +112,7 @@ and open the template in the editor.
 
         $perguntas = array();
         $perguntas = $mPergunta->listar(" WHERE status=1");
-
+        $count = 0;
         foreach ($perguntas as $obj) {
             $nota1 = $mNota->listarRelatorio(" WHERE n.id_pergunta=" . $obj->id . $where . " AND n.nota = 1");
             $nota2 = $mNota->listarRelatorio(" WHERE n.id_pergunta=" . $obj->id . $where . " AND n.nota = 2");
@@ -126,9 +126,14 @@ and open the template in the editor.
             $pnota3 = round(($nota3*100)/$total , 2);
             $pnota4 = round(($nota4*100)/$total , 2);
             $pnota5 = round(($nota5*100)/$total , 2);
+
+            if($count%2 == 0){
+                echo "<div class='row'>";
+            }
         ?>
 
         <!-- Project Card Example -->
+        <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary"><?=$obj->descricao ?></h6>
@@ -169,6 +174,9 @@ and open the template in the editor.
             <!-- Content Row -->
 
             <?php
+            if($count%2 == 0){
+                echo "</div>";
+            }
         }
             /*
             if (count($perguntas) > 0) {
