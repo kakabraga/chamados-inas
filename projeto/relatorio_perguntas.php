@@ -81,7 +81,8 @@ and open the template in the editor.
     </head>
 
     <body id="page-top">
-
+    <!-- Begin Page Content -->
+    <div id="containerPergunta" class="container-fluid align-items-center" style="width:95%">
         <?php
         include_once('actions/ManterPergunta.php');
         include_once('actions/ManterNota.php');
@@ -120,14 +121,13 @@ and open the template in the editor.
             $nota5 = $mNota->listarRelatorio(" WHERE n.id_pergunta=" . $obj->id . $where . " AND n.nota = 5");
 
             $total = $nota1 + $nota2 + $nota3 + $nota4 + $nota5;
-            $pnota1 = ($nota1*100)/$total;
-            $pnota2 = ($nota2*100)/$total;
-            $pnota3 = ($nota3*100)/$total;
-            $pnota4 = ($nota4*100)/$total;
-            $pnota5 = ($nota5*100)/$total;
+            $pnota1 = round(($nota1*100)/$total , 2);
+            $pnota2 = round(($nota2*100)/$total , 2);
+            $pnota3 = round(($nota3*100)/$total , 2);
+            $pnota4 = round(($nota4*100)/$total , 2);
+            $pnota5 = round(($nota5*100)/$total , 2);
         ?>
-        <!-- Begin Page Content -->
-        <div id="containerPergunta" class="container-fluid align-items-center" style="width:95%">
+
         <!-- Project Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
