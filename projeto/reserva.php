@@ -17,7 +17,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Reserva x - INAS</title>
+        <title>Reserva - INAS</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,7 +40,45 @@ and open the template in the editor.
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
-         
+           document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+     themeSystem: 'bootstrap5',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      locale: 'pt-br',
+      //initialDate: '2023-01-12',
+      navLinks: true, // can click day/week names to navigate views
+      selectable: false,
+      selectMirror: false,
+      select: function(arg) {
+        var title = prompt('Event Title:');
+        if (title) {
+          calendar.addEvent({
+            title: title,
+            start: arg.start,
+            end: arg.end,
+            allDay: arg.allDay
+          })
+        }
+        calendar.unselect()
+      },
+      eventClick: function(info) {
+        const reserva = new bootstrap.Modal(document.getElementById("reserva"));
+        reserva.show();
+      },
+      editable: false,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: 'get_reserva.php'
+
+    });
+
+    calendar.render();
+  });
 
 
             function excluir(id, visitante) {
