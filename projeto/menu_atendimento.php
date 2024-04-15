@@ -27,6 +27,13 @@
                     <span>Gerenciar Perguntas</span>
                 </a>
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="gerar_relatorio_perguntas.php">
+                    <i class="fa fa-laptop"></i>
+                    <span>Relatório das avaliações</span>
+                </a>
+            </li>            
         <?php
         }
         if ($usuario_logado->perfil <= 2 || $usuario_logado->perfil == 8) {
