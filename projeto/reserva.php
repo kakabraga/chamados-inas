@@ -27,59 +27,25 @@ and open the template in the editor.
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon.ico" />
         <!------ Include the above in your HEAD tag ---------->
+
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
         <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
-        <script src='js/index.global.min.js'></script>
-        <script src='js/core/locales-all.global.min.js'></script>
-        <script src='js/core/bootstrap5/index.global.min.js'></script>
-
+        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script type="text/javascript" class="init">
          
-                document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                themeSystem: 'bootstrap4',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                locale: 'pt-br',
-                //initialDate: '2023-01-12',
-                navLinks: true, // can click day/week names to navigate views
-                selectable: false,
-                selectMirror: false,
-                select: function(arg) {
-                    var title = prompt('Event Title:');
-                    if (title) {
-                    calendar.addEvent({
-                        title: title,
-                        start: arg.start,
-                        end: arg.end,
-                        allDay: arg.allDay
-                    })
-                    }
-                    calendar.unselect()
-                },
-                eventClick: function(info) {
-                    const reserva = new bootstrap.Modal(document.getElementById("reserva"));
-                    reserva.show();
-                },
-                editable: false,
-                dayMaxEvents: true, // allow "more" link when too many events
-                events: 'get_reserva.php'
-
-                });
-
-                calendar.render();
-            });
 
             $(document).ready(function () {
+                $('#recepcoes').DataTable( {
+                    order: [[0, 'desc']]
+                });
             });
             function excluir(id, visitante) {
                 $('#delete').attr('href', 'del_recepcao.php?id=' + id);
@@ -101,17 +67,9 @@ and open the template in the editor.
 
         </script>
         <style>
-            body {
-        margin: 40px 10px;
-        padding: 0;
-        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-        font-size: small;
-        }
-
-        #calendar {
-        max-width: 1100px;
-        margin: 0 auto;
-        }
+            body{
+                font-size: small;
+            }
         </style>
     </head>
 
@@ -127,7 +85,7 @@ and open the template in the editor.
                     <?php include './top_bar.php'; ?>
 
                     <div class="container-fluid">
-                        <div id='calendar'></div>
+                        xxxxx
                     </div>
                     <!-- End of Main Content -->
                 </div> 
