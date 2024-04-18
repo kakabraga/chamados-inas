@@ -10,8 +10,8 @@ $a->id = isset($_POST['id']) ? $_POST['id'] : 0;
 $a->titulo = $_POST['titulo'];
 $a->descricao = $_POST['descricao'];
 $a->cor = $_POST['cor'];
-$a->inicio = $_POST['inicio'];
-$a->termino = $_POST['termino'];
+$a->inicio = date('Y/m/d H:i:s', strtotime($_POST['inicio']));
+$a->termino = date('Y/m/d H:i:s', strtotime($_POST['termino']));
 $a->usuario = $_POST['id_usuario'];
 
 $db_agenda->salvar($a);

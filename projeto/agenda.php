@@ -37,7 +37,7 @@ $events = $db_agenda->listar($filtro);
 	<body>
 
     	<!-- Menu Superior -->
-		<?php include ('menu/menuSuperior.php'); ?>
+		<?php include './top_bar.php'; ?>
    
 		<!-- Page Content -->
 		<div class="container">
