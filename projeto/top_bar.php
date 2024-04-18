@@ -95,34 +95,4 @@ $mSetor = new ManterSetor();
                         
                     </nav>
                     <!-- End of Topbar -->
-                    <script type="text/javascript" class="init">
-                        var total = 0;
-                        function atualizaNotificacoes() {
-                            $.get( "get_notificacao.php?id=<?=$usuario_logado->id ?>")
-                            .done(function(data) {
-                                //var resp = JSON.parse(data);
-                                //console.log(resp);
-                                $("#notifica").html(data);
-                            });
-
-                        }
-                        function verificaNotificacoes() {
-                            $.get( "get_total_notificacao.php?id=<?=$usuario_logado->id ?>")
-                            .done(function(data) {
-                                //var resp = JSON.parse(data);
-                                //console.log(resp);
-                                if(data != total){
-                                    total = data;
-                                    atualizaNotificacoes();
-                                    if(total != 0){
-                                        $("#total_not").html(total);
-                                    } else {
-                                        $("#total_not").html("");
-                                    }
-                                    
-                                }
-                            });
-
-                        }
-                        setInterval(verificaNotificacoes, 5000); 
-                    </script>
+                    
