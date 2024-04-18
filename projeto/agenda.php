@@ -189,7 +189,7 @@ $events = $db_agenda->listar($filtro);
                 } else {
                     $("#deletar").hide();
                 }
-				$('#ModalEdit').modal('show');
+				$('#ModalEvent').modal('show');
 			});
 		},
 		eventDrop: function(event, delta, revertFunc) { 
@@ -237,17 +237,12 @@ $events = $db_agenda->listar($filtro);
 						end = start;
 					}
 					
-					id_evento =  event.id;
-					
-					Event = [];
-					Event[0] = id_evento;
-					Event[1] = start;
-					Event[2] = end;
+					id =  event.id;
 					
 					$.ajax({
-					url: 'save_agenda.php',
+					url: 'save_agenda_data.php',
 					type: "POST",
-					data: {Event:Event},
+					data: {'id':id, 'inicio': start, 'termino': end},
 					success: function(rep) {
 							if(rep == 'OK'){
 								alert('Modificação Salva!');
