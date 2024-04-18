@@ -89,11 +89,11 @@ and open the template in the editor.
                     </div>
                 </div>
                     <!-- End of Links sistemas -->
-                    <div class="col-xl-3 col-md-2 mb-4" style="max-width: 480px;">
-                    <div class="row no-gutters align-items-center">
-                        <img src="publicidade/imagem1.jpg" width="100%"/>
+                    <div class="col-xl-3 col-md-2 mb-4" style="max-width: 410px;">
+                        <div class="row no-gutters align-items-center">
+                            <img src="publicidade/imagem0.jpg" width="100%" data-toggle="modal" data-target="#publicidade"/>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <!-- End of Main Content -->                
             </div>
@@ -106,7 +106,27 @@ and open the template in the editor.
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-
+        <!-- Modal -->
+        <div class="modal fade" style="max-width: 650px;" id="publicidade" tabindex="-1" role="dialog" aria-labelledby="TituloPublicidade" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloPublicidade">Notícias</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-xl-3 col-md-2 mb-4" style="max-width: 650px;">
+                        <div class="row no-gutters align-items-center">
+                            <img src="publicidade/imagem1.jpg" width="100%"/>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim Modal -->
     </body>
 
 </html>
