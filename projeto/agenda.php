@@ -31,7 +31,9 @@ $events = $db_agenda->listar($filtro);
         <!------ Include the above in your HEAD tag ---------->
 
     	<!-- Bootstrap Core CSS -->
-    	<link href="agenda/css/bootstrap.min.css" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 	
 		<!-- FullCalendar -->
 		<link href='agenda/css/fullcalendar.css' rel='stylesheet' />
