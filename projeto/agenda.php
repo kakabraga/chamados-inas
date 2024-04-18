@@ -66,7 +66,128 @@ $events = $db_agenda->listar($filtro);
 			</div>
                 <!-- End of Main Content -->                
             </div>
+            <!-- End of Content Wrapper -->
+                    <!-- Footer -->
+					<footer class="sticky-footer bg-white">
+						<div class="container my-auto">
+							<div class="copyright text-center my-auto">
+								<span>Copyright &copy; INAS-DF 2023</span>
+							</div>
+						</div>
+					</footer>
+					<!-- End of Footer -->
+							
+					<!-- Logout Modal-->
+					<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Pronto pra sair?</h5>
+									<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+								</div>
+								<div class="modal-body">Clique em Sair para fechar sua sessão.</div>
+								<div class="modal-footer">
+									<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+									<a class="btn btn-primary" href="login.html">Sair</a>
+								</div>
+							</div>
+						</div>
+					</div>
+        </div>
+        <!-- End of Page Wrapper -->
 
+			<!-- Valida data dos Modals -->
+			<script type="text/javascript">
+				function validaForm(erro) {
+					if(erro.inicio.value>erro.termino.value){
+						alert('Data de Inicio deve ser menor ou igual a de termino.');
+						return false;
+					}else if(erro.inicio.value==erro.termino.value){
+						alert('Defina um horario de inicio e termino.(24h)');
+						return false;
+					}
+				}
+			</script>
+
+
+			<!-- Modal Adicionar Evento -->
+			<div class="modal fade" id="ModalEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <form class="form-horizontal" method="POST" action="save_agenda.php" onsubmit="return validaForm(this);">
+                    <input type="hidden" name="id" id="id_evento">
+                    <input type="hidden" name="id_usuario" value="<?=$usuario_logado->id ?>" id="id_usuario">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Editar Evento</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="form-group">
+                            <label for="titulo" class="col-sm-2 control-label">Título</label>
+                            <div class="col-sm-10">
+                            <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Titulo" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao" class="col-sm-2 control-label">Descrição</label>
+                            <div class="col-sm-10">
+                            <textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cor" class="col-sm-2 control-label">Cor</label>
+                            <div class="col-sm-10">
+                            <select name="cor" class="form-control" id="cor">
+                            <option value="">Escolher</option>
+                                <option style="color:#0071c5" value="#0071c5">&#9724; Azul Escuro</option>
+                                <option style="color:#40E0D0" value="#40E0D0">&#9724; Turquesa</option>
+                                <option style="color:#008000" value="#008000">&#9724; Verde</option>						  
+                                <option style="color:#FFD700" value="#FFD700">&#9724; Amarelo</option>
+                                <option style="color:#FF8C00" value="#FF8C00">&#9724; Laranja</option>
+                                <option style="color:#FF0000" value="#FF0000">&#9724; Vermelho</option>
+                                <option style="color:#000" value="#000">&#9724; Preto</option>
+                                
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inicio" class="col-sm-2 control-label">Início</label>
+                            <div class="col-sm-10">
+                            <input type="text" name="inicio" class="form-control" id="inicio" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="termino" class="col-sm-2 control-label">Término</label>
+                            <div class="col-sm-10">
+                            <input type="text" name="termino" class="form-control" id="termino" required>
+                            </div>
+                        </div>
+                        <!-- Deletar Evento -->
+                        <div class="form-group" id="deletar"> 
+                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label class="text-danger"><input type="checkbox"  name="delete"> Deletar Evento</label>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+		</div>
 
 		<!-- jQuery Version 1.11.1 -->
 		<script src="agenda/js/jquery.js"></script>
@@ -78,6 +199,8 @@ $events = $db_agenda->listar($filtro);
 		<script src='agenda/js/moment.min.js'></script>
 		<script src='agenda/js/fullcalendar.min.js'></script>
 		<script src='agenda/locale/pt-br.js'></script>
+		<!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 		<script>
 	function modalShow() {
 		$('#modalShow').modal('show');
@@ -183,101 +306,7 @@ $events = $db_agenda->listar($filtro);
 
 </script>
 
-            <!-- End of Content Wrapper -->
-            <?php include './rodape.php'; ?>
-        </div>
-        <!-- End of Page Wrapper -->
-
-			<!-- Valida data dos Modals -->
-			<script type="text/javascript">
-				function validaForm(erro) {
-					if(erro.inicio.value>erro.termino.value){
-						alert('Data de Inicio deve ser menor ou igual a de termino.');
-						return false;
-					}else if(erro.inicio.value==erro.termino.value){
-						alert('Defina um horario de inicio e termino.(24h)');
-						return false;
-					}
-				}
-			</script>
-
-
-			<!-- Modal Adicionar Evento -->
-			<div class="modal fade" id="ModalEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <form class="form-horizontal" method="POST" action="save_agenda.php" onsubmit="return validaForm(this);">
-                    <input type="hidden" name="id" id="id_evento">
-                    <input type="hidden" name="id_usuario" value="<?=$usuario_logado->id ?>" id="id_usuario">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Editar Evento</h4>
-                    </div>
-                    <div class="modal-body">
-                        
-                        <div class="form-group">
-                            <label for="titulo" class="col-sm-2 control-label">Título</label>
-                            <div class="col-sm-10">
-                            <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Titulo" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="descricao" class="col-sm-2 control-label">Descrição</label>
-                            <div class="col-sm-10">
-                            <textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição"></textarea>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="cor" class="col-sm-2 control-label">Cor</label>
-                            <div class="col-sm-10">
-                            <select name="cor" class="form-control" id="cor">
-                            <option value="">Escolher</option>
-                                <option style="color:#0071c5" value="#0071c5">&#9724; Azul Escuro</option>
-                                <option style="color:#40E0D0" value="#40E0D0">&#9724; Turquesa</option>
-                                <option style="color:#008000" value="#008000">&#9724; Verde</option>						  
-                                <option style="color:#FFD700" value="#FFD700">&#9724; Amarelo</option>
-                                <option style="color:#FF8C00" value="#FF8C00">&#9724; Laranja</option>
-                                <option style="color:#FF0000" value="#FF0000">&#9724; Vermelho</option>
-                                <option style="color:#000" value="#000">&#9724; Preto</option>
-                                
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inicio" class="col-sm-2 control-label">Início</label>
-                            <div class="col-sm-10">
-                            <input type="text" name="inicio" class="form-control" id="inicio" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="termino" class="col-sm-2 control-label">Término</label>
-                            <div class="col-sm-10">
-                            <input type="text" name="termino" class="form-control" id="termino" required>
-                            </div>
-                        </div>
-                        <!-- Deletar Evento -->
-                        <div class="form-group" id="deletar"> 
-                            <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label class="text-danger"><input type="checkbox"  name="delete"> Deletar Evento</label>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-
-		</div>		
+		
 
 	</body>
 
