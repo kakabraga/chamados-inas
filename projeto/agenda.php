@@ -202,29 +202,30 @@ $events = $db_agenda->listar($filtro);
 
 		events: [
 					<?php 
-                    foreach($events as $event): 
-						$start = explode(" ", $event['inicio']);
-						$end = explode(" ", $event['termino']);
+                    foreach($events as $event){ 
+						$start = explode(" ", $event->inicio);
+						$end = explode(" ", $event->termino);
 						if($start[1] == '00:00:00'){
 							$start = $start[0];
 						}else{
-							$start = $event['inicio'];
+							$start = $event->inicio;
 						}
 						if($end[1] == '00:00:00'){
 							$end = $end[0];
 						}else{
-							$end = $event['termino'];
+							$end = $event->termino;
 						}
-					?>
-					{
-						id: '<?php echo $event['id']; ?>',
-						title: '<?php echo $event['titulo']; ?>',
-						description: '<?php echo $event['descricao']; ?>',
-						start: '<?php echo $start; ?>',
-						end: '<?php echo $end; ?>',
-						color: '<?php echo $event['cor']; ?>',
-					},
-					<?php endforeach; ?>
+						?>
+						{
+							id: '<?=$event->id ?>',
+							title: '<?=$event->titulo ?>',
+							description: '<?=$event->descricao ?>',
+							start: '<?=$start ?>',
+							end: '<?=$end ?>',
+							color: '<?=$event->cor ?>',
+						},
+						<?php 
+		 			} ?>
 				]
 			});
 				
