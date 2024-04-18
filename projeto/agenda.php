@@ -34,10 +34,16 @@ $events = $db_agenda->listar($filtro);
 
 	</head>
 
-	<body>
+    <body id="page-top">
 
-    	<!-- Menu Superior -->
-		<?php include './top_bar.php'; ?>
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+        <?php include './menu.php'; ?>
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+                <div id="content">
+                    <?php include './top_bar.php'; ?>
    
 		<!-- Page Content -->
 		<div class="container">
@@ -49,7 +55,14 @@ $events = $db_agenda->listar($filtro);
 				</div>
 			</div>
 			<!-- /.row -->
-
+			</div>
+                <!-- End of Main Content -->                
+            </div>
+            <!-- End of Content Wrapper -->
+            <?php include './rodape.php'; ?>
+        </div>
+        <!-- End of Page Wrapper -->
+		
 			<!-- Valida data dos Modals -->
 			<script type="text/javascript">
 				function validaForm(erro) {
