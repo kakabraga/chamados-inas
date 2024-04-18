@@ -3,12 +3,12 @@
 require_once('./actions/ManterAgenda.php');
 require_once('./dto/Agenda.php');
 
-if (isset($_POST['Event'][0]) && isset($_POST['Event'][1]) && isset($_POST['Event'][2])){
+if (isset($_REQUEST['id']) && isset($_REQUEST['inicio']) && isset($_REQUEST['termino'])){
 		
 		
-    $id_evento = $_POST['Event'][0];
-    $inicio = $_POST['Event'][1];
-    $termino = $_POST['Event'][2];
+    $id = $_REQUEST['id'];
+    $inicio = $_REQUEST['inicio'];
+    $termino = $_REQUEST['termino'];
 
     $db_agenda = new ManterAgenda();
     $a = new Agenda();
@@ -19,9 +19,9 @@ if (isset($_POST['Event'][0]) && isset($_POST['Event'][1]) && isset($_POST['Even
 
     $sth = $db_agenda->salvarData($a);
     if ($sth == false) {
-        die ('Erro ao executar');
+        echo 'Erro ao executar';
     }else{
-        die ('OK');
+        echo 'OK';
     }
 
 }
