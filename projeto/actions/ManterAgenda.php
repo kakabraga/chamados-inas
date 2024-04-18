@@ -57,6 +57,11 @@ class ManterAgenda extends Model {
         }
         return $resultado;
     }
+    function salvarData(Agenda $dados) {
+        $sql = "UPDATE agenda SET  inicio = '$dados->inicio', termino = '$dados->termino' WHERE id = " . $dados->id;
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
 
     function excluir($id) {
         $sql = "delete from agenda where id=" . $id;
