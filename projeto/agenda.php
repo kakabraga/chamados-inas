@@ -4,8 +4,10 @@ $mod = 6;
 require_once('./verifica_login.php');
 require_once('./actions/ManterAgenda.php');
 
+$id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : $usuario_logado->id;
+
 $db_agenda = new ManterAgenda();
-$filtro = " WHERE a.id_usuario=" . $usuario_logado->id;
+$filtro = " WHERE a.id_usuario=" . $id;
 $events = $db_agenda->listar($filtro);
 ?>
 
@@ -32,8 +34,8 @@ $events = $db_agenda->listar($filtro);
 
     	<!-- Bootstrap Core CSS -->
     	<!--link href="agenda/css/bootstrap.min.css" rel="stylesheet" -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94W">
-	
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 		<!-- FullCalendar -->
 		<link href='agenda/css/fullcalendar.css' rel='stylesheet' />
 		<link href='agenda/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
@@ -197,8 +199,8 @@ $events = $db_agenda->listar($filtro);
 
 		<!-- Bootstrap Core JavaScript -->
 		<!--script src="agenda/js/bootstrap.min.js"></script-->
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJN">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmW">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 		
 		<!-- FullCalendar -->
