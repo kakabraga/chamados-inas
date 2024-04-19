@@ -31,7 +31,8 @@ $events = $db_agenda->listar($filtro);
         <!------ Include the above in your HEAD tag ---------->
 
     	<!-- Bootstrap Core CSS -->
-    	<link href="agenda/css/bootstrap.min.css" rel="stylesheet">
+    	<!--link href="agenda/css/bootstrap.min.css" rel="stylesheet" -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94W">
 	
 		<!-- FullCalendar -->
 		<link href='agenda/css/fullcalendar.css' rel='stylesheet' />
@@ -112,20 +113,20 @@ $events = $db_agenda->listar($filtro);
 			</script>
 
 
-			<!-- Modal Adicionar Evento -->
-			<div class="modal fade" id="ModalEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <form class="form-horizontal" method="POST" action="save_agenda.php" onsubmit="return validaForm(this);">
+			<!-- Modal Editar Evento -->
+			<div class="modal fade" id="ModalEvent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<form method="POST" action="save_agenda.php" onsubmit="return validaForm(this);">
                     <input type="hidden" name="id" id="id_evento">
                     <input type="hidden" name="id_usuario" value="<?=$usuario_logado->id ?>" id="id_usuario">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Editar Evento</h4>
-                    </div>
-                    <div class="modal-body">
-                        
-                        <div class="form-group">
+
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Editar Evento</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+					<div class="form-group">
                             <label for="titulo" class="col-sm-2 control-label">Título</label>
                             <div class="col-sm-10">
                             <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Titulo" required>
@@ -176,16 +177,18 @@ $events = $db_agenda->listar($filtro);
                             </div>
                             </div>
                         </div>
-                    </div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
+					</form>
+				</div>
+			</div>
+			</div>
+
+
 
 		</div>
 
@@ -193,7 +196,10 @@ $events = $db_agenda->listar($filtro);
 		<script src="agenda/js/jquery.js"></script>
 
 		<!-- Bootstrap Core JavaScript -->
-		<script src="agenda/js/bootstrap.min.js"></script>
+		<!--script src="agenda/js/bootstrap.min.js"></script-->
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJN">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmW">
+
 		
 		<!-- FullCalendar -->
 		<script src='agenda/js/moment.min.js'></script>
