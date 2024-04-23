@@ -9,6 +9,8 @@ $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : $usuario_logado->id;
 $db_agenda = new ManterAgenda();
 $filtro = " WHERE a.id_usuario=" . $id;
 $events = $db_agenda->listar($filtro);
+
+$usuario_agenda = $db_usuario->getUsuarioPorId($id);
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +62,7 @@ $events = $db_agenda->listar($filtro);
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
+					<div class="h5">Agenda de <?=$usuario_agenda->nome ?></div>
 					<p class="lead"></p>
 					<div id="calendar" class="col-centered">
 					</div>
@@ -142,18 +145,13 @@ $events = $db_agenda->listar($filtro);
                         </div>
                         
                         <div class="form-group">
-                            <label for="cor" class="col-sm-2 control-label">Cor</label>
+                            <label for="cor" class="col-sm-2 control-label">Prioridade</label>
                             <div class="col-sm-10">
                             <select name="cor" class="form-control" id="cor">
-                            <option value="">Escolher</option>
-                                <option style="color:#0071c5" value="#0071c5">&#9724; Azul Escuro</option>
-                                <option style="color:#40E0D0" value="#40E0D0">&#9724; Turquesa</option>
-                                <option style="color:#008000" value="#008000">&#9724; Verde</option>						  
-                                <option style="color:#FFD700" value="#FFD700">&#9724; Amarelo</option>
-                                <option style="color:#FF8C00" value="#FF8C00">&#9724; Laranja</option>
-                                <option style="color:#FF0000" value="#FF0000">&#9724; Vermelho</option>
-                                <option style="color:#000" value="#000">&#9724; Preto</option>
-                                
+                           		<option value="">Escolher</option>
+								<option value="#0DEB83" style="background-color:#0DEB83;font-weight: bold;"><b>Baixa</b></option>                                                           
+								<option value="#EEE760" style="background-color:#EEE760;font-weight: bold;"><b>Média</b></option>                               
+								<option value="#FF6347" style="background-color:#FF6347;font-weight: bold;"><b>Alta</b></option>
                                 </select>
                             </div>
                         </div>
@@ -217,18 +215,13 @@ $events = $db_agenda->listar($filtro);
                         </div>
                         
                         <div class="form-group">
-                            <label for="cor" class="col-sm-2 control-label">Cor</label>
+                            <label for="cor" class="col-sm-2 control-label">Prioridade</label>
                             <div class="col-sm-10">
                             <select name="cor" class="form-control" id="cor">
-                            <option value="">Escolher</option>
-                                <option style="color:#0071c5" value="#0071c5">&#9724; Azul Escuro</option>
-                                <option style="color:#40E0D0" value="#40E0D0">&#9724; Turquesa</option>
-                                <option style="color:#008000" value="#008000">&#9724; Verde</option>						  
-                                <option style="color:#FFD700" value="#FFD700">&#9724; Amarelo</option>
-                                <option style="color:#FF8C00" value="#FF8C00">&#9724; Laranja</option>
-                                <option style="color:#FF0000" value="#FF0000">&#9724; Vermelho</option>
-                                <option style="color:#000" value="#000">&#9724; Preto</option>
-                                
+                            	<option value="">Escolher</option>
+								<option value="#0DEB83" style="background-color:#0DEB83;font-weight: bold;"><b>Baixa</b></option>                                                           
+								<option value="#EEE760" style="background-color:#EEE760;font-weight: bold;"><b>Média</b></option>                               
+								<option value="#FF6347" style="background-color:#FF6347;font-weight: bold;"><b>Alta</b></option>
                                 </select>
                             </div>
                         </div>
