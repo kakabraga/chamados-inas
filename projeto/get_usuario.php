@@ -17,9 +17,9 @@
             echo "  <td>".$manterSetor->getSetorPorId($obj->setor)->sigla."</td>";
             echo "  <td>".($obj->ativo > 0 ? 'Sim':'Não')."</td>";
 
-            $btn_agenda = '&nbsp;&nbsp;<a href="save_usuario_agenda.php?id='.$obj->id.'&agenda=1" title="Habilitar agenda!" class="btn btn-warning btn-sm" type="button"><i class="fa fa-calendar-times-o"></i></a>';
+            $btn_agenda = '&nbsp;&nbsp;<a href="save_usuario_agenda.php?id='.$obj->id.'&agenda=1" title="Habilitar agenda!" class="btn btn-info btn-sm" type="button"><i class="fa fa-calendar-plus"></i></a>';
             if($obj->agenda > 0){
-                $btn_agenda = '&nbsp;&nbsp;<a href="save_usuario_agenda.php?id='.$obj->id.'&agenda=0" title="Desabilitar agenda!" class="btn btn-warning btn-sm" type="button"><i class="fa fa-calendar-times-o"></i></a>';
+                $btn_agenda = '&nbsp;&nbsp;<a href="save_usuario_agenda.php?id='.$obj->id.'&agenda=0" title="Desabilitar agenda!" class="btn btn-info btn-sm" type="button"><i class="fa fa-calendar-times"></i></a>';
             }
 
             if($usuario_logado->perfil <= 2 || $usuario_logado->id == $obj->id){
