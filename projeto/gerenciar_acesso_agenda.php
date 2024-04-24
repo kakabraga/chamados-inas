@@ -160,7 +160,7 @@ and open the template in the editor.
                                     <i class="fas fa-users fa-2x text-white"></i> 
                                 </div>
                                 <div class="col mb-0">
-                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Membros da equipe</span>
+                                    <span style="align:left;" class="h5 m-0 font-weight text-white">Visitantes</span>
                                 </div>
                             </div>                            
 
@@ -170,6 +170,7 @@ and open the template in the editor.
                                         <tr>
                                             <th scope="col">MATRÍCULA</th>
                                             <th scope="col">NOME</th>
+                                            <th scope="col">EDITOR</th>
                                             <th scope="col">REMOVER</th> 
                                         </tr>
                                     </thead>
