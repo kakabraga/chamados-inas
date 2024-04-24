@@ -14,7 +14,7 @@ class ManterUsuario extends Model {
     }
 
     function listar($filtro = "") {
-        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.ativo,u.id_setor,(select count(*) from tarefa as t where t.id_criador=u.id OR t.id_responsavel=u.id) as dep FROM usuario as u ".$filtro." order by u.nome";
+        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.ativo,u.agenda,u.id_setor,(select count(*) from tarefa as t where t.id_criador=u.id OR t.id_responsavel=u.id) as dep FROM usuario as u ".$filtro." order by u.nome";
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
@@ -33,6 +33,7 @@ class ManterUsuario extends Model {
             $dados->whatsapp = $registro["whatsapp"];
             $dados->linkedin = $registro["linkedin"];
             $dados->ativo = $registro["ativo"];
+            $dados->agenda = $registro["agenda"];
             $dados->setor = $registro["id_setor"];
             $array_dados[] = $dados;
         }
@@ -40,7 +41,7 @@ class ManterUsuario extends Model {
     }
 
     function getUsuarioPorId($id) {
-        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.ativo,u.id_setor FROM usuario as u WHERE id=$id";
+        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.agenda,,u.ativou.id_setor FROM usuario as u WHERE id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Usuario();
@@ -55,12 +56,13 @@ class ManterUsuario extends Model {
             $dados->whatsapp = $registro["whatsapp"];
             $dados->linkedin = $registro["linkedin"];
             $dados->ativo = $registro["ativo"];
+            $dados->agenda = $registro["agenda"];
             $dados->setor = $registro["id_setor"];
         }
         return $dados;
     }
     function getUsuarioPorLogin($login) {
-        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.ativo,u.id_setor FROM usuario as u WHERE login='$login'";
+        $sql = "select u.id,u.nome,u.login,u.matricula,u.cargo,u.email,u.nascimento, u.whatsapp, u.linkedin,u.agenda,u.ativo,u.id_setor FROM usuario as u WHERE login='$login'";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Usuario();
@@ -75,6 +77,7 @@ class ManterUsuario extends Model {
             $dados->whatsapp = $registro["whatsapp"];
             $dados->linkedin = $registro["linkedin"];
             $dados->ativo = $registro["ativo"];
+            $dados->agenda = $registro["agenda"];
             $dados->setor = $registro["id_setor"];
         }
         return $dados;
@@ -364,5 +367,15 @@ class ManterUsuario extends Model {
             $array_dados[] = $dados;
         }
         return $array_dados;
+    }
+    function permitirAgenda($id){
+        $sql = "UPDATE usuario SET agenda=1 WHERE id=" . $id;
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+    function removerAgenda($id){
+        $sql = "UPDATE usuario SET agenda=0 WHERE id=" . $id;
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
     }
 }

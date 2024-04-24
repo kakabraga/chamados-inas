@@ -39,8 +39,14 @@ foreach ($acessos as $acesso) {
                 $icon_css = "fa fa-balance-scale";
                 break; 
             case 7:
-                $icon_css = "fa fa-id-card";
-                break;                                  
+                $icon_css = "fa fa-id-badge";
+                break; 
+            case 8:
+                $icon_css = "fa fa-calendar";
+                break;                 
+            case 9:
+                $icon_css = "fa fa-calendar-plus-o";
+                break;                  
         }
 ?> 
             <!-- Nav Item - Pages Collapse Menu -->

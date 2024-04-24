@@ -1,6 +1,6 @@
 <?php
-//Gerente
-$mod = 3;
+//Administração
+$mod = 8;
 require_once('./verifica_login.php');
 ?> 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Usuários - Gerenciador de equipes</title>
+        <title>Agenda - Gerenciador de visitantes a agenda</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,8 +40,8 @@ and open the template in the editor.
         <script type="text/javascript" class="init">
             $(document).ready(function () {
             });
-            function excluir(id_usuario, nome, id_equipe) {
-                $('#delete').attr('href', 'save_participante_equipe.php?op=2&id_usuario=' + id_usuario +"&id_equipe="+id_equipe);
+            function excluir(id_usuario, nome, editor, id_visitante) {
+                $('#delete').attr('href', 'save_visitante_agenda.php?op=2&id_usuario=' + id_usuario +"&editor="+editor+"&id_visitante="+id_visitante);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
             }
@@ -57,24 +57,24 @@ and open the template in the editor.
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include './menu_gerente.php'; ?>
+            <?php include './menu_agenda.php'; ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
                 <div id="content">
                     <?php include './top_bar.php'; ?>
                     <?php
-                    include_once('actions/ManterEquipe.php');
+                    include_once('actions/ManterAgenda.php');
                     include_once('actions/ManterUsuario.php');
 
-                    $manterEquipe = new ManterEquipe();
+                    $manterAgenda = new ManterAgenda();
                     $manterUsuario = new ManterUsuario();
 
                     if (isset($_REQUEST['id'])) {
-                        $id_equipe = $_REQUEST['id'];                        
-                        $equipe    = $manterEquipe->getEquipePorId($id_equipe);
-                        $equipe->participantes = $manterEquipe->getParticimantesPorId($id_equipe);
-                        $listaNaoParticipantes = $manterEquipe->getNaoParticimantesPorId($id_equipe);
+                        $id_usuario = $_REQUEST['id'];                        
+                        $usuario    = $manterUsuario->getUsuarioPorId($id_usuario);
+                        $listaVisitantes = $manterAgenda->getVisitantesPorId($id_usuario);
+                        $listaNaoVisitantes = $manterAgenda->getNaoVisitantesPorId($id_usuario);
                         $editar = false;
                         
                         //if ($chamado->status == 1 || $chamado->status == 4) {
@@ -87,7 +87,7 @@ and open the template in the editor.
                                 <div class="card-body bg-gradient-primary" style="min-height: 5.0rem;">
                                     <div class="row">
                                         <div class="col c2 ml-2">
-                                            <div class="h5 mb-0 text-white font-weight-bold">Gerenciamento de equipe</div>
+                                            <div class="h5 mb-0 text-white font-weight-bold">Gerenciamento de visitantes</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa fa fa-users fa-3x text-white"></i>
@@ -98,25 +98,21 @@ and open the template in the editor.
                                     <div class="row">
                                         <div class="c1 ml-4">
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">ID:</div>
-                                            <div class="mb-0"><?=$equipe->id ?></div>
+                                            <div class="mb-0"><?=$usuario->id ?></div>
                                         </div>
                                         <div class="c2 ml-4">
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">Nome:</div>
-                                            <div class="mb-0"><?=$equipe->equipe ?></div>
-                                        </div> 
-                                        <div class="c3 ml-4">
-                                            <div class="text-xs font-weight-bold text-uppercase mb-1">Criador:</div>
-                                            <div class="mb-0"><?=$manterUsuario->getUsuarioPorId($equipe->criador)->nome ?></div>
+                                            <div class="mb-0"><?=$usuario->nome ?></div>
                                         </div> 
                                     </div>
                                     <br/>
                                     <?php
-                                        if($usuario_logado->perfil < 2 || $usuario_logado->id == $equipe->criador){
+                                        if($usuario_logado->perfil < 2 || $usuario_logado->id == $usuario->id){
                                      ?>
                                     <p class=" ml-2 card-text">
-                                    <span class="mt-3 ml-2 h6 card-title">Novo membro</span>
+                                    <span class="mt-3 ml-2 h6 card-title">Novo visitante</span>
                                     <form id="form_cadastro" action="save_participante_equipe.php" method="post">
-                                        <input type="hidden" id="id_equipe" name="id_equipe" value="<?=$equipe->id ?>"/>
+                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$equipe->id ?>"/>
                                         <input type="hidden" id="op" name="op" value="1"/>
                                         <div class="form-group row">
                                             <label for="sigla" class="col-sm-2 col-form-label">Usuário:</label>
@@ -124,7 +120,7 @@ and open the template in the editor.
                                             <select id="usuario" name="id_usuario" class="form-control form-control-sm" required>
                                                 <option value="">Selecione</option>   
                                                 <?php
-                                                foreach ($listaNaoParticipantes as $usuario) {
+                                                foreach ($listaNaoVisitantes as $usuario) {
                                                 ?> 
                                                     <option value="<?=$usuario->id ?>"><?=$usuario->nome ?></option> 
                                                 <?php
@@ -171,7 +167,7 @@ and open the template in the editor.
                                         </tr>
                                     </thead>
                                     <tbody id="fila">
-                                        <?php include './get_participantes_equipe.php'; ?>
+                                        <?php include './get_visitantes_agenda.php'; ?>
                                     </tbody>
                                 </table>
                             </div>

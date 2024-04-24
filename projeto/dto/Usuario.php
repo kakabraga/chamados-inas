@@ -10,6 +10,7 @@
       public $whatsapp;
       public $linkedin;
       public $setor;
+      public $agenda;
       public $ativo;
       public $acessos = array();
       public $equipes = array();

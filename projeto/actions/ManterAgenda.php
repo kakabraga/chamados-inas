@@ -69,5 +69,49 @@ class ManterAgenda extends Model {
         return $resultado;
     }
 
+    function getVisitantesPorId($id) {
+        $sql = "select u.id,u.nome,u.matricula,u.ativo,aa.editor, aa.data FROM usuario as u,acesso_agenda as aa WHERE u.ativo=1 AND u.id=aa.id_visitante AND aa.id_usuario=".$id." order by u.nome";
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Usuario();
+            $dados->excluir = true;
+            $dados->id = $registro["id"];
+            $dados->nome = $registro["nome"];
+            $dados->matricula = $registro["matricula"];
+            $dados->ativo = $registro["ativo"];
+            $dados->editor = $registro["editor"];
+            $dados->data = $registro["data"];
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
+    function getNaoVisitantesPorId($id) {
+        $sql = "select u.id,u.nome,u.matricula,u.ativo FROM usuario as u WHERE u.ativo=1 AND  u.id NOT IN(SELECT id_visitante FROM acesso_agenda as aa WHERE aa.id_usuario=".$id.") order by u.nome";
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados = new Usuario();
+            $dados->excluir = true;
+            $dados->id = $registro["id"];
+            $dados->nome = $registro["nome"];
+            $dados->matricula = $registro["matricula"];
+            $dados->ativo = $registro["ativo"];
+            $array_dados[] = $dados;
+            $array_dados[] = $dados;
+        }
+        return $array_dados;
+    }
+    function add($id_visitante,$editor = 0 , $id_usuario) {
+        $sql = "insert into acesso_agenda (id_visitante,editor,id_usuario) values ('" . $id_visitante . "'," . $editor . ",'" . $id_usuario . "')";
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+    function del($id_visitante, $id_usuario) {
+        $sql = "delete from acesso_agenda where id_visitante=" . $id_visitante . " AND id_usuario=" . $id_usuario;
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
+
 }
 
