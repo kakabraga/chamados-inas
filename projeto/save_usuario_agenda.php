@@ -4,8 +4,8 @@ require_once('./actions/ManterUsuario.php');
 
 $db_usuario = new ManterUsuario();
 
-$id            = isset($_POST['id']) ? $_POST['id'] : 0;
-$agenda         = isset($_POST['agenda']) ? $_POST['agenda'] : 0;
+$id            = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
+$agenda         = isset($_REQUEST['agenda']) ? $_REQUEST['agenda'] : 0;
 
 
 //print_r($usuario);

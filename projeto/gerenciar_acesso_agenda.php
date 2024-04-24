@@ -111,7 +111,7 @@ and open the template in the editor.
                                      ?>
                                     <p class=" ml-2 card-text">
                                     <span class="mt-3 ml-2 h6 card-title">Novo visitante</span>
-                                    <form id="form_cadastro" action="save_participante_equipe.php" method="post">
+                                    <form id="form_cadastro" action="save_visitante_agenda.php" method="post">
                                         <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario->id ?>"/>
                                         <input type="hidden" id="op" name="op" value="1"/>
                                         <div class="form-group row">
@@ -207,7 +207,7 @@ and open the template in the editor.
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Deseja excluir <strong>"<span id="nome_excluir"></span>"</strong>?</p>
+                        <p>Deseja remover o acesso de <strong>"<span id="nome_excluir"></span>"</strong>?</p>
                     </div>
                     <div class="modal-footer">
                         <a href="#" type="button" class="btn btn-danger" id="delete">Excluir</a>
