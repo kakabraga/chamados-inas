@@ -40,7 +40,7 @@ and open the template in the editor.
         <script type="text/javascript" class="init">
             $(document).ready(function () {
             });
-            function excluir(id_usuario, nome, editor, id_visitante) {
+            function excluir(id_visitante, nome, id_usuario) {
                 $('#delete').attr('href', 'save_visitante_agenda.php?op=2&id_usuario=' + id_usuario +"&editor="+editor+"&id_visitante="+id_visitante);
                 $('#nome_excluir').text(nome);
                 $('#confirm').modal({show: true});              
@@ -133,7 +133,7 @@ and open the template in the editor.
                                         <div class="form-group row"> 
                                             <div class="col-sm-offset-2 col-sm-10">
                                             <div class="checkbox">
-                                                <label class="text-danger"><input type="checkbox" id="editor" name="editor"> Pode editar</label>
+                                                <label class="text-danger"><input type="checkbox" id="editor" name="editor" value="1"> Pode editar</label>
                                             </div>
                                             </div>
                                         </div>
