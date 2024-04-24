@@ -87,7 +87,7 @@ and open the template in the editor.
                                 <div class="card-body bg-gradient-primary" style="min-height: 5.0rem;">
                                     <div class="row">
                                         <div class="col c2 ml-2">
-                                            <div class="h5 mb-0 text-white font-weight-bold">Gerenciamento de visitantes</div>
+                                            <div class="h5 mb-0 text-white font-weight-bold">Gerenciar visitantes a agenda</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa fa fa-users fa-3x text-white"></i>
@@ -112,24 +112,31 @@ and open the template in the editor.
                                     <p class=" ml-2 card-text">
                                     <span class="mt-3 ml-2 h6 card-title">Novo visitante</span>
                                     <form id="form_cadastro" action="save_participante_equipe.php" method="post">
-                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$equipe->id ?>"/>
+                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario->id ?>"/>
                                         <input type="hidden" id="op" name="op" value="1"/>
                                         <div class="form-group row">
-                                            <label for="sigla" class="col-sm-2 col-form-label">Usuário:</label>
+                                            <label for="visitante" class="col-sm-2 col-form-label">Usuário:</label>
                                             <div class="col-sm-10">
-                                            <select id="usuario" name="id_usuario" class="form-control form-control-sm" required>
+                                            <select id="visitante" name="id_visitante" class="form-control form-control-sm" required>
                                                 <option value="">Selecione</option>   
                                                 <?php
-                                                foreach ($listaNaoVisitantes as $usuario) {
+                                                foreach ($listaNaoVisitantes as $u) {
                                                 ?> 
-                                                    <option value="<?=$usuario->id ?>"><?=$usuario->nome ?></option> 
+                                                    <option value="<?=$u->id ?>"><?=$u->nome ?></option> 
                                                 <?php
                                                 }
                                                 ?>
                                             </select>
                                             </div>
                                         </div>
-
+                                        <!-- Deletar Evento -->
+                                        <div class="form-group row"> 
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="checkbox">
+                                                <label class="text-danger"><input type="checkbox" id="editor" name="editor"> Pode editar</label>
+                                            </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group row float-right">
                                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Incluir </button>
                                         </div>
