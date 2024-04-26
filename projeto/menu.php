@@ -43,10 +43,7 @@ foreach ($acessos as $acesso) {
                 break; 
             case 8:
                 $icon_css = "fa fa-calendar";
-                break;                 
-            case 9:
-                $icon_css = "fa fa-calendar-plus-o";
-                break;                  
+                break;             
         }
 ?> 
             <!-- Nav Item - Pages Collapse Menu -->

@@ -9,22 +9,40 @@
 <br/>
 <!-- Divider -->
 <hr class="sidebar-divider" style="color:white;">
-    <?php
-    if ($usuario_logado->perfil >= 1) {
-        ?>
-
         <!-- Heading -->
         <div class="sidebar-heading">
             AGENDA
         </div>
+    <?php
+    if ($usuario_logado->perfil == 1 || $editor == 2) {
+        ?>
+
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="agenda.php?id=<?=$usuario_logado->id ?>">
-                    <i class="fa fa-id-badge"></i>
+                    <i class="fa fa-calendar-check"></i>
                     <span>Minha Agenda</span>
                 </a>
             </li>
-
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="gerenciar_acesso_agenda.php?id=<?=$usuario_logado->id ?>">
+                    <i class="fa fa-calendar-plus"></i>
+                    <span>Visitantes a minha Agenda</span>
+                </a>
+            </li>
+        <?php
+    }
+    if ($editor == 1) {
+        ?>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="agendas.php">
+                <i class="fa fa-calendar"></i>
+                <span>Agendas que tenho acesso</span>
+            </a>
+        </li>
         <?php
     }
     ?>

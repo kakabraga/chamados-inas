@@ -12,17 +12,21 @@ $events = $db_agenda->listar($filtro);
 
 $usuario_agenda = $db_usuario->getUsuarioPorId($id);
 
-$listaVisitantes = $manterAgenda->getVisitantesPorId($id);
+$listaVisitantes = $db_agenda->getVisitantesPorId($id);
 
-$editor = false;
+$editor = 0; // 0 - não tem acesso, 1 - Apenas visualiza, 2 - Pode editar
 foreach ($listaVisitantes as $obj) {
 	if($usuario_logado->id == $obj->id){
-		$editor = true;
+		if($obj->editor==1){
+			$editor = 2;
+		} else {
+			$editor = 1;
+		}
 	}
 }
 
 if($usuario_logado->id == $id){
-	$editor = true;
+	$editor = 2;
 }
 
 ?>
@@ -74,6 +78,9 @@ if($usuario_logado->id == $id){
    
 		<!-- Page Content -->
 		<div class="container">
+			<?php
+			if($editor >=1){
+			?>
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="h5">Agenda de <?=$usuario_agenda->nome ?></div>
@@ -115,6 +122,18 @@ if($usuario_logado->id == $id){
 							</div>
 						</div>
 					</div>
+		<?php
+			} else {
+				?>
+				<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="h5">Usuário sem permissão para acessar agenda!</div>
+					<p class="lead"></p>
+				</div>
+			</div>
+				<?php
+			}
+		?>
         </div>
         <!-- End of Page Wrapper -->
 
