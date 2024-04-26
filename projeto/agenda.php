@@ -204,20 +204,12 @@ if($usuario_logado->id == $id){
                             <input type="text" name="termino" class="form-control" id="termino" required>
                             </div>
                         </div>
-                        <!-- Deletar Evento -->
-                        <div class="form-group" id="deletar"> 
-                            <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label class="text-danger"><input type="checkbox"  name="delete"> Deletar Evento</label>
-                            </div>
-                            </div>
-                        </div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 						<button type="submit" class="btn btn-primary">Salvar</button>
 					</div>
-
+					
 					</form>
 				</div>
 			</div>
