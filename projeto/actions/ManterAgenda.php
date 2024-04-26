@@ -102,6 +102,19 @@ class ManterAgenda extends Model {
         }
         return $array_dados;
     }
+    function getAgendasQueAcesso($id_visitante) {
+        $sql = "select aa.id_usuario, aa.editor, aa.id_visitante FROM acesso_agenda as aa WHERE aa.id_visitante=".$id_visitante;
+        //echo $sql;
+        $resultado = $this->db->Execute($sql);
+        $array_dados = array();
+        while ($registro = $resultado->fetchRow()) {
+            $dados->id_visitante    = $registro["id_visitante"];
+            $dados->editor          = $registro["editor"];
+            $dados->usuario         = $registro["id_usuario"];
+            $array_dados[]          = $dados;
+        }
+        return $array_dados;
+    }
     function add($id_visitante,$editor = 0 , $id_usuario) {
         $sql = "insert into acesso_agenda (id_visitante,editor,id_usuario) values ('" . $id_visitante . "'," . $editor . ",'" . $id_usuario . "')";
         $resultado = $this->db->Execute($sql);

@@ -80,6 +80,46 @@ and open the template in the editor.
                         <?php
                     }
                 }
+//Agenda
+                if($usuario_logado->agenda){
+                ?>
+                    <div class="col-xl-3 col-md-2 mb-4" style="max-width: 280px; max-height: 100px;">
+                        <a class="text-decoration-none" href="agendas.php">
+                        <div class="card border-left-primary h-100 shadow">
+                            <div class="card-body">
+                                
+                                <div class="row no-gutters align-items-center">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mb-0 w-100">
+                                        <img src="img/agenda.svg" width="70">Agenda
+                                    </div>                                        
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                <?php
+                } else {
+                    require_once('./actions/ManterAgenda.php');
+                    $db_agenda = new ManterAgenda();
+                    if(count($db_agenda->getAgendasQueAcesso($usuario_logado->id)) > 0){
+                        ?>
+                        <div class="col-xl-3 col-md-2 mb-4" style="max-width: 280px; max-height: 100px;">
+                            <a class="text-decoration-none" href="agendas.php">
+                            <div class="card border-left-primary h-100 shadow">
+                                <div class="card-body">
+                                    
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mb-0 w-100">
+                                            <img src="img/agenda.svg" width="70">Agenda
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    <?php 
+                    }
+                }
 ?>
 
                 <div class="col-xl-3 col-md-2 mb-4" style="max-width: 480px;">
@@ -91,7 +131,7 @@ and open the template in the editor.
                     <!-- End of Links sistemas -->
                     <div class="col-xl-3 col-md-2 mb-4" style="max-width: 410px;">
                         <div class="row no-gutters align-items-center">
-                            <img src="publicidade/imagem0.jpg" width="100%" data-toggle="modal" data-target="#publicidade"/>
+                            <img src="publicidade/imagem3.jpg" width="100%" data-toggle="modal" data-target="#publicidade"/>
                         </div>
                     </div>
                 </div>
@@ -119,7 +159,7 @@ and open the template in the editor.
                 <div class="modal-body">
                     <div class="col-xl-3 col-md-2 mb-4" style="max-width: 650px;">
                         <div class="row no-gutters align-items-center">
-                            <img src="publicidade/imagem1.jpg" width="100%"/>
+                            <img src="publicidade/imagem3.jpg" width="100%"/>
                         </div>
                     </div>
                 </div>

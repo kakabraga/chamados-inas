@@ -19,8 +19,10 @@
             SISTEMAS
         </div>
 <?php
+$agenda = false;
 foreach ($acessos as $acesso) {
     if($acesso->id_modulo != 1){
+
         $icon_css = "";
         switch ($acesso->id_modulo) {
             case 2:
@@ -43,6 +45,7 @@ foreach ($acessos as $acesso) {
                 break; 
             case 8:
                 $icon_css = "fa fa-calendar";
+                $agenda = true;
                 break;             
         }
 ?> 
@@ -57,9 +60,43 @@ foreach ($acessos as $acesso) {
         <hr class="sidebar-divider">
             <?php
     }
-
     }
+
+    if(!$agenda){
+        if($usuario_logado->agenda){
+?>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="agendas.php">
+                    <i class="fa fa-calendar"></i>
+                    <span>Agenda</span>
+                </a>
+            </li>
+            <!-- Divider -->
+        <hr class="sidebar-divider">
+<?php
+        } else {
+            require_once('./actions/ManterAgenda.php');
+            $db_agenda = new ManterAgenda();
+            if(count($db_agenda->getAgendasQueAcesso($usuario_logado->id)) > 0){
+                ?>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="agendas.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Agenda</span>
+                    </a>
+                </li>
+                <!-- Divider -->
+            <hr class="sidebar-divider">
+            <?php 
+            }
+        }
+    }
+
 }
+
+
 ?>
 
 <!-- Divider -->
