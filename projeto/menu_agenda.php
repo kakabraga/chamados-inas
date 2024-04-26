@@ -14,7 +14,7 @@
             AGENDA
         </div>
     <?php
-    if ($usuario_logado->perfil == 1 || $editor == 2) {
+    if ($usuario_logado->perfil == 1 || $usuario_logado->agenda == 1) {
         ?>
 
 
@@ -34,7 +34,9 @@
             </li>
         <?php
     }
-    if ($editor == 1) {
+    require_once('./actions/ManterAgenda.php');
+    $db_agenda = new ManterAgenda();
+    if(count($db_agenda->getAgendasQueAcesso($usuario_logado->id)) > 0){
         ?>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
