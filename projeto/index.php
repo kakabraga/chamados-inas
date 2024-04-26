@@ -128,12 +128,13 @@ and open the template in the editor.
                         <?php include './get_aniversariantes.php'; ?>
                     </div>
                 </div>
-                    <!-- End of Links sistemas -->
+                    <!-- End of publicidade
                     <div class="col-xl-3 col-md-2 mb-4" style="max-width: 410px;">
                         <div class="row no-gutters align-items-center">
                             <img src="publicidade/imagem3.jpg" width="100%" data-toggle="modal" data-target="#publicidade"/>
                         </div>
                     </div>
+                    -->
                 </div>
                 <!-- End of Main Content -->                
             </div>

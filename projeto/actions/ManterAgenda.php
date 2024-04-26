@@ -103,7 +103,7 @@ class ManterAgenda extends Model {
         return $array_dados;
     }
     function getAgendasQueAcesso($id_visitante) {
-        $sql = "select aa.id_usuario, aa.editor, aa.id_visitante FROM acesso_agenda as aa WHERE aa.id_visitante=".$id_visitante;
+        $sql = "select aa.id_usuario, u.nome, aa.editor, aa.id_visitante FROM acesso_agenda as aa, usuario as u WHERE u.id= aa.id_usuario AND aa.id_visitante=".$id_visitante;
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -111,6 +111,7 @@ class ManterAgenda extends Model {
             $dados->id_visitante    = $registro["id_visitante"];
             $dados->editor          = $registro["editor"];
             $dados->usuario         = $registro["id_usuario"];
+            $dados->nome         = $registro["nome"];
             $array_dados[]          = $dados;
         }
         return $array_dados;
