@@ -11,6 +11,20 @@ $filtro = " WHERE a.id_usuario=" . $id;
 $events = $db_agenda->listar($filtro);
 
 $usuario_agenda = $db_usuario->getUsuarioPorId($id);
+
+$listaVisitantes = $manterAgenda->getVisitantesPorId($id);
+
+$editor = false;
+foreach ($listaVisitantes as $obj) {
+	if($usuario_logado->id == $obj->id){
+		$editor = true;
+	}
+}
+
+if($usuario_logado->id == $id){
+	$editor = true;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +132,10 @@ $usuario_agenda = $db_usuario->getUsuarioPorId($id);
 			</script>
 
 
-			<!-- Modal Editar Evento -->
+			<!-- Modal Novo Evento -->
+			<?php
+			if($editor){
+			?>
 			<div class="modal fade" id="ModalEventAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -255,7 +272,90 @@ $usuario_agenda = $db_usuario->getUsuarioPorId($id);
 					</form>
 				</div>
 			</div>
-			</div>			
+			</div>	
+		<?php
+			} else {
+		?>
+					<div class="modal fade" id="ModalEventAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+                            Você tem acesso para visualização!
+                        </div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					</div>
+				</div>
+			</div>
+			</div>
+
+			<!-- Modal Editar Evento -->
+			<div class="modal fade" id="ModalEventEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Evento</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+					<div class="form-group">
+                            <label for="titulo" class="col-sm-2 control-label">Título</label>
+                            <div class="col-sm-10">
+                            <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Titulo" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao" class="col-sm-2 control-label">Descrição</label>
+                            <div class="col-sm-10">
+                            <textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição" disabled></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cor" class="col-sm-2 control-label">Prioridade</label>
+                            <div class="col-sm-10">
+                            <select name="cor" class="form-control" id="cor" disabled>
+                            	<option value="">Escolher</option>
+								<option value="#0DEB83" style="background-color:#0DEB83;font-weight: bold;"><b>Baixa</b></option>                                                           
+								<option value="#EEE760" style="background-color:#EEE760;font-weight: bold;"><b>Média</b></option>                               
+								<option value="#FF6347" style="background-color:#FF6347;font-weight: bold;"><b>Alta</b></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inicio" class="col-sm-2 control-label">Início</label>
+                            <div class="col-sm-10">
+                            <input type="text" name="inicio" class="form-control" id="inicio" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="termino" class="col-sm-2 control-label">Término</label>
+                            <div class="col-sm-10">
+                            <input type="text" name="termino" class="form-control" id="termino" disabled>
+                            </div>
+                        </div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+					</div>
+				</div>
+			</div>
+			</div>	
+		<?php
+			}
+		?>
+
+
+
+					
 
 
 		</div>
