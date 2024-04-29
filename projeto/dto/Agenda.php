@@ -7,6 +7,7 @@
       public $inicio;
       public $termino;
       public $usuario;
+      public $editor;
 
       //variaveis de manipulação
       public $excluir;

@@ -159,8 +159,8 @@ if($usuario_logado->id == $id){
 			<div class="modal-dialog">
 				<div class="modal-content">
 				<form method="POST" action="save_agenda.php" onsubmit="return validaForm(this);">
-                    <input type="hidden" name="id_usuario" value="<?=$usuario_logado->id ?>" id="id_usuario">
-
+                    <input type="hidden" name="id_usuario" value="<?=$id ?>" id="id_usuario">
+					<input type="hidden" name="id_editor" value="<?=$usuario_logado->id ?>" id="id_editor">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Novo Evento</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -221,7 +221,8 @@ if($usuario_logado->id == $id){
 				<div class="modal-content">
 				<form method="POST" action="save_agenda.php" onsubmit="return validaForm(this);">
                     <input type="hidden" name="id" id="id_evento">
-                    <input type="hidden" name="id_usuario" value="<?=$usuario_logado->id ?>" id="id_usuario">
+                    <input type="hidden" name="id_usuario" value="<?=$id ?>" id="id_usuario">
+					<input type="hidden" name="id_editor" value="<?=$usuario_logado->id ?>" id="id_editor">
 
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Editar Evento</h5>

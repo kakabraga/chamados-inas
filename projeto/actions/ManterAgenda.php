@@ -45,11 +45,11 @@ class ManterAgenda extends Model {
         return $dados;
     }
     function salvar(Agenda $dados) {
-        $sql = "insert into agenda (titulo, descricao, cor, inicio, termino, id_usuario) 
-                values ('" . $dados->titulo . "','" . $dados->descricao . "','" . $dados->cor . "','" . $dados->inicio . "','" . $dados->termino . "','" . $dados->usuario . "')";
+        $sql = "insert into agenda (titulo, descricao, cor, inicio, termino, id_usuario,id_editor) 
+                values ('" . $dados->titulo . "','" . $dados->descricao . "','" . $dados->cor . "','" . $dados->inicio . "','" . $dados->termino . "','" . $dados->usuario . "','" . $dados->editor . "')";
         if ($dados->id > 0) {
             $sql = "update agenda set titulo='" . $dados->titulo . "', descricao='" . $dados->descricao . 
-                   "', cor='" . $dados->cor . "', inicio='" . $dados->inicio . "', termino='" . $dados->termino . "', id_usuario='" . $dados->usuario . "' where id=$dados->id";
+                   "', cor='" . $dados->cor . "', inicio='" . $dados->inicio . "', termino='" . $dados->termino . "', id_usuario='" . $dados->usuario . "', id_editor='" . $dados->editor . "' where id=$dados->id";
             $resultado = $this->db->Execute($sql);
         } else {
             $resultado = $this->db->Execute($sql);
@@ -98,7 +98,6 @@ class ManterAgenda extends Model {
             $dados->matricula = $registro["matricula"];
             $dados->ativo = $registro["ativo"];
             $array_dados[] = $dados;
-            $array_dados[] = $dados;
         }
         return $array_dados;
     }
@@ -108,10 +107,10 @@ class ManterAgenda extends Model {
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
-            $dados->id_visitante    = $registro["id_visitante"];
+            $dados->id_visitante    = $id_visitante;
             $dados->editor          = $registro["editor"];
             $dados->usuario         = $registro["id_usuario"];
-            $dados->nome         = $registro["nome"];
+            $dados->nome            = $registro["nome"];
             $array_dados[]          = $dados;
         }
         return $array_dados;

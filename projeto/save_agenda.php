@@ -17,6 +17,7 @@ if(isset($_POST['delete'])){
     $a->inicio = date('Y/m/d H:i:s', strtotime($_POST['inicio']));
     $a->termino = date('Y/m/d H:i:s', strtotime($_POST['termino']));
     $a->usuario = $_POST['id_usuario'];
+    $a->editor = $_POST['id_editor'];
     $db_agenda->salvar($a);
 }
 

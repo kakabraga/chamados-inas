@@ -112,7 +112,7 @@ and open the template in the editor.
                                     <p class=" ml-2 card-text">
                                     <span class="mt-3 ml-2 h6 card-title">Novo visitante</span>
                                     <form id="form_cadastro" action="save_visitante_agenda.php" method="post">
-                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario->id ?>"/>
+                                        <input type="hidden" id="id_usuario" name="id_usuario" value="<?=$usuario->id ?>"/>                                        
                                         <input type="hidden" id="op" name="op" value="1"/>
                                         <div class="form-group row">
                                             <label for="visitante" class="col-sm-2 col-form-label">Usuário:</label>
