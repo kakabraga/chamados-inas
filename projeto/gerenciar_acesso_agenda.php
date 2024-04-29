@@ -133,7 +133,7 @@ and open the template in the editor.
                                         <div class="form-group row"> 
                                             <div class="col-sm-offset-2 col-sm-10">
                                             <div class="checkbox">
-                                                <label class="text-danger"><input type="checkbox" id="editor" name="editor" value="1"> Pode editar</label>
+                                                <label class="text-danger"><input type="checkbox" id="editor" name="editor" value="1"><b> Pode editar</b></label>
                                             </div>
                                             </div>
                                         </div>

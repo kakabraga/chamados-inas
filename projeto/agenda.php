@@ -153,7 +153,7 @@ if($usuario_logado->id == $id){
 
 			<!-- Modal Novo Evento -->
 			<?php
-			if($editor){
+			if($editor==2){
 			?>
 			<div class="modal fade" id="ModalEventAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -209,7 +209,7 @@ if($usuario_logado->id == $id){
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 						<button type="submit" class="btn btn-primary">Salvar</button>
 					</div>
-					
+
 					</form>
 				</div>
 			</div>
@@ -270,7 +270,7 @@ if($usuario_logado->id == $id){
                         <div class="form-group" id="deletar"> 
                             <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
-                                <label class="text-danger"><input type="checkbox"  name="delete"> Deletar Evento</label>
+                                <label class="text-danger"><input type="checkbox"  name="delete"><b> Deletar Evento</b></label>
                             </div>
                             </div>
                         </div>
