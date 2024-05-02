@@ -10,7 +10,7 @@ class ManterAgenda extends Model {
     }
 
     function listar($filtro = "") {
-        $sql = "select a.id, a.titulo, a.descricao, a.cor, a.inicio, a.termino, a.id_usuario FROM agenda as a $filtro order by a.inicio";
+        $sql = "select a.id, a.titulo, a.descricao, a.cor, a.inicio, a.termino, a.id_usuario, a.id_editor, a.notificado FROM agenda as a $filtro order by a.inicio";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -24,12 +24,14 @@ class ManterAgenda extends Model {
             $dados->inicio      = $registro["inicio"];
             $dados->termino     = $registro["termino"];
             $dados->usuario     = $registro["id_usuario"];
+            $dados->editor      = $registro["id_editor"];
+            $dados->notificado  = $registro["notificado"];
             $array_dados[]      = $dados;
         }
         return $array_dados;
     }
     function getAgendaPorId($id) {
-        $sql = "select a.id, a.titulo, a.descricao, a.cor, a.inicio, a.termino, a.id_usuario FROM agenda as a WHERE a.id=$id";
+        $sql = "select a.id, a.titulo, a.descricao, a.cor, a.inicio, a.termino, a.id_usuario, a.id_editor, a.notificado FROM agenda as a WHERE a.id=$id";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $dados = new Agenda();
@@ -41,6 +43,8 @@ class ManterAgenda extends Model {
             $dados->inicio      = $registro["inicio"];
             $dados->termino     = $registro["termino"];
             $dados->usuario     = $registro["id_usuario"];
+            $dados->editor      = $registro["id_editor"];
+            $dados->notificado  = $registro["notificado"];
         }
         return $dados;
     }
@@ -62,7 +66,11 @@ class ManterAgenda extends Model {
         $resultado = $this->db->Execute($sql);
         return $resultado;
     }
-
+    function salvarNotificacao($id) {
+        $sql = "UPDATE agenda SET  notificado = 1 WHERE id = " . $id;
+        $resultado = $this->db->Execute($sql);
+        return $resultado;
+    }
     function excluir($id) {
         $sql = "delete from agenda where id=" . $id;
         $resultado = $this->db->Execute($sql);
@@ -107,6 +115,7 @@ class ManterAgenda extends Model {
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
         while ($registro = $resultado->fetchRow()) {
+            $dados = new stdClass();
             $dados->id_visitante    = $id_visitante;
             $dados->editor          = $registro["editor"];
             $dados->usuario         = $registro["id_usuario"];
