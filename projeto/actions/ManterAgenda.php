@@ -10,7 +10,7 @@ class ManterAgenda extends Model {
     }
 
     function listar($filtro = "") {
-        $sql = "select a.id, a.titulo, a.descricao, a.cor, a.inicio, a.termino, a.id_usuario, a.id_editor, a.notificado FROM agenda as a $filtro order by a.inicio";
+        $sql = "select a.id, a.titulo, a.descricao, a.cor, a.inicio, a.termino, a.id_usuario, a.id_editor, a.notificado, CURRENT_TIMESTAMP() as agora FROM agenda as a $filtro order by a.inicio";
         //echo $sql;
         $resultado = $this->db->Execute($sql);
         $array_dados = array();
@@ -26,6 +26,7 @@ class ManterAgenda extends Model {
             $dados->usuario     = $registro["id_usuario"];
             $dados->editor      = $registro["id_editor"];
             $dados->notificado  = $registro["notificado"];
+            $dados->agora       = $registro["agora"];
             $array_dados[]      = $dados;
         }
         return $array_dados;

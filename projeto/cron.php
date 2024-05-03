@@ -15,14 +15,17 @@ $agendamentos_dia = $db_agenda->listar($filtro);
 $db_notificacao = new ManterNotificacao();
 //lista eventos do dia que não foram notificados
 foreach ($agendamentos_dia as $obj) {
-    $n = new Notificacao();
-    $inicio = date('H:i', strtotime($obj->inicio));
-    $n->texto   = "Você tem evento pra hoje às ". $inicio ."!";
-    $n->link = 'agenda.php?id='.$obj->usuario;
-    $n->tipo = 'agenda';
-    $n->usuario = $obj->usuario;
-    $db_notificacao->salvar($n);
+    $tempo = strtotime($obj->inicio) - strtotime($obj->agora);
+    if($tempo <= 7200){
+        $n = new Notificacao();
+        $inicio = date('H:i', strtotime($obj->inicio));
+        $n->texto   = "Você tem evento pra hoje às ". $inicio ."!";
+        $n->link = 'agenda.php?id='.$obj->usuario;
+        $n->tipo = 'agenda';
+        $n->usuario = $obj->usuario;
+        $db_notificacao->salvar($n);
 
-    $db_agenda->salvarNotificacao($obj->id);
+        $db_agenda->salvarNotificacao($obj->id);
+    }
 }
 
